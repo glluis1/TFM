@@ -35,18 +35,19 @@
   }}
  {\end{list}}
 
+\usepackage{enumitem}
 
 \usepackage[hidelinks,unicode]{hyperref}
 
 
 %Introducció de dades del treball
 \title{Biaixos de sexe i gènere en rehabilitació cardíaca: anàlisi
-d'equitat algorítmica (\emph{fairness}) en models predictius de
-resultats clínics}
+d'equitat algorítmica (\emph{fairness}) en la predicció de resultats
+clínics}
 \titcrt{\emph{Fairness} en rehabilitació
 cardíaca} %Títol curt que apareixerà a la capçalera
 \author{Guillem Lluís i Luengo}
-\date{2 d'octubre de 2026}
+\date{5 d'octubre de 2026}
 
 \nomPDC{Susana Pérez Álvarez}
 \nomPRA{Laia Subirats Maté}
@@ -80,10 +81,6 @@ of application, methodology, results and conclusions of the work.}
 \listoftables
 
 \chapter{Introducció}\label{introducciuxf3}
-
-Aquesta plantilla es concep com una guia per a l'estudiant. Es pot
-adaptar a les necessitats de cada treball, sempre que el/la tutor/a del
-treball hi estigui d'acord.
 
 \section{Context i justificació del
 treball}\label{context-i-justificaciuxf3-del-treball}
@@ -124,9 +121,65 @@ En definitiva, aquest treball pretén estudiar l'impacte dels biaixos de
 sexe i gènere en la predicció de resultats clínics de la RC, avaluar-ne
 l'equitat algorítmica i proposar mesures per atenuar-ne els efectes.
 
+\section{Descripció general}\label{descripciuxf3-general}
+
+Per a la realització d'aquest treball, s'ha optat per utilitzar l'estudi
+\emph{Functional capacity and patient-reported outcome measures after
+cardiac rehabilitation: a prospective study with 6-month follow-up}
+{[}4{]} com a font de dades. S'hi pot accedir a través dels enllaços que
+s'inclouen a continuació:
+
+\begin{itemize}
+\item
+  \textbf{Estudi}:
+  \url{https://smw.ch/index.php/smw/article/view/4160/6376}.
+\item
+  \textbf{Dades}: \url{https://data.mendeley.com/datasets/hbztb7wmc5/1}.
+\end{itemize}
+
+El conjunt de dades conté 273 registres, majoritàriament homes (81\%).
+Si bé aquest fet pot esdevenir una limitació per a l'auditoria de
+gènere, també evidencia el biaix de representació existent a la
+literatura científica. Les variables sobre les quals es treballarà es
+poden agrupar en tres àmbits:
+
+\begin{itemize}
+\item
+  \textbf{Demogràfiques}: edat, sexe, diagnòstic, antecedents de
+  tabaquisme.
+\item
+  \textbf{Capacitat funcional}: test de 6 minuts de marxa (6MWT),
+  capacitat d'exercici màxima a curt termini (MSEC), equivalent
+  metabòlic de la tasca (MET), força isomètrica màxima del quàdriceps
+  (QIS).
+\item
+  \textbf{Qüestionaris de salut}: escales d'ansietat i depressió (HAD),
+  qualitat de vida (HeartQoL) i nivells de treball, esport i activitat
+  física (Baecke).
+\end{itemize}
+
 \section{Objectius del treball}\label{objectius-del-treball}
 
-Llistat dels objectius del treball.
+A continuació es detalla la relació d'objectius principals i secundaris
+del treball:
+
+\begin{enumerate}[label=\arabic*.]
+\item Determinar l'impacte dels biaixos de sexe i gènere en la predicció de la resposta a la rehabilitació cardíaca.
+
+  \begin{enumerate}[label*=\arabic*.]
+  \item Descriure l'estat actual de l'evidència científica en rehabilitació cardíaca.
+  \item Elaborar diferents models predictius per explicar els resultats de les variables d'interès.
+  \item Quantificar les diferències en les prediccions dels models proposats mitjançant mètriques d'equitat algorítmica.
+  \end{enumerate}
+  
+\item Proposar mesures per atenuar els biaixos detectats.
+
+  \begin{enumerate}[label*=\arabic*.]
+  \item Exposar tècniques de preprocessament, processament i postprocessament utilitzades per corregir la disparitat de les dades.
+  \item Avaluar l'adequació de les mesures als models predictius proposats.
+  \end{enumerate}
+
+\end{enumerate}
 
 \section{Impacte en sostenibilitat, ètic-social i de
 diversitat}\label{impacte-en-sostenibilitat-uxe8tic-social-i-de-diversitat}
@@ -319,6 +372,14 @@ doi:\href{https://doi.org/10.1161/cir.0000000000001379}{10.1161/cir.000000000000
 \CSLRightInline{Caton S, Haas C. Fairness in machine learning: A survey.
 ACM Computing Surveys. 2024;56:138.
 doi:\href{https://doi.org/10.1145/3616865}{10.1145/3616865}}
+
+\bibitem[\citeproctext]{ref-vieli2025}
+\CSLLeftMargin{4. }%
+\CSLRightInline{Vieli C, Duong HP, Duc M, Carré JL, Bast JD, Girod G, et
+al. Functional capacity and patient-reported outcome measures after
+cardiac rehabilitation: A prospective study with 6-month follow-up.
+Swiss Medical Weekly. 2025;155:4160.
+doi:\href{https://doi.org/10.57187/s.4160}{10.57187/s.4160}}
 
 \end{CSLReferences}
 

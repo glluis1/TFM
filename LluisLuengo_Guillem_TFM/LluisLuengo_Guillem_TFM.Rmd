@@ -26,17 +26,17 @@ output:
     template: plantilla_TFM.tex
     keep_tex: true
     pandoc_args: ["--top-level-division=chapter"]
+header-includes:
+  - \usepackage{enumitem}
 csl: nlm-citation-sequence-brackets-year-only-no-issue.csl
 bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 # Introducció
-
-Aquesta plantilla es concep com una guia per a l’estudiant. Es pot adaptar a les necessitats de cada treball, sempre que el/la tutor/a del treball hi estigui d’acord.
 
 ## Context i justificació del treball
 
@@ -48,19 +48,53 @@ La tria de l'àmbit del treball està motivada per la meva formació i experièn
 
 En definitiva, aquest treball pretén estudiar l’impacte dels biaixos de sexe i gènere en la predicció de resultats clínics de la RC, avaluar-ne l'equitat algorítmica i proposar mesures per atenuar-ne els efectes.
 
+## Descripció general
+
+Per a la realització d'aquest treball, s'ha optat per utilitzar l'estudi *Functional capacity and patient-reported outcome measures after cardiac rehabilitation: a prospective study with 6-month follow-up* [@vieli2025] com a font de dades. S'hi pot accedir a través dels enllaços que s'inclouen a continuació:
+
+- **Estudi**: <https://smw.ch/index.php/smw/article/view/4160/6376>.
+
+- **Dades**: <https://data.mendeley.com/datasets/hbztb7wmc5/1>.
+
+El conjunt de dades conté 273 registres, majoritàriament homes (81%). Si bé aquest fet pot esdevenir una limitació per a l'auditoria de gènere, també evidencia el biaix de representació existent a la literatura científica. Les variables sobre les quals es treballarà es poden agrupar en tres àmbits:
+
+- **Demogràfiques**: edat, sexe, diagnòstic, antecedents de tabaquisme.
+
+- **Capacitat funcional**: test de 6 minuts de marxa (6MWT), capacitat d'exercici màxima a curt termini (MSEC), equivalent metabòlic de la tasca (MET), força isomètrica màxima del quàdriceps (QIS).
+
+- **Qüestionaris de salut**: escales d'ansietat i depressió (HAD), qualitat de vida (HeartQoL) i nivells de treball, esport i activitat física (Baecke).
+
 ## Objectius del treball
 
-Llistat dels objectius del treball.
+A continuació es detalla la relació d'objectius principals i secundaris del treball:
+
+\begin{enumerate}[label=\arabic*.]
+\item Determinar l'impacte dels biaixos de sexe i gènere en la predicció de la resposta a la rehabilitació cardíaca.
+
+  \begin{enumerate}[label*=\arabic*.]
+  \item Descriure l'estat actual de l'evidència científica en l'àmbit d'estudi.
+  \item Elaborar diferents models predictius per explicar els resultats de les variables d'interès.
+  \item Quantificar les diferències en les prediccions dels models proposats mitjançant mètriques d'equitat algorítmica.
+  \end{enumerate}
+  
+\item Proposar mesures per atenuar els biaixos detectats.
+
+  \begin{enumerate}[label*=\arabic*.]
+  \item Exposar tècniques de preprocessament, processament i postprocessament utilitzades per corregir la disparitat de les dades.
+  \item Avaluar l'adequació de les mesures als models predictius proposats.
+  \end{enumerate}
+
+\end{enumerate}
+
+## Enfocament i mètode seguit
+
+Menció de quines són les possibles estratègies per dur a terme el treball i quina és l’estratègia triada (desenvolupar un producte nou, adaptar un producte existent…). Cal incloure una valoració de per què aquesta és l’estratègia més apropiada per aconseguir els objectius.
 
 ## Impacte en sostenibilitat, ètic-social i de diversitat
 
 Aquesta secció hauria d'identificar els impactes positius i/o negatius del treball final en les tres dimensions de la competència transversal UOC “Compromís ètic i global”.
 
 La Guia transversal sobre la Competència Ètica i Global us ajudarà a redactar aquests apartats.
-
-## Enfocament i mètode seguit
-
-Menció de quines són les possibles estratègies per dur a terme el treball i quina és l’estratègia triada (desenvolupar un producte nou, adaptar un producte existent…). Cal incloure una valoració de per què aquesta és l’estratègia més apropiada per aconseguir els objectius.
 
 ## Planificació del treball
 
@@ -147,7 +181,8 @@ Definició dels termes i acrònims més rellevants utilitzats dins la Memòria.
 
 # Bibliografia
 
-<div id="refs"></div>
+::: {#refs}
+:::
 
 \newpage
 \appendix
