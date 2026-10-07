@@ -56,7 +56,8 @@ Sys.setlocale("LC_TIME", "C")
 #' Instal·lació de paquets
 #' 
 #' @description
-#' Comrpova si els paquets d'una llista estan instal·lats al sistema. Si algun no ho està, l'instal·la automàticament.
+#' Comrpova si els paquets d'una llista estan instal·lats al sistema. 
+#' Si algun no ho està, l'instal·la automàticament.
 #'
 #' @param pkg Vector de caràcters amb els noms dels paquets.
 #'
@@ -88,6 +89,7 @@ rm(paquets)
 ```
 
 ```{r}
+# Llibreries carregades
 library(tidyverse)
 
 
@@ -202,7 +204,7 @@ Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin
 A la **\autoref{tab:taula1-1}** es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat **[Enfocament i mètode seguit]**. S'indica també la relació amb els objectius proposats.
 
 | Tasca                             | Objectius     | Inici    | Final    | Estat      |
-|---------------------------|------------|-----------|-----------|-------------|
+|-------------------------|------------|-----------|-----------|-------------|
 | **1. Definició i pla de treball** |               |          |          |            |
 | Plantejament del treball          |               | 23/9/26  | 7/10/26  | Completada |
 |                                   |               |          |          |            |
@@ -224,6 +226,7 @@ A la **\autoref{tab:taula1-1}** es descriuen les tasques que caldrà desenvolupa
 | Discussió                         | 1.1, 1.3, 2.2 | 17/12/26 | 31/12/26 | Pendent    |
 | Conclusions                       |               | 1/1/27   | 7/1/27   | Pendent    |
 | Glossari i Annexos                |               | 23/9/26  | 7/1/27   | En curs    |
+| Article                           |               | 15/10/26 | 7/1/27   | Pendent    |
 |                                   |               |          |          |            |
 | **5. Presentació**                |               |          |          |            |
 | Elaboració de diapositives        |               | 8/1/27   | 13/1/27  | Pendent    |
@@ -236,6 +239,8 @@ A la **\autoref{tab:taula1-1}** es descriuen les tasques que caldrà desenvolupa
 La **\autoref{fig:gantt}** mostra el diagrama de Gantt corresponent a les tasques descrites.
 
 ```{r gantt, fig.cap="Calendari de tasques", fig.height=6}
+# ---- 1.6 PLANIFICACIÓ DEL TREBALL ----
+
 # Data frame de tasques
 df_gantt <- data.frame(
   Fase = factor(rep(c(
@@ -244,7 +249,7 @@ df_gantt <- data.frame(
     "3. Implementació",
     "4. Lliurament final",
     "5. Presentació"
-  ), times = c(1, 2, 4, 7, 2))),
+  ), times = c(1, 2, 4, 8, 2))),
   Tasca = c(
     "Plantejament del treball", 
     "Cerca preliminar d'evidència", 
@@ -260,6 +265,7 @@ df_gantt <- data.frame(
     "Discussió", 
     "Conclusions", 
     "Glossari i Annexos", 
+    "Article", 
     "Elaboració de diapositives", 
     "Enregistrament"
   ),
@@ -267,25 +273,27 @@ df_gantt <- data.frame(
     "", "1.1, 2.1", "1.1, 2.1", "1.2",
     "1.2", "1.2, 1.3, 2.2", "1.3, 2.2", "",
     "1.1, 2.1", "1.2", "1.3, 2.2", "1.1, 1.3, 2.2",
-    "", "", "", ""
+    "", "", "", "", ""
   ),
   Inici = as.Date(c(
     "2026-09-23", "2026-09-23", "2026-10-01", "2026-10-29",
     "2026-11-12", "2026-11-12", "2026-11-26", "2026-09-23",
     "2026-10-15", "2026-11-05", "2026-11-26", "2026-12-17",
-    "2027-01-01", "2026-09-23", "2027-01-08", "2027-01-08"
+    "2027-01-01", "2026-09-23", "2026-10-15", "2027-01-08", 
+    "2027-01-08"
   )),
   Final = as.Date(c(
     "2026-10-07", "2026-10-07", "2026-10-28", "2026-11-11",
     "2026-11-25", "2026-11-25", "2026-12-02", "2026-10-14",
     "2026-11-04", "2026-11-25", "2026-12-16", "2026-12-31",
-    "2027-01-07", "2027-01-07", "2027-01-13", "2027-01-13"
+    "2027-01-07", "2027-01-07", "2027-01-07", "2027-01-13", 
+    "2027-01-13"
   )),
   Estat = factor(c(
     "Completada", "Completada", "En curs", "Pendent",
     "Pendent", "Pendent", "Pendent", "En curs",
     "Pendent", "Pendent", "Pendent", "Pendent",
-    "Pendent", "En curs", "Pendent", "Pendent"
+    "Pendent", "En curs", "Pendent", "Pendent", "Pendent"
   ), levels = c("Completada", "En curs", "Pendent"))
 )
 
@@ -331,92 +339,119 @@ rm(inici, final, dates)
 
 ### Fites
 
-Text
+A la **\autoref{tab:taula1-2}** s'indiquen les fites corresponents a cada PAC.
+
+| Fita                              | Termini  | Estat      |
+|-----------------------------------|----------|------------|
+| **Entrega**: PAC 1                | 7/10/26  | Completada |
+| Final de la recerca bibliogràfica | 28/10/26 | En curs    |
+| **Entrega**: PAC 2                | 4/11/26  | Pendent    |
+| Final de la implementació         | 25/11/26 | Pendent    |
+| **Entrega**: PAC 3                | 2/12/26  | Pendent    |
+| Cos del treball redactat          | 31/12/26 | En curs    |
+| **Entrega**: PAC 4                | 7/1/27   | Pendent    |
+| **Entrega**: PAC 5                | 13/1/27  | Pendent    |
+
+: Fites {#tab:taula1-2}
 
 ### Anàlisi de riscos
 
-Text
+La **\autoref{tab:taula1-2}** descriu els riscos que poden fer que la planificació no es compleixi i les accions previstes per al pla de contingència.
 
-Descripció dels recursos necessaris per fer el treball, les tasques a realitzar i una planificació temporal de cada tasca mitjançant un diagrama de Gantt o similar. Aquesta planificació hauria de marcar quins són les fites parcials de cadascuna de les PAC.
+| Risc | Impacte | Probabilitat | Mitigació |
+|---------------------|-----------|--------------|---------------------------|
+| Abundància de registres incomplets en les dades | Alt | Alta | Imputació de valors faltants o eliminació dels registres afectats o de variables que no es considerin crítiques, segons el cas |
+| Mida de mostra insuficient per extreure conclusions significatives | Alt | Mitjana | Comparació dels resultats amb l'evidència disponible i aplicació de tècniques de ponderació o remostreig |
+| Desviacions del pla de treball marcat | Mitjà | Mitjana | Establiment de fites parcials per a les PAC, de manera que l'última setmana de cadascuna es pugui reservar per a la revisió o com a marge per acabar de completar les tasques pendents |
+| Problemes de reproductibilitat | Mitjà | Baixa | Documentació rigorosa del codi i creació d'un repositori de GitHub que contingui tots els documents rellevants |
 
-Identificació dels possibles riscos que poden fer que aquesta planificació no es compleixi, i descripció dels plans de mitigació o alternatius en cas que aquests riscos esdevinguin un problema.
+: Anàlisi de riscos {#tab:taula1-3}
 
-## Breu sumari de productes obtinguts
+## Resultats esperats
+<!-- ## Breu sumari de productes obtinguts -->
 
-No cal entrar en detall: la descripció detallada es farà a la resta de capítols.
+Al final del projecte s'obtindran els productes següents:
 
-## Breu descripció dels altres capítols de la memòria
+- Una **memòria** del treball, que contindrà la planificació, l'estat de l'art i els resultats obtinguts en el seu desenvolupament.
 
-Breu explicació dels continguts de cada capítol i la seva relació amb el projecte global.
+- **Informes** de progrés per a cadascuna de les entregues de l'avaluació continuada.
 
-# Estat de l'art
+- Una síntesi de les troballes més rellevants en format d'**article** científic.
 
-Estat de l'art del tema en qüestió. Hauria d'acabar mostrant per què el treball és important i aporta alguna cosa, i amb les hipòtesis del treball.
+- Una **presentació** en format virtual i les corresponents diapositives de suport.
 
-# Materials i mètodes
+<!-- ## Breu descripció dels altres capítols de la memòria -->
 
-En aquests apartats, cal descriure:
+<!-- Breu explicació dels continguts de cada capítol i la seva relació amb el projecte global. -->
 
-- Els aspectes més rellevant del disseny i desenvolupament del treball.
-- La metodologia triada per a fer aquest desenvolupament, descrivint les alternatives possibles, les decisions preses, i els criteris utilitzats per prendre aquestes decisions.
-- Els productes obtinguts.
+<!-- # Estat de l'art -->
 
-# Resultats
+<!-- Estat de l'art del tema en qüestió. Hauria d'acabar mostrant per què el treball és important i aporta alguna cosa, i amb les hipòtesis del treball. -->
 
-Detalleu en aquest apartat els resultats obtinguts utilitzant la metodologia descrita a l’apartat anterior.
+<!-- # Materials i mètodes -->
 
-Recull dels resultats del treball. Hauria d'haver-hi una correspondència amb la metodologia en el sentit que els resultats és el que s'obté després d'haver aplicat la metodologia.
+<!-- En aquests apartats, cal descriure: -->
 
-Les figures han d'estar explicades i citades en el text, com la \@ref(fig:grafic), en la qual es mostra l'error en funció de la distància, en unitats arbitràries. A totes les gràfiques ha d'haver el títol dels eixos.
+<!-- - Els aspectes més rellevant del disseny i desenvolupament del treball. -->
+<!-- - La metodologia triada per a fer aquest desenvolupament, descrivint les alternatives possibles, les decisions preses, i els criteris utilitzats per prendre aquestes decisions. -->
+<!-- - Els productes obtinguts. -->
 
-```{r grafic, fig.cap="Error en funció de la distància en unitats arbitràries.", out.width="7cm", fig.align="center", echo=FALSE}
-knitr::include_graphics("Rplotmanh.png")
-```
+<!-- # Resultats -->
 
-# Discussió
+<!-- Detalleu en aquest apartat els resultats obtinguts utilitzant la metodologia descrita a l’apartat anterior. -->
 
-Discussió dels resultats en el context del projecte. És en aquest apartat on cobren sentit i en el qual es responen les preguntes de recerca i es mostra com els resultats donen resposta als problemes plantejats.
+<!-- Recull dels resultats del treball. Hauria d'haver-hi una correspondència amb la metodologia en el sentit que els resultats és el que s'obté després d'haver aplicat la metodologia. -->
 
-Aquesta part pot ser que no apliqui segons el tipus de treball.
+<!-- Les figures han d'estar explicades i citades en el text, com la \@ref(fig:grafic), en la qual es mostra l'error en funció de la distància, en unitats arbitràries. A totes les gràfiques ha d'haver el títol dels eixos. -->
 
-# Valoració econòmica
+<!-- ```{r grafic, fig.cap="Error en funció de la distància en unitats arbitràries.", out.width="7cm", fig.align="center", echo=FALSE} -->
+<!-- knitr::include_graphics("Rplotmanh.png") -->
+<!-- ``` -->
 
-En cas que correspongui, s'inclourà un apartat de \`\`Valoració econòmica del treball". Aquest apartat indicarà les despeses associades al desenvolupament i manteniment del treball, així com els beneficis econòmics obtinguts. Cal fer una anàlisi final sobre la viabilitat del producte.
+<!-- # Discussió -->
 
-# Conclusions i treballs futurs
+<!-- Discussió dels resultats en el context del projecte. És en aquest apartat on cobren sentit i en el qual es responen les preguntes de recerca i es mostra com els resultats donen resposta als problemes plantejats. -->
 
-## Conclusions
+<!-- Aquesta part pot ser que no apliqui segons el tipus de treball. -->
 
-Aquest capítol ha d'incloure:
+<!-- # Valoració econòmica -->
 
-- Una descripció de les conclusions del treball:
+<!-- En cas que correspongui, s'inclourà un apartat de \`\`Valoració econòmica del treball". Aquest apartat indicarà les despeses associades al desenvolupament i manteniment del treball, així com els beneficis econòmics obtinguts. Cal fer una anàlisi final sobre la viabilitat del producte. -->
 
-  - Un cop s’han obtingut els resultats quines conclusions s’extreu?
-  - Aquests resultats són els esperats? O han estat sorprenents? Per què?
+<!-- # Conclusions i treballs futurs -->
 
-- Una reflexió crítica sobre l’assoliment dels objectius plantejats inicialment:
+<!-- ## Conclusions -->
 
-  - Hem assolit tots els objectius? Si la resposta és negativa, per quin motiu?
+<!-- Aquest capítol ha d'incloure: -->
 
-## Línies de futur
+<!-- - Una descripció de les conclusions del treball: -->
 
-Les línies de treball futur que no s'han pogut explorar en aquest treball i han quedat pendents.
+<!--   - Un cop s’han obtingut els resultats quines conclusions s’extreu? -->
+<!--   - Aquests resultats són els esperats? O han estat sorprenents? Per què? -->
 
-## Seguiment de la planificació
+<!-- - Una reflexió crítica sobre l’assoliment dels objectius plantejats inicialment: -->
 
-- Una anàlisi crítica del seguiment de la planificació i metodologia al llarg del producte:
+<!--   - Hem assolit tots els objectius? Si la resposta és negativa, per quin motiu? -->
 
-  - S’ha seguit la planificació?
-  - La metodología prevista ha estat prou adequada?
-  - Ha calgut introduir canvis per garantir l’èxit del treball? Per què?
+<!-- ## Línies de futur -->
 
-- Dels impactes previstos a [1], ètic-socials, de sostenibilitat i de diversitat, avaluaeu/esmenteu si s'han mitigat (si eren negatius) o si s'han aconseguit (si eren positius).
+<!-- Les línies de treball futur que no s'han pogut explorar en aquest treball i han quedat pendents. -->
 
-- Si han aparegut impactes no previstos a [1], avaluar/esmentar com s'han mitigat (si eren negatius) o què han aportat (si eren positius).
+<!-- ## Seguiment de la planificació -->
 
-# Glossari
+<!-- - Una anàlisi crítica del seguiment de la planificació i metodologia al llarg del producte: -->
 
-Definició dels termes i acrònims més rellevants utilitzats dins la Memòria.
+<!--   - S’ha seguit la planificació? -->
+<!--   - La metodología prevista ha estat prou adequada? -->
+<!--   - Ha calgut introduir canvis per garantir l’èxit del treball? Per què? -->
+
+<!-- - Dels impactes previstos a [1], ètic-socials, de sostenibilitat i de diversitat, avaluaeu/esmenteu si s'han mitigat (si eren negatius) o si s'han aconseguit (si eren positius). -->
+
+<!-- - Si han aparegut impactes no previstos a [1], avaluar/esmentar com s'han mitigat (si eren negatius) o què han aportat (si eren positius). -->
+
+<!-- # Glossari -->
+
+<!-- Definició dels termes i acrònims més rellevants utilitzats dins la Memòria. -->
 
 # Bibliografia
 
@@ -426,10 +461,14 @@ Definició dels termes i acrònims més rellevants utilitzats dins la Memòria.
 \newpage
 \appendix
 
-# Exemple d'annex
+# Annex 1
 
-## Annex 1
+## Codi
 
-# Exemple d'annex
+```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
 
-## Annex B
+```
+
+<!-- # Annex 2 -->
+
+<!-- ## Annex 2 -->

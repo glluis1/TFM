@@ -7,6 +7,46 @@
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \providecommand{\pandocbounded}[1]{#1}
 
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 
 % Suport per a citacions CSL (Zotero / Pandoc)
 \usepackage{calc}
@@ -198,11 +238,11 @@ Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin
 A la \textbf{\autoref{tab:taula1-1}} es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat \textbf{\hyperref[enfocament-i-muxe8tode-seguit]{Enfocament i mètode seguit}}. S'indica també la relació amb els objectius proposats.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3649}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1622}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1486}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1486}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1757}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3472}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1528}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1528}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1806}}@{}}
 \caption{Planificació de tasques}\label{tab:taula1-1}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
@@ -255,6 +295,7 @@ Resultats & 1.3, 2.2 & 26/11/26 & 16/12/26 & Pendent \\
 Discussió & 1.1, 1.3, 2.2 & 17/12/26 & 31/12/26 & Pendent \\
 Conclusions & & 1/1/27 & 7/1/27 & Pendent \\
 Glossari i Annexos & & 23/9/26 & 7/1/27 & En curs \\
+Article & & 15/10/26 & 7/1/27 & Pendent \\
 & & & & \\
 \textbf{5. Presentació} & & & & \\
 Elaboració de diapositives & & 8/1/27 & 13/1/27 & Pendent \\
@@ -273,124 +314,86 @@ La \textbf{\autoref{fig:gantt}} mostra el diagrama de Gantt corresponent a les t
 
 \subsection{Fites}\label{fites}
 
-Text
+A la \textbf{\autoref{tab:taula1-2}} s'indiquen les fites corresponents a cada PAC.
+
+\begin{longtable}[]{@{}lll@{}}
+\caption{Fites}\label{tab:taula1-2}\tabularnewline
+\toprule\noalign{}
+Fita & Termini & Estat \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+Fita & Termini & Estat \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Entrega}: PAC 1 & 7/10/26 & Completada \\
+Final de la recerca bibliogràfica & 28/10/26 & En curs \\
+\textbf{Entrega}: PAC 2 & 4/11/26 & Pendent \\
+Final de la implementació & 25/11/26 & Pendent \\
+\textbf{Entrega}: PAC 3 & 2/12/26 & Pendent \\
+Cos del treball redactat & 31/12/26 & En curs \\
+\textbf{Entrega}: PAC 4 & 7/1/27 & Pendent \\
+\textbf{Entrega}: PAC 5 & 13/1/27 & Pendent \\
+\end{longtable}
 
 \subsection{Anàlisi de riscos}\label{anuxe0lisi-de-riscos}
 
-Text
+La \textbf{\autoref{tab:taula1-2}} descriu els riscos que poden fer que la planificació no es compleixi i les accions previstes per al pla de contingència.
 
-Descripció dels recursos necessaris per fer el treball, les tasques a realitzar i una planificació temporal de cada tasca mitjançant un diagrama de Gantt o similar. Aquesta planificació hauria de marcar quins són les fites parcials de cadascuna de les PAC.
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2877}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1507}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1918}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3699}}@{}}
+\caption{Anàlisi de riscos}\label{tab:taula1-3}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Risc
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Impacte
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Probabilitat
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Mitigació
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Risc
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Impacte
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Probabilitat
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Mitigació
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Abundància de registres incomplets en les dades & Alt & Alta & Imputació de valors faltants o eliminació dels registres afectats o de variables que no es considerin crítiques, segons el cas \\
+Mida de mostra insuficient per extreure conclusions significatives & Alt & Mitjana & Comparació dels resultats amb l'evidència disponible i aplicació de tècniques de ponderació o remostreig \\
+Desviacions del pla de treball marcat & Mitjà & Mitjana & Establiment de fites parcials per a les PAC, de manera que l'última setmana de cadascuna es pugui reservar per a la revisió o com a marge per acabar de completar les tasques pendents \\
+Problemes de reproductibilitat & Mitjà & Baixa & Documentació rigorosa del codi i creació d'un repositori de GitHub que contingui tots els documents rellevants \\
+\end{longtable}
 
-Identificació dels possibles riscos que poden fer que aquesta planificació no es compleixi, i descripció dels plans de mitigació o alternatius en cas que aquests riscos esdevinguin un problema.
+\section{Resultats esperats}\label{resultats-esperats}
 
-\section{Breu sumari de productes obtinguts}\label{breu-sumari-de-productes-obtinguts}
-
-No cal entrar en detall: la descripció detallada es farà a la resta de capítols.
-
-\section{Breu descripció dels altres capítols de la memòria}\label{breu-descripciuxf3-dels-altres-capuxedtols-de-la-memuxf2ria}
-
-Breu explicació dels continguts de cada capítol i la seva relació amb el projecte global.
-
-\chapter{Estat de l'art}\label{estat-de-lart}
-
-Estat de l'art del tema en qüestió. Hauria d'acabar mostrant per què el treball és important i aporta alguna cosa, i amb les hipòtesis del treball.
-
-\chapter{Materials i mètodes}\label{materials-i-muxe8todes}
-
-En aquests apartats, cal descriure:
-
-\begin{itemize}
-\tightlist
-\item
-  Els aspectes més rellevant del disseny i desenvolupament del treball.
-\item
-  La metodologia triada per a fer aquest desenvolupament, descrivint les alternatives possibles, les decisions preses, i els criteris utilitzats per prendre aquestes decisions.
-\item
-  Els productes obtinguts.
-\end{itemize}
-
-\chapter{Resultats}\label{resultats}
-
-Detalleu en aquest apartat els resultats obtinguts utilitzant la metodologia descrita a l'apartat anterior.
-
-Recull dels resultats del treball. Hauria d'haver-hi una correspondència amb la metodologia en el sentit que els resultats és el que s'obté després d'haver aplicat la metodologia.
-
-Les figures han d'estar explicades i citades en el text, com la \ref{fig:grafic}, en la qual es mostra l'error en funció de la distància, en unitats arbitràries. A totes les gràfiques ha d'haver el títol dels eixos.
-
-\begin{figure}
-
-{\centering \includegraphics[width=7cm]{Rplotmanh} 
-
-}
-
-\caption{Error en funció de la distància en unitats arbitràries.}\label{fig:grafic}
-\end{figure}
-
-\chapter{Discussió}\label{discussiuxf3}
-
-Discussió dels resultats en el context del projecte. És en aquest apartat on cobren sentit i en el qual es responen les preguntes de recerca i es mostra com els resultats donen resposta als problemes plantejats.
-
-Aquesta part pot ser que no apliqui segons el tipus de treball.
-
-\chapter{Valoració econòmica}\label{valoraciuxf3-econuxf2mica}
-
-En cas que correspongui, s'inclourà un apartat de ``Valoració econòmica del treball''. Aquest apartat indicarà les despeses associades al desenvolupament i manteniment del treball, així com els beneficis econòmics obtinguts. Cal fer una anàlisi final sobre la viabilitat del producte.
-
-\chapter{Conclusions i treballs futurs}\label{conclusions-i-treballs-futurs}
-
-\section{Conclusions}\label{conclusions}
-
-Aquest capítol ha d'incloure:
+Al final del projecte s'obtindran els productes següents:
 
 \begin{itemize}
 \item
-  Una descripció de les conclusions del treball:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Un cop s'han obtingut els resultats quines conclusions s'extreu?
-  \item
-    Aquests resultats són els esperats? O han estat sorprenents? Per què?
-  \end{itemize}
+  Una \textbf{memòria} del treball, que contindrà la planificació, l'estat de l'art i els resultats obtinguts en el seu desenvolupament.
 \item
-  Una reflexió crítica sobre l'assoliment dels objectius plantejats inicialment:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Hem assolit tots els objectius? Si la resposta és negativa, per quin motiu?
-  \end{itemize}
+  \textbf{Informes} de progrés per a cadascuna de les entregues de l'avaluació continuada.
+\item
+  Una síntesi de les troballes més rellevants en format d'\textbf{article} científic.
+\item
+  Una \textbf{presentació} en format virtual i les corresponents diapositives de suport.
 \end{itemize}
-
-\section{Línies de futur}\label{luxednies-de-futur}
-
-Les línies de treball futur que no s'han pogut explorar en aquest treball i han quedat pendents.
-
-\section{Seguiment de la planificació}\label{seguiment-de-la-planificaciuxf3}
-
-\begin{itemize}
-\item
-  Una anàlisi crítica del seguiment de la planificació i metodologia al llarg del producte:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    S'ha seguit la planificació?
-  \item
-    La metodología prevista ha estat prou adequada?
-  \item
-    Ha calgut introduir canvis per garantir l'èxit del treball? Per què?
-  \end{itemize}
-\item
-  Dels impactes previstos a {[}1{]}, ètic-socials, de sostenibilitat i de diversitat, avaluaeu/esmenteu si s'han mitigat (si eren negatius) o si s'han aconseguit (si eren positius).
-\item
-  Si han aparegut impactes no previstos a {[}1{]}, avaluar/esmentar com s'han mitigat (si eren negatius) o què han aportat (si eren positius).
-\end{itemize}
-
-\chapter{Glossari}\label{glossari}
-
-Definició dels termes i acrònims més rellevants utilitzats dins la Memòria.
 
 \chapter{Bibliografia}\label{bibliografia}
 
@@ -461,12 +464,164 @@ Definició dels termes i acrònims més rellevants utilitzats dins la Memòria.
 \newpage
 \appendix
 
-\chapter{Exemple d'annex}\label{exemple-dannex}
+\chapter{Annex 1}\label{annex-1}
 
-\section{Annex 1}\label{annex-1}
+\section{Codi}\label{codi}
 
-\chapter{Exemple d'annex}\label{exemple-dannex-1}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(knitr)}
 
-\section{Annex B}\label{annex-b}
+\NormalTok{opts\_chunk}\SpecialCharTok{$}\FunctionTok{set}\NormalTok{(}\AttributeTok{echo =} \ConstantTok{FALSE}\NormalTok{,}
+               \AttributeTok{warning =} \ConstantTok{FALSE}\NormalTok{,}
+               \AttributeTok{message =} \ConstantTok{FALSE}\NormalTok{,}
+               \AttributeTok{comment =} \StringTok{""}\NormalTok{, }
+               \AttributeTok{cache =} \ConstantTok{TRUE}\NormalTok{,}
+               \AttributeTok{tidy =} \ConstantTok{TRUE}\NormalTok{,}
+               \AttributeTok{prompt =} \ConstantTok{FALSE}\NormalTok{,}
+               \AttributeTok{tidy.opts =} \FunctionTok{list}\NormalTok{(}\AttributeTok{width.cutoff =} \DecValTok{72}\NormalTok{))}
+
+\FunctionTok{options}\NormalTok{(}\AttributeTok{width =} \DecValTok{75}\NormalTok{)}
+
+\FunctionTok{Sys.setlocale}\NormalTok{(}\StringTok{"LC\_TIME"}\NormalTok{, }\StringTok{"C"}\NormalTok{)}
+
+\CommentTok{\# {-}{-}{-}{-} PAQUETS I LLIBRERIES {-}{-}{-}{-}}
+
+\CommentTok{\#\textquotesingle{} Instal·lació de paquets}
+\CommentTok{\#\textquotesingle{} }
+\CommentTok{\#\textquotesingle{} @description}
+\CommentTok{\#\textquotesingle{} Comrpova si els paquets d\textquotesingle{}una llista estan instal·lats al sistema. }
+\CommentTok{\#\textquotesingle{} Si algun no ho està, l\textquotesingle{}instal·la automàticament.}
+\CommentTok{\#\textquotesingle{}}
+\CommentTok{\#\textquotesingle{} @param pkg Vector de caràcters amb els noms dels paquets.}
+\CommentTok{\#\textquotesingle{}}
+\CommentTok{\#\textquotesingle{} @returns No retorna cap valor.}
+\CommentTok{\#\textquotesingle{} }
+\CommentTok{\#\textquotesingle{} @importFrom utils install.packages}
+\CommentTok{\#\textquotesingle{} @export}
+\CommentTok{\#\textquotesingle{}}
+\CommentTok{\#\textquotesingle{} @examples}
+\CommentTok{\#\textquotesingle{} \textbackslash{}dontrun\{}
+\CommentTok{\#\textquotesingle{} \# Exemple d\textquotesingle{}ús amb dades hipotètiques}
+\CommentTok{\#\textquotesingle{} install\_if\_not(packages)}
+\CommentTok{\#\textquotesingle{} \}}
+\NormalTok{install\_if\_not }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(pkg) \{}
+  \ControlFlowTok{for}\NormalTok{ (p }\ControlFlowTok{in}\NormalTok{ pkg) \{}
+    \ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{requireNamespace}\NormalTok{(p, }\AttributeTok{quietly =} \ConstantTok{TRUE}\NormalTok{)) \{}
+      \FunctionTok{install.packages}\NormalTok{(p, }\AttributeTok{dependencies =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{    \}}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\CommentTok{\# Llista de paquets i instal·lació}
+\NormalTok{paquets }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+
+\FunctionTok{install\_if\_not}\NormalTok{(paquets)}
+
+\FunctionTok{rm}\NormalTok{(paquets)}
+
+\CommentTok{\# Llibreries carregades}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+
+
+\CommentTok{\# Data frame de tasques}
+\NormalTok{df\_gantt }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{Fase =} \FunctionTok{factor}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}
+    \StringTok{"1. Definició i pla de treball"}\NormalTok{,}
+    \StringTok{"2. Estat de l\textquotesingle{}art"}\NormalTok{,}
+    \StringTok{"3. Implementació"}\NormalTok{,}
+    \StringTok{"4. Lliurament final"}\NormalTok{,}
+    \StringTok{"5. Presentació"}
+\NormalTok{  ), }\AttributeTok{times =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{2}\NormalTok{))),}
+  \AttributeTok{Tasca =} \FunctionTok{c}\NormalTok{(}
+    \StringTok{"Plantejament del treball"}\NormalTok{, }
+    \StringTok{"Cerca preliminar d\textquotesingle{}evidència"}\NormalTok{, }
+    \StringTok{"Revisió de l\textquotesingle{}evidència trobada"}\NormalTok{, }
+    \StringTok{"Preprocessament de dades"}\NormalTok{, }
+    \StringTok{"Modelització estadística"}\NormalTok{, }
+    \StringTok{"Avaluació i auditoria de gènere"}\NormalTok{, }
+    \StringTok{"Discussió de resultats"}\NormalTok{, }
+    \StringTok{"Introducció"}\NormalTok{, }
+    \StringTok{"Estat de l\textquotesingle{}art"}\NormalTok{, }
+    \StringTok{"Materials i mètodes"}\NormalTok{, }
+    \StringTok{"Resultats"}\NormalTok{, }
+    \StringTok{"Discussió"}\NormalTok{, }
+    \StringTok{"Conclusions"}\NormalTok{, }
+    \StringTok{"Glossari i Annexos"}\NormalTok{, }
+    \StringTok{"Article"}\NormalTok{, }
+    \StringTok{"Elaboració de diapositives"}\NormalTok{, }
+    \StringTok{"Enregistrament"}
+\NormalTok{  ),}
+  \AttributeTok{Objectius =} \FunctionTok{c}\NormalTok{(}
+    \StringTok{""}\NormalTok{, }\StringTok{"1.1, 2.1"}\NormalTok{, }\StringTok{"1.1, 2.1"}\NormalTok{, }\StringTok{"1.2"}\NormalTok{,}
+    \StringTok{"1.2"}\NormalTok{, }\StringTok{"1.2, 1.3, 2.2"}\NormalTok{, }\StringTok{"1.3, 2.2"}\NormalTok{, }\StringTok{""}\NormalTok{,}
+    \StringTok{"1.1, 2.1"}\NormalTok{, }\StringTok{"1.2"}\NormalTok{, }\StringTok{"1.3, 2.2"}\NormalTok{, }\StringTok{"1.1, 1.3, 2.2"}\NormalTok{,}
+    \StringTok{""}\NormalTok{, }\StringTok{""}\NormalTok{, }\StringTok{""}\NormalTok{, }\StringTok{""}\NormalTok{, }\StringTok{""}
+\NormalTok{  ),}
+  \AttributeTok{Inici =} \FunctionTok{as.Date}\NormalTok{(}\FunctionTok{c}\NormalTok{(}
+    \StringTok{"2026{-}09{-}23"}\NormalTok{, }\StringTok{"2026{-}09{-}23"}\NormalTok{, }\StringTok{"2026{-}10{-}01"}\NormalTok{, }\StringTok{"2026{-}10{-}29"}\NormalTok{,}
+    \StringTok{"2026{-}11{-}12"}\NormalTok{, }\StringTok{"2026{-}11{-}12"}\NormalTok{, }\StringTok{"2026{-}11{-}26"}\NormalTok{, }\StringTok{"2026{-}09{-}23"}\NormalTok{,}
+    \StringTok{"2026{-}10{-}15"}\NormalTok{, }\StringTok{"2026{-}11{-}05"}\NormalTok{, }\StringTok{"2026{-}11{-}26"}\NormalTok{, }\StringTok{"2026{-}12{-}17"}\NormalTok{,}
+    \StringTok{"2027{-}01{-}01"}\NormalTok{, }\StringTok{"2026{-}09{-}23"}\NormalTok{, }\StringTok{"2026{-}10{-}15"}\NormalTok{, }\StringTok{"2027{-}01{-}08"}\NormalTok{, }
+    \StringTok{"2027{-}01{-}08"}
+\NormalTok{  )),}
+  \AttributeTok{Final =} \FunctionTok{as.Date}\NormalTok{(}\FunctionTok{c}\NormalTok{(}
+    \StringTok{"2026{-}10{-}07"}\NormalTok{, }\StringTok{"2026{-}10{-}07"}\NormalTok{, }\StringTok{"2026{-}10{-}28"}\NormalTok{, }\StringTok{"2026{-}11{-}11"}\NormalTok{,}
+    \StringTok{"2026{-}11{-}25"}\NormalTok{, }\StringTok{"2026{-}11{-}25"}\NormalTok{, }\StringTok{"2026{-}12{-}02"}\NormalTok{, }\StringTok{"2026{-}10{-}14"}\NormalTok{,}
+    \StringTok{"2026{-}11{-}04"}\NormalTok{, }\StringTok{"2026{-}11{-}25"}\NormalTok{, }\StringTok{"2026{-}12{-}16"}\NormalTok{, }\StringTok{"2026{-}12{-}31"}\NormalTok{,}
+    \StringTok{"2027{-}01{-}07"}\NormalTok{, }\StringTok{"2027{-}01{-}07"}\NormalTok{, }\StringTok{"2027{-}01{-}07"}\NormalTok{, }\StringTok{"2027{-}01{-}13"}\NormalTok{, }
+    \StringTok{"2027{-}01{-}13"}
+\NormalTok{  )),}
+  \AttributeTok{Estat =} \FunctionTok{factor}\NormalTok{(}\FunctionTok{c}\NormalTok{(}
+    \StringTok{"Completada"}\NormalTok{, }\StringTok{"Completada"}\NormalTok{, }\StringTok{"En curs"}\NormalTok{, }\StringTok{"Pendent"}\NormalTok{,}
+    \StringTok{"Pendent"}\NormalTok{, }\StringTok{"Pendent"}\NormalTok{, }\StringTok{"Pendent"}\NormalTok{, }\StringTok{"En curs"}\NormalTok{,}
+    \StringTok{"Pendent"}\NormalTok{, }\StringTok{"Pendent"}\NormalTok{, }\StringTok{"Pendent"}\NormalTok{, }\StringTok{"Pendent"}\NormalTok{,}
+    \StringTok{"Pendent"}\NormalTok{, }\StringTok{"En curs"}\NormalTok{, }\StringTok{"Pendent"}\NormalTok{, }\StringTok{"Pendent"}\NormalTok{, }\StringTok{"Pendent"}
+\NormalTok{  ), }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Completada"}\NormalTok{, }\StringTok{"En curs"}\NormalTok{, }\StringTok{"Pendent"}\NormalTok{))}
+\NormalTok{)}
+
+\CommentTok{\# Tasques ordenades}
+\NormalTok{df\_gantt}\SpecialCharTok{$}\NormalTok{Tasca }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(df\_gantt}\SpecialCharTok{$}\NormalTok{Tasca, }
+                         \AttributeTok{levels =} \FunctionTok{rev}\NormalTok{(}\FunctionTok{unique}\NormalTok{(df\_gantt}\SpecialCharTok{$}\NormalTok{Tasca)))}
+
+\CommentTok{\# Dates}
+\NormalTok{inici }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(}\StringTok{"2026{-}09{-}23"}\NormalTok{)}
+\NormalTok{final }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(}\StringTok{"2027{-}01{-}13"}\NormalTok{)}
+
+\NormalTok{dates }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(inici, final, }\AttributeTok{by =} \StringTok{"1 week"}\NormalTok{)}
+
+\CommentTok{\# Diagrama de Gantt}
+\NormalTok{plot\_gantt }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(df\_gantt, }
+                     \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Inici, }\AttributeTok{xend =}\NormalTok{ Final,}
+                         \AttributeTok{y =}\NormalTok{ Tasca, }\AttributeTok{yend =}\NormalTok{ Tasca,}
+                         \AttributeTok{color =}\NormalTok{ Estat)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_segment}\NormalTok{(}\AttributeTok{linewidth =} \DecValTok{3}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_x\_date}\NormalTok{(}\AttributeTok{date\_labels =} \StringTok{"\%d/\%m"}\NormalTok{,}
+               \AttributeTok{breaks =}\NormalTok{ dates,}
+               \AttributeTok{limits =} \FunctionTok{c}\NormalTok{(inici, final),}
+               \AttributeTok{expand =} \FunctionTok{expansion}\NormalTok{(}\AttributeTok{mult =} \FunctionTok{c}\NormalTok{(}\FloatTok{0.01}\NormalTok{, }\FloatTok{0.02}\NormalTok{))) }\SpecialCharTok{+}
+  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"Completada"} \OtherTok{=} \StringTok{"\#03047a"}\NormalTok{,}
+                                \StringTok{"En curs"} \OtherTok{=} \StringTok{"\#7ff0ff"}\NormalTok{,}
+                                \StringTok{"Pendent"} \OtherTok{=} \StringTok{"\#d0d0d0"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ Fase, }\AttributeTok{ncol =} \DecValTok{1}\NormalTok{, }\AttributeTok{scales =} \StringTok{"free\_y"}\NormalTok{, }
+             \AttributeTok{space =} \StringTok{"free\_y"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{""}\NormalTok{, }\AttributeTok{y =} \StringTok{""}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}
+    \AttributeTok{legend.position =} \StringTok{"bottom"}\NormalTok{,}
+    \AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{, }
+                               \AttributeTok{vjust =} \DecValTok{1}\NormalTok{),}
+    \AttributeTok{strip.text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{face =} \StringTok{"bold"}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{0}\NormalTok{)}
+\NormalTok{  )}
+
+\NormalTok{plot\_gantt}
+
+\FunctionTok{rm}\NormalTok{(inici, final, dates)}
+\end{Highlighting}
+\end{Shaded}
+
+\chapter{Annex 2}\label{annex-2}
+
+\section{Annex 2}\label{annex-2-1}
 
 \end{document}
