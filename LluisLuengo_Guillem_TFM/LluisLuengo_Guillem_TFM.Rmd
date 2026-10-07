@@ -22,7 +22,7 @@ abstract_ca: "Màxim 250 paraules, amb la finalitat, context d’aplicació, met
 abstract_en: "A maximum of 250 words, detailing the purpose, context of application, methodology, results and conclusions of the work."
 
 output:
-  pdf_document:
+  bookdown::pdf_document2:
     template: plantilla_TFM.tex
     keep_tex: true
     pandoc_args: ["--top-level-division=chapter"]
@@ -134,9 +134,53 @@ L'impacte d'aquest treball es concreta principalment en els Objectius de Desenvo
 
 D'altra banda, el treball inclou la perspectiva de gènere en el seu mateix disseny. En aquest sentit, es pretén identificar i combatre els biaixos existents en la recerca clínica per fomentar una investigació més inclusiva i accessible per a tothom. És responsabilitat del personal sanitari i de recerca contemplar la dimensió ètica i social de la seva tasca, de manera que puguin vetllar per la reducció de les desigualtats basades en prejudicis de gènere, ètnia, edat, estatus socioeconòmic, capacitats o orientació sexual, entre d'altres. A més, cal destacar que l'optimització de sistemes de suport a la decisió clínica basats en models predictius té la capacitat de millorar els circuits existents d'atenció sanitària. D'aquesta manera, es podrà contribuir a un ús més eficient dels recursos i, en conseqüència, s'aconseguirà un impacte positiu en termes de sostenibilitat a mitjà i llarg termini.
 
-Per acabr, es farà ús de les formes inclusives del llenguatge que s'escaiguin en cada context. De manera puntual i honorífica, es pot emprar el femení com a genèric per referir-se a les persones professionals de la salut, de qualsevol gènere, donat l'elevat percentatge de dones que exerceixen aquestes professions.
+Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin en cada context. De manera puntual i honorífica, es pot emprar el femení com a genèric per referir-se a les persones professionals de la salut, de qualsevol gènere, donat l'elevat percentatge de dones que exerceixen aquestes professions.
+
+\pagebreak
 
 ## Planificació del treball
+
+### Tasques
+
+A la **\autoref{tab:taula1}** es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat **[Enfocament i mètode seguit]**. S'indica també la relació amb els objectius proposats.
+
+| Tasca                             | Objectius     | Inici    | Final    | Estat      |
+|-------------------|-------------|-------------|-------------|-------------|
+| **1. Definició i pla de treball** |               |          |          |            |
+| Plantejament del treball          |               | 23/9/26  | 7/10/26  | Completada |
+| **2. Estat de l'art**             |               |          |          |            |
+| Cerca preliminar d'evidència      | 1.1, 2.1      | 23/9/26  | 7/10/26  | Completada |
+| Revisió de l'evidència trobada    | 1.1, 2.1      | 1/10/26  | 21/10/26 | En procés  |
+| **3. Implementació**              |               |          |          |            |
+| Preprocessament de dades          | 1.2           | 29/10/26 | 11/11/26 | Pendent    |
+| Modelització estadística          | 1.2           | 12/11/26 | 25/11/26 | Pendent    |
+| Avaluació i auditoria de gènere   | 1.2, 1.3, 2.2 | 12/11/26 | 25/11/26 | Pendent    |
+| Discussió de resultats            | 1.3, 2.2      | 26/11/26 | 2/12/26  | Pendent    |
+| **4. Lliurament final**           |               |          |          |            |
+| Introducció                       |               | 23/9/26  | 14/10/26 | En procés  |
+| Estat de l'art                    | 1.1, 2.1      | 15/10/26 | 4/11/26  | Pendent    |
+| Materials i mètodes               | 1.2           | 5/11/26  | 25/11/26 | Pendent    |
+| Resultats                         | 1.3, 2.2      | 26/11/26 | 16/12/26 | Pendent    |
+| Discussió                         | 1.1, 1.3, 2.2 | 17/12/26 | 31/12/26 | Pendent    |
+| Conclusions                       |               | 1/1/27   | 7/1/27   | Pendent    |
+| Glossari i Annexos                |               | 5/11/26  | 7/1/27   | Pendent    |
+| **5. Presentació**                |               |          |          |            |
+| Elaboració de diapositives        |               | 8/1/27   | 13/1/27  | Pendent    |
+| Enregistrament                    |               | 8/1/27   | 13/1/27  | Pendent    |
+
+: (#tab:taula1) Planificació de tasques
+
+### Calendari
+
+Text
+
+### Fites
+
+Text
+
+### Anàlisi de riscos
+
+Text
 
 Descripció dels recursos necessaris per fer el treball, les tasques a realitzar i una planificació temporal de cada tasca mitjançant un diagrama de Gantt o similar. Aquesta planificació hauria de marcar quins són les fites parcials de cadascuna de les PAC.
 

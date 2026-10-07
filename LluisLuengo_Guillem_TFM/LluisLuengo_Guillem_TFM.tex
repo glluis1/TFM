@@ -41,13 +41,10 @@
 
 
 %Introducció de dades del treball
-\title{Biaixos de sexe i gènere en rehabilitació cardíaca: anàlisi
-d'equitat algorítmica (\emph{fairness}) en la predicció de resultats
-clínics}
-\titcrt{\emph{Fairness} en rehabilitació
-cardíaca} %Títol curt que apareixerà a la capçalera
+\title{Biaixos de sexe i gènere en rehabilitació cardíaca: anàlisi d'equitat algorítmica (\emph{fairness}) en la predicció de resultats clínics}
+\titcrt{\emph{Fairness} en rehabilitació cardíaca} %Títol curt que apareixerà a la capçalera
 \author{Guillem Lluís i Luengo}
-\date{5 d'octubre de 2026}
+\date{7 d'octubre de 2026}
 
 \nomPDC{Susana Pérez Álvarez}
 \nomPRA{Laia Subirats Maté}
@@ -55,20 +52,17 @@ cardíaca} %Títol curt que apareixerà a la capçalera
 \area{Estudis Clínics i Epidemiològics}
 \idioma{Català}
 \credits{15}
-\parcla{cardiac rehabilitation, machine learning, fairness, clinical
-outcomes, sex and gender bias}
+\parcla{cardiac rehabilitation, machine learning, fairness, clinical outcomes, sex and gender bias}
 \licenc{ccBy}
 
 
 %%%%%%%%%%
 % Resum en l'idioma
 
-\abstractidioma{Màxim 250 paraules, amb la finalitat, context
-d'aplicació, metodologia, resultats i conclusions del treball.}
+\abstractidioma{Màxim 250 paraules, amb la finalitat, context d'aplicació, metodologia, resultats i conclusions del treball.}
 
 % Resum en anglès.
-\abstractenglish{A maximum of 250 words, detailing the purpose, context
-of application, methodology, results and conclusions of the work.}
+\abstractenglish{A maximum of 250 words, detailing the purpose, context of application, methodology, results and conclusions of the work.}
 
 \begin{document}
 
@@ -82,86 +76,41 @@ of application, methodology, results and conclusions of the work.}
 
 \chapter{Introducció}\label{introducciuxf3}
 
-\section{Context i justificació del
-treball}\label{context-i-justificaciuxf3-del-treball}
+\section{Context i justificació del treball}\label{context-i-justificaciuxf3-del-treball}
 
-La rehabilitació cardíaca (RC) és una intervenció amb eficàcia
-demostrada per a la recuperació posterior a esdeveniments
-cardiovasculars. Les persones que participen en programes de RC
-presenten millors resultats clínics, a més d'una reducció en la taxa de
-readmissions hospitalàries i en la mortalitat i d'un efecte positiu en
-la qualitat de vida {[}1{]}. No obstant això, la participació en aquesta
-mena d'intervencions és considerablement baixa i existeixen diferències
-de gènere en tres àrees clau: l'accés als programes, l'adherència al
-tractament i els resultats clínics obtinguts. Les barreres que originen
-aquestes desigualtats poden ser individuals, socials o pròpies dels
-sistemes sanitaris {[}2{]}.
+La rehabilitació cardíaca (RC) és una intervenció amb eficàcia demostrada per a la recuperació posterior a esdeveniments cardiovasculars. Les persones que participen en programes de RC presenten millors resultats clínics, a més d'una reducció en la taxa de readmissions hospitalàries i en la mortalitat i d'un efecte positiu en la qualitat de vida {[}1{]}. No obstant això, la participació en aquesta mena d'intervencions és considerablement baixa i existeixen diferències de gènere en tres àrees clau: l'accés als programes, l'adherència al tractament i els resultats clínics obtinguts. Les barreres que originen aquestes desigualtats poden ser individuals, socials o pròpies dels sistemes sanitaris {[}2{]}.
 
-La infrarepresentació de les dones, així com d'altres col·lectius
-vulnerables, pot conduir a biaixos en la recerca i, en última instància,
-a una disminució de l'eficàcia dels tractaments. Els mètodes
-d'aprenentatge automàtic (ML, per les seves sigles en anglès) poden ser
-útils per mitigar aquestes desigualtats, però també poden perpetuar-les
-si no se'n tenen en compte els potencials biaixos {[}3{]}. Per això és
-necessari disposar d'eines per avaluar l'equitat algorítmica
-(\emph{fairness}) dels models emprats i, posteriorment, millorar-la
-sense comprometre la precisió de les prediccions.
+La infrarepresentació de les dones, així com d'altres col·lectius vulnerables, pot conduir a biaixos en la recerca i, en última instància, a una disminució de l'eficàcia dels tractaments. Els mètodes d'aprenentatge automàtic (ML, per les seves sigles en anglès) poden ser útils per mitigar aquestes desigualtats, però també poden perpetuar-les si no se'n tenen en compte els potencials biaixos {[}3{]}. Per això és necessari disposar d'eines per avaluar l'equitat algorítmica (\emph{fairness}) dels models emprats i, posteriorment, millorar-la sense comprometre la precisió de les prediccions.
 
-La tria de l'àmbit del treball està motivada per la meva formació i
-experiència professional prèvia com a fisioterapeuta, amb especial
-interès en la rehabilitació cardiorespiratòria. Si bé els biaixos en el
-diagnòstic i el tractament de patologies cardiovasculars són de domini
-públic des de fa temps, no s'ha d'oblidar l'impacte que tenen al llarg
-de tot el procés d'atenció sanitària, en què intervenen altres
-disciplines a banda de la medicina. És important dur a terme recerca de
-qualitat en infermeria, fisioteràpia, psicologia o nutrició per
-assegurar uns resultats òptims i lliures de discriminacions.
+La tria de l'àmbit del treball està motivada per la meva formació i experiència professional prèvia com a fisioterapeuta, amb especial interès en la rehabilitació cardiorespiratòria. Si bé els biaixos en el diagnòstic i el tractament de patologies cardiovasculars són de domini públic des de fa temps, no s'ha d'oblidar l'impacte que tenen al llarg de tot el procés d'atenció sanitària, en què intervenen altres disciplines a banda de la medicina. És important dur a terme recerca de qualitat en infermeria, fisioteràpia, psicologia o nutrició per assegurar uns resultats òptims i lliures de discriminacions.
 
-En definitiva, aquest treball pretén estudiar l'impacte dels biaixos de
-sexe i gènere en la predicció de resultats clínics de la RC, avaluar-ne
-l'equitat algorítmica i proposar mesures per atenuar-ne els efectes.
+En definitiva, aquest treball pretén estudiar l'impacte dels biaixos de sexe i gènere en la predicció de resultats clínics de la RC, avaluar-ne l'equitat algorítmica i proposar mesures per atenuar-ne els efectes.
 
 \section{Descripció general}\label{descripciuxf3-general}
 
-Per a la realització d'aquest treball, s'ha optat per utilitzar l'estudi
-\emph{Functional capacity and patient-reported outcome measures after
-cardiac rehabilitation: a prospective study with 6-month follow-up}
-{[}4{]} com a font de dades. S'hi pot accedir a través dels enllaços que
-s'inclouen a continuació:
+Per a la realització d'aquest treball, s'ha optat per utilitzar l'estudi \emph{Functional capacity and patient-reported outcome measures after cardiac rehabilitation: a prospective study with 6-month follow-up} {[}4{]} com a font de dades. S'hi pot accedir a través dels enllaços que s'inclouen a continuació:
 
 \begin{itemize}
 \item
-  \textbf{Estudi}:
-  \url{https://smw.ch/index.php/smw/article/view/4160/6376}.
+  \textbf{Estudi}: \url{https://smw.ch/index.php/smw/article/view/4160/6376}.
 \item
   \textbf{Dades}: \url{https://data.mendeley.com/datasets/hbztb7wmc5/1}.
 \end{itemize}
 
-El conjunt de dades conté 273 registres, majoritàriament homes (81\%).
-Si bé aquest fet pot esdevenir una limitació per a l'auditoria de
-gènere, també evidencia el biaix de representació existent a la
-literatura científica. Les variables sobre les quals es treballarà es
-poden agrupar en tres àmbits:
+El conjunt de dades conté 273 registres, majoritàriament homes (81\%). Si bé aquest fet pot esdevenir una limitació per a l'auditoria de gènere, també evidencia el biaix de representació existent a la literatura científica. Les variables sobre les quals es treballarà es poden agrupar en tres àmbits:
 
 \begin{itemize}
 \item
-  \textbf{Demogràfiques}: edat, sexe, diagnòstic, antecedents de
-  tabaquisme.
+  \textbf{Demogràfiques}: edat, sexe, diagnòstic, antecedents de tabaquisme.
 \item
-  \textbf{Capacitat funcional}: test de 6 minuts de marxa (6MWT),
-  capacitat d'exercici màxima a curt termini (MSEC), equivalent
-  metabòlic de la tasca (MET), força isomètrica màxima del quàdriceps
-  (QIS).
+  \textbf{Capacitat funcional}: test de 6 minuts de marxa (6MWT), capacitat d'exercici màxima a curt termini (MSEC), equivalent metabòlic de la tasca (MET), força isomètrica màxima del quàdriceps (QIS).
 \item
-  \textbf{Qüestionaris de salut}: escales d'ansietat i depressió (HAD),
-  qualitat de vida (HeartQoL) i nivells de treball, esport i activitat
-  física (Baecke).
+  \textbf{Qüestionaris de salut}: escales d'ansietat i depressió (HAD), qualitat de vida (HeartQoL) i nivells de treball, esport i activitat física (Baecke).
 \end{itemize}
 
 \section{Objectius del treball}\label{objectius-del-treball}
 
-A continuació es detalla la relació d'objectius principals i secundaris
-del treball:
+A continuació es detalla la relació d'objectius principals i secundaris del treball:
 
 \begin{enumerate}[label=\arabic*.]
 \item Determinar l'impacte dels biaixos de sexe i gènere en la predicció de la resposta a la rehabilitació cardíaca.
@@ -181,149 +130,160 @@ del treball:
 
 \end{enumerate}
 
-\section{Enfocament i mètode
-seguit}\label{enfocament-i-muxe8tode-seguit}
+\section{Enfocament i mètode seguit}\label{enfocament-i-muxe8tode-seguit}
 
 \subsection{Estratègia de recerca}\label{estratuxe8gia-de-recerca}
 
-En una primera fase del treball, es durà a terme una cerca de literatura
-científica a les principals bases de dades d'investigació clínica
-(PubMed, Cochrane Library, ScienceDirect\ldots), així com en altres font
-especialitzades que es considerin rellevants.
+En una primera fase del treball, es durà a terme una cerca de literatura científica a les principals bases de dades d'investigació clínica (PubMed, Cochrane Library, ScienceDirect\ldots), així com en altres font especialitzades que es considerin rellevants.
 
-Els resultats obtinguts es filtraran segons la seva adequació al tema i
-es classificaran en tres àmbits que permetran estructurar-ne
-adequadament els continguts:
+Els resultats obtinguts es filtraran segons la seva adequació al tema i es classificaran en tres àmbits que permetran estructurar-ne adequadament els continguts:
 
 \begin{itemize}
 \item
-  \textbf{Rehabilitació cardíaca}: estat de l'art general, càrrega de
-  les patologies cardiovasculars en la salut global, impacte en
-  resultats clínics, descripció de variables predictores {[}5--7{]}.
+  \textbf{Rehabilitació cardíaca}: estat de l'art general, càrrega de les patologies cardiovasculars en la salut global, impacte en resultats clínics, descripció de variables predictores {[}5--7{]}.
 \item
-  \textbf{Biaixos de sexe i gènere}: diferències en l'accés, la
-  participació i els resultats de la rehabilitació cardíaca,
-  interseccionalitat de les desigualtats, intervencions proposades
-  {[}8--12{]}.
+  \textbf{Biaixos de sexe i gènere}: diferències en l'accés, la participació i els resultats de la rehabilitació cardíaca, interseccionalitat de les desigualtats, intervencions proposades {[}8--12{]}.
 \item
-  \textbf{Equitat algorítmica}: evidència sobre mètodes estadístics,
-  limitacions i propostes de mitigació de biaixos {[}13--15{]}.
+  \textbf{Equitat algorítmica}: evidència sobre mètodes estadístics, limitacions i propostes de mitigació de biaixos {[}13--15{]}.
 \end{itemize}
 
 \subsection{Metodologia de treball}\label{metodologia-de-treball}
 
-Un cop feta la recerca d'evidència, es procedirà a l'anàlisi de les
-dades disponibles mitjançant el programari R i adoptant, en la mesura
-del possible, els principis del \texttt{tidyverse}. Se seguiran els
-passos que s'indiquen:
+Un cop feta la recerca d'evidència, es procedirà a l'anàlisi de les dades disponibles mitjançant el programari R i adoptant, en la mesura del possible, els principis del \texttt{tidyverse}. Se seguiran els passos que s'indiquen:
 
 \begin{itemize}
 \item
-  \textbf{Preprocessament de dades}: neteja, tractament de valors nuls,
-  anàlisi descriptiva estratificada per sexe i definició de variables
-  objectiu. Les principals variables d'interès són la capacitat
-  funcional (mesurada habitualment amb el 6MWT) i la qualitat de vida,
-  que es poden binaritzar en funció de si la millora és superior o no a
-  la mínima diferència clínicament important per a cada cas.
+  \textbf{Preprocessament de dades}: neteja, tractament de valors nuls, anàlisi descriptiva estratificada per sexe i definició de variables objectiu. Les principals variables d'interès són la capacitat funcional (mesurada habitualment amb el 6MWT) i la qualitat de vida, que es poden binaritzar en funció de si la millora és superior o no a la mínima diferència clínicament important per a cada cas.
 \item
-  \textbf{Modelització estadística}: construcció de models predictius a
-  partir del conjunt de dades. Tenint en compte les característiques de
-  les variables objectiu, es prendrà com a model de referència la
-  regressió logística. S'optimitzarà el model amb mètodes de
-  regularització (Ridge, LASSO). Malgrat que el nombre de registres és
-  limitat, es podria comparar el resultat amb una alternativa no lineal,
-  com ara un Random Forest.
+  \textbf{Modelització estadística}: construcció de models predictius a partir del conjunt de dades. Tenint en compte les característiques de les variables objectiu, es prendrà com a model de referència la regressió logística. S'optimitzarà el model amb mètodes de regularització (Ridge, LASSO). Malgrat que el nombre de registres és limitat, es podria comparar el resultat amb una alternativa no lineal, com ara un Random Forest.
 \item
-  \textbf{Avaluació i auditoria de gènere}: valoració del rendiment del
-  model. A més de les mesures habituals, s'utilitzaran les mètriques
-  d'equitat algorítmica que es considerin adequades d'entre les
-  descrites a la literatura científica.
+  \textbf{Avaluació i auditoria de gènere}: valoració del rendiment del model. A més de les mesures habituals, s'utilitzaran les mètriques d'equitat algorítmica que es considerin adequades d'entre les descrites a la literatura científica.
 \item
-  \textbf{Discussió de resultats}: exploració de tècniques de mitigació
-  de biaixos i elaboració de recomanacions metodològiques per a futures
-  investigacions.
+  \textbf{Discussió de resultats}: exploració de tècniques de mitigació de biaixos i elaboració de recomanacions metodològiques per a futures investigacions.
 \end{itemize}
 
-Aquest enfocament permetrà, d'una banda, disposar del context clínic
-adient per a la comprensió dels resultats i, de l'altra, garantir un
-tractament net i reproduïble de les dades.
+Aquest enfocament permetrà, d'una banda, disposar del context clínic adient per a la comprensió dels resultats i, de l'altra, garantir un tractament net i reproduïble de les dades.
 
-\section{Impacte en sostenibilitat, ètic-social i de
-diversitat}\label{impacte-en-sostenibilitat-uxe8tic-social-i-de-diversitat}
+\section{Impacte en sostenibilitat, ètic-social i de diversitat}\label{impacte-en-sostenibilitat-uxe8tic-social-i-de-diversitat}
 
-L'impacte d'aquest treball es concreta principalment en els Objectius de
-Desenvolupament Sostenible (ODS) que es detallen:
+L'impacte d'aquest treball es concreta principalment en els Objectius de Desenvolupament Sostenible (ODS) que es detallen:
 
 \begin{itemize}
 \item
   \textbf{ODS 3: Salut i benestar}.
 
-  3.4. Per a 2030, reduir en un terç la mortalitat prematura per
-  malalties no transmissibles mitjançant la prevenció i el tractament i
-  promoure la salut mental i el benestar.
+  3.4. Per a 2030, reduir en un terç la mortalitat prematura per malalties no transmissibles mitjançant la prevenció i el tractament i promoure la salut mental i el benestar.
 \item
   \textbf{ODS 5: Igualtat de gènere}.
 
-  5.1. Posar fi a totes les formes de discriminació contra totes les
-  dones i les nenes a tot el món.
+  5.1. Posar fi a totes les formes de discriminació contra totes les dones i les nenes a tot el món.
 \item
   \textbf{ODS 16: Pau, justícia i institucions sòlides}.
 
-  16.6. Crear en tots els nivells institucions eficaces i transparents
-  que retin comptes.
+  16.6. Crear en tots els nivells institucions eficaces i transparents que retin comptes.
 
-  16.7. Garantir l'adopció en tots els nivells de decisions inclusives,
-  participatives i representatives que responguin a les necessitats.
+  16.7. Garantir l'adopció en tots els nivells de decisions inclusives, participatives i representatives que responguin a les necessitats.
 \end{itemize}
 
-D'altra banda, el treball inclou la perspectiva de gènere en el seu
-mateix disseny. En aquest sentit, es pretén identificar i combatre els
-biaixos existents en la recerca clínica per fomentar una investigació
-més inclusiva i accessible per a tothom. És responsabilitat del personal
-sanitari i de recerca contemplar la dimensió ètica i social de la seva
-tasca, de manera que puguin vetllar per la reducció de les desigualtats
-basades en prejudicis de gènere, ètnia, edat, estatus socioeconòmic,
-capacitats o orientació sexual, entre d'altres. A més, cal destacar que
-l'optimització de sistemes de suport a la decisió clínica basats en
-models predictius té la capacitat de millorar els circuits existents
-d'atenció sanitària. D'aquesta manera, es podrà contribuir a un ús més
-eficient dels recursos i, en conseqüència, s'aconseguirà un impacte
-positiu en termes de sostenibilitat a mitjà i llarg termini.
+D'altra banda, el treball inclou la perspectiva de gènere en el seu mateix disseny. En aquest sentit, es pretén identificar i combatre els biaixos existents en la recerca clínica per fomentar una investigació més inclusiva i accessible per a tothom. És responsabilitat del personal sanitari i de recerca contemplar la dimensió ètica i social de la seva tasca, de manera que puguin vetllar per la reducció de les desigualtats basades en prejudicis de gènere, ètnia, edat, estatus socioeconòmic, capacitats o orientació sexual, entre d'altres. A més, cal destacar que l'optimització de sistemes de suport a la decisió clínica basats en models predictius té la capacitat de millorar els circuits existents d'atenció sanitària. D'aquesta manera, es podrà contribuir a un ús més eficient dels recursos i, en conseqüència, s'aconseguirà un impacte positiu en termes de sostenibilitat a mitjà i llarg termini.
 
-Per acabr, es farà ús de les formes inclusives del llenguatge que
-s'escaiguin en cada context. De manera puntual i honorífica, es pot
-emprar el femení com a genèric per referir-se a les persones
-professionals de la salut, de qualsevol gènere, donat l'elevat
-percentatge de dones que exerceixen aquestes professions.
+Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin en cada context. De manera puntual i honorífica, es pot emprar el femení com a genèric per referir-se a les persones professionals de la salut, de qualsevol gènere, donat l'elevat percentatge de dones que exerceixen aquestes professions.
+
+\pagebreak
 
 \section{Planificació del treball}\label{planificaciuxf3-del-treball}
 
-Descripció dels recursos necessaris per fer el treball, les tasques a
-realitzar i una planificació temporal de cada tasca mitjançant un
-diagrama de Gantt o similar. Aquesta planificació hauria de marcar quins
-són les fites parcials de cadascuna de les PAC.
+\subsection{Tasques}\label{tasques}
 
-Identificació dels possibles riscos que poden fer que aquesta
-planificació no es compleixi, i descripció dels plans de mitigació o
-alternatius en cas que aquests riscos esdevinguin un problema.
+A la \textbf{\autoref{tab:taula1}} es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat \textbf{\hyperref[enfocament-i-muxe8tode-seguit]{Enfocament i mètode seguit}}. S'indica també la relació amb els objectius proposats.
 
-\section{Breu sumari de productes
-obtinguts}\label{breu-sumari-de-productes-obtinguts}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2676}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1831}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1831}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1831}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1831}}@{}}
+\caption{\label{tab:taula1} Planificació de tasques}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Tasca
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Objectius
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Inici
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Final
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Estat
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Tasca
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Objectius
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Inici
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Final
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Estat
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{1. Definició i pla de treball} & & & & \\
+Plantejament del treball & & 23/9/26 & 7/10/26 & Completada \\
+\textbf{2. Estat de l'art} & & & & \\
+Cerca preliminar d'evidència & 1.1, 2.1 & 23/9/26 & 7/10/26 & Completada \\
+Revisió de l'evidència trobada & 1.1, 2.1 & 1/10/26 & 21/10/26 & En procés \\
+\textbf{3. Implementació} & & & & \\
+Preprocessament de dades & 1.2 & 29/10/26 & 11/11/26 & Pendent \\
+Modelització estadística & 1.2 & 12/11/26 & 25/11/26 & Pendent \\
+Avaluació i auditoria de gènere & 1.2, 1.3, 2.2 & 12/11/26 & 25/11/26 & Pendent \\
+Discussió de resultats & 1.3, 2.2 & 26/11/26 & 2/12/26 & Pendent \\
+\textbf{4. Lliurament final} & & & & \\
+Introducció & & 23/9/26 & 14/10/26 & En procés \\
+Estat de l'art & 1.1, 2.1 & 15/10/26 & 4/11/26 & Pendent \\
+Materials i mètodes & 1.2 & 5/11/26 & 25/11/26 & Pendent \\
+Resultats & 1.3, 2.2 & 26/11/26 & 16/12/26 & Pendent \\
+Discussió & 1.1, 1.3, 2.2 & 17/12/26 & 31/12/26 & Pendent \\
+Conclusions & & 1/1/27 & 7/1/27 & Pendent \\
+Glossari i Annexos & & 5/11/26 & 7/1/27 & Pendent \\
+\textbf{5. Presentació} & & & & \\
+Elaboració de diapositives & & 8/1/27 & 13/1/27 & Pendent \\
+Enregistrament & & 8/1/27 & 13/1/27 & Pendent \\
+\end{longtable}
 
-No cal entrar en detall: la descripció detallada es farà a la resta de
-capítols.
+\subsection{Calendari}\label{calendari}
 
-\section{Breu descripció dels altres capítols de la
-memòria}\label{breu-descripciuxf3-dels-altres-capuxedtols-de-la-memuxf2ria}
+Text
 
-Breu explicació dels continguts de cada capítol i la seva relació amb el
-projecte global.
+\subsection{Fites}\label{fites}
+
+Text
+
+\subsection{Anàlisi de riscos}\label{anuxe0lisi-de-riscos}
+
+Text
+
+Descripció dels recursos necessaris per fer el treball, les tasques a realitzar i una planificació temporal de cada tasca mitjançant un diagrama de Gantt o similar. Aquesta planificació hauria de marcar quins són les fites parcials de cadascuna de les PAC.
+
+Identificació dels possibles riscos que poden fer que aquesta planificació no es compleixi, i descripció dels plans de mitigació o alternatius en cas que aquests riscos esdevinguin un problema.
+
+\section{Breu sumari de productes obtinguts}\label{breu-sumari-de-productes-obtinguts}
+
+No cal entrar en detall: la descripció detallada es farà a la resta de capítols.
+
+\section{Breu descripció dels altres capítols de la memòria}\label{breu-descripciuxf3-dels-altres-capuxedtols-de-la-memuxf2ria}
+
+Breu explicació dels continguts de cada capítol i la seva relació amb el projecte global.
 
 \chapter{Estat de l'art}\label{estat-de-lart}
 
-Estat de l'art del tema en qüestió. Hauria d'acabar mostrant per què el
-treball és important i aporta alguna cosa, i amb les hipòtesis del
-treball.
+Estat de l'art del tema en qüestió. Hauria d'acabar mostrant per què el treball és important i aporta alguna cosa, i amb les hipòtesis del treball.
 
 \chapter{Materials i mètodes}\label{materials-i-muxe8todes}
 
@@ -334,26 +294,18 @@ En aquests apartats, cal descriure:
 \item
   Els aspectes més rellevant del disseny i desenvolupament del treball.
 \item
-  La metodologia triada per a fer aquest desenvolupament, descrivint les
-  alternatives possibles, les decisions preses, i els criteris
-  utilitzats per prendre aquestes decisions.
+  La metodologia triada per a fer aquest desenvolupament, descrivint les alternatives possibles, les decisions preses, i els criteris utilitzats per prendre aquestes decisions.
 \item
   Els productes obtinguts.
 \end{itemize}
 
 \chapter{Resultats}\label{resultats}
 
-Detalleu en aquest apartat els resultats obtinguts utilitzant la
-metodologia descrita a l'apartat anterior.
+Detalleu en aquest apartat els resultats obtinguts utilitzant la metodologia descrita a l'apartat anterior.
 
-Recull dels resultats del treball. Hauria d'haver-hi una correspondència
-amb la metodologia en el sentit que els resultats és el que s'obté
-després d'haver aplicat la metodologia.
+Recull dels resultats del treball. Hauria d'haver-hi una correspondència amb la metodologia en el sentit que els resultats és el que s'obté després d'haver aplicat la metodologia.
 
-Les figures han d'estar explicades i citades en el text, com la
-@ref(fig:grafic), en la qual es mostra l'error en funció de la
-distància, en unitats arbitràries. A totes les gràfiques ha d'haver el
-títol dels eixos.
+Les figures han d'estar explicades i citades en el text, com la \ref{fig:grafic}, en la qual es mostra l'error en funció de la distància, en unitats arbitràries. A totes les gràfiques ha d'haver el títol dels eixos.
 
 \begin{figure}
 
@@ -366,23 +318,15 @@ títol dels eixos.
 
 \chapter{Discussió}\label{discussiuxf3}
 
-Discussió dels resultats en el context del projecte. És en aquest
-apartat on cobren sentit i en el qual es responen les preguntes de
-recerca i es mostra com els resultats donen resposta als problemes
-plantejats.
+Discussió dels resultats en el context del projecte. És en aquest apartat on cobren sentit i en el qual es responen les preguntes de recerca i es mostra com els resultats donen resposta als problemes plantejats.
 
 Aquesta part pot ser que no apliqui segons el tipus de treball.
 
 \chapter{Valoració econòmica}\label{valoraciuxf3-econuxf2mica}
 
-En cas que correspongui, s'inclourà un apartat de ``Valoració econòmica
-del treball''. Aquest apartat indicarà les despeses associades al
-desenvolupament i manteniment del treball, així com els beneficis
-econòmics obtinguts. Cal fer una anàlisi final sobre la viabilitat del
-producte.
+En cas que correspongui, s'inclourà un apartat de ``Valoració econòmica del treball''. Aquest apartat indicarà les despeses associades al desenvolupament i manteniment del treball, així com els beneficis econòmics obtinguts. Cal fer una anàlisi final sobre la viabilitat del producte.
 
-\chapter{Conclusions i treballs
-futurs}\label{conclusions-i-treballs-futurs}
+\chapter{Conclusions i treballs futurs}\label{conclusions-i-treballs-futurs}
 
 \section{Conclusions}\label{conclusions}
 
@@ -397,33 +341,27 @@ Aquest capítol ha d'incloure:
   \item
     Un cop s'han obtingut els resultats quines conclusions s'extreu?
   \item
-    Aquests resultats són els esperats? O han estat sorprenents? Per
-    què?
+    Aquests resultats són els esperats? O han estat sorprenents? Per què?
   \end{itemize}
 \item
-  Una reflexió crítica sobre l'assoliment dels objectius plantejats
-  inicialment:
+  Una reflexió crítica sobre l'assoliment dels objectius plantejats inicialment:
 
   \begin{itemize}
   \tightlist
   \item
-    Hem assolit tots els objectius? Si la resposta és negativa, per quin
-    motiu?
+    Hem assolit tots els objectius? Si la resposta és negativa, per quin motiu?
   \end{itemize}
 \end{itemize}
 
 \section{Línies de futur}\label{luxednies-de-futur}
 
-Les línies de treball futur que no s'han pogut explorar en aquest
-treball i han quedat pendents.
+Les línies de treball futur que no s'han pogut explorar en aquest treball i han quedat pendents.
 
-\section{Seguiment de la
-planificació}\label{seguiment-de-la-planificaciuxf3}
+\section{Seguiment de la planificació}\label{seguiment-de-la-planificaciuxf3}
 
 \begin{itemize}
 \item
-  Una anàlisi crítica del seguiment de la planificació i metodologia al
-  llarg del producte:
+  Una anàlisi crítica del seguiment de la planificació i metodologia al llarg del producte:
 
   \begin{itemize}
   \tightlist
@@ -435,18 +373,14 @@ planificació}\label{seguiment-de-la-planificaciuxf3}
     Ha calgut introduir canvis per garantir l'èxit del treball? Per què?
   \end{itemize}
 \item
-  Dels impactes previstos a {[}1{]}, ètic-socials, de sostenibilitat i
-  de diversitat, avaluaeu/esmenteu si s'han mitigat (si eren negatius) o
-  si s'han aconseguit (si eren positius).
+  Dels impactes previstos a {[}1{]}, ètic-socials, de sostenibilitat i de diversitat, avaluaeu/esmenteu si s'han mitigat (si eren negatius) o si s'han aconseguit (si eren positius).
 \item
-  Si han aparegut impactes no previstos a {[}1{]}, avaluar/esmentar com
-  s'han mitigat (si eren negatius) o què han aportat (si eren positius).
+  Si han aparegut impactes no previstos a {[}1{]}, avaluar/esmentar com s'han mitigat (si eren negatius) o què han aportat (si eren positius).
 \end{itemize}
 
 \chapter{Glossari}\label{glossari}
 
-Definició dels termes i acrònims més rellevants utilitzats dins la
-Memòria.
+Definició dels termes i acrònims més rellevants utilitzats dins la Memòria.
 
 \chapter{Bibliografia}\label{bibliografia}
 
@@ -454,113 +388,63 @@ Memòria.
 \begin{CSLReferences}{0}{1}
 \bibitem[\citeproctext]{ref-tessler2026}
 \CSLLeftMargin{1. }%
-\CSLRightInline{Tessler J, Ahmed I, Bordoni B. Cardiac rehabilitation.
-Treasure Island (FL): StatPearls Publishing; 2026.}
+\CSLRightInline{Tessler J, Ahmed I, Bordoni B. Cardiac rehabilitation. Treasure Island (FL): StatPearls Publishing; 2026.}
 
 \bibitem[\citeproctext]{ref-coutinho2025}
 \CSLLeftMargin{2. }%
-\CSLRightInline{Coutinho T, Khadanga S, Adedinsewo D, Barac A, Brown TM,
-Deaton C, et al. Cardiac rehabilitation in women: A scientific statement
-from the american heart association. Circulation. 2025;152:e376e390.
-doi:\href{https://doi.org/10.1161/cir.0000000000001379}{10.1161/cir.0000000000001379}}
+\CSLRightInline{Coutinho T, Khadanga S, Adedinsewo D, Barac A, Brown TM, Deaton C, et al. Cardiac rehabilitation in women: A scientific statement from the american heart association. Circulation. 2025;152:e376e390. doi:\href{https://doi.org/10.1161/cir.0000000000001379}{10.1161/cir.0000000000001379}}
 
 \bibitem[\citeproctext]{ref-caton2024}
 \CSLLeftMargin{3. }%
-\CSLRightInline{Caton S, Haas C. Fairness in machine learning: A survey.
-ACM Computing Surveys. 2024;56:138.
-doi:\href{https://doi.org/10.1145/3616865}{10.1145/3616865}}
+\CSLRightInline{Caton S, Haas C. Fairness in machine learning: A survey. ACM Computing Surveys. 2024;56:138. doi:\href{https://doi.org/10.1145/3616865}{10.1145/3616865}}
 
 \bibitem[\citeproctext]{ref-vieli2025}
 \CSLLeftMargin{4. }%
-\CSLRightInline{Vieli C, Duong HP, Duc M, Carré JL, Bast JD, Girod G, et
-al. Functional capacity and patient-reported outcome measures after
-cardiac rehabilitation: A prospective study with 6-month follow-up.
-Swiss Medical Weekly. 2025;155:4160.
-doi:\href{https://doi.org/10.57187/s.4160}{10.57187/s.4160}}
+\CSLRightInline{Vieli C, Duong HP, Duc M, Carré JL, Bast JD, Girod G, et al. Functional capacity and patient-reported outcome measures after cardiac rehabilitation: A prospective study with 6-month follow-up. Swiss Medical Weekly. 2025;155:4160. doi:\href{https://doi.org/10.57187/s.4160}{10.57187/s.4160}}
 
 \bibitem[\citeproctext]{ref-collaborators2025a}
 \CSLLeftMargin{5. }%
-\CSLRightInline{Collaborators G2023C of D, Naghavi M, Kyu HH, A B,
-Aalipour MA, Aalruz H, et al. Global burden of 292 causes of death in
-204 countries and territories and 660 subnational locations,
-1990{\textendash}2023: A systematic analysis for the global burden of
-disease study 2023. The Lancet. 2025;406:18111872.
-doi:\href{https://doi.org/10.1016/s0140-6736(25)01917-8}{10.1016/s0140-6736(25)01917-8}}
+\CSLRightInline{Collaborators G2023C of D, Naghavi M, Kyu HH, A B, Aalipour MA, Aalruz H, et al. Global burden of 292 causes of death in 204 countries and territories and 660 subnational locations, 1990{\textendash}2023: A systematic analysis for the global burden of disease study 2023. The Lancet. 2025;406:18111872. doi:\href{https://doi.org/10.1016/s0140-6736(25)01917-8}{10.1016/s0140-6736(25)01917-8}}
 
 \bibitem[\citeproctext]{ref-abraham2021}
 \CSLLeftMargin{6. }%
-\CSLRightInline{Abraham LN, Sibilitz KL, Berg SK, Tang LH, Risom SS,
-Lindschou J, et al. Exercise{-}based cardiac rehabilitation for adults
-after heart valve surgery. Cochrane Database of Systematic Reviews.
-2021;2021:CD010876.
-doi:\href{https://doi.org/10.1002/14651858.cd010876.pub3}{10.1002/14651858.cd010876.pub3}}
+\CSLRightInline{Abraham LN, Sibilitz KL, Berg SK, Tang LH, Risom SS, Lindschou J, et al. Exercise{-}based cardiac rehabilitation for adults after heart valve surgery. Cochrane Database of Systematic Reviews. 2021;2021:CD010876. doi:\href{https://doi.org/10.1002/14651858.cd010876.pub3}{10.1002/14651858.cd010876.pub3}}
 
 \bibitem[\citeproctext]{ref-dibben2023a}
 \CSLLeftMargin{7. }%
-\CSLRightInline{Dibben GO, Faulkner J, Oldridge N, Rees K, Thompson DR,
-Zwisler AD, et al. Exercise-based cardiac rehabilitation for coronary
-heart disease: A meta-analysis. European Heart Journal. 2023;44:452469.
-doi:\href{https://doi.org/10.1093/eurheartj/ehac747}{10.1093/eurheartj/ehac747}}
+\CSLRightInline{Dibben GO, Faulkner J, Oldridge N, Rees K, Thompson DR, Zwisler AD, et al. Exercise-based cardiac rehabilitation for coronary heart disease: A meta-analysis. European Heart Journal. 2023;44:452469. doi:\href{https://doi.org/10.1093/eurheartj/ehac747}{10.1093/eurheartj/ehac747}}
 
 \bibitem[\citeproctext]{ref-firoozabadi2023}
 \CSLLeftMargin{8. }%
-\CSLRightInline{Firoozabadi MG, Mirzaei M, Grace SL, Vafaeinasab M,
-Dehghani-Tafti M, Sadeghi A, et al. Sex differences in cardiac
-rehabilitation barriers among non-enrollees in the context of lower
-gender equality: A cross-sectional study. BMC Cardiovascular Disorders.
-2023;23:329.
-doi:\href{https://doi.org/10.1186/s12872-023-03331-7}{10.1186/s12872-023-03331-7}}
+\CSLRightInline{Firoozabadi MG, Mirzaei M, Grace SL, Vafaeinasab M, Dehghani-Tafti M, Sadeghi A, et al. Sex differences in cardiac rehabilitation barriers among non-enrollees in the context of lower gender equality: A cross-sectional study. BMC Cardiovascular Disorders. 2023;23:329. doi:\href{https://doi.org/10.1186/s12872-023-03331-7}{10.1186/s12872-023-03331-7}}
 
 \bibitem[\citeproctext]{ref-khadanga2021}
 \CSLLeftMargin{9. }%
-\CSLRightInline{Khadanga S, Gaalema DE, Savage P, Ades PA.
-Underutilization of cardiac rehabilitation in women. Journal of
-Cardiopulmonary Rehabilitation and Prevention. 2021;41:207213.
-doi:\href{https://doi.org/10.1097/hcr.0000000000000629}{10.1097/hcr.0000000000000629}}
+\CSLRightInline{Khadanga S, Gaalema DE, Savage P, Ades PA. Underutilization of cardiac rehabilitation in women. Journal of Cardiopulmonary Rehabilitation and Prevention. 2021;41:207213. doi:\href{https://doi.org/10.1097/hcr.0000000000000629}{10.1097/hcr.0000000000000629}}
 
 \bibitem[\citeproctext]{ref-hoeve2026}
 \CSLLeftMargin{10. }%
-\CSLRightInline{HOEVE NT, BAKKER MD, SUNAMURA M, LENNEP JERV, BOERSMA E,
-BERG-EMONS RJGVD. WOMEN AND MEN PROFIT EQUALLY FROM CARDIAC
-REHABILITATION: A SECONDARY ANALYSIS OF THE OPTICARE RCT. Journal of
-Rehabilitation Medicine. 2026;58:44504.
-doi:\href{https://doi.org/10.2340/jrm.v58.44504}{10.2340/jrm.v58.44504}}
+\CSLRightInline{HOEVE NT, BAKKER MD, SUNAMURA M, LENNEP JERV, BOERSMA E, BERG-EMONS RJGVD. WOMEN AND MEN PROFIT EQUALLY FROM CARDIAC REHABILITATION: A SECONDARY ANALYSIS OF THE OPTICARE RCT. Journal of Rehabilitation Medicine. 2026;58:44504. doi:\href{https://doi.org/10.2340/jrm.v58.44504}{10.2340/jrm.v58.44504}}
 
 \bibitem[\citeproctext]{ref-mcfeely2025}
 \CSLLeftMargin{11. }%
-\CSLRightInline{McFeely AE, Bittner VA. Sex and gender-based differences
-in outcomes of cardiac rehabilitation following acute myocardial
-infarction. Current Atherosclerosis Reports. 2025;27:109.
-doi:\href{https://doi.org/10.1007/s11883-025-01360-5}{10.1007/s11883-025-01360-5}}
+\CSLRightInline{McFeely AE, Bittner VA. Sex and gender-based differences in outcomes of cardiac rehabilitation following acute myocardial infarction. Current Atherosclerosis Reports. 2025;27:109. doi:\href{https://doi.org/10.1007/s11883-025-01360-5}{10.1007/s11883-025-01360-5}}
 
 \bibitem[\citeproctext]{ref-artiles2023}
 \CSLLeftMargin{12. }%
-\CSLRightInline{Artiles RF, Euler S, Auschra B, Silva HB da, Niederseer
-D, Schmied C, et al. Predictors of gain in exercise capacity through
-cardiac rehabilitation: Sex and age matter. Heart \& Lung.
-2023;62:200206.
-doi:\href{https://doi.org/10.1016/j.hrtlng.2023.08.003}{10.1016/j.hrtlng.2023.08.003}}
+\CSLRightInline{Artiles RF, Euler S, Auschra B, Silva HB da, Niederseer D, Schmied C, et al. Predictors of gain in exercise capacity through cardiac rehabilitation: Sex and age matter. Heart \& Lung. 2023;62:200206. doi:\href{https://doi.org/10.1016/j.hrtlng.2023.08.003}{10.1016/j.hrtlng.2023.08.003}}
 
 \bibitem[\citeproctext]{ref-oneto2020}
 \CSLLeftMargin{13. }%
-\CSLRightInline{Oneto L, Chiappa S. Recent trends in learning from data,
-tutorials from the INNS big data and deep learning conference
-(INNSBDDL2019). Studies in Computational Intelligence. 2020;155196.
-doi:\href{https://doi.org/10.1007/978-3-030-43883-8_7}{10.1007/978-3-030-43883-8\_7}}
+\CSLRightInline{Oneto L, Chiappa S. Recent trends in learning from data, tutorials from the INNS big data and deep learning conference (INNSBDDL2019). Studies in Computational Intelligence. 2020;155196. doi:\href{https://doi.org/10.1007/978-3-030-43883-8_7}{10.1007/978-3-030-43883-8\_7}}
 
 \bibitem[\citeproctext]{ref-criscuolo2026}
 \CSLLeftMargin{14. }%
-\CSLRightInline{Criscuolo C, Salnitri M, Martinenghi D. FAIR-CARE: A
-comparative evaluation of unfairness mitigation approaches. Information
-and Software Technology. 2026;189:107898.
-doi:\href{https://doi.org/10.1016/j.infsof.2025.107898}{10.1016/j.infsof.2025.107898}}
+\CSLRightInline{Criscuolo C, Salnitri M, Martinenghi D. FAIR-CARE: A comparative evaluation of unfairness mitigation approaches. Information and Software Technology. 2026;189:107898. doi:\href{https://doi.org/10.1016/j.infsof.2025.107898}{10.1016/j.infsof.2025.107898}}
 
 \bibitem[\citeproctext]{ref-fatoretto2025}
 \CSLLeftMargin{15. }%
-\CSLRightInline{Fatoretto MB, Özbulak G, Anjos A, Berton L. Optimizing
-fairness and utility in healthcare machine learning models. Applied Soft
-Computing. 2025;181:113426.
-doi:\href{https://doi.org/10.1016/j.asoc.2025.113426}{10.1016/j.asoc.2025.113426}}
+\CSLRightInline{Fatoretto MB, Özbulak G, Anjos A, Berton L. Optimizing fairness and utility in healthcare machine learning models. Applied Soft Computing. 2025;181:113426. doi:\href{https://doi.org/10.1016/j.asoc.2025.113426}{10.1016/j.asoc.2025.113426}}
 
 \end{CSLReferences}
 
