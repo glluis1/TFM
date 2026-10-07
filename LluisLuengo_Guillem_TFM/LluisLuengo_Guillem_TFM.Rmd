@@ -150,7 +150,7 @@ A continuació es detalla la relació d'objectius principals i secundaris del tr
 
 ### Estratègia de recerca
 
-En una primera fase del treball, es durà a terme una cerca de literatura científica a les principals bases de dades d'investigació clínica (PubMed, Cochrane Library, ScienceDirect...), així com en altres font especialitzades que es considerin rellevants.
+En una primera fase del treball, es durà a terme una cerca de literatura científica a les principals bases de dades d'investigació clínica (PubMed, Cochrane Library, ScienceDirect...), així com en altres fonts especialitzades que es considerin rellevants.
 
 Els resultats obtinguts es filtraran segons la seva adequació al tema i es classificaran en tres àmbits que permetran estructurar-ne adequadament els continguts:
 
@@ -162,7 +162,7 @@ Els resultats obtinguts es filtraran segons la seva adequació al tema i es clas
 
 ### Metodologia de treball
 
-Un cop feta la recerca d'evidència, es procedirà a l'anàlisi de les dades disponibles mitjançant el programari R i adoptant, en la mesura del possible, els principis del `tidyverse`. Se seguiran els passos que s'indiquen:
+Un cop feta la recerca d'evidència, es procedirà a l'anàlisi de les dades disponibles mitjançant el programari `R` i adoptant, en la mesura del possible, els principis del `tidyverse`. Se seguiran els passos que s'indiquen:
 
 - **Preprocessament de dades**: neteja, tractament de valors nuls, anàlisi descriptiva estratificada per sexe i definició de variables objectiu. Les principals variables d'interès són la capacitat funcional (mesurada habitualment amb el 6MWT) i la qualitat de vida, que es poden binaritzar en funció de si la millora és superior o no a la mínima diferència clínicament important per a cada cas.
 
@@ -354,7 +354,7 @@ A la **\autoref{tab:taula1-2}** s'indiquen les fites corresponents a cada prova 
 | Final de la implementació         | 25/11/26 | Pendent    |
 | **Entrega**: PAC 3                | 2/12/26  | Pendent    |
 | Cos del treball redactat          | 31/12/26 | En curs    |
-| **Entrega**: PAC 4                | 7/1/27   | Pendent    |
+| **Entrega**: PAC 4 i article      | 7/1/27   | Pendent    |
 | **Entrega**: PAC 5                | 13/1/27  | Pendent    |
 
 : Fites {#tab:taula1-2}
@@ -366,7 +366,7 @@ La **\autoref{tab:taula1-3}** descriu els riscos que poden fer que la planificac
 | Risc | Impacte | Probabilitat | Mitigació |
 |----------------------|----------|-------------|----------------------------|
 | Abundància de registres incomplets en les dades | Alt | Alta | Imputació de valors faltants o eliminació dels registres afectats o de variables que no es considerin crítiques, segons el cas |
-| Mida de mostra insuficient per extreure conclusions significatives | Alt | Mitjana | Comparació dels resultats amb l'evidència disponible i aplicació de tècniques de ponderació o remostreig |
+| Biaixos inherents a la composició del conjunt de dades | Alt | Alta | Comparació dels resultats amb l'evidència disponible i aplicació de tècniques de ponderació o remostreig |
 | Desviacions del pla de treball marcat | Mitjà | Mitjana | Establiment de fites parcials per a les PAC, de manera que l'última setmana de cadascuna es pugui reservar per a la revisió o com a marge per acabar de completar les tasques pendents |
 | Problemes de reproductibilitat | Mitjà | Baixa | Documentació rigorosa del codi i creació d'un repositori de GitHub que contingui tots els documents rellevants |
 
@@ -389,6 +389,12 @@ Al final del projecte s'obtindran els productes següents:
 <!-- ## Breu descripció dels altres capítols de la memòria -->
 
 <!-- Breu explicació dels continguts de cada capítol i la seva relació amb el projecte global. -->
+
+## Ús responsable de la Intel·ligència Artificial
+
+L'ús de la Intel·ligència Artificial (IA) generativa en aquest treball estarà limitat segons el que estableixen els criteris d'integritat acadèmica de la UOC. Se'n preveu l'ús en algunes tasques menors, com ara per complementar la recerca d'evidència científica, depurar codi o gestionar errors en l'exportació del document PDF final, sempre sota supervisió de l'autor.
+
+Es declara que en cap cas s'empraran eines d'IA per a la redacció de contingut o la interpretació de resultats, ni per a cap altra tasca que pugui entrar en conflicte amb les limitacions d'un ús ètic, crític i responsable.
 
 <!-- # Estat de l'art -->
 
