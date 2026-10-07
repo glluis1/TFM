@@ -33,7 +33,64 @@ bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+library(knitr)
+
+opts_chunk$set(echo = FALSE,
+               warning = FALSE,
+               message = FALSE,
+               comment = "", 
+               cache = TRUE,
+               tidy = TRUE,
+               prompt = FALSE,
+               tidy.opts = list(width.cutoff = 72))
+
+options(width = 75)
+
+Sys.setlocale("LC_TIME", "C")
+
+```
+
+```{r}
+# ---- PAQUETS I LLIBRERIES ----
+
+#' Instal·lació de paquets
+#' 
+#' @description
+#' Comrpova si els paquets d'una llista estan instal·lats al sistema. Si algun no ho està, l'instal·la automàticament.
+#'
+#' @param pkg Vector de caràcters amb els noms dels paquets.
+#'
+#' @returns No retorna cap valor.
+#' 
+#' @importFrom utils install.packages
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' # Exemple d'ús amb dades hipotètiques
+#' install_if_not(packages)
+#' }
+install_if_not <- function(pkg) {
+  for (p in pkg) {
+    if (!requireNamespace(p, quietly = TRUE)) {
+      install.packages(p, dependencies = TRUE)
+    }
+  }
+}
+
+# Llista de paquets i instal·lació
+paquets <- c("tidyverse")
+
+install_if_not(paquets)
+
+rm(paquets)
+
+```
+
+```{r}
+library(tidyverse)
+
+
 ```
 
 # Introducció
@@ -142,37 +199,135 @@ Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin
 
 ### Tasques
 
-A la **\autoref{tab:taula1}** es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat **[Enfocament i mètode seguit]**. S'indica també la relació amb els objectius proposats.
+A la **\autoref{tab:taula1-1}** es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat **[Enfocament i mètode seguit]**. S'indica també la relació amb els objectius proposats.
 
 | Tasca                             | Objectius     | Inici    | Final    | Estat      |
-|-------------------|-------------|-------------|-------------|-------------|
+|---------------------------|------------|-----------|-----------|-------------|
 | **1. Definició i pla de treball** |               |          |          |            |
 | Plantejament del treball          |               | 23/9/26  | 7/10/26  | Completada |
+|                                   |               |          |          |            |
 | **2. Estat de l'art**             |               |          |          |            |
 | Cerca preliminar d'evidència      | 1.1, 2.1      | 23/9/26  | 7/10/26  | Completada |
-| Revisió de l'evidència trobada    | 1.1, 2.1      | 1/10/26  | 21/10/26 | En procés  |
+| Revisió de l'evidència trobada    | 1.1, 2.1      | 1/10/26  | 28/10/26 | En curs    |
+|                                   |               |          |          |            |
 | **3. Implementació**              |               |          |          |            |
 | Preprocessament de dades          | 1.2           | 29/10/26 | 11/11/26 | Pendent    |
 | Modelització estadística          | 1.2           | 12/11/26 | 25/11/26 | Pendent    |
 | Avaluació i auditoria de gènere   | 1.2, 1.3, 2.2 | 12/11/26 | 25/11/26 | Pendent    |
 | Discussió de resultats            | 1.3, 2.2      | 26/11/26 | 2/12/26  | Pendent    |
+|                                   |               |          |          |            |
 | **4. Lliurament final**           |               |          |          |            |
-| Introducció                       |               | 23/9/26  | 14/10/26 | En procés  |
+| Introducció                       |               | 23/9/26  | 14/10/26 | En curs    |
 | Estat de l'art                    | 1.1, 2.1      | 15/10/26 | 4/11/26  | Pendent    |
 | Materials i mètodes               | 1.2           | 5/11/26  | 25/11/26 | Pendent    |
 | Resultats                         | 1.3, 2.2      | 26/11/26 | 16/12/26 | Pendent    |
 | Discussió                         | 1.1, 1.3, 2.2 | 17/12/26 | 31/12/26 | Pendent    |
 | Conclusions                       |               | 1/1/27   | 7/1/27   | Pendent    |
-| Glossari i Annexos                |               | 5/11/26  | 7/1/27   | Pendent    |
+| Glossari i Annexos                |               | 23/9/26  | 7/1/27   | En curs    |
+|                                   |               |          |          |            |
 | **5. Presentació**                |               |          |          |            |
 | Elaboració de diapositives        |               | 8/1/27   | 13/1/27  | Pendent    |
 | Enregistrament                    |               | 8/1/27   | 13/1/27  | Pendent    |
 
-: (#tab:taula1) Planificació de tasques
+: Planificació de tasques {#tab:taula1-1}
 
 ### Calendari
 
-Text
+La **\autoref{fig:gantt}** mostra el diagrama de Gantt corresponent a les tasques descrites.
+
+```{r gantt, fig.cap="Calendari de tasques", fig.height=6}
+# Data frame de tasques
+df_gantt <- data.frame(
+  Fase = factor(rep(c(
+    "1. Definició i pla de treball",
+    "2. Estat de l'art",
+    "3. Implementació",
+    "4. Lliurament final",
+    "5. Presentació"
+  ), times = c(1, 2, 4, 7, 2))),
+  Tasca = c(
+    "Plantejament del treball", 
+    "Cerca preliminar d'evidència", 
+    "Revisió de l'evidència trobada", 
+    "Preprocessament de dades", 
+    "Modelització estadística", 
+    "Avaluació i auditoria de gènere", 
+    "Discussió de resultats", 
+    "Introducció", 
+    "Estat de l'art", 
+    "Materials i mètodes", 
+    "Resultats", 
+    "Discussió", 
+    "Conclusions", 
+    "Glossari i Annexos", 
+    "Elaboració de diapositives", 
+    "Enregistrament"
+  ),
+  Objectius = c(
+    "", "1.1, 2.1", "1.1, 2.1", "1.2",
+    "1.2", "1.2, 1.3, 2.2", "1.3, 2.2", "",
+    "1.1, 2.1", "1.2", "1.3, 2.2", "1.1, 1.3, 2.2",
+    "", "", "", ""
+  ),
+  Inici = as.Date(c(
+    "2026-09-23", "2026-09-23", "2026-10-01", "2026-10-29",
+    "2026-11-12", "2026-11-12", "2026-11-26", "2026-09-23",
+    "2026-10-15", "2026-11-05", "2026-11-26", "2026-12-17",
+    "2027-01-01", "2026-09-23", "2027-01-08", "2027-01-08"
+  )),
+  Final = as.Date(c(
+    "2026-10-07", "2026-10-07", "2026-10-28", "2026-11-11",
+    "2026-11-25", "2026-11-25", "2026-12-02", "2026-10-14",
+    "2026-11-04", "2026-11-25", "2026-12-16", "2026-12-31",
+    "2027-01-07", "2027-01-07", "2027-01-13", "2027-01-13"
+  )),
+  Estat = factor(c(
+    "Completada", "Completada", "En curs", "Pendent",
+    "Pendent", "Pendent", "Pendent", "En curs",
+    "Pendent", "Pendent", "Pendent", "Pendent",
+    "Pendent", "En curs", "Pendent", "Pendent"
+  ), levels = c("Completada", "En curs", "Pendent"))
+)
+
+# Tasques ordenades
+df_gantt$Tasca <- factor(df_gantt$Tasca, 
+                         levels = rev(unique(df_gantt$Tasca)))
+
+# Dates
+inici <- as.Date("2026-09-23")
+final <- as.Date("2027-01-13")
+
+dates <- seq(inici, final, by = "1 week")
+
+# Diagrama de Gantt
+plot_gantt <- ggplot(df_gantt, 
+                     aes(x = Inici, xend = Final,
+                         y = Tasca, yend = Tasca,
+                         color = Estat)) +
+  geom_segment(linewidth = 3) +
+  scale_x_date(date_labels = "%d/%m",
+               breaks = dates,
+               limits = c(inici, final),
+               expand = expansion(mult = c(0.01, 0.02))) +
+  scale_color_manual(values = c("Completada" = "#03047a",
+                                "En curs" = "#7ff0ff",
+                                "Pendent" = "#d0d0d0")) +
+  facet_wrap(~ Fase, ncol = 1, scales = "free_y", 
+             space = "free_y") +
+  theme_minimal() +
+  labs(x = "", y = "") +
+  theme(
+    legend.position = "bottom",
+    axis.text.x = element_text(angle = 45, hjust = 1, 
+                               vjust = 1),
+    strip.text = element_text(face = "bold", hjust = 0)
+  )
+
+plot_gantt
+
+rm(inici, final, dates)
+
+```
 
 ### Fites
 

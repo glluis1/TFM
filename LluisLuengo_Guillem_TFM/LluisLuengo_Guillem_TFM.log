@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.1)  7 OCT 2026 11:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.1)  7 OCT 2026 16:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1463,9 +1463,17 @@ File: eimt.png Graphic file (type png)
 Package pdftex.def Info: eimt.png  used on input line 193.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
 [12]
+<LluisLuengo_Guillem_TFM_files/figure-latex/gantt-1.pdf, id=247, 469.755pt x 43
+3.62pt>
+File: LluisLuengo_Guillem_TFM_files/figure-latex/gantt-1.pdf Graphic file (type
+ pdf)
+<use LluisLuengo_Guillem_TFM_files/figure-latex/gantt-1.pdf>
+Package pdftex.def Info: LluisLuengo_Guillem_TFM_files/figure-latex/gantt-1.pdf
+  used on input line 270.
+(pdftex.def)             Requested size: 469.75386pt x 433.61894pt.
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 268.
+Package pdftex.def Info: noulogo.png  used on input line 282.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -1476,12 +1484,12 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 268.
+Package pdftex.def Info: eimt.png  used on input line 282.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
 [13]
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 284.
+Package pdftex.def Info: noulogo.png  used on input line 282.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -1492,13 +1500,29 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 284.
+Package pdftex.def Info: eimt.png  used on input line 282.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[14]
+[14 <./LluisLuengo_Guillem_TFM_files/figure-latex/gantt-1.pdf>]
+File: noulogo.png Graphic file (type png)
+<use noulogo.png>
+Package pdftex.def Info: noulogo.png  used on input line 294.
+(pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
+
+Package fancyhdr Warning: \headheight is too small (35.0pt): 
+(fancyhdr)                Make it at least 42.67912pt, for example:
+(fancyhdr)                \setlength{\headheight}{42.67912pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-7.67912pt}.
+
+File: eimt.png Graphic file (type png)
+<use eimt.png>
+Package pdftex.def Info: eimt.png  used on input line 294.
+(pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
+[15]
 Cap\'{\i }tol 2.
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 288.
+Package pdftex.def Info: noulogo.png  used on input line 298.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -1509,15 +1533,15 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 288.
+Package pdftex.def Info: eimt.png  used on input line 298.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[15
+[16
 
 ]
 Cap\'{\i }tol 3.
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 302.
+Package pdftex.def Info: noulogo.png  used on input line 312.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -1528,71 +1552,17 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 302.
-(pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[16
-
-]
-Cap\'{\i }tol 4.
-<Rplotmanh.png, id=261, 474.77374pt x 501.875pt>
-File: Rplotmanh.png Graphic file (type png)
-<use Rplotmanh.png>
-Package pdftex.def Info: Rplotmanh.png  used on input line 312.
-(pdftex.def)             Requested size: 199.16928pt x 210.541pt.
-File: noulogo.png Graphic file (type png)
-<use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 319.
-(pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
-
-Package fancyhdr Warning: \headheight is too small (35.0pt): 
-(fancyhdr)                Make it at least 42.67912pt, for example:
-(fancyhdr)                \setlength{\headheight}{42.67912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-7.67912pt}.
-
-File: eimt.png Graphic file (type png)
-<use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 319.
+Package pdftex.def Info: eimt.png  used on input line 312.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
 [17
 
 ]
-File: noulogo.png Graphic file (type png)
-<use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 319.
-(pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
-
-Package fancyhdr Warning: \headheight is too small (35.0pt): 
-(fancyhdr)                Make it at least 42.67912pt, for example:
-(fancyhdr)                \setlength{\headheight}{42.67912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-7.67912pt}.
-
-File: eimt.png Graphic file (type png)
-<use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 319.
-(pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[18 <./Rplotmanh.png>]
-Cap\'{\i }tol 5.
-File: noulogo.png Graphic file (type png)
-<use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 325.
-(pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
-
-Package fancyhdr Warning: \headheight is too small (35.0pt): 
-(fancyhdr)                Make it at least 42.67912pt, for example:
-(fancyhdr)                \setlength{\headheight}{42.67912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-7.67912pt}.
-
-File: eimt.png Graphic file (type png)
-<use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 325.
-(pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[19
-
-]
-Cap\'{\i }tol 6.
+Cap\'{\i }tol 4.
+<Rplotmanh.png, id=275, 474.77374pt x 501.875pt>
+File: Rplotmanh.png Graphic file (type png)
+<use Rplotmanh.png>
+Package pdftex.def Info: Rplotmanh.png  used on input line 322.
+(pdftex.def)             Requested size: 199.16928pt x 210.541pt.
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
 Package pdftex.def Info: noulogo.png  used on input line 329.
@@ -1608,19 +1578,73 @@ File: eimt.png Graphic file (type png)
 <use eimt.png>
 Package pdftex.def Info: eimt.png  used on input line 329.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
+[18
+
+]
+File: noulogo.png Graphic file (type png)
+<use noulogo.png>
+Package pdftex.def Info: noulogo.png  used on input line 329.
+(pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
+
+Package fancyhdr Warning: \headheight is too small (35.0pt): 
+(fancyhdr)                Make it at least 42.67912pt, for example:
+(fancyhdr)                \setlength{\headheight}{42.67912pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-7.67912pt}.
+
+File: eimt.png Graphic file (type png)
+<use eimt.png>
+Package pdftex.def Info: eimt.png  used on input line 329.
+(pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
+[19 <./Rplotmanh.png>]
+Cap\'{\i }tol 5.
+File: noulogo.png Graphic file (type png)
+<use noulogo.png>
+Package pdftex.def Info: noulogo.png  used on input line 335.
+(pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
+
+Package fancyhdr Warning: \headheight is too small (35.0pt): 
+(fancyhdr)                Make it at least 42.67912pt, for example:
+(fancyhdr)                \setlength{\headheight}{42.67912pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-7.67912pt}.
+
+File: eimt.png Graphic file (type png)
+<use eimt.png>
+Package pdftex.def Info: eimt.png  used on input line 335.
+(pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
 [20
+
+]
+Cap\'{\i }tol 6.
+File: noulogo.png Graphic file (type png)
+<use noulogo.png>
+Package pdftex.def Info: noulogo.png  used on input line 339.
+(pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
+
+Package fancyhdr Warning: \headheight is too small (35.0pt): 
+(fancyhdr)                Make it at least 42.67912pt, for example:
+(fancyhdr)                \setlength{\headheight}{42.67912pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-7.67912pt}.
+
+File: eimt.png Graphic file (type png)
+<use eimt.png>
+Package pdftex.def Info: eimt.png  used on input line 339.
+(pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
+[21
 
 ]
 Cap\'{\i }tol 7.
 
-Overfull \hbox (10.09421pt too wide) in paragraph at lines 376--378
+Overfull \hbox (10.09421pt too wide) in paragraph at lines 386--388
 []\T1/lmr/m/n/12 Dels im-pac-tes pre-vis-tos a [1], ètic-socials, de sos-te-ni-
 bi-li-tat i de di-ver-si-tat, ava-lu-a-eu/esmenteu
  []
 
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 381.
+Package pdftex.def Info: noulogo.png  used on input line 391.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -1631,15 +1655,15 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 381.
+Package pdftex.def Info: eimt.png  used on input line 391.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[21
+[22
 
 ]
 Cap\'{\i }tol 8.
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 385.
+Package pdftex.def Info: noulogo.png  used on input line 395.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -1650,142 +1674,142 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 385.
+Package pdftex.def Info: eimt.png  used on input line 395.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[22
+[23
 
 ]
 Cap\'{\i }tol 9.
 
-Underfull \hbox (badness 10000) in paragraph at lines 391--391
+Underfull \hbox (badness 10000) in paragraph at lines 401--401
 []\T1/lmr/m/n/12 Tessler J, Ah-med I, Bor-do-ni B. Car-di-ac re-ha-bi-li-ta-ti-
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 391--391
+Underfull \hbox (badness 10000) in paragraph at lines 401--401
 \T1/lmr/m/n/12 on. Tre-a-su-re Is-land (FL): Stat-Pe-arls Pu-blis-hing; 2026.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 391--391
+Underfull \hbox (badness 10000) in paragraph at lines 401--401
 
  []
 
 
-Underfull \hbox (badness 1406) in paragraph at lines 395--395
+Underfull \hbox (badness 1406) in paragraph at lines 405--405
 []\T1/lmr/m/n/12 Coutinho T, Kha-dan-ga S, Ade-din-sewo D, Ba-rac A, Brown TM, 
 De-a-ton C, et
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 395--395
+Underfull \hbox (badness 10000) in paragraph at lines 405--405
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 399--399
+Underfull \hbox (badness 10000) in paragraph at lines 409--409
 []\T1/lmr/m/n/12 Caton S, Ha-as C. Fair-ness in mac-hi-ne le-ar-ning: A sur-vey
 .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 399--399
+Underfull \hbox (badness 10000) in paragraph at lines 409--409
 \T1/lmr/m/n/12 ACM Com-pu-ting Sur-veys. 2024;56:138. doi:[]10.1145/3616865[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 399--399
+Underfull \hbox (badness 10000) in paragraph at lines 409--409
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--403
+Underfull \hbox (badness 10000) in paragraph at lines 413--413
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--407
+Underfull \hbox (badness 10000) in paragraph at lines 417--417
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 411--411
+Underfull \hbox (badness 10000) in paragraph at lines 421--421
 
  []
 
 
-Underfull \hbox (badness 1577) in paragraph at lines 415--415
+Underfull \hbox (badness 1577) in paragraph at lines 425--425
 []\T1/lmr/m/n/12 Dibben GO, Faulk-ner J, Ol-drid-ge N, Re-es K, Thomp-son DR, Z
 wis-ler AD, et
  []
 
 
-Underfull \hbox (badness 1742) in paragraph at lines 415--415
+Underfull \hbox (badness 1742) in paragraph at lines 425--425
 \T1/lmr/m/n/12 al. Exercise-based car-di-ac re-ha-bi-li-ta-ti-on for co-ro-nary
  he-art dise-a-se: A meta-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 415--415
+Underfull \hbox (badness 10000) in paragraph at lines 425--425
 
  []
 
 
-Underfull \hbox (badness 1527) in paragraph at lines 419--419
+Underfull \hbox (badness 1527) in paragraph at lines 429--429
 []\T1/lmr/m/n/12 Firoozabadi MG, Mir-za-ei M, Gra-ce SL, Va-fa-ei-na-sab M, Deh
 ghani-Tafti M, Sa-
  []
 
 
-Underfull \hbox (badness 1694) in paragraph at lines 419--419
+Underfull \hbox (badness 1694) in paragraph at lines 429--429
 \T1/lmr/m/n/12 deg-hi A, et al. Sex dif-fe-ren-ces in car-di-ac re-ha-bi-li-ta-
 ti-on bar-ri-ers among non-
  []
 
 
-Underfull \hbox (badness 4927) in paragraph at lines 419--419
+Underfull \hbox (badness 4927) in paragraph at lines 429--429
 \T1/lmr/m/n/12 enrollees in the con-text of lower gen-der equa-lity: A cross-se
 ctional study.
  []
 
 
-Underfull \hbox (badness 4686) in paragraph at lines 419--419
+Underfull \hbox (badness 4686) in paragraph at lines 429--429
 \T1/lmr/m/n/12 BMC Car-di-o-vas-cu-lar Disor-ders. 2023;23:329. doi:[]10.1186/s
 12872-023-03331-7[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 419--419
+Underfull \hbox (badness 10000) in paragraph at lines 429--429
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--423
+Underfull \hbox (badness 10000) in paragraph at lines 433--433
 []\T1/lmr/m/n/12 Khadanga S, Ga-a-le-ma DE, Sa-va-ge P, Ades PA. Un-de-ru-ti-li
 -za-ti-on of car-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--423
+Underfull \hbox (badness 10000) in paragraph at lines 433--433
 \T1/lmr/m/n/12 di-ac re-ha-bi-li-ta-ti-on in wo-men. Jour-nal of Car-di-o-pul-m
 o-nary Re-ha-bi-li-ta-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--423
+Underfull \hbox (badness 10000) in paragraph at lines 433--433
 \T1/lmr/m/n/12 ti-on and Pre-ven-ti-on. 2021;41:207213. doi:[]10.1097/hcr.00000
 00000000629[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--423
+Underfull \hbox (badness 10000) in paragraph at lines 433--433
 
  []
 
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 425.
+Package pdftex.def Info: noulogo.png  used on input line 435.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -1796,139 +1820,139 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 425.
+Package pdftex.def Info: eimt.png  used on input line 435.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[23
+[24
 
 ]
-Underfull \hbox (badness 1436) in paragraph at lines 427--427
+Underfull \hbox (badness 1436) in paragraph at lines 437--437
 []\T1/lmr/m/n/12 HOEVE NT, BAKKER MD, SU-NA-MU-RA M, LEN-NEP JERV, BO-ERS-MA E,
 
  []
 
 
-Underfull \hbox (badness 2600) in paragraph at lines 427--427
+Underfull \hbox (badness 2600) in paragraph at lines 437--437
 \T1/lmr/m/n/12 DI-AC RE-HA-BI-LI-TA-TI-ON: A SE-CON-DARY ANALY-SIS OF THE OP-TI
 -CA-RE
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 427--427
+Underfull \hbox (badness 10000) in paragraph at lines 437--437
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 431--431
+Underfull \hbox (badness 10000) in paragraph at lines 441--441
 []\T1/lmr/m/n/12 McFeely AE, Bitt-ner VA. Sex and gender-based dif-fe-ren-ces i
 n out-co-
  []
 
 
-Underfull \hbox (badness 7203) in paragraph at lines 431--431
+Underfull \hbox (badness 7203) in paragraph at lines 441--441
 \T1/lmr/m/n/12 mes of car-di-ac re-ha-bi-li-ta-ti-on fo-llowing acu-te myo-car-
 di-al in-farc-ti-on. Cur-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 431--431
+Underfull \hbox (badness 10000) in paragraph at lines 441--441
 \T1/lmr/m/n/12 rent At-he-ros-cle-ro-sis Re-ports. 2025;27:109. doi:[]10.1007/s
 11883-025-01360-5[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 431--431
+Underfull \hbox (badness 10000) in paragraph at lines 441--441
 
  []
 
 
-Underfull \hbox (badness 1424) in paragraph at lines 435--435
+Underfull \hbox (badness 1424) in paragraph at lines 445--445
 \T1/lmr/m/n/12 Pre-dic-tors of gain in exer-ci-se capa-city through car-di-ac r
 e-ha-bi-li-ta-ti-on: Sex and
  []
 
 
-Underfull \hbox (badness 1648) in paragraph at lines 435--435
+Underfull \hbox (badness 1648) in paragraph at lines 445--445
 \T1/lmr/m/n/12 age mat-ter. He-art & Lung. 2023;62:200206. doi:[]10.1016/j.hrtl
 ng.2023.08.003[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 435--435
+Underfull \hbox (badness 10000) in paragraph at lines 445--445
 
  []
 
 
-Underfull \hbox (badness 1661) in paragraph at lines 439--439
+Underfull \hbox (badness 1661) in paragraph at lines 449--449
 []\T1/lmr/m/n/12 Oneto L, Chi-ap-pa S. Re-cent trends in le-ar-ning from da-ta,
  tu-to-ri-als from the
  []
 
 
-Underfull \hbox (badness 3302) in paragraph at lines 439--439
+Underfull \hbox (badness 3302) in paragraph at lines 449--449
 \T1/lmr/m/n/12 INNS big da-ta and de-ep le-ar-ning con-fe-ren-ce (INNSBDDL2019)
 . Stu-di-es in
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 439--439
+Underfull \hbox (badness 10000) in paragraph at lines 449--449
 \T1/lmr/m/n/12 Com-pu-ta-ti-o-nal In-te-lli-gen-ce. 2020;155196. doi:[]10.1007/
 978-3-030-43883-8_7[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 439--439
+Underfull \hbox (badness 10000) in paragraph at lines 449--449
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--443
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
 []\T1/lmr/m/n/12 Criscuolo C, Sal-ni-tri M, Mar-ti-neng-hi D. FAIR-CARE: A com-
 pa-ra-ti-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--443
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
 \T1/lmr/m/n/12 ve eva-lu-a-ti-on of un-fair-ness mi-ti-ga-ti-on ap-pro-ac-hes. 
 In-for-ma-ti-on and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--443
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
 \T1/lmr/m/n/12 Softwa-re Tech-no-logy. 2026;189:107898. doi:[]10.1016/j.infsof.
 2025.107898[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--443
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 447--447
+Underfull \hbox (badness 10000) in paragraph at lines 457--457
 []\T1/lmr/m/n/12 Fatoretto MB, Öz-bu-lak G, An-jos A, Ber-ton L. Op-ti-mi-zing 
 fair-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 447--447
+Underfull \hbox (badness 10000) in paragraph at lines 457--457
 \T1/lmr/m/n/12 ness and uti-lity in he-alth-ca-re mac-hi-ne le-ar-ning mo-dels.
  Ap-pli-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 447--447
+Underfull \hbox (badness 10000) in paragraph at lines 457--457
 \T1/lmr/m/n/12 ed Soft Com-pu-ting. 2025;181:113426. doi:[]10.1016/j.asoc.2025.
 113426[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 447--447
+Underfull \hbox (badness 10000) in paragraph at lines 457--457
 
  []
 
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 451.
+Package pdftex.def Info: noulogo.png  used on input line 461.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -1939,13 +1963,13 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 451.
+Package pdftex.def Info: eimt.png  used on input line 461.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[24]
+[25]
 Ap\`endix A.
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 458.
+Package pdftex.def Info: noulogo.png  used on input line 468.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -1956,15 +1980,15 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 458.
+Package pdftex.def Info: eimt.png  used on input line 468.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[25
+[26
 
 ]
 Ap\`endix B.
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 462.
+Package pdftex.def Info: noulogo.png  used on input line 472.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -1975,9 +1999,9 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 462.
+Package pdftex.def Info: eimt.png  used on input line 472.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[26
+[27
 
 ] (LluisLuengo_Guillem_TFM.aux)
  ***********
@@ -1989,13 +2013,13 @@ Package rerunfilecheck Info: File `LluisLuengo_Guillem_TFM.out' has not changed
 (rerunfilecheck)             Checksum: C72006DF67ADABC4924CB60964D617EA;4625.
  ) 
 Here is how much of TeX's memory you used:
- 14555 strings out of 467441
- 238449 string characters out of 5407592
- 714902 words of memory out of 5000000
- 43539 multiletter control sequences out of 15000+600000
+ 14565 strings out of 467441
+ 238929 string characters out of 5407592
+ 718964 words of memory out of 5000000
+ 43547 multiletter control sequences out of 15000+600000
  680310 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,20n,98p,980b,679s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 74i,21n,98p,980b,679s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
 b><C:/Users/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.p
 fb><C:/Users/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pf
@@ -2004,9 +2028,9 @@ b><C:/Users/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb
 C:/Users/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><
 C:/Users/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri8.pfb><C
 :/Users/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on LluisLuengo_Guillem_TFM.pdf (27 pages, 454907 bytes).
+Output written on LluisLuengo_Guillem_TFM.pdf (28 pages, 463089 bytes).
 PDF statistics:
- 375 PDF objects out of 1000 (max. 8388607)
- 71 named destinations out of 1000 (max. 500000)
- 266 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 391 PDF objects out of 1000 (max. 8388607)
+ 73 named destinations out of 1000 (max. 500000)
+ 271 words of extra memory for PDF output out of 10000 (max. 10000000)
 
