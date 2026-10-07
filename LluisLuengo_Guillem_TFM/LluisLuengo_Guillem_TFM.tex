@@ -76,6 +76,7 @@
  {\end{list}}
 
 \usepackage{enumitem}
+\usepackage{float}
 
 \usepackage[hidelinks,unicode]{hyperref}
 
@@ -238,11 +239,11 @@ Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin
 A la \textbf{\autoref{tab:taula1-1}} es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat \textbf{\hyperref[enfocament-i-muxe8tode-seguit]{Enfocament i mètode seguit}}. S'indica també la relació amb els objectius proposats.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3472}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1667}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1528}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1528}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1806}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3919}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1622}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1351}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1351}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1757}}@{}}
 \caption{Planificació de tasques}\label{tab:taula1-1}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
@@ -302,19 +303,21 @@ Elaboració de diapositives & & 8/1/27 & 13/1/27 & Pendent \\
 Enregistrament & & 8/1/27 & 13/1/27 & Pendent \\
 \end{longtable}
 
+\pagebreak
+
 \subsection{Calendari}\label{calendari}
 
 La \textbf{\autoref{fig:gantt}} mostra el diagrama de Gantt corresponent a les tasques descrites.
 
-\begin{figure}
-\centering
-\pandocbounded{\includegraphics[keepaspectratio,alt={\label{fig:gantt}Calendari de tasques}]{LluisLuengo_Guillem_TFM_files/figure-latex/gantt-1.pdf}}
-\caption{\label{fig:gantt}Calendari de tasques}
+\begin{figure}[H]
+\includegraphics[width=1\linewidth]{LluisLuengo_Guillem_TFM_files/figure-latex/gantt-1} \caption{Calendari de tasques}\label{fig:gantt}
 \end{figure}
+
+\pagebreak
 
 \subsection{Fites}\label{fites}
 
-A la \textbf{\autoref{tab:taula1-2}} s'indiquen les fites corresponents a cada PAC.
+A la \textbf{\autoref{tab:taula1-2}} s'indiquen les fites corresponents a cada prova d'avaluació continuada (PAC).
 
 \begin{longtable}[]{@{}lll@{}}
 \caption{Fites}\label{tab:taula1-2}\tabularnewline
@@ -340,13 +343,13 @@ Cos del treball redactat & 31/12/26 & En curs \\
 
 \subsection{Anàlisi de riscos}\label{anuxe0lisi-de-riscos}
 
-La \textbf{\autoref{tab:taula1-2}} descriu els riscos que poden fer que la planificació no es compleixi i les accions previstes per al pla de contingència.
+La \textbf{\autoref{tab:taula1-3}} descriu els riscos que poden fer que la planificació no es compleixi i les accions previstes per al pla de contingència.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2877}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1507}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1918}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3699}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3014}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1370}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1781}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3836}}@{}}
 \caption{Anàlisi de riscos}\label{tab:taula1-3}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
@@ -524,6 +527,8 @@ Al final del projecte s'obtindran els productes següents:
 \FunctionTok{library}\NormalTok{(tidyverse)}
 
 
+\CommentTok{\# {-}{-}{-}{-} 1.6 PLANIFICACIÓ DEL TREBALL {-}{-}{-}{-}}
+
 \CommentTok{\# Data frame de tasques}
 \NormalTok{df\_gantt }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
   \AttributeTok{Fase =} \FunctionTok{factor}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}
@@ -606,7 +611,7 @@ Al final del projecte s'obtindran els productes següents:
   \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ Fase, }\AttributeTok{ncol =} \DecValTok{1}\NormalTok{, }\AttributeTok{scales =} \StringTok{"free\_y"}\NormalTok{, }
              \AttributeTok{space =} \StringTok{"free\_y"}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{""}\NormalTok{, }\AttributeTok{y =} \StringTok{""}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{""}\NormalTok{, }\AttributeTok{y =} \StringTok{""}\NormalTok{, }\AttributeTok{color =} \ConstantTok{NULL}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{theme}\NormalTok{(}
     \AttributeTok{legend.position =} \StringTok{"bottom"}\NormalTok{,}
     \AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{, }
@@ -620,8 +625,5 @@ Al final del projecte s'obtindran els productes següents:
 \end{Highlighting}
 \end{Shaded}
 
-\chapter{Annex 2}\label{annex-2}
-
-\section{Annex 2}\label{annex-2-1}
 
 \end{document}

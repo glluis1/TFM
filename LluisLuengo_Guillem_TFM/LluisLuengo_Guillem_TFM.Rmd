@@ -28,6 +28,7 @@ output:
     pandoc_args: ["--top-level-division=chapter"]
 header-includes:
   - \usepackage{enumitem}
+  - \usepackage{float}
 csl: nlm-citation-sequence-brackets-year-only-no-issue.csl
 bibliography: references.bib
 ---
@@ -204,7 +205,7 @@ Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin
 A la **\autoref{tab:taula1-1}** es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat **[Enfocament i mètode seguit]**. S'indica també la relació amb els objectius proposats.
 
 | Tasca                             | Objectius     | Inici    | Final    | Estat      |
-|-------------------------|------------|-----------|-----------|-------------|
+|-----------------------------|------------|----------|----------|-------------|
 | **1. Definició i pla de treball** |               |          |          |            |
 | Plantejament del treball          |               | 23/9/26  | 7/10/26  | Completada |
 |                                   |               |          |          |            |
@@ -234,11 +235,13 @@ A la **\autoref{tab:taula1-1}** es descriuen les tasques que caldrà desenvolupa
 
 : Planificació de tasques {#tab:taula1-1}
 
+\pagebreak
+
 ### Calendari
 
 La **\autoref{fig:gantt}** mostra el diagrama de Gantt corresponent a les tasques descrites.
 
-```{r gantt, fig.cap="Calendari de tasques", fig.height=6}
+```{r gantt, fig.cap="Calendari de tasques", fig.pos="H", fig.height=6, out.width="100%"}
 # ---- 1.6 PLANIFICACIÓ DEL TREBALL ----
 
 # Data frame de tasques
@@ -323,7 +326,7 @@ plot_gantt <- ggplot(df_gantt,
   facet_wrap(~ Fase, ncol = 1, scales = "free_y", 
              space = "free_y") +
   theme_minimal() +
-  labs(x = "", y = "") +
+  labs(x = "", y = "", color = NULL) +
   theme(
     legend.position = "bottom",
     axis.text.x = element_text(angle = 45, hjust = 1, 
@@ -337,9 +340,11 @@ rm(inici, final, dates)
 
 ```
 
+\pagebreak
+
 ### Fites
 
-A la **\autoref{tab:taula1-2}** s'indiquen les fites corresponents a cada PAC.
+A la **\autoref{tab:taula1-2}** s'indiquen les fites corresponents a cada prova d'avaluació continuada (PAC).
 
 | Fita                              | Termini  | Estat      |
 |-----------------------------------|----------|------------|
@@ -356,10 +361,10 @@ A la **\autoref{tab:taula1-2}** s'indiquen les fites corresponents a cada PAC.
 
 ### Anàlisi de riscos
 
-La **\autoref{tab:taula1-2}** descriu els riscos que poden fer que la planificació no es compleixi i les accions previstes per al pla de contingència.
+La **\autoref{tab:taula1-3}** descriu els riscos que poden fer que la planificació no es compleixi i les accions previstes per al pla de contingència.
 
 | Risc | Impacte | Probabilitat | Mitigació |
-|---------------------|-----------|--------------|---------------------------|
+|----------------------|----------|-------------|----------------------------|
 | Abundància de registres incomplets en les dades | Alt | Alta | Imputació de valors faltants o eliminació dels registres afectats o de variables que no es considerin crítiques, segons el cas |
 | Mida de mostra insuficient per extreure conclusions significatives | Alt | Mitjana | Comparació dels resultats amb l'evidència disponible i aplicació de tècniques de ponderació o remostreig |
 | Desviacions del pla de treball marcat | Mitjà | Mitjana | Establiment de fites parcials per a les PAC, de manera que l'última setmana de cadascuna es pugui reservar per a la revisió o com a marge per acabar de completar les tasques pendents |
@@ -368,6 +373,7 @@ La **\autoref{tab:taula1-2}** descriu els riscos que poden fer que la planificac
 : Anàlisi de riscos {#tab:taula1-3}
 
 ## Resultats esperats
+
 <!-- ## Breu sumari de productes obtinguts -->
 
 Al final del projecte s'obtindran els productes següents:
@@ -393,7 +399,9 @@ Al final del projecte s'obtindran els productes següents:
 <!-- En aquests apartats, cal descriure: -->
 
 <!-- - Els aspectes més rellevant del disseny i desenvolupament del treball. -->
+
 <!-- - La metodologia triada per a fer aquest desenvolupament, descrivint les alternatives possibles, les decisions preses, i els criteris utilitzats per prendre aquestes decisions. -->
+
 <!-- - Els productes obtinguts. -->
 
 <!-- # Resultats -->
@@ -402,10 +410,12 @@ Al final del projecte s'obtindran els productes següents:
 
 <!-- Recull dels resultats del treball. Hauria d'haver-hi una correspondència amb la metodologia en el sentit que els resultats és el que s'obté després d'haver aplicat la metodologia. -->
 
-<!-- Les figures han d'estar explicades i citades en el text, com la \@ref(fig:grafic), en la qual es mostra l'error en funció de la distància, en unitats arbitràries. A totes les gràfiques ha d'haver el títol dels eixos. -->
+<!-- Les figures han d'estar explicades i citades en el text, com la @ref(fig:grafic), en la qual es mostra l'error en funció de la distància, en unitats arbitràries. A totes les gràfiques ha d'haver el títol dels eixos. -->
 
 <!-- ```{r grafic, fig.cap="Error en funció de la distància en unitats arbitràries.", out.width="7cm", fig.align="center", echo=FALSE} -->
+
 <!-- knitr::include_graphics("Rplotmanh.png") -->
+
 <!-- ``` -->
 
 <!-- # Discussió -->
@@ -427,6 +437,7 @@ Al final del projecte s'obtindran els productes següents:
 <!-- - Una descripció de les conclusions del treball: -->
 
 <!--   - Un cop s’han obtingut els resultats quines conclusions s’extreu? -->
+
 <!--   - Aquests resultats són els esperats? O han estat sorprenents? Per què? -->
 
 <!-- - Una reflexió crítica sobre l’assoliment dels objectius plantejats inicialment: -->
@@ -442,7 +453,9 @@ Al final del projecte s'obtindran els productes següents:
 <!-- - Una anàlisi crítica del seguiment de la planificació i metodologia al llarg del producte: -->
 
 <!--   - S’ha seguit la planificació? -->
+
 <!--   - La metodología prevista ha estat prou adequada? -->
+
 <!--   - Ha calgut introduir canvis per garantir l’èxit del treball? Per què? -->
 
 <!-- - Dels impactes previstos a [1], ètic-socials, de sostenibilitat i de diversitat, avaluaeu/esmenteu si s'han mitigat (si eren negatius) o si s'han aconseguit (si eren positius). -->
