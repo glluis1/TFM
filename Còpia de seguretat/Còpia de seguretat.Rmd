@@ -1,0 +1,103 @@
+---
+title: "Títol del treball complet i tan llarg com sigui necessari"
+short_title: "Títol molt curt"
+author: "Guillem Lluís i Luengo"
+date: |
+  `r local({
+    Sys.setlocale('LC_TIME', 'ca_ES.UTF-8')
+    d <- format(Sys.Date(), '%e de %B de %Y')
+    gsub('de (a|o)', "d'\\1", d)
+  })`
+
+tutor: "Nom Tutor Tutora"
+PRA: "Nomeni Professorat Responsable"
+degree: "Màster en XXX"
+area: "Àrea del treball"
+language: "Català"
+credits: 15
+keywords: "paraula, clau, treball"
+license: "ccBy" # ccByNcNd, ccByNcSa, ccByNc, ccByNd, ccBySa, ccBy, GNU, copyright
+
+abstract_ca: "Màxim 250 paraules, amb la finalitat, context d’aplicació, metodologia, resultats i conclusions del treball."
+abstract_en: "A maximum of 250 words, detailing the purpose, context of application, methodology, results and conclusions of the work."
+
+output:
+  pdf_document:
+    template: plantilla_TFM.tex
+    keep_tex: true
+    pandoc_args: ["--top-level-division=chapter"]
+csl: nlm-citation-sequence-brackets-year-only-no-issue.csl
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Planificació del treball
+
+### Tasques
+
+A la **\autoref{tab:taula1-1}** es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat **[Enfocament i mètode seguit]**. S'indica també la relació amb els objectius proposats.
+
+| Tasca                             | Objectius     | Inici    | Final    | Estat      |
+|-----------------------------|------------|----------|----------|-------------|
+| **1. Definició i pla de treball** |               |          |          |            |
+| Plantejament del treball          |               | 23/9/26  | 7/10/26  | Completada |
+|                                   |               |          |          |            |
+| **2. Estat de l'art**             |               |          |          |            |
+| Cerca preliminar d'evidència      | 1.1, 2.1      | 23/9/26  | 7/10/26  | Completada |
+| Revisió de l'evidència trobada    | 1.1, 2.1      | 1/10/26  | 28/10/26 | En curs    |
+|                                   |               |          |          |            |
+| **3. Implementació**              |               |          |          |            |
+| Preprocessament de dades          | 1.2           | 29/10/26 | 11/11/26 | Pendent    |
+| Modelització estadística          | 1.2           | 12/11/26 | 25/11/26 | Pendent    |
+| Avaluació i auditoria de gènere   | 1.2, 1.3, 2.2 | 12/11/26 | 25/11/26 | Pendent    |
+| Discussió de resultats            | 1.3, 2.2      | 26/11/26 | 2/12/26  | Pendent    |
+|                                   |               |          |          |            |
+| **4. Lliurament final**           |               |          |          |            |
+| Introducció                       |               | 23/9/26  | 14/10/26 | En curs    |
+| Estat de l'art                    | 1.1, 2.1      | 15/10/26 | 4/11/26  | Pendent    |
+| Materials i mètodes               | 1.2           | 5/11/26  | 25/11/26 | Pendent    |
+| Resultats                         | 1.3, 2.2      | 26/11/26 | 16/12/26 | Pendent    |
+| Discussió                         | 1.1, 1.3, 2.2 | 17/12/26 | 31/12/26 | Pendent    |
+| Conclusions                       |               | 1/1/27   | 7/1/27   | Pendent    |
+| Glossari i Annexos                |               | 23/9/26  | 7/1/27   | En curs    |
+| Article                           |               | 15/10/26 | 7/1/27   | Pendent    |
+|                                   |               |          |          |            |
+| **5. Presentació**                |               |          |          |            |
+| Elaboració de diapositives        |               | 8/1/27   | 13/1/27  | Pendent    |
+| Enregistrament                    |               | 8/1/27   | 13/1/27  | Pendent    |
+
+: Planificació de tasques {#tab:taula1-1}
+
+\pagebreak
+
+### Fites
+
+A la **\autoref{tab:taula1-2}** s'indiquen les fites corresponents a cada prova d'avaluació continuada (PAC).
+
+| Fita                              | Termini  | Estat      |
+|-----------------------------------|----------|------------|
+| **Entrega**: PAC 1                | 7/10/26  | Completada |
+| Final de la recerca bibliogràfica | 28/10/26 | En curs    |
+| **Entrega**: PAC 2                | 4/11/26  | Pendent    |
+| Final de la implementació         | 25/11/26 | Pendent    |
+| **Entrega**: PAC 3                | 2/12/26  | Pendent    |
+| Cos del treball redactat          | 31/12/26 | En curs    |
+| **Entrega**: PAC 4 i article      | 7/1/27   | Pendent    |
+| **Entrega**: PAC 5                | 13/1/27  | Pendent    |
+
+: Fites {#tab:taula1-2}
+
+### Anàlisi de riscos
+
+La **\autoref{tab:taula1-3}** descriu els riscos que poden fer que la planificació no es compleixi i les accions previstes per al pla de contingència.
+
+| Risc | Impacte | Probabilitat | Mitigació |
+|----------------------|----------|-------------|----------------------------|
+| Abundància de registres incomplets en les dades | Alt | Alta | Imputació de valors faltants o eliminació dels registres afectats o de variables que no es considerin crítiques, segons el cas |
+| Biaixos inherents a la composició del conjunt de dades | Alt | Alta | Comparació dels resultats amb l'evidència disponible i aplicació de tècniques de ponderació o remostreig |
+| Desviacions del pla de treball marcat | Mitjà | Mitjana | Establiment de fites parcials per a les PAC, de manera que l'última setmana de cadascuna es pugui reservar per a la revisió o com a marge per acabar de completar les tasques pendents |
+| Problemes de reproductibilitat | Mitjà | Baixa | Documentació rigorosa del codi i creació d'un repositori de GitHub que contingui tots els documents rellevants |
+
+: Anàlisi de riscos {#tab:taula1-3}

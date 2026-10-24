@@ -1,0 +1,86 @@
+\documentclass[CAT]{TFUOC}%IB: CASTELLÀ, CAT: CATALÀ, ENG: ANGLÈS
+
+%Compatibilitat amb Pandoc
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,longtable,booktabs,fancyvrb,framed}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\pandocbounded}[1]{#1}
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+% Suport per a citacions CSL (Zotero / Pandoc)
+\usepackage{calc}
+
+\providecommand{\citeproctext}{}
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{2.5em}
+
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightMargin}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1\break}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}%
+  \setlength{\leftmargin}{0pt}%
+  \setlength{\parsep}{0pt}%
+  \setlength{\itemsep}{#2pt}%
+  \setlength{\labelwidth}{0pt}%
+  \setlength{\labelsep}{0pt}%
+  \renewcommand{\makelabel}[1]{}% Buida l'etiqueta de \item per evitar [] o punts
+  }}
+ {\end{list}}
+$endif$
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+\usepackage[hidelinks,unicode]{hyperref}
+
+
+%Introducció de dades del treball
+\title{$title$}
+\titcrt{$short_title$} %Títol curt que apareixerà a la capçalera
+\author{$author$}
+\date{$date$}
+
+\nomPDC{$tutor$}
+\nomPRA{$PRA$}
+\titulac{$degree$}
+\area{$area$}
+\idioma{$language$}
+\credits{$credits$}
+\parcla{$keywords$}
+\licenc{$license$}
+
+
+%%%%%%%%%%
+% Resum en l'idioma
+
+\abstractidioma{$abstract_ca$}
+
+% Resum en anglès.
+\abstractenglish{$abstract_en$}
+
+\begin{document}
+
+\estructura
+
+\tableofcontents
+
+\listoffigures
+
+\listoftables
+
+$body$
+
+\end{document}
