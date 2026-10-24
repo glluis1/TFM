@@ -154,11 +154,11 @@ En una primera fase del treball, es durà a terme una cerca de literatura cient�
 
 Els resultats obtinguts es filtraran segons la seva adequació al tema i es classificaran en tres àmbits que permetran estructurar-ne adequadament els continguts:
 
-- **Rehabilitació cardíaca**: estat de l'art general, càrrega de les patologies cardiovasculars en la salut global, impacte en resultats clínics, descripció de variables predictores [@collaborators2025a; @abraham2021; @dibben2023a].
+- **Rehabilitació cardíaca**: estat de l'art general, càrrega de les patologies cardiovasculars en la salut global, impacte en resultats clínics, descripció de variables predictores [@abraham2021; @collaborators2025; @dibben2023].
 
-- **Biaixos de sexe i gènere**: diferències en l'accés, la participació i els resultats de la rehabilitació cardíaca, interseccionalitat de les desigualtats, intervencions proposades [@firoozabadi2023; @khadanga2021; @hoeve2026; @mcfeely2025; @artiles2023].
+- **Biaixos de sexe i gènere**: diferències en l'accés, la participació i els resultats de la rehabilitació cardíaca, interseccionalitat de les desigualtats, intervencions proposades [@firoozabadi2023; @artiles2023; @khadanga2021; @hoeve2026; @mcfeely2025].
 
-- **Equitat algorítmica**: evidència sobre mètodes estadístics, limitacions i propostes de mitigació de biaixos [@oneto2020; @criscuolo2026; @fatoretto2025].
+- **Equitat algorítmica**: evidència sobre mètodes estadístics, limitacions i propostes de mitigació de biaixos [@criscuolo2026; @fatoretto2025; @oneto2020].
 
 ### Metodologia de treball
 
@@ -239,7 +239,7 @@ A la **\autoref{tab:taula1-1}** es descriuen les tasques que caldrà desenvolupa
 
 ### Calendari
 
-La **\autoref{fig:gantt}** mostra el diagrama de Gantt corresponent a les tasques descrites.
+La \autoref{fig:gantt} mostra el diagrama de Gantt corresponent a les tasques descrites.
 
 ```{r gantt, fig.cap="Calendari de tasques", fig.pos="H", fig.height=6, out.width="100%"}
 # ---- 1.6 PLANIFICACIÓ DEL TREBALL ----
@@ -396,9 +396,45 @@ L'ús de la Intel·ligència Artificial (IA) generativa en aquest treball estar�
 
 Es declara que en cap cas s'empraran eines d'IA per a la redacció de contingut o la interpretació de resultats, ni per a cap altra tasca que pugui entrar en conflicte amb les limitacions d'un ús ètic, crític i responsable.
 
-<!-- # Estat de l'art -->
+# Estat de l'art
 
 <!-- Estat de l'art del tema en qüestió. Hauria d'acabar mostrant per què el treball és important i aporta alguna cosa, i amb les hipòtesis del treball. -->
+
+## Rehabilitació cardíaca
+
+### Antecedents
+
+Les cardiopaties isquèmiques han estat la primera causa de mortalitat estandarditzada per edat a tot el món des de l'any 1990 (amb l'única excepció del 2021, en què la primera posició va ser ocupada per la COVID-19) [@collaborators2025]. A més, l'any 2023 van esdevenir la primera causa de mortalitat prematura i salut precària a escala mundial [@collaboratorsgbd2023diseaseandinjuryandriskfactor2025]. Malgrat els avenços en el diagnòstic i el tractament d'aquesta mena de patologies, és necessari garantir que arriben a totes les poblacions de manera equitativa i lliure de discriminacions.
+
+La rehabilitació cardíaca (RC) és l'etiqueta sota la qual s'engloben un conjunt de programes de característiques similars que les guies de pràctica clínica recomanen per a la recuperació d'esdeveniments cardiovasculars (p. ex. insuficiència cardíaca, infart agut de miocardi [IAM], malalties cardíaques congènites o diferents intervencions quirúrgiques amb afectació de l'aparell cardiorespiratori). Els seus objectius principals són reduir l'estrès fisiològic i psicològic produït per aquestes patologies, reduir la mortalitat, prevenir hospitalitzacions recurrents i millorar la funció cardiovascular i la qualitat de vida (QdV) de les persones ateses [@tessler2026].
+
+Els programes de RC tradicionals es fonamenten en l'exercici terapèutic, però la pràctica basada en evidència hi ha anat incorporant altres components, convertint-la en una intervenció interdisciplinària que demana la col·laboració de professionals de disciplines tan diverses com la infermeria, la fisioteràpia, la medicina, la nutrició o la psicologia [@taylor2022]. El seu contingut varia en funció de l'evolució de l'episodi: sol incloure teràpia de mobilització precoç i educació sanitària en la fase hospitalària, exercici supervisat, prevenció de factors de risc i suport psicosocial en fase ambulatòria i activitat física regular i intervencions d'autocontrol de la patologia en fase domiciliària [@tessler2026].
+
+Es tracta d'una intervenció segura, amb un risc baix de complicacions i amb nombrosos beneficis. En persones que conviuen amb malalties coronàries, la RC redueix el risc de patir un IAM (risc relatiu [RR] 0,72 [0,55–0,93], qualitat d'evidència alta) i el nombre d'hospitalitzacions (RR 0,58 [0,43–0,77], qualitat d'evidència moderada), a la vegada que permet aconseguir millores en la mortalitat per causes cardiovasculars, la QdV i la cost-efectivitat dels tractaments [@dibben2023]. Resultats semblants s'obtenen en casos d'insuficiència cardíaca. En una patologia que suposa una elevada càrrega per a les persones que la pateixen, una disminució de la tolerància a l'exercici, un major risc de mortalitat i readmissions hospitalàries i, en conseqüència, un cost més elevat per als sistemes sanitaris, la RC permet reduir el nombre d'ingressos (RR 0,69 [0,56–0,86], qualitat d'evidència moderada) i millorar la QdV relacionada amb la salut [@molloy2024].
+
+En altres condicions de salut, com les cirurgies valvulars o la fibril·lació auricular, encara manca evidència de qualitat per avaluar l'impacte real de la RC basada en exercici [@abraham2021; @buckley2024]. Tanmateix, la RC podria reduir el risc de recurrència de la fibril·lació auricular (RR 0,70 [0,56–0,88], qualitat d'evidència moderada) i millorar-ne la QdV [@buckley2024]. Un altre aspecte que cal considerar és l'afectació que tenen les malalties cardiovasculars en salut mental, que precisament està considerat com un dels factors de risc que les pot desencadenar [@wrzeciono2024]. En persones que havien patit un IAM, la RC va tenir efectes positius en els nivells d'ansietat i depressió. A més, l'inici precoç del tractament va suposar un augment de la QdV i una reducció de la mortalitat i la morbiditat [@zheng2019].
+
+Per entendre millor els efectes de la RC sobre diferents patologies cardiovasculars, cal analitzar-ne els principals resultats clínics i les variables que s'acostumen a emprar per a la seva predicció.
+
+### Resultats clínics i variables predictores
+
+Text
+
+### Reptes
+
+Text
+
+## Consideracions sobre el sexe i el gènere
+
+Text
+
+## Biaixos existents
+
+Text
+
+## Justícia algorítmica
+
+Text
 
 <!-- # Materials i mètodes -->
 

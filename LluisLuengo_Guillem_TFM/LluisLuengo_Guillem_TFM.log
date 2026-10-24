@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.1)  24 OCT 2026 19:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.1)  24 OCT 2026 21:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1179,7 +1179,7 @@ Package geometry Warning: `bmargin' results in NEGATIVE (-30.15993pt).
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<UOCllarg.jpg, id=75, 998.73125pt x 2642.87375pt>
+<UOCllarg.jpg, id=107, 998.73125pt x 2642.87375pt>
 File: UOCllarg.jpg Graphic file (type jpg)
 <use UOCllarg.jpg>
 Package pdftex.def Info: UOCllarg.jpg  used on input line 110.
@@ -1235,7 +1235,7 @@ Overfull \hbox (53.6248pt too wide) in paragraph at lines 110--110
 
 {C:/Users/gllui/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/gllu
 i/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc} <./UOCllarg.jpg>]
-<./licenc/ccby.png, id=84, 66.2475pt x 24.09pt>
+<./licenc/ccby.png, id=116, 66.2475pt x 24.09pt>
 File: ./licenc/ccby.png Graphic file (type png)
 <use ./licenc/ccby.png>
 Package pdftex.def Info: ./licenc/ccby.png  used on input line 110.
@@ -1245,7 +1245,7 @@ LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
 (C:\Users\gllui\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<noulogo.png, id=87, 671.6292pt x 173.448pt>
+<noulogo.png, id=119, 671.6292pt x 173.448pt>
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
 Package pdftex.def Info: noulogo.png  used on input line 110.
@@ -1257,7 +1257,7 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-7.67912pt}.
 
-<eimt.png, id=88, 74.1972pt x 10.1178pt>
+<eimt.png, id=120, 74.1972pt x 10.1178pt>
 File: eimt.png Graphic file (type png)
 <use eimt.png>
 Package pdftex.def Info: eimt.png  used on input line 110.
@@ -1471,7 +1471,7 @@ File: eimt.png Graphic file (type png)
 Package pdftex.def Info: eimt.png  used on input line 307.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
 [12]
-<LluisLuengo_Guillem_TFM_files/figure-latex/gantt-1.pdf, id=189, 469.755pt x 43
+<LluisLuengo_Guillem_TFM_files/figure-latex/gantt-1.pdf, id=229, 469.755pt x 43
 3.62pt>
 File: LluisLuengo_Guillem_TFM_files/figure-latex/gantt-1.pdf Graphic file (type
  pdf)
@@ -1528,279 +1528,429 @@ Package pdftex.def Info: eimt.png  used on input line 407.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
 [15]
 Cap\'{\i }tol 2.
+File: noulogo.png Graphic file (type png)
+<use noulogo.png>
+Package pdftex.def Info: noulogo.png  used on input line 420.
+(pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 413--413
+Package fancyhdr Warning: \headheight is too small (35.0pt): 
+(fancyhdr)                Make it at least 42.67912pt, for example:
+(fancyhdr)                \setlength{\headheight}{42.67912pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-7.67912pt}.
+
+File: eimt.png Graphic file (type png)
+<use eimt.png>
+Package pdftex.def Info: eimt.png  used on input line 420.
+(pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
+[16
+
+]
+File: noulogo.png Graphic file (type png)
+<use noulogo.png>
+Package pdftex.def Info: noulogo.png  used on input line 445.
+(pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
+
+Package fancyhdr Warning: \headheight is too small (35.0pt): 
+(fancyhdr)                Make it at least 42.67912pt, for example:
+(fancyhdr)                \setlength{\headheight}{42.67912pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-7.67912pt}.
+
+File: eimt.png Graphic file (type png)
+<use eimt.png>
+Package pdftex.def Info: eimt.png  used on input line 445.
+(pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
+[17]
+Cap\'{\i }tol 3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
 []\T1/lmr/m/n/12 Tessler J, Ah-med I, Bor-do-ni B. Car-di-ac re-ha-bi-li-ta-ti-
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 413--413
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
 \T1/lmr/m/n/12 on. Tre-a-su-re Is-land (FL): Stat-Pe-arls Pu-blis-hing; 2026.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 413--413
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
 
  []
 
 
-Underfull \hbox (badness 1406) in paragraph at lines 417--417
+Underfull \hbox (badness 1406) in paragraph at lines 455--455
 []\T1/lmr/m/n/12 Coutinho T, Kha-dan-ga S, Ade-din-sewo D, Ba-rac A, Brown TM, 
 De-a-ton C, et
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--417
+Underfull \hbox (badness 10000) in paragraph at lines 455--455
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 459--459
 []\T1/lmr/m/n/12 Caton S, Ha-as C. Fair-ness in mac-hi-ne le-ar-ning: A sur-vey
 .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 459--459
 \T1/lmr/m/n/12 ACM Com-pu-ting Sur-veys. 2024;56:138. doi:[]10.1145/3616865[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 459--459
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 425--425
+Underfull \hbox (badness 10000) in paragraph at lines 463--463
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 429--429
+Underfull \hbox (badness 10000) in paragraph at lines 467--467
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 433--433
+Underfull \hbox (badness 10000) in paragraph at lines 471--471
 
  []
 
 
-Underfull \hbox (badness 1577) in paragraph at lines 437--437
+Underfull \hbox (badness 1577) in paragraph at lines 475--475
 []\T1/lmr/m/n/12 Dibben GO, Faulk-ner J, Ol-drid-ge N, Re-es K, Thomp-son DR, Z
 wis-ler AD, et
  []
 
 
-Underfull \hbox (badness 1742) in paragraph at lines 437--437
+Underfull \hbox (badness 1742) in paragraph at lines 475--475
 \T1/lmr/m/n/12 al. Exercise-based car-di-ac re-ha-bi-li-ta-ti-on for co-ro-nary
  he-art dise-a-se: A meta-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 437--437
+Underfull \hbox (badness 10000) in paragraph at lines 475--475
 
  []
 
 
-Underfull \hbox (badness 1527) in paragraph at lines 441--441
+Underfull \hbox (badness 1527) in paragraph at lines 479--479
 []\T1/lmr/m/n/12 Firoozabadi MG, Mir-za-ei M, Gra-ce SL, Va-fa-ei-na-sab M, Deh
 ghani-Tafti M, Sa-
  []
 
 
-Underfull \hbox (badness 1694) in paragraph at lines 441--441
+Underfull \hbox (badness 1694) in paragraph at lines 479--479
 \T1/lmr/m/n/12 deg-hi A, et al. Sex dif-fe-ren-ces in car-di-ac re-ha-bi-li-ta-
 ti-on bar-ri-ers among non-
  []
 
 
-Underfull \hbox (badness 4927) in paragraph at lines 441--441
+Underfull \hbox (badness 4927) in paragraph at lines 479--479
 \T1/lmr/m/n/12 enrollees in the con-text of lower gen-der equa-lity: A cross-se
 ctional study.
  []
 
 
-Underfull \hbox (badness 4686) in paragraph at lines 441--441
+Underfull \hbox (badness 4686) in paragraph at lines 479--479
 \T1/lmr/m/n/12 BMC Car-di-o-vas-cu-lar Disor-ders. 2023;23:329. doi:[]10.1186/s
 12872-023-03331-7[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 441--441
+Underfull \hbox (badness 10000) in paragraph at lines 479--479
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--445
-[]\T1/lmr/m/n/12 Khadanga S, Ga-a-le-ma DE, Sa-va-ge P, Ades PA. Un-de-ru-ti-li
--za-ti-on of car-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 445--445
-\T1/lmr/m/n/12 di-ac re-ha-bi-li-ta-ti-on in wo-men. Jour-nal of Car-di-o-pul-m
-o-nary Re-ha-bi-li-ta-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 445--445
-\T1/lmr/m/n/12 ti-on and Pre-ven-ti-on. 2021;41:207213. doi:[]10.1097/hcr.00000
-00000000629[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 445--445
-
- []
-
-File: noulogo.png Graphic file (type png)
-<use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 447.
-(pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
-
-Package fancyhdr Warning: \headheight is too small (35.0pt): 
-(fancyhdr)                Make it at least 42.67912pt, for example:
-(fancyhdr)                \setlength{\headheight}{42.67912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-7.67912pt}.
-
-File: eimt.png Graphic file (type png)
-<use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 447.
-(pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[16
-
-]
-Underfull \hbox (badness 1436) in paragraph at lines 449--449
-[]\T1/lmr/m/n/12 HOEVE NT, BAKKER MD, SU-NA-MU-RA M, LEN-NEP JERV, BO-ERS-MA E,
-
- []
-
-
-Underfull \hbox (badness 2600) in paragraph at lines 449--449
-\T1/lmr/m/n/12 DI-AC RE-HA-BI-LI-TA-TI-ON: A SE-CON-DARY ANALY-SIS OF THE OP-TI
--CA-RE
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 449--449
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 453--453
-[]\T1/lmr/m/n/12 McFeely AE, Bitt-ner VA. Sex and gender-based dif-fe-ren-ces i
-n out-co-
- []
-
-
-Underfull \hbox (badness 7203) in paragraph at lines 453--453
-\T1/lmr/m/n/12 mes of car-di-ac re-ha-bi-li-ta-ti-on fo-llowing acu-te myo-car-
-di-al in-farc-ti-on. Cur-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 453--453
-\T1/lmr/m/n/12 rent At-he-ros-cle-ro-sis Re-ports. 2025;27:109. doi:[]10.1007/s
-11883-025-01360-5[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 453--453
-
- []
-
-
-Underfull \hbox (badness 1424) in paragraph at lines 457--457
+Underfull \hbox (badness 1424) in paragraph at lines 483--483
 \T1/lmr/m/n/12 Pre-dic-tors of gain in exer-ci-se capa-city through car-di-ac r
 e-ha-bi-li-ta-ti-on: Sex and
  []
 
 
-Underfull \hbox (badness 1648) in paragraph at lines 457--457
+Underfull \hbox (badness 1648) in paragraph at lines 483--483
 \T1/lmr/m/n/12 age mat-ter. He-art & Lung. 2023;62:200206. doi:[]10.1016/j.hrtl
 ng.2023.08.003[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 457--457
+Underfull \hbox (badness 10000) in paragraph at lines 483--483
+
+ []
+
+File: noulogo.png Graphic file (type png)
+<use noulogo.png>
+Package pdftex.def Info: noulogo.png  used on input line 485.
+(pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
+
+Package fancyhdr Warning: \headheight is too small (35.0pt): 
+(fancyhdr)                Make it at least 42.67912pt, for example:
+(fancyhdr)                \setlength{\headheight}{42.67912pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-7.67912pt}.
+
+File: eimt.png Graphic file (type png)
+<use eimt.png>
+Package pdftex.def Info: eimt.png  used on input line 485.
+(pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
+[18
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 487--487
+[]\T1/lmr/m/n/12 Khadanga S, Ga-a-le-ma DE, Sa-va-ge P, Ades PA. Un-de-ru-ti-li
+-za-ti-on of car-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 487--487
+\T1/lmr/m/n/12 di-ac re-ha-bi-li-ta-ti-on in wo-men. Jour-nal of Car-di-o-pul-m
+o-nary Re-ha-bi-li-ta-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 487--487
+\T1/lmr/m/n/12 ti-on and Pre-ven-ti-on. 2021;41:207213. doi:[]10.1097/hcr.00000
+00000000629[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 487--487
 
  []
 
 
-Underfull \hbox (badness 1661) in paragraph at lines 461--461
-[]\T1/lmr/m/n/12 Oneto L, Chi-ap-pa S. Re-cent trends in le-ar-ning from da-ta,
- tu-to-ri-als from the
- []
-
-
-Underfull \hbox (badness 3302) in paragraph at lines 461--461
-\T1/lmr/m/n/12 INNS big da-ta and de-ep le-ar-ning con-fe-ren-ce (INNSBDDL2019)
-. Stu-di-es in
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 461--461
-\T1/lmr/m/n/12 Com-pu-ta-ti-o-nal In-te-lli-gen-ce. 2020;155196. doi:[]10.1007/
-978-3-030-43883-8_7[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 461--461
+Underfull \hbox (badness 1436) in paragraph at lines 491--491
+[]\T1/lmr/m/n/12 HOEVE NT, BAKKER MD, SU-NA-MU-RA M, LEN-NEP JERV, BO-ERS-MA E,
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 465--465
+Underfull \hbox (badness 2600) in paragraph at lines 491--491
+\T1/lmr/m/n/12 DI-AC RE-HA-BI-LI-TA-TI-ON: A SE-CON-DARY ANALY-SIS OF THE OP-TI
+-CA-RE
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 491--491
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 495--495
+[]\T1/lmr/m/n/12 McFeely AE, Bitt-ner VA. Sex and gender-based dif-fe-ren-ces i
+n out-co-
+ []
+
+
+Underfull \hbox (badness 7203) in paragraph at lines 495--495
+\T1/lmr/m/n/12 mes of car-di-ac re-ha-bi-li-ta-ti-on fo-llowing acu-te myo-car-
+di-al in-farc-ti-on. Cur-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 495--495
+\T1/lmr/m/n/12 rent At-he-ros-cle-ro-sis Re-ports. 2025;27:109. doi:[]10.1007/s
+11883-025-01360-5[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 495--495
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 499--499
 []\T1/lmr/m/n/12 Criscuolo C, Sal-ni-tri M, Mar-ti-neng-hi D. FAIR-CARE: A com-
 pa-ra-ti-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 465--465
+Underfull \hbox (badness 10000) in paragraph at lines 499--499
 \T1/lmr/m/n/12 ve eva-lu-a-ti-on of un-fair-ness mi-ti-ga-ti-on ap-pro-ac-hes. 
 In-for-ma-ti-on and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 465--465
+Underfull \hbox (badness 10000) in paragraph at lines 499--499
 \T1/lmr/m/n/12 Softwa-re Tech-no-logy. 2026;189:107898. doi:[]10.1016/j.infsof.
 2025.107898[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 465--465
+Underfull \hbox (badness 10000) in paragraph at lines 499--499
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--469
+Underfull \hbox (badness 10000) in paragraph at lines 503--503
 []\T1/lmr/m/n/12 Fatoretto MB, Öz-bu-lak G, An-jos A, Ber-ton L. Op-ti-mi-zing 
 fair-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--469
+Underfull \hbox (badness 10000) in paragraph at lines 503--503
 \T1/lmr/m/n/12 ness and uti-lity in he-alth-ca-re mac-hi-ne le-ar-ning mo-dels.
  Ap-pli-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--469
+Underfull \hbox (badness 10000) in paragraph at lines 503--503
 \T1/lmr/m/n/12 ed Soft Com-pu-ting. 2025;181:113426. doi:[]10.1016/j.asoc.2025.
 113426[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--469
+Underfull \hbox (badness 10000) in paragraph at lines 503--503
+
+ []
+
+
+Underfull \hbox (badness 1661) in paragraph at lines 507--507
+[]\T1/lmr/m/n/12 Oneto L, Chi-ap-pa S. Re-cent trends in le-ar-ning from da-ta,
+ tu-to-ri-als from the
+ []
+
+
+Underfull \hbox (badness 3302) in paragraph at lines 507--507
+\T1/lmr/m/n/12 INNS big da-ta and de-ep le-ar-ning con-fe-ren-ce (INNSBDDL2019)
+. Stu-di-es in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 507--507
+\T1/lmr/m/n/12 Com-pu-ta-ti-o-nal In-te-lli-gen-ce. 2020;155196. doi:[]10.1007/
+978-3-030-43883-8_7[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 507--507
+
+ []
+
+
+Underfull \hbox (badness 2521) in paragraph at lines 511--511
+[]\T1/lmr/m/n/12 Collaborators, GBD 2023 Dise-a-se and In-jury and Risk Fac-tor
+, Hay SI, Ong
+ []
+
+
+Underfull \hbox (badness 3460) in paragraph at lines 511--511
+\T1/lmr/m/n/12 KL, San-to-mau-ro DF, A B, Aa-li-pour MA, et al. Bur-den of 375 
+dise-a-ses
+ []
+
+
+Underfull \hbox (badness 2582) in paragraph at lines 511--511
+\T1/lmr/m/n/12 and in-ju-ri-es, risk-attributable bur-den of 88 risk fac-tors, 
+and he-althy li-fe ex-
+ []
+
+
+Underfull \hbox (badness 6001) in paragraph at lines 511--511
+\T1/lmr/m/n/12 pec-tancy in 204 coun-tri-es and ter-ri-to-ri-es, in-clu-ding 66
+0 sub-na-ti-o-nal lo-ca-ti-
+ []
+
+
+Underfull \hbox (badness 1577) in paragraph at lines 511--511
+\T1/lmr/m/n/12 ons, 1990^^U2023: A sys-te-ma-tic analy-sis for the glo-bal bur-
+den of dise-a-se study
+ []
+
+
+Underfull \hbox (badness 5077) in paragraph at lines 511--511
+\T1/lmr/m/n/12 2023. The Lan-cet. 2025;406:18731922. doi:[]10.1016/s0140-6736(2
+5)01637-x[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 511--511
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 515--515
+[]\T1/lmr/m/n/12 Taylor RS, Da-lal HM, Mc-Do-nagh STJ. The ro-le of car-di-ac r
+e-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 515--515
+\T1/lmr/m/n/12 ha-bi-li-ta-ti-on in im-pro-ving car-di-o-vas-cu-lar out-co-mes.
+ Na-tu-re Re-vi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 515--515
+\T1/lmr/m/n/12 ews Car-di-o-logy. 2022;19:180194. doi:[]10.1038/s41569-021-0061
+1-7[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 515--515
+
+ []
+
+
+Underfull \hbox (badness 2547) in paragraph at lines 519--519
+\T1/lmr/m/n/12 Sys-te-ma-tic Re-vi-ews. 2024;2024:CD003331. doi:[]10.1002/14651
+858.cd003331.pub6[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 519--519
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 523--523
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 527--527
+[]\T1/lmr/m/n/12 Wrzeciono A, Ma-zu-rek J, Ci-e±-lik B, Ki-per P, Gaj-da R, Szc
+zepa«ska-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 527--527
+\T1/lmr/m/n/12 Gieracha J. Psychologically-enhanced car-di-ac re-ha-bi-li-ta-ti
+-on for psyc-ho-lo-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 527--527
+\T1/lmr/m/n/12 gi-cal and func-ti-o-nal im-pro-ve-ment in pa-ti-ents with car-d
+i-o-vas-cu-lar dise-a-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 527--527
+\T1/lmr/m/n/12 se: A sys-te-ma-tic re-vi-ew with meta-analysis and fu-tu-re re-
+se-arch di-rec-ti-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 527--527
+\T1/lmr/m/n/12 ons. Phy-si-ot-he-rapy. 2024;125:101412. doi:[]10.1016/j.physio.
+2024.07.003[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 527--527
 
  []
 
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 473.
+Package pdftex.def Info: noulogo.png  used on input line 529.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -1811,20 +1961,63 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 473.
+Package pdftex.def Info: eimt.png  used on input line 529.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[17]
+[19]
+Underfull \hbox (badness 6876) in paragraph at lines 531--531
+[]\T1/lmr/m/n/12 Zheng X, Zheng Y, Ma J, Zhang M, Zhang Y, Liu X, et al. Ef-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 531--531
+\T1/lmr/m/n/12 fect of exercise-based car-di-ac re-ha-bi-li-ta-ti-on on an-xi-e
+ty and de-pres-si-on
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 531--531
+\T1/lmr/m/n/12 in pa-ti-ents with myo-car-di-al in-farc-ti-on: A sys-te-ma-tic 
+re-vi-ew and meta-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 531--531
+\T1/lmr/m/n/12 analysis. He-art & Lung. 2019;48:17. doi:[]10.1016/j.hrtlng.2018
+.09.011[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 531--531
+
+ []
+
+File: noulogo.png Graphic file (type png)
+<use noulogo.png>
+Package pdftex.def Info: noulogo.png  used on input line 535.
+(pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
+
+Package fancyhdr Warning: \headheight is too small (35.0pt): 
+(fancyhdr)                Make it at least 42.67912pt, for example:
+(fancyhdr)                \setlength{\headheight}{42.67912pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-7.67912pt}.
+
+File: eimt.png Graphic file (type png)
+<use eimt.png>
+Package pdftex.def Info: eimt.png  used on input line 535.
+(pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
+[20]
 Ap\`endix A.
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 482.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 544.
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-499.
+561.
 (C:\Users\gllui\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 632.
+Package pdftex.def Info: noulogo.png  used on input line 694.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -1835,21 +2028,21 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 632.
+Package pdftex.def Info: eimt.png  used on input line 694.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[18
+[21
 
 ]
-Underfull \vbox (badness 10000) detected at line 632
+Underfull \vbox (badness 10000) detected at line 694
  []
 
 
-Underfull \vbox (badness 10000) detected at line 632
+Underfull \vbox (badness 10000) detected at line 694
  []
 
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 632.
+Package pdftex.def Info: noulogo.png  used on input line 694.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -1860,19 +2053,19 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 632.
+Package pdftex.def Info: eimt.png  used on input line 694.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[19]
-Underfull \vbox (badness 10000) detected at line 632
+[22]
+Underfull \vbox (badness 10000) detected at line 694
  []
 
 
-Underfull \vbox (badness 10000) detected at line 632
+Underfull \vbox (badness 10000) detected at line 694
  []
 
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 632.
+Package pdftex.def Info: noulogo.png  used on input line 694.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -1883,12 +2076,12 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 632.
+Package pdftex.def Info: eimt.png  used on input line 694.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[20]
+[23]
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 635.
+Package pdftex.def Info: noulogo.png  used on input line 697.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -1899,25 +2092,25 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 635.
+Package pdftex.def Info: eimt.png  used on input line 697.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[21] (LluisLuengo_Guillem_TFM.aux)
+[24] (LluisLuengo_Guillem_TFM.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-08-10>
  ***********
 Package rerunfilecheck Info: File `LluisLuengo_Guillem_TFM.out' has not changed
 .
-(rerunfilecheck)             Checksum: 60CD1D1BFA0AE138E1D8CE1082C6BF17;2899.
+(rerunfilecheck)             Checksum: 5006B7044CAE112ABC1F81A0BA35DF68;4267.
  ) 
 Here is how much of TeX's memory you used:
- 14681 strings out of 467441
- 240848 string characters out of 5407592
- 721016 words of memory out of 5000000
- 43668 multiletter control sequences out of 15000+600000
+ 14714 strings out of 467441
+ 241431 string characters out of 5407592
+ 721694 words of memory out of 5000000
+ 43690 multiletter control sequences out of 15000+600000
  681936 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,20n,98p,980b,622s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 74i,20n,98p,1029b,622s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
 b><C:/Users/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.p
 fb><C:/Users/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pf
@@ -1928,9 +2121,9 @@ C:/Users/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri8.pfb><C
 :/Users/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C
 :/Users/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb><C
 :/Users/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtti10.pfb>
-Output written on LluisLuengo_Guillem_TFM.pdf (22 pages, 471162 bytes).
+Output written on LluisLuengo_Guillem_TFM.pdf (25 pages, 486670 bytes).
 PDF statistics:
- 322 PDF objects out of 1000 (max. 8388607)
- 56 named destinations out of 1000 (max. 500000)
- 170 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 383 PDF objects out of 1000 (max. 8388607)
+ 67 named destinations out of 1000 (max. 500000)
+ 234 words of extra memory for PDF output out of 10000 (max. 10000000)
 
