@@ -85,7 +85,7 @@
 \title{Biaixos de sexe i gènere en rehabilitació cardíaca: anàlisi d'equitat algorítmica (\emph{fairness}) en la predicció de resultats clínics}
 \titcrt{\emph{Fairness} en rehabilitació cardíaca} %Títol curt que apareixerà a la capçalera
 \author{Guillem Lluís i Luengo}
-\date{24 d'octubre de 2026}
+\date{27 d'octubre de 2026}
 
 \nomPDC{Susana Pérez Álvarez}
 \nomPRA{Laia Subirats Maté}
@@ -144,9 +144,9 @@ El conjunt de dades conté 273 registres, majoritàriament homes (81\%). Si bé 
 \item
   \textbf{Demogràfiques}: edat, sexe, diagnòstic, antecedents de tabaquisme.
 \item
-  \textbf{Capacitat funcional}: test de 6 minuts de marxa (6MWT), capacitat d'exercici màxima a curt termini (MSEC), equivalent metabòlic de la tasca (MET), força isomètrica màxima del quàdriceps (QIS).
+  \textbf{Capacitat funcional}: prova de la marxa de 6 minuts (6MWT), capacitat d'exercici màxima a curt termini (MSEC), equivalent metabòlic de l'activitat (MET), força isomètrica màxima del quàdriceps (QIS).
 \item
-  \textbf{Qüestionaris de salut}: escales d'ansietat i depressió (HAD), qualitat de vida (HeartQoL) i nivells de treball, esport i activitat física (Baecke).
+  \textbf{Qüestionaris de salut}: escales d'ansietat i depressió (HADS), qualitat de vida (HeartQoL) i nivells de treball, esport i activitat física (Baecke).
 \end{itemize}
 
 \section{Objectius del treball}\label{objectius-del-treball}
@@ -181,11 +181,11 @@ Els resultats obtinguts es filtraran segons la seva adequació al tema i es clas
 
 \begin{itemize}
 \item
-  \textbf{Rehabilitació cardíaca}: estat de l'art general, càrrega de les patologies cardiovasculars en la salut global, impacte en resultats clínics, descripció de variables predictores {[}5--7{]}.
+  \textbf{Rehabilitació cardíaca}: estat de l'art general, càrrega de les patologies cardiovasculars en la salut global, impacte en resultats clínics, descripció de variables predictores.
 \item
-  \textbf{Biaixos de sexe i gènere}: diferències en l'accés, la participació i els resultats de la rehabilitació cardíaca, interseccionalitat de les desigualtats, intervencions proposades {[}8--12{]}.
+  \textbf{Biaixos de sexe i gènere}: diferències en l'accés, la participació i els resultats de la rehabilitació cardíaca, interseccionalitat de les desigualtats, intervencions proposades.
 \item
-  \textbf{Equitat algorítmica}: evidència sobre mètodes estadístics, limitacions i propostes de mitigació de biaixos {[}13--15{]}.
+  \textbf{Equitat algorítmica}: evidència sobre mètodes estadístics, limitacions i propostes de mitigació de biaixos.
 \end{itemize}
 
 \subsection{Metodologia de treball}\label{metodologia-de-treball}
@@ -194,7 +194,7 @@ Un cop feta la recerca d'evidència, es procedirà a l'anàlisi de les dades dis
 
 \begin{itemize}
 \item
-  \textbf{Preprocessament de dades}: neteja, tractament de valors nuls, anàlisi descriptiva estratificada per sexe i definició de variables objectiu. Les principals variables d'interès són la capacitat funcional (mesurada habitualment amb el 6MWT) i la qualitat de vida, que es poden binaritzar en funció de si la millora és superior o no a la mínima diferència clínicament important per a cada cas.
+  \textbf{Preprocessament de dades}: neteja, tractament de valors nuls, anàlisi descriptiva estratificada per sexe i definició de variables objectiu. Les principals variables d'interès són la capacitat funcional (mesurada habitualment amb la 6MWT) i la qualitat de vida, que es poden binaritzar en funció de si la millora és superior o no a la mínima diferència clínicament important per a cada cas.
 \item
   \textbf{Modelització estadística}: construcció de models predictius a partir del conjunt de dades. Tenint en compte les característiques de les variables objectiu, es prendrà com a model de referència la regressió logística. S'optimitzarà el model amb mètodes de regularització (Ridge, LASSO). Malgrat que el nombre de registres és limitat, es podria comparar el resultat amb una alternativa no lineal, com ara un Random Forest.
 \item
@@ -207,7 +207,7 @@ Aquest enfocament permetrà, d'una banda, disposar del context clínic adient pe
 
 \section{Impacte en sostenibilitat, ètic-social i de diversitat}\label{impacte-en-sostenibilitat-uxe8tic-social-i-de-diversitat}
 
-L'impacte d'aquest treball es concreta principalment en els Objectius de Desenvolupament Sostenible (ODS) que es detallen:
+L'impacte d'aquest treball es concreta principalment en els objectius de desenvolupament sostenible (ODS) que es detallen:
 
 \begin{itemize}
 \item
@@ -236,15 +236,15 @@ Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin
 
 \subsection{Tasques}\label{tasques}
 
-A la \textbf{\autoref{tab:taula1-1}} es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat \textbf{\hyperref[enfocament-i-muxe8tode-seguit]{Enfocament i mètode seguit}}. S'indica també la relació amb els objectius proposats.
+A la \autoref{tab:taula1-1} es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat {[}\textbf{Enfocament i mètode seguit}{]}. S'indica també la relació amb els objectius proposats.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3919}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1622}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1351}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1351}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1757}}@{}}
-\caption{Planificació de tasques}\label{tab:taula1-1}\tabularnewline
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2329}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1918}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1918}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1918}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1918}}@{}}
+\caption{Planificació de tasques}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Tasca
@@ -317,10 +317,10 @@ La \autoref{fig:gantt} mostra el diagrama de Gantt corresponent a les tasques de
 
 \subsection{Fites}\label{fites}
 
-A la \textbf{\autoref{tab:taula1-2}} s'indiquen les fites corresponents a cada prova d'avaluació continuada (PAC).
+A la \autoref{tab:taula1-2} s'indiquen les fites corresponents a cada prova d'avaluació continuada (PAC).
 
 \begin{longtable}[]{@{}lll@{}}
-\caption{Fites}\label{tab:taula1-2}\tabularnewline
+\caption{Fites}\tabularnewline
 \toprule\noalign{}
 Fita & Termini & Estat \\
 \midrule\noalign{}
@@ -343,14 +343,14 @@ Cos del treball redactat & 31/12/26 & En curs \\
 
 \subsection{Anàlisi de riscos}\label{anuxe0lisi-de-riscos}
 
-La \textbf{\autoref{tab:taula1-3}} descriu els riscos que poden fer que la planificació no es compleixi i les accions previstes per al pla de contingència.
+La \autoref{tab:taula1-3} descriu els riscos que poden fer que la planificació no es compleixi i les accions previstes per al pla de contingència.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3014}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1370}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1781}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3836}}@{}}
-\caption{Anàlisi de riscos}\label{tab:taula1-3}\tabularnewline
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2329}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2329}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2329}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3014}}@{}}
+\caption{Anàlisi de riscos}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Risc
@@ -410,25 +410,33 @@ Es declara que en cap cas s'empraran eines d'IA per a la redacció de contingut 
 
 \subsection{Antecedents}\label{antecedents}
 
-Les cardiopaties isquèmiques han estat la primera causa de mortalitat estandarditzada per edat a tot el món des de l'any 1990 (amb l'única excepció del 2021, en què la primera posició va ser ocupada per la COVID-19) {[}6{]}. A més, l'any 2023 van esdevenir la primera causa de mortalitat prematura i salut precària a escala mundial {[}16{]}. Malgrat els avenços en el diagnòstic i el tractament d'aquesta mena de patologies, és necessari garantir que arriben a totes les poblacions de manera equitativa i lliure de discriminacions.
+Les cardiopaties isquèmiques han estat la primera causa de mortalitat estandarditzada per edat a tot el món des de l'any 1990 (amb l'única excepció del 2021, en què la primera posició va ser ocupada per la COVID-19) {[}5{]}. A més, l'any 2023 van esdevenir la primera causa de mortalitat prematura i salut precària a escala mundial {[}6{]}. Malgrat els avenços en el diagnòstic i el tractament d'aquesta mena de patologies, és necessari garantir que aquestes millores arriben a totes les poblacions de manera equitativa i lliure de discriminacions.
 
 La rehabilitació cardíaca (RC) és l'etiqueta sota la qual s'engloben un conjunt de programes de característiques similars que les guies de pràctica clínica recomanen per a la recuperació d'esdeveniments cardiovasculars (p.~ex. insuficiència cardíaca, infart agut de miocardi {[}IAM{]}, malalties cardíaques congènites o diferents intervencions quirúrgiques amb afectació de l'aparell cardiorespiratori). Els seus objectius principals són reduir l'estrès fisiològic i psicològic produït per aquestes patologies, reduir la mortalitat, prevenir hospitalitzacions recurrents i millorar la funció cardiovascular i la qualitat de vida (QdV) de les persones ateses {[}1{]}.
 
-Els programes de RC tradicionals es fonamenten en l'exercici terapèutic, però la pràctica basada en evidència hi ha anat incorporant altres components, convertint-la en una intervenció interdisciplinària que demana la col·laboració de professionals de disciplines tan diverses com la infermeria, la fisioteràpia, la medicina, la nutrició o la psicologia {[}17{]}. El seu contingut varia en funció de l'evolució de l'episodi: sol incloure teràpia de mobilització precoç i educació sanitària en la fase hospitalària, exercici supervisat, prevenció de factors de risc i suport psicosocial en fase ambulatòria i activitat física regular i intervencions d'autocontrol de la patologia en fase domiciliària {[}1{]}.
+Els programes de RC tradicionals es fonamenten en l'exercici terapèutic, però la pràctica basada en evidència hi ha anat incorporant altres components, convertint-la en una intervenció interdisciplinària que demana la col·laboració de professionals de disciplines tan diverses com la infermeria, la fisioteràpia, la medicina, la nutrició o la psicologia {[}7{]}. El seu contingut varia en funció de l'evolució de l'episodi: sol incloure teràpia de mobilització precoç i educació sanitària en la fase hospitalària, exercici supervisat, prevenció de factors de risc i suport psicosocial en fase ambulatòria i activitat física regular i intervencions d'autocontrol de la patologia en fase domiciliària {[}1{]}.
 
-Es tracta d'una intervenció segura, amb un risc baix de complicacions i amb nombrosos beneficis. En persones que conviuen amb malalties coronàries, la RC redueix el risc de patir un IAM (risc relatiu {[}RR{]} 0,72 {[}0,55--0,93{]}, qualitat d'evidència alta) i el nombre d'hospitalitzacions (RR 0,58 {[}0,43--0,77{]}, qualitat d'evidència moderada), a la vegada que permet aconseguir millores en la mortalitat per causes cardiovasculars, la QdV i la cost-efectivitat dels tractaments {[}7{]}. Resultats semblants s'obtenen en casos d'insuficiència cardíaca. En una patologia que suposa una elevada càrrega per a les persones que la pateixen, una disminució de la tolerància a l'exercici, un major risc de mortalitat i readmissions hospitalàries i, en conseqüència, un cost més elevat per als sistemes sanitaris, la RC permet reduir el nombre d'ingressos (RR 0,69 {[}0,56--0,86{]}, qualitat d'evidència moderada) i millorar la QdV relacionada amb la salut {[}18{]}.
+Es tracta d'una intervenció segura, amb un risc baix de complicacions i amb nombrosos beneficis. En persones que conviuen amb malalties coronàries, la RC redueix el risc de patir un IAM (risc relatiu {[}RR{]} 0,72 {[}0,55--0,93{]}, qualitat d'evidència alta) i el nombre d'hospitalitzacions (RR 0,58 {[}0,43--0,77{]}, qualitat d'evidència moderada), a la vegada que permet aconseguir millores en la mortalitat per causes cardiovasculars, la QdV i la cost-efectivitat dels tractaments {[}8{]}. Resultats semblants s'obtenen en casos d'insuficiència cardíaca. En una patologia que suposa una elevada càrrega per a les persones que la pateixen, una disminució de la tolerància a l'exercici, un major risc de mortalitat i readmissions hospitalàries i, en conseqüència, un cost més elevat per als sistemes sanitaris, la RC permet reduir el nombre d'ingressos (RR 0,69 {[}0,56--0,86{]}, qualitat d'evidència moderada) i millorar la QdV relacionada amb la salut {[}9{]}.
 
-En altres condicions de salut, com les cirurgies valvulars o la fibril·lació auricular, encara manca evidència de qualitat per avaluar l'impacte real de la RC basada en exercici {[}5,19{]}. Tanmateix, la RC podria reduir el risc de recurrència de la fibril·lació auricular (RR 0,70 {[}0,56--0,88{]}, qualitat d'evidència moderada) i millorar-ne la QdV {[}19{]}. Un altre aspecte que cal considerar és l'afectació que tenen les malalties cardiovasculars en salut mental, que precisament està considerat com un dels factors de risc que les pot desencadenar {[}20{]}. En persones que havien patit un IAM, la RC va tenir efectes positius en els nivells d'ansietat i depressió. A més, l'inici precoç del tractament va suposar un augment de la QdV i una reducció de la mortalitat i la morbiditat {[}21{]}.
+En altres condicions de salut, com les cirurgies valvulars o la fibril·lació auricular, encara manca evidència de qualitat per avaluar l'impacte real de la RC basada en exercici {[}10,11{]}. Tanmateix, la RC podria reduir el risc de recurrència de la fibril·lació auricular (RR 0,70 {[}0,56--0,88{]}, qualitat d'evidència moderada) i millorar-ne la QdV {[}11{]}. Un altre aspecte que cal considerar és l'afectació que tenen les malalties cardiovasculars en salut mental, que precisament està considerada com un dels factors de risc que les pot desencadenar {[}12{]}. En persones que havien patit un IAM, la RC va tenir efectes positius en els nivells d'ansietat i depressió. A més, l'inici precoç del tractament va suposar un augment de la QdV i una reducció de la mortalitat i la morbiditat {[}13{]}.
 
 Per entendre millor els efectes de la RC sobre diferents patologies cardiovasculars, cal analitzar-ne els principals resultats clínics i les variables que s'acostumen a emprar per a la seva predicció.
 
 \subsection{Resultats clínics i variables predictores}\label{resultats-cluxednics-i-variables-predictores}
 
-Text
+En general, els resultats clínics de la RC es poden agrupar en dos àmbits: la capacitat funcional i la qualitat de vida. En la primera sol ser rellevant conèixer la capacitat aeròbica, mitjançant una ergometria o una prova funcional com la de 6MWT, i la força màxima dels principals grups musculars que intervenen a la marxa. Pel que fa a la segona, és habitual l'ús de mesures de resultat informades pel pacient (PROMs, per les seves sigles en anglès), que inclouen els nivells d'ansietat, depressió, activitat física o QdV relacionada amb la salut. És important disposar d'aquestes mesures perquè estan associades amb la taxa de mortalitat, la recurrència d'hospitalitzacions, la rendibilitat dels tractaments i l'impacte en les activitats de la vida diària (AVD) {[}4{]}.
+
+En general, la RC és una intervenció eficaç per incrementar la tolerància a l'exercici i el benestar de les persones que hi participen {[}7{]}. No obstant això, els resultats poden diferir en funció de les característiques pròpies de cada pacient. Alguns factors que influeixen en la millora final són l'edat, l'estat físic inicial, l'índex de massa corporal (IMC), la presència de comorbiditats o paràmetres hemodinàmics, com l'hemoglobina, la pressió arterial o la fracció d'ejecció ventricular esquerra (FEVE) {[}14--18{]}.
+
+S'ha omès deliberadament d'aquesta llista el sexe, sobre el qual es tractarà en els apartats següents. Tot i que alguns estudis apunten que les persones de sexe masculí podrien aconseguir millors resultats en la 6MWT {[}19,20{]}, d'altres obtenen resultats contraris {[}21{]}. Per acabar, cal destacar la relació de reciprocitat que existeix entre la capacitat funcional i la QdV: mentre que l'ansietat i la depressió tenen un impacte negatiu en l'activitat física {[}22{]}, un augment d'aquesta darrera pot contribuir a obtenir nivells més elevats de benestar {[}23{]}.
 
 \subsection{Reptes}\label{reptes}
 
-Text
+A mesura que l'evidència científica sobre RC creix en nombre i en qualitat, també es van detectant reptes importants que cal abordar per tal d'optimitzar-ne els resultats clínics. D'una banda, la participació als programes és relativament baixa: només s'hi inscriuen prop d'un 25\% de pacients elegibles {[}1{]}. Aquest fet pot ser degut a l'existència de barreres tant clíniques com personals o dels sistemes sanitaris. Determinats col·lectius, com les dones, les persones d'edat avançada, racialitzades o de minories ètniques o socials, tenen menor probabilitat de participació. L'envelliment poblacional, a més, comporta un increment de les comorbiditats (p.~ex. hipertensió arterial, diabetis, fibril·lació auricular), que també suposen un obstacle important per a la inclusió en programes de RC {[}7{]}.
+
+L'adherència terapèutica és un component imprescindible de qualsevol tractament i, en el cas de la RC, les taxes d'abandonament són considerablement elevades. La persistència en l'exercici terapèutic pot caure fins a prop del 50\% al cap de 6 mesos o fins al 10\% al cap d'un any {[}24{]}. Aquest fet és preocupant, perquè el compliment terapèutic és un dels principals predictors de la millora de resultats clínics i del seu manteniment a mitjà i llarg termini. Es tracta d'un problema complex en què influeixen factors demogràfics, clínics i psicosocials {[}25,26{]}.
+
+És necessari, per tant, millorar l'accés i la participació als programes de RC. Amb aquesta finalitat, han pres força alternatives de rehabilitació domiciliària i, fins i tot, virtual, així com programes adaptats a diferents col·lectius. No obstant això, als estudis disponibles encara s'hi troben infrarepresentades les dones, les persones d'edat avançada o de països de renda baixa i mitjana {[}9{]}. Si bé s'està avançant en la generalitzabilitat de l'evidència, encara queda un llarg camí per recórrer, com s'argumentarà en els propers apartats.
 
 \section{Consideracions sobre el sexe i el gènere}\label{consideracions-sobre-el-sexe-i-el-guxe8nere}
 
@@ -462,73 +470,93 @@ Text
 \CSLLeftMargin{4. }%
 \CSLRightInline{Vieli C, Duong HP, Duc M, Carré JL, Bast JD, Girod G, et al. Functional capacity and patient-reported outcome measures after cardiac rehabilitation: A prospective study with 6-month follow-up. Swiss Medical Weekly. 2025;155:4160. doi:\href{https://doi.org/10.57187/s.4160}{10.57187/s.4160}}
 
-\bibitem[\citeproctext]{ref-abraham2021}
-\CSLLeftMargin{5. }%
-\CSLRightInline{Abraham LN, Sibilitz KL, Berg SK, Tang LH, Risom SS, Lindschou J, et al. Exercise{-}based cardiac rehabilitation for adults after heart valve surgery. Cochrane Database of Systematic Reviews. 2021;2021:CD010876. doi:\href{https://doi.org/10.1002/14651858.cd010876.pub3}{10.1002/14651858.cd010876.pub3}}
-
 \bibitem[\citeproctext]{ref-collaborators2025}
-\CSLLeftMargin{6. }%
+\CSLLeftMargin{5. }%
 \CSLRightInline{Collaborators G2023C of D, Naghavi M, Kyu HH, A B, Aalipour MA, Aalruz H, et al. Global burden of 292 causes of death in 204 countries and territories and 660 subnational locations, 1990{\textendash}2023: A systematic analysis for the global burden of disease study 2023. The Lancet. 2025;406:18111872. doi:\href{https://doi.org/10.1016/s0140-6736(25)01917-8}{10.1016/s0140-6736(25)01917-8}}
 
-\bibitem[\citeproctext]{ref-dibben2023}
-\CSLLeftMargin{7. }%
-\CSLRightInline{Dibben GO, Faulkner J, Oldridge N, Rees K, Thompson DR, Zwisler AD, et al. Exercise-based cardiac rehabilitation for coronary heart disease: A meta-analysis. European Heart Journal. 2023;44:452469. doi:\href{https://doi.org/10.1093/eurheartj/ehac747}{10.1093/eurheartj/ehac747}}
-
-\bibitem[\citeproctext]{ref-firoozabadi2023}
-\CSLLeftMargin{8. }%
-\CSLRightInline{Firoozabadi MG, Mirzaei M, Grace SL, Vafaeinasab M, Dehghani-Tafti M, Sadeghi A, et al. Sex differences in cardiac rehabilitation barriers among non-enrollees in the context of lower gender equality: A cross-sectional study. BMC Cardiovascular Disorders. 2023;23:329. doi:\href{https://doi.org/10.1186/s12872-023-03331-7}{10.1186/s12872-023-03331-7}}
-
-\bibitem[\citeproctext]{ref-artiles2023}
-\CSLLeftMargin{9. }%
-\CSLRightInline{Artiles RF, Euler S, Auschra B, Silva HB da, Niederseer D, Schmied C, et al. Predictors of gain in exercise capacity through cardiac rehabilitation: Sex and age matter. Heart \& Lung. 2023;62:200206. doi:\href{https://doi.org/10.1016/j.hrtlng.2023.08.003}{10.1016/j.hrtlng.2023.08.003}}
-
-\bibitem[\citeproctext]{ref-khadanga2021}
-\CSLLeftMargin{10. }%
-\CSLRightInline{Khadanga S, Gaalema DE, Savage P, Ades PA. Underutilization of cardiac rehabilitation in women. Journal of Cardiopulmonary Rehabilitation and Prevention. 2021;41:207213. doi:\href{https://doi.org/10.1097/hcr.0000000000000629}{10.1097/hcr.0000000000000629}}
-
-\bibitem[\citeproctext]{ref-hoeve2026}
-\CSLLeftMargin{11. }%
-\CSLRightInline{HOEVE NT, BAKKER MD, SUNAMURA M, LENNEP JERV, BOERSMA E, BERG-EMONS RJGVD. WOMEN AND MEN PROFIT EQUALLY FROM CARDIAC REHABILITATION: A SECONDARY ANALYSIS OF THE OPTICARE RCT. Journal of Rehabilitation Medicine. 2026;58:44504. doi:\href{https://doi.org/10.2340/jrm.v58.44504}{10.2340/jrm.v58.44504}}
-
-\bibitem[\citeproctext]{ref-mcfeely2025}
-\CSLLeftMargin{12. }%
-\CSLRightInline{McFeely AE, Bittner VA. Sex and gender-based differences in outcomes of cardiac rehabilitation following acute myocardial infarction. Current Atherosclerosis Reports. 2025;27:109. doi:\href{https://doi.org/10.1007/s11883-025-01360-5}{10.1007/s11883-025-01360-5}}
-
-\bibitem[\citeproctext]{ref-criscuolo2026}
-\CSLLeftMargin{13. }%
-\CSLRightInline{Criscuolo C, Salnitri M, Martinenghi D. FAIR-CARE: A comparative evaluation of unfairness mitigation approaches. Information and Software Technology. 2026;189:107898. doi:\href{https://doi.org/10.1016/j.infsof.2025.107898}{10.1016/j.infsof.2025.107898}}
-
-\bibitem[\citeproctext]{ref-fatoretto2025}
-\CSLLeftMargin{14. }%
-\CSLRightInline{Fatoretto MB, Özbulak G, Anjos A, Berton L. Optimizing fairness and utility in healthcare machine learning models. Applied Soft Computing. 2025;181:113426. doi:\href{https://doi.org/10.1016/j.asoc.2025.113426}{10.1016/j.asoc.2025.113426}}
-
-\bibitem[\citeproctext]{ref-oneto2020}
-\CSLLeftMargin{15. }%
-\CSLRightInline{Oneto L, Chiappa S. Recent trends in learning from data, tutorials from the INNS big data and deep learning conference (INNSBDDL2019). Studies in Computational Intelligence. 2020;155196. doi:\href{https://doi.org/10.1007/978-3-030-43883-8_7}{10.1007/978-3-030-43883-8\_7}}
-
 \bibitem[\citeproctext]{ref-collaboratorsgbd2023diseaseandinjuryandriskfactor2025}
-\CSLLeftMargin{16. }%
+\CSLLeftMargin{6. }%
 \CSLRightInline{{Collaborators, GBD 2023 Disease and Injury and Risk Factor, Hay SI, Ong KL, Santomauro DF, A B, Aalipour MA, et al.} Burden of 375 diseases and injuries, risk-attributable burden of 88 risk factors, and healthy life expectancy in 204 countries and territories, including 660 subnational locations, 1990{\textendash}2023: A systematic analysis for the global burden of disease study 2023. The Lancet. 2025;406:18731922. doi:\href{https://doi.org/10.1016/s0140-6736(25)01637-x}{10.1016/s0140-6736(25)01637-x}}
 
 \bibitem[\citeproctext]{ref-taylor2022}
-\CSLLeftMargin{17. }%
+\CSLLeftMargin{7. }%
 \CSLRightInline{Taylor RS, Dalal HM, McDonagh STJ. The role of cardiac rehabilitation in improving cardiovascular outcomes. Nature Reviews Cardiology. 2022;19:180194. doi:\href{https://doi.org/10.1038/s41569-021-00611-7}{10.1038/s41569-021-00611-7}}
 
+\bibitem[\citeproctext]{ref-dibben2023}
+\CSLLeftMargin{8. }%
+\CSLRightInline{Dibben GO, Faulkner J, Oldridge N, Rees K, Thompson DR, Zwisler AD, et al. Exercise-based cardiac rehabilitation for coronary heart disease: A meta-analysis. European Heart Journal. 2023;44:452469. doi:\href{https://doi.org/10.1093/eurheartj/ehac747}{10.1093/eurheartj/ehac747}}
+
 \bibitem[\citeproctext]{ref-molloy2024}
-\CSLLeftMargin{18. }%
+\CSLLeftMargin{9. }%
 \CSLRightInline{Molloy C, Long L, Mordi IR, Bridges C, Sagar VA, Davies EJ, et al. Exercise{-}based cardiac rehabilitation for adults with heart failure. Cochrane Database of Systematic Reviews. 2024;2024:CD003331. doi:\href{https://doi.org/10.1002/14651858.cd003331.pub6}{10.1002/14651858.cd003331.pub6}}
 
+\bibitem[\citeproctext]{ref-abraham2021}
+\CSLLeftMargin{10. }%
+\CSLRightInline{Abraham LN, Sibilitz KL, Berg SK, Tang LH, Risom SS, Lindschou J, et al. Exercise{-}based cardiac rehabilitation for adults after heart valve surgery. Cochrane Database of Systematic Reviews. 2021;2021:CD010876. doi:\href{https://doi.org/10.1002/14651858.cd010876.pub3}{10.1002/14651858.cd010876.pub3}}
+
 \bibitem[\citeproctext]{ref-buckley2024}
-\CSLLeftMargin{19. }%
+\CSLLeftMargin{11. }%
 \CSLRightInline{Buckley BJ, Long L, Risom SS, Lane DA, Berg SK, Gluud C, et al. Exercise{-}based cardiac rehabilitation for adults with atrial fibrillation. Cochrane Database of Systematic Reviews. 2024;2024:CD011197. doi:\href{https://doi.org/10.1002/14651858.cd011197.pub3}{10.1002/14651858.cd011197.pub3}}
 
 \bibitem[\citeproctext]{ref-wrzeciono2024}
-\CSLLeftMargin{20. }%
+\CSLLeftMargin{12. }%
 \CSLRightInline{Wrzeciono A, Mazurek J, Cieślik B, Kiper P, Gajda R, Szczepańska-Gieracha J. Psychologically-enhanced cardiac rehabilitation for psychological and functional improvement in patients with cardiovascular disease: A systematic review with meta-analysis and future research directions. Physiotherapy. 2024;125:101412. doi:\href{https://doi.org/10.1016/j.physio.2024.07.003}{10.1016/j.physio.2024.07.003}}
 
 \bibitem[\citeproctext]{ref-zheng2019}
-\CSLLeftMargin{21. }%
+\CSLLeftMargin{13. }%
 \CSLRightInline{Zheng X, Zheng Y, Ma J, Zhang M, Zhang Y, Liu X, et al. Effect of exercise-based cardiac rehabilitation on anxiety and depression in patients with myocardial infarction: A systematic review and meta-analysis. Heart \& Lung. 2019;48:17. doi:\href{https://doi.org/10.1016/j.hrtlng.2018.09.011}{10.1016/j.hrtlng.2018.09.011}}
+
+\bibitem[\citeproctext]{ref-suzuki2018}
+\CSLLeftMargin{14. }%
+\CSLRightInline{Suzuki Y, Ito K, Yamamoto K, Fukui N, Yanagi H, Kitagaki K, et al. Predictors of improvements in exercise capacity during cardiac rehabilitation in the recovery phase after coronary artery bypass graft surgery versus acute myocardial infarction. Heart and Vessels. 2018;33:358366. doi:\href{https://doi.org/10.1007/s00380-017-1076-2}{10.1007/s00380-017-1076-2}}
+
+\bibitem[\citeproctext]{ref-baldasseroni2022}
+\CSLLeftMargin{15. }%
+\CSLRightInline{Baldasseroni S, Silverii MV, Pratesi A, Burgisser C, Orso F, Lucarelli G, et al. Cardiac rehabilitation in advanced aGE after PCI for acute coronary syndromes: Predictors of exercise capacity improvement in the CR-AGE ACS study. Aging Clinical and Experimental Research. 2022;34:21952203. doi:\href{https://doi.org/10.1007/s40520-022-02130-y}{10.1007/s40520-022-02130-y}}
+
+\bibitem[\citeproctext]{ref-tokeshi2023}
+\CSLLeftMargin{16. }%
+\CSLRightInline{Tokeshi T, Date A, Miura H, Kumasaka L, Arakawa T, Nakao K, et al. Predictors of improvement in exercise capacity after cardiac rehabilitation differ between octogenarian and young-old patients with acute myocardial infarction. Circulation Journal. 2023;87:815823. doi:\href{https://doi.org/10.1253/circj.cj-22-0606}{10.1253/circj.cj-22-0606}}
+
+\bibitem[\citeproctext]{ref-uszko-lencer2017}
+\CSLLeftMargin{17. }%
+\CSLRightInline{Uszko-Lencer NHMK, Mesquita R, Janssen E, Werter C, Rocca HPBL, Pitta F, et al. Reliability, construct validity and determinants of 6-minute walk test performance in patients with chronic heart failure. International Journal of Cardiology. 2017;240:285290. doi:\href{https://doi.org/10.1016/j.ijcard.2017.02.109}{10.1016/j.ijcard.2017.02.109}}
+
+\bibitem[\citeproctext]{ref-kurpaska2025}
+\CSLLeftMargin{18. }%
+\CSLRightInline{Kurpaska M, Krzesiński P, Banak M, Piotrowicz K. Predictors of impaired exercise performance in patients qualified for cardiac rehabilitation: The impact of sex and comorbidities. Journal of Clinical Medicine. 2025;14:7512. doi:\href{https://doi.org/10.3390/jcm14217512}{10.3390/jcm14217512}}
+
+\bibitem[\citeproctext]{ref-bargehr2017}
+\CSLLeftMargin{19. }%
+\CSLRightInline{Bargehr J, Thomas CS, Oken KR, Thomas RJ, Lopez-Jimenez F, Trejo-Gutierrez JF. Predictors of suboptimal gain in exercise capacity after cardiac rehabilitation. The American Journal of Cardiology. 2017;119:687691. doi:\href{https://doi.org/10.1016/j.amjcard.2016.08.005}{10.1016/j.amjcard.2016.08.005}}
+
+\bibitem[\citeproctext]{ref-sutherland2018}
+\CSLLeftMargin{20. }%
+\CSLRightInline{Sutherland N, Harrison A, Doherty P. Factors influencing change in walking ability in patients with heart failure undergoing exercise-based cardiac rehabilitation. International Journal of Cardiology. 2018;268:162165. doi:\href{https://doi.org/10.1016/j.ijcard.2018.05.021}{10.1016/j.ijcard.2018.05.021}}
+
+\bibitem[\citeproctext]{ref-artiles2023}
+\CSLLeftMargin{21. }%
+\CSLRightInline{Artiles RF, Euler S, Auschra B, Silva HB da, Niederseer D, Schmied C, et al. Predictors of gain in exercise capacity through cardiac rehabilitation: Sex and age matter. Heart \& Lung. 2023;62:200206. doi:\href{https://doi.org/10.1016/j.hrtlng.2023.08.003}{10.1016/j.hrtlng.2023.08.003}}
+
+\bibitem[\citeproctext]{ref-sakamoto2022}
+\CSLLeftMargin{22. }%
+\CSLRightInline{Sakamoto M, Suematsu Y, Yano Y, Kaino K, Teshima R, Matsuda T, et al. Depression and anxiety are associated with physical performance in patients undergoing cardiac rehabilitation: A retrospective observational study. Journal of Cardiovascular Development and Disease. 2022;9:21. doi:\href{https://doi.org/10.3390/jcdd9010021}{10.3390/jcdd9010021}}
+
+\bibitem[\citeproctext]{ref-kjesbu2024}
+\CSLLeftMargin{23. }%
+\CSLRightInline{Kjesbu IE, Sibilitz KL, Petersen J, Houben VJG, Wilhelm M, Pena-Gil C, et al. Health-related quality of life in elderly cardiac patients undergoing cardiac rehabilitation and the association with exercise capacity: The EU-CaRE study. European Journal of Preventive Cardiology. 2024;31:19501957. doi:\href{https://doi.org/10.1093/eurjpc/zwae195}{10.1093/eurjpc/zwae195}}
+
+\bibitem[\citeproctext]{ref-young2020}
+\CSLLeftMargin{24. }%
+\CSLRightInline{Young L, Zhang Q, Lian E, Roberts K, Weintraub N, Dong Y, et al. Factors predicting the utilization of center-based cardiac rehabilitation program. Geriatrics. 2020;5:66. doi:\href{https://doi.org/10.3390/geriatrics5040066}{10.3390/geriatrics5040066}}
+
+\bibitem[\citeproctext]{ref-malak2021}
+\CSLLeftMargin{25. }%
+\CSLRightInline{Malak MM, Hushcha P, Jafri SH, Bousquet G, Cabral L, Lutfy C, et al. PREDICTORS OF CARDIAC REHABILITATION COMPLETION. Journal of the American College of Cardiology. 2021;77:1585. doi:\href{https://doi.org/10.1016/s0735-1097(21)02942-9}{10.1016/s0735-1097(21)02942-9}}
+
+\bibitem[\citeproctext]{ref-yuan2026}
+\CSLLeftMargin{26. }%
+\CSLRightInline{Yuan L, Xu L, Zhang C, Yang Z. The heterogeneous trajectory of adherence to home{-}based cardiac rehabilitation exercises in patients with coronary heart disease: A cohort study. Journal of Advanced Nursing. 2026;82:72907299. doi:\href{https://doi.org/10.1111/jan.70369}{10.1111/jan.70369}}
 
 \end{CSLReferences}
 
@@ -536,6 +564,66 @@ Text
 \appendix
 
 \chapter{Annex 1}\label{annex-1}
+
+\section{Llistat d'abreviacions}\label{llistat-dabreviacions}
+
+\subsection{Abreviatures}\label{abreviatures}
+
+\begin{itemize}
+\tightlist
+\item
+  p. ex.: per exemple.
+\end{itemize}
+
+\subsection{Sigles i acrònims}\label{sigles-i-acruxf2nims}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{AVD}: activitats de la vida diària.
+\item
+  \textbf{FEVE}: fracció d'ejecció ventricular esquerra.
+\item
+  \textbf{HADS}: Escala Hospitalària d'Ansietat i Depressió (de l'anglès \emph{Hospital Anxiety \& Depression Scale}).
+\item
+  \textbf{IA}: intel·ligència artificial.
+\item
+  \textbf{IAM}: infart agut de miocardi.
+\item
+  \textbf{IMC}: índex de massa corporal.
+\item
+  \textbf{LASSO}: operador de selecció i contracció mínima absoluta (de l'anglès \emph{least absolute shrinkage and selection operator}).
+\item
+  \textbf{MET}: equivalent metabòlic de l'activitat (de l'anglès \emph{metabolic equivalent of task}).
+\item
+  \textbf{ML}: aprenentatge automàtic (de l'anglès \emph{machine learning}).
+\item
+  \textbf{MSEC}: capacitat d'exercici màxima a curt termini (de l'anglès \emph{maximal short-time exercise capacity}).
+\item
+  \textbf{ODS}: objectius de desenvolupament sostenible.
+\item
+  \textbf{PROMs}: mesures de resultat informades pel pacient (de l'anglès \emph{Patient-Reported Outcome Measures}).
+\item
+  \textbf{QdV}: qualitat de vida.
+\item
+  \textbf{QIS}: força isomètrica màxima del quàdriceps (de l'anglès \emph{quadriceps maximal isometric strength}).
+\item
+  \textbf{RC}: rehabilitació cardíaca.
+\item
+  \textbf{RR}: risc relatiu.
+\item
+  \textbf{6MWT}: prova de la marxa de 6 minuts (de l'anglès \emph{Six-Minute Walk Test}).
+\end{itemize}
+
+\subsection{Símbols}\label{suxedmbols}
+
+\begin{itemize}
+\tightlist
+\item
+  Text
+\end{itemize}
+
+\chapter{Annex 2}\label{annex-2}
 
 \section{Codi}\label{codi}
 
