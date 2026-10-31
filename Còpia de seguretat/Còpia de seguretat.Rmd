@@ -46,23 +46,23 @@ A la **\autoref{tab:taula1-1}** es descriuen les tasques que caldrà desenvolupa
 |                                   |               |          |          |            |
 | **2. Estat de l'art**             |               |          |          |            |
 | Cerca preliminar d'evidència      | 1.1, 2.1      | 23/9/26  | 7/10/26  | Completada |
-| Revisió de l'evidència trobada    | 1.1, 2.1      | 1/10/26  | 28/10/26 | En curs    |
+| Revisió de l'evidència trobada    | 1.1, 2.1      | 1/10/26  | 28/10/26 | Completada |
 |                                   |               |          |          |            |
 | **3. Implementació**              |               |          |          |            |
-| Preprocessament de dades          | 1.2           | 29/10/26 | 11/11/26 | Pendent    |
+| Preprocessament de dades          | 1.2           | 29/10/26 | 11/11/26 | En curs    |
 | Modelització estadística          | 1.2           | 12/11/26 | 25/11/26 | Pendent    |
 | Avaluació i auditoria de gènere   | 1.2, 1.3, 2.2 | 12/11/26 | 25/11/26 | Pendent    |
 | Discussió de resultats            | 1.3, 2.2      | 26/11/26 | 2/12/26  | Pendent    |
 |                                   |               |          |          |            |
 | **4. Lliurament final**           |               |          |          |            |
-| Introducció                       |               | 23/9/26  | 14/10/26 | En curs    |
-| Estat de l'art                    | 1.1, 2.1      | 15/10/26 | 4/11/26  | Pendent    |
+| Introducció                       |               | 23/9/26  | 14/10/26 | Completada |
+| Estat de l'art                    | 1.1, 2.1      | 15/10/26 | 4/11/26  | Completada |
 | Materials i mètodes               | 1.2           | 5/11/26  | 25/11/26 | Pendent    |
 | Resultats                         | 1.3, 2.2      | 26/11/26 | 16/12/26 | Pendent    |
 | Discussió                         | 1.1, 1.3, 2.2 | 17/12/26 | 31/12/26 | Pendent    |
 | Conclusions                       |               | 1/1/27   | 7/1/27   | Pendent    |
 | Glossari i Annexos                |               | 23/9/26  | 7/1/27   | En curs    |
-| Article                           |               | 15/10/26 | 7/1/27   | Pendent    |
+| Article                           |               | 15/10/26 | 7/1/27   | En curs    |
 |                                   |               |          |          |            |
 | **5. Presentació**                |               |          |          |            |
 | Elaboració de diapositives        |               | 8/1/27   | 13/1/27  | Pendent    |
@@ -79,9 +79,9 @@ A la **\autoref{tab:taula1-2}** s'indiquen les fites corresponents a cada prova 
 | Fita                              | Termini  | Estat      |
 |-----------------------------------|----------|------------|
 | **Entrega**: PAC 1                | 7/10/26  | Completada |
-| Final de la recerca bibliogràfica | 28/10/26 | En curs    |
-| **Entrega**: PAC 2                | 4/11/26  | Pendent    |
-| Final de la implementació         | 25/11/26 | Pendent    |
+| Final de la recerca bibliogràfica | 28/10/26 | Completada |
+| **Entrega**: PAC 2                | 4/11/26  | Completada |
+| Final de la implementació         | 25/11/26 | En curs    |
 | **Entrega**: PAC 3                | 2/12/26  | Pendent    |
 | Cos del treball redactat          | 31/12/26 | En curs    |
 | **Entrega**: PAC 4 i article      | 7/1/27   | Pendent    |

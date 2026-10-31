@@ -41,12 +41,11 @@ opts_chunk$set(echo = FALSE,
                message = FALSE,
                comment = "", 
                cache = TRUE,
-               tidy = TRUE,
+               tidy = FALSE,
                prompt = FALSE,
                tidy.opts = list(width.cutoff = 72))
 
 options(width = 75)
-options(tinytex.verbose = TRUE)
 
 Sys.setlocale("LC_TIME", "C")
 
@@ -206,29 +205,29 @@ Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin
 A la \autoref{tab:taula1-1} es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat [**Enfocament i mètode seguit**]. S'indica també la relació amb els objectius proposats.
 
 | Tasca                             | Objectius     | Inici    | Final    | Estat      |
-|-------------------|--------------|--------------|--------------|--------------|
+|---------------|---------------|---------------|---------------|---------------|
 | **1. Definició i pla de treball** |               |          |          |            |
 | Plantejament del treball          |               | 23/9/26  | 7/10/26  | Completada |
 |                                   |               |          |          |            |
 | **2. Estat de l'art**             |               |          |          |            |
 | Cerca preliminar d'evidència      | 1.1, 2.1      | 23/9/26  | 7/10/26  | Completada |
-| Revisió de l'evidència trobada    | 1.1, 2.1      | 1/10/26  | 28/10/26 | En curs    |
+| Revisió de l'evidència trobada    | 1.1, 2.1      | 1/10/26  | 28/10/26 | Completada |
 |                                   |               |          |          |            |
 | **3. Implementació**              |               |          |          |            |
-| Preprocessament de dades          | 1.2           | 29/10/26 | 11/11/26 | Pendent    |
+| Preprocessament de dades          | 1.2           | 29/10/26 | 11/11/26 | En curs    |
 | Modelització estadística          | 1.2           | 12/11/26 | 25/11/26 | Pendent    |
 | Avaluació i auditoria de gènere   | 1.2, 1.3, 2.2 | 12/11/26 | 25/11/26 | Pendent    |
 | Discussió de resultats            | 1.3, 2.2      | 26/11/26 | 2/12/26  | Pendent    |
 |                                   |               |          |          |            |
 | **4. Lliurament final**           |               |          |          |            |
-| Introducció                       |               | 23/9/26  | 14/10/26 | En curs    |
-| Estat de l'art                    | 1.1, 2.1      | 15/10/26 | 4/11/26  | Pendent    |
+| Introducció                       |               | 23/9/26  | 14/10/26 | Completada |
+| Estat de l'art                    | 1.1, 2.1      | 15/10/26 | 4/11/26  | Completada |
 | Materials i mètodes               | 1.2           | 5/11/26  | 25/11/26 | Pendent    |
 | Resultats                         | 1.3, 2.2      | 26/11/26 | 16/12/26 | Pendent    |
 | Discussió                         | 1.1, 1.3, 2.2 | 17/12/26 | 31/12/26 | Pendent    |
 | Conclusions                       |               | 1/1/27   | 7/1/27   | Pendent    |
 | Glossari i Annexos                |               | 23/9/26  | 7/1/27   | En curs    |
-| Article                           |               | 15/10/26 | 7/1/27   | Pendent    |
+| Article                           |               | 15/10/26 | 7/1/27   | En curs    |
 |                                   |               |          |          |            |
 | **5. Presentació**                |               |          |          |            |
 | Elaboració de diapositives        |               | 8/1/27   | 13/1/27  | Pendent    |
@@ -294,10 +293,10 @@ df_gantt <- data.frame(
     "2027-01-13"
   )),
   Estat = factor(c(
-    "Completada", "Completada", "En curs", "Pendent",
-    "Pendent", "Pendent", "Pendent", "En curs",
-    "Pendent", "Pendent", "Pendent", "Pendent",
-    "Pendent", "En curs", "Pendent", "Pendent", "Pendent"
+    "Completada", "Completada", "Completada", "En curs",
+    "Pendent", "Pendent", "Pendent", "Completada",
+    "Completada", "Pendent", "Pendent", "Pendent",
+    "Pendent", "En curs", "En curs", "Pendent", "Pendent"
   ), levels = c("Completada", "En curs", "Pendent"))
 )
 
@@ -350,9 +349,9 @@ A la \autoref{tab:taula1-2} s'indiquen les fites corresponents a cada prova d'av
 | Fita                              | Termini  | Estat      |
 |-----------------------------------|----------|------------|
 | **Entrega**: PAC 1                | 7/10/26  | Completada |
-| Final de la recerca bibliogràfica | 28/10/26 | En curs    |
-| **Entrega**: PAC 2                | 4/11/26  | Pendent    |
-| Final de la implementació         | 25/11/26 | Pendent    |
+| Final de la recerca bibliogràfica | 28/10/26 | Completada |
+| **Entrega**: PAC 2                | 4/11/26  | Completada |
+| Final de la implementació         | 25/11/26 | En curs    |
 | **Entrega**: PAC 3                | 2/12/26  | Pendent    |
 | Cos del treball redactat          | 31/12/26 | En curs    |
 | **Entrega**: PAC 4 i article      | 7/1/27   | Pendent    |
@@ -365,7 +364,7 @@ A la \autoref{tab:taula1-2} s'indiquen les fites corresponents a cada prova d'av
 La \autoref{tab:taula1-3} descriu els riscos que poden fer que la planificació no es compleixi i les accions previstes per al pla de contingència.
 
 | Risc | Impacte | Probabilitat | Mitigació |
-|------------------|------------------|------------------|------------------|
+|-----------------|-----------------|-----------------|---------------------|
 | Abundància de registres incomplets en les dades | Alt | Alta | Imputació de valors faltants o eliminació dels registres afectats o de variables que no es considerin crítiques, segons el cas |
 | Biaixos inherents a la composició del conjunt de dades | Alt | Alta | Comparació dels resultats amb l'evidència disponible i aplicació de tècniques de ponderació o remostreig |
 | Desviacions del pla de treball marcat | Mitjà | Mitjana | Establiment de fites parcials per a les PAC, de manera que l'última setmana de cadascuna es pugui reservar per a la revisió o com a marge per acabar de completar les tasques pendents |
@@ -421,13 +420,13 @@ Per entendre millor els efectes de la RC sobre diferents patologies cardiovascul
 
 En general, els resultats clínics de la RC es poden agrupar en dos àmbits: la capacitat funcional i la qualitat de vida. En la primera sol ser rellevant conèixer la capacitat aeròbica, mitjançant una ergometria o una prova funcional com la 6MWT, i la força màxima dels principals grups musculars que intervenen a la marxa. Pel que fa a la segona, és habitual l'ús de mesures de resultat informades pel pacient (PROMs, per les seves sigles en anglès), que inclouen els nivells d'ansietat, depressió, activitat física o QdV relacionada amb la salut. És important disposar d'aquestes mesures perquè estan associades amb la taxa de mortalitat, la recurrència d'hospitalitzacions, la rendibilitat dels tractaments i l'impacte en les activitats de la vida diària (AVD) [@vieli2025].
 
-En general, la RC és una intervenció eficaç per incrementar la tolerància a l'exercici i el benestar de les persones que hi participen [@taylor2022]. No obstant això, els resultats poden diferir en funció de les característiques pròpies de cada pacient. Alguns factors que influeixen en la millora final són l'edat, l'estat físic inicial, l'índex de massa corporal (IMC), la presència de comorbiditats o paràmetres hemodinàmics, com l'hemoglobina, la pressió arterial o la fracció d'ejecció ventricular esquerra (FEVE) [@suzuki2018; @baldasseroni2022; @tokeshi2023; @uszko-lencer2017; @kurpaska2025].
+En general, la RC és una intervenció eficaç per incrementar la tolerància a l'exercici i el benestar de les persones que hi participen [@taylor2022]. No obstant això, els resultats poden diferir en funció de les característiques pròpies de cada pacient. Alguns factors que influeixen en la millora final són l'edat, l'estat físic inicial, l'índex de massa corporal (IMC), la presència de comorbiditats o paràmetres hemodinàmics, com l'hemoglobina, la pressió arterial o la fracció d'ejecció ventricular esquerra (FEVE) [@suzuki2018; @baldasseroni2022; @tokeshi2023; @uszko-lencer2017; @kurpaska2025]. La identificació de variables predictores és necessària per poder adaptar millor els programes i optimitzar els beneficis per a totes les persones que hi participen [@smith2026].
 
 S'ha omès deliberadament d'aquesta llista el sexe, sobre el qual es tractarà en els apartats següents. Tot i que alguns estudis apunten que les persones de sexe masculí podrien aconseguir millors resultats en la 6MWT [@bargehr2017; @sutherland2018], d'altres obtenen resultats contraris [@artiles2023]. Per acabar, cal destacar la relació de reciprocitat que existeix entre la capacitat funcional i la QdV: mentre que l'ansietat i la depressió tenen un impacte negatiu en l'activitat física [@sakamoto2022], un augment d'aquesta darrera pot contribuir a obtenir nivells més elevats de benestar [@kjesbu2024].
 
 ### Reptes
 
-A mesura que l'evidència científica sobre RC creix en nombre i en qualitat, també es van detectant reptes importants que cal abordar per tal d'optimitzar-ne els resultats clínics. D'una banda, la participació als programes és relativament baixa: només s'hi inscriuen prop d'un 25% de pacients elegibles [@tessler2026]. Aquest fet pot ser degut a l'existència de barreres tant clíniques com personals o dels sistemes sanitaris. Determinats col·lectius, com les dones, les persones d'edat avançada, racialitzades o de minories ètniques o socials, tenen menor probabilitat de participació. L'envelliment poblacional, a més, comporta un increment de les comorbiditats (p. ex. hipertensió arterial, diabetis, fibril·lació auricular), que també suposen un obstacle important per a la inclusió en programes de RC [@taylor2022].
+A mesura que l'evidència científica sobre RC creix en nombre i en qualitat, també es van detectant reptes importants que cal abordar per tal d'optimitzar-ne els resultats clínics. D'una banda, la participació als programes és relativament baixa: només s'hi inscriuen prop d'un 25% de pacients elegibles [@tessler2026]. Aquest fet pot ser degut a l'existència de barreres tant clíniques com personals o dels sistemes sanitaris. Determinats col·lectius, com les dones, les persones d'edat avançada, racialitzades o de minories ètniques o socials, tenen menor probabilitat de participació. L'envelliment poblacional, a més, comporta un increment de les comorbiditats (p. ex. hipertensió arterial [HTA], diabetis, fibril·lació auricular), que també suposen un obstacle important per a la inclusió en programes de RC [@taylor2022].
 
 L'adherència terapèutica és un component imprescindible de qualsevol tractament i, en el cas de la RC, les taxes d'abandonament són considerablement elevades. La persistència en l'exercici terapèutic pot caure fins a prop del 50% al cap de 6 mesos o fins al 10% al cap d'un any [@young2020]. Aquest fet és preocupant, perquè el compliment terapèutic és un dels principals predictors de la millora de resultats clínics i del seu manteniment a mitjà i llarg termini. Es tracta d'un problema complex en què influeixen factors demogràfics, clínics i psicosocials [@malak2021; @yuan2026].
 
@@ -459,7 +458,45 @@ La manca d'anàlisi de les diferències de sexe i gènere o la infrarepresentaci
 
 ## Biaixos existents
 
-Text
+Les malalties cardiovasculars són la primera causa de mortalitat a escala global: això és cert també per a les dones [@alexander2022]. La RC compta amb la recomanació de classe 1A de l'American Heart Association i l'American College of Cardiology [@khadanga2021] pels beneficis que aporta en la millora de factors de risc, la reducció d'hospitalitzacions i mortalitat i l'augment de QdV. Específicament en el cas de les dones, la RC pot contribuir a una major reducció del risc de mortalitat, millores superiors en capacitat d'exercici i salut mental i una disminució dels nivells d'HTA [@coutinho2025].
+
+No obstant això, les dones pateixen restriccions en l'accés i la participació als programes de rehabilitació i, en conseqüència, els seus resultats clínics es veuen alterats. A continuació es detallen les principals barreres existents i les intervencions que s'han proposat per superar-les.
+
+### Derivació i reclutament
+
+La participació global als programes de RC ja és baixa, però encara ho és més entre les dones. La primera barrera d'accés es troba en el moment de la derivació per part del personal mèdic: malgrat que els beneficis d'aquesta mena d'intervencions no difereixen entre sexes, les dones tenen prop d'un 32% menys de probabilitat de ser derivades a rehabilitació en comparació a homes amb criteris d'elegibilitat similars [@alexander2022]. Aquest fet s'explica per diferents motius, que es poden agrupar en tres àmbits clau:
+
+\bigskip
+
+**Factors individuals**. Es refereixen a aspectes com la falta de coneixement sobre la RC, el nivell educatiu o barreres culturals i lingüístiques que dificulten l'accés a determinats col·lectius. Per exemple, encara que les dones afroamericanes tenen una major incidència de malalties cardiovasculars, les taxes de derivació en aquest grup poblacional són menors [@sawan2022].
+
+**Factors socials**. És l'àrea en què més influència tenen els rols i les expectatives de gènere. Les dones solen càrregar un pes molt superior en les tasques de cures, especialment en l'àmbit domèstic i familiar. Aquest fet, juntament amb la manca de suport psicosocial, està associat a nivells més elevats d'estrès, ansietat i depressió [@alexander2022]. També poden comprometre l'accés a la RC els desavantatges socioeconòmics, els conflictes laborals o les dificultats en el transport fins als centres de rehabilitació.
+
+**Factors sanitaris**. Els serveis de salut també tenen part de responsabilitat en les diferències en la derivació i el reclutament. Per començar, la fallada en la detecció de símptomes provoca retards importants en el diagnòstic i el tractament de patologies cardiovasculars en dones, provocant fins i tot una mortalitat superior. A més, els biaixos del personal mèdic poden comportar l'exclusió de dones d'edat més avançada o amb més comorbiditats, però precisament aquestes característiques fan que la RC sigui encara més necessària i beneficiosa [@khadanga2021]. Per acabar, existeix una sèrie de malalties que afecten principalment les dones, com ara la dissecció espontània de les artèries coronàries, l'infart de miocardi sense obstrucció de les artèries coronàries o les cardiomiopaties per estrès (p. ex. síndrome de Takotsubo). Tot i que la necessitat de rehabilitació en aquestes condicions és la mateixa, la derivació és molt menor [@sawan2022].
+
+\bigskip
+
+Evidentment, la falta de recerca repercuteix enormement en el problema. Si bé el percentatge de dones amb malalties cariovasculars va augmentar de l'11% al 17% en la dècada del 2010, la seva representació en estudis clínics continua per sota del 15% [@dibben2023]. No hi ha raons de seguretat ni eficàcia per justificar aquest valor [@alexander2022]. Per tal de poder prendre decisions més informades, és necessari disposar d'evidència sòlida sobre l'efecte de diversos factors biològics (p. ex. nivells hormonals, distibució de teixit adipós i massa muscular, embaràs, lactància) en la resposta al desacondicionament físic.
+
+### Adherència al tractament i compleció dels programes
+
+L'accés a la RC no hi garanteix la participació, i la participació no n'assegura la finalització. L'adherència al tractament presenta problemes semblants als que s'han descrit en el cas de la derivació i el reclutament, tant a escala individual com social i sanitària. Les taxes més elevades de depressió i distrès psicosocial, una menor QdV relacionada amb la salut, la falta de suport o la inflexibilitat de les activitats i els horaris proposats contribueixen que les dones participin menys en els programes i els abandonin amb més freqüència que els homes [@coutinho2025].
+
+### Resultats clínics
+
+En circumstàncies semblants, les millores aconseguides gràcies a la RC en capacitat funcional, perfil de risc cardiovascular i benestar psicosocial són comparables entre homes i dones (en aquest darrer àmbit, les dones assolirien una reducció més important dels nivells de depressió) [@hoeve2026]. Ara bé, les dones habitualment parteixen d'un estat basal amb nivells menors d'activitat física, edat més avançada, més factors de risc cardiovasculars i comorbiditats i menor QdV. Tot això s'ha de tenir en compte a l'hora d'avaluar els resultats clínics de la RC i l'assoliment d'objectius de salut, que es poden veure afectats per la manca d'adaptació dels programes a les necessitats específiques d'alguns col·lectius [@khadanga2021]. Fins i tot la mesura emprada pot canviar la interpretació: les dones millorarien menys que els homes en consum màxim d'oxigen ($VO_2\ màx$), però no en MET [@rengo2020].
+
+De nou, l'ús d'evidència basada principalment en dades d'homes impedeix la generalització dels resultats. Si s'extrapolen aquestes dades per prendre decisions sobre la pràctica clínica en dones, les recomanacions esdevenen inevitablement pitjors [@hoeve2026].
+
+### Intervencions proposades
+
+S'han proposat diverses solucions per a cadascun dels problemes identificats en els apartats anteriors. L'automatització de les derivacions a partir de criteris definits, el foment de l'atenció interdisciplinària en fase hospitalària, la flexibilització de les intervencions i la millora en l'educació sanitària podrien afavorir l'accés de persones que hi tenien dificultats [@alexander2022].
+
+L'adherència al tractament podria incrementar amb programes de RC domiciliària, amb l'ús d'eines de salut digital o amb activitats alternatives a l'exercici aeròbic tradicional (p. ex. ioga), sense que això suposi una disminució de l'eficàcia. Tanmateix, falta evidència de qualitat que confirmi aquestes hipòtesis [@mcfeely2025].
+
+Pel que fa als resultats clínics, no sembla que la solució passi per proposar intervencions no-mixtes [@heald2021], sinó més aviat per personalitzar més els tractaments. L'entrenament intervàl·lic d'alta intensitat (HIIT, per les seves sigles en anglès) podria ser més efectiu que l'entrenament continu per a les dones [@mcfeely2025]. La rehabilitació intensiva, que combina exercici terapèutic amb intervencions de gestió de l'estrès, nutrició i teràpia en grup pot contribuir a una millora més important de la QdV amb nivells d'adherència semblants [@jafri2023]. Addicionalment, el suport psicosocial personalitzat sembla clau per assegurar un millor benestar en qualsevol grup de pacients [@chung2022].
+
+Les dones no són un col·lectiu homogeni i, com a tal, poden estar presents en altres eixos de desigualtat [@angelino2024]. Cal avançar en la sensibilització cultural i de gènere de la població i de les professionals de la salut per tal de garantir una atenció sanitària optimitzada i una recerca més inclusiva. Les mètriques d'equitat prenen força en un context en què és més necessària que mai l'automatització de decisions clíniques per rebaixar la pressió sobre els sistemes sanitaris.
 
 ## Equitat algorítmica
 
@@ -560,6 +597,8 @@ Text
 - **AVD**: activitats de la vida diària.
 - **FEVE**: fracció d'ejecció ventricular esquerra.
 - **HADS**: Escala Hospitalària d'Ansietat i Depressió (de l'anglès *Hospital Anxiety & Depression Scale*).
+- **HIIT**: entrenament intervàl·lic d'alta intensitat (de l'anglès *high-intensity interval training*).
+- **HTA**: hipertensió arterial.
 - **IA**: intel·ligència artificial.
 - **IAM**: infart agut de miocardi.
 - **IMC**: índex de massa corporal.
@@ -577,7 +616,7 @@ Text
 
 ### Símbols
 
-- Text
+- $VO_2\ màx$: consum màxim d'oxigen.
 
 # Annex 2
 
