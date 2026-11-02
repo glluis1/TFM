@@ -111,3 +111,20 @@ En general, els resultats clínics de la RC es poden agrupar en dos àmbits: la 
 En general, la RC és una intervenció eficaç per incrementar la tolerància a l'exercici i el benestar de les persones que hi participen [@taylor2022]. No obstant això, els resultats poden diferir en funció de les característiques pròpies de cada pacient. Alguns factors que influeixen en la millora final són l'edat, l'estat físic inicial, l'índex de massa corporal (IMC), la presència de comorbiditats o paràmetres hemodinàmics, com l'hemoglobina, la pressió arterial o la fracció d'ejecció ventricular esquerra (FEVE) [@suzuki2018; @baldasseroni2022; @tokeshi2023; @uszko-lencer2017; @kurpaska2025].
 
 S'ha omès deliberadament d'aquesta llista el sexe, sobre el qual es tractarà amb més profunditat en els apartats següents. Tot i que alguns estudis apunten que les persones de sexe masculí (v. **[Consideracions sobre el sexe i el gènere]**) podrien aconseguir millors resultats en la 6MWT [@bargehr2017; @sutherland2018], d'altres obtenen resultats contraris [@artiles2023]. Per acabar, cal destacar la relació de reciprocitat que existeix entre la capacitat funcional i la QdV: mentre que l'ansietat i la depressió tenen un impacte negatiu en l'activitat física [@sakamoto2022], un augment d'aquesta darrera pot contribuir a obtenir nivells més elevats de benestar [@kjesbu2024].
+
+[...]
+
+### Mesura i detecció de biaixos
+
+La mesura de l'equitat algorítmica és complexa i poc estandarditzada. S'han proposat un nombre elevat de mètriques basades en diferents concepcions de la no-discriminació, categoritzades principalment en tres àmbits: individuals, de grup i de relacions causals. En aquest apartat se'n descriuen algunes de les més utilitzades, especialment en el cas de les mètriques de grup, que són les més esteses i estudiades en publicacions científiques.
+
+De manera anàloga a les mesures de rendiment dels models, la majoria de mètriques més habituals es poden obtenir a partir de la matriu de confusió (v. **\autoref{tab:taula2-1}**).
+
+|  | **Predicció positiva** ($\hat Y = 1$) | **Predicció negativa** ($\hat Y = 0$) |
+|------------------------|------------------------|------------------------|
+| **Resposta positiva** ($Y = 1$) | TP | FN |
+| **Resposta negativa** ($Y = 0$) | FP | TN |
+
+: Matriu de confusió per a un classificador binari {#tab:taula2-1}
+
+\small FN: fals negatiu, FP: fals positiu, TN: veritable negatiu, TP: veritable positiu.

@@ -205,7 +205,7 @@ Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin
 A la \autoref{tab:taula1-1} es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat [**Enfocament i mètode seguit**]. S'indica també la relació amb els objectius proposats.
 
 | Tasca                             | Objectius     | Inici    | Final    | Estat      |
-|-----------------------------------|---------------|----------|----------|------------|
+|---------------|---------------|---------------|---------------|---------------|
 | **1. Definició i pla de treball** |               |          |          |            |
 | Plantejament del treball          |               | 23/9/26  | 7/10/26  | Completada |
 |                                   |               |          |          |            |
@@ -364,7 +364,7 @@ A la \autoref{tab:taula1-2} s'indiquen les fites corresponents a cada prova d'av
 La \autoref{tab:taula1-3} descriu els riscos que poden fer que la planificació no es compleixi i les accions previstes per al pla de contingència.
 
 | Risc | Impacte | Probabilitat | Mitigació |
-|----|----|----|----|
+|------------------|------------------|------------------|-------------------|
 | Abundància de registres incomplets en les dades | Alt | Alta | Imputació de valors faltants o eliminació dels registres afectats o de variables que no es considerin crítiques, segons el cas |
 | Biaixos inherents a la composició del conjunt de dades | Alt | Alta | Comparació dels resultats amb l'evidència disponible i aplicació de tècniques de ponderació o remostreig |
 | Desviacions del pla de treball marcat | Mitjà | Mitjana | Establiment de fites parcials per a les PAC, de manera que l'última setmana de cadascuna es pugui reservar per a la revisió o com a marge per acabar de completar les tasques pendents |
@@ -556,19 +556,144 @@ Així, es parlarà de variable sensible $A \in \{a, b\}$, en què $a$ correspon 
 
 ### Mesura i detecció de biaixos
 
-Text
+La mesura de l'equitat algorítmica és complexa i poc estandarditzada. S'han proposat un nombre elevat de mètriques basades en diferents concepcions de la no-discriminació, categoritzades principalment en tres àmbits: individuals, de grup i de relacions causals. En aquest apartat se'n descriuen algunes de les més utilitzades, especialment en el cas de les mètriques de grup, que són les més esteses i estudiades en publicacions científiques.
 
-#### Mètriques de grup
+De manera anàloga a les mesures de rendiment dels models, la majoria de mètriques més habituals es poden obtenir a partir de la matriu de confusió (v. \autoref{tab:taula2-1}).
 
-Text
+|   | **Predicció positiva** ($\hat Y = 1$) | **Predicció negativa** ($\hat Y = 0$) |
+|------------------------|------------------------|------------------------|
+| **Resposta positiva** ($Y = 1$) | VP | FN |
+| **Resposta negativa** ($Y = 0$) | FP | VN |
+
+: Matriu de confusió per a un classificador binari
+
+\small FN: fals negatiu, FP: fals positiu, VN: veritable negatiu, VP: veritable positiu.
+
+\bigskip
+
+Si es té en compte la probabilitat condicional entre esdeveniments per a diversos escenaris es pot distingir entre:
+
+\bigskip
+
+**Taxa de veritables positius (TVP)**. Freqüència amb què s'assigna correctament una predicció positiva a un resultat positiu.
+
+\begin{equation}
+TVP = P(\hat Y = 1 \mid Y = 1) = VP / (VP + FN)
+\end{equation}
+
+**Taxa de falsos negatius (TFN)**. Freqüència amb què s'assigna erròniament una predicció negativa a un resultat positiu (relacionada amb TVP).
+
+\begin{equation}
+TFN = P(\hat Y = 0 \mid Y = 1) = 1 - TVP
+\end{equation}
+
+**Taxa de veritables negatius (TVN)**. Freqüència amb què s'assigna correctament una predicció negativa a un resultat negatiu.
+
+\begin{equation}
+TVN = P(\hat Y = 0 \mid Y = 0) = VN / (VN + FP)
+\end{equation}
+
+**Taxa de falsos positius (TFP)**. Freqüència amb què s'assigna erròniament una predicció positiva a un resultat negatiu (relacionada amb TVN).
+
+\begin{equation}
+TFP = P(\hat Y = 1 \mid Y = 0) = 1 - TVN
+\end{equation}
+
+En casos en què es vol conèixer la capacitat predictiva d'un classificador, es poden emprar també les mesures següents (i els seus respectius complements, que no s'inclouen aquí per evitar redundàncies):
+
+\bigskip
+
+**Valor predictiu positiu**. Fracció de les prediccions positives que són veritables positius.
+
+\begin{equation}
+VPP = P(Y = 1 \mid \hat Y = 1) = VP / (VP + FP)
+\end{equation}
+
+**Valor predictiu negatiu**. Fracció de les prediccions negatives que són veritables negatius.
+
+\begin{equation}
+VPN = P(Y = 0 \mid \hat Y = 0) = VN / (VN + FN)
+\end{equation}
+
+#### Mètriques de grup[^1]
+
+[^1]: A falta d'una traducció estandarditzada al català, s'ha optat per mantenir els noms de les mètriques en anglès per evitar confusions amb les publicacions originals
+
+Avaluen que el rendiment del model sigui similar entre grups definits per un atribut sensible [@gao2025]. Es poden resumir en tres criteris segons quines de les anteriors mesures es vulguin igualar [@barocas-hardt-narayanan; @caton2024; @criscuolo2026]:
 
 ##### Independència
 
-Text
+El criteri d'inedpendència estableix que la puntuació predita pel classificador ha de ser independent del grup, és a dir:
+
+\begin{equation}
+R \perp A
+\end{equation}
+
+S'hi inclouen les mètriques següents:
+
+\bigskip
+
+***Statistical Parity***. També anomenada *Demographic Parity* o *Group Fairnes*. Implica que els dos grups tinguin la mateixa probabilitat d'una predicció positiva.
+
+\begin{equation}
+P(\hat Y = 1 \mid A = a) = P(\hat Y = 1 \mid A = b)
+\end{equation}
+
+***Disparate Impact***. Ràtio entre probabilitats d'obtenir una predicció positiva.
+
+\begin{equation}
+\frac{P(\hat Y = 1 \mid A = a)}{P(\hat Y = 1 \mid A = b)}
+\end{equation}
 
 ##### Separació
 
-Text
+El criteri de separació exigeix que la puntuació predita sigui independent al grup de manera condicional al valor de la resposta, és a dir:
+
+\begin{equation}
+R \perp A \mid Y
+\end{equation}
+
+En aquest cas, es poden imposar més o menys restriccions a la igualtat entre grups, emprant les mètriques que es defineixen a continuació:
+
+\bigskip
+
+***Equal Opportunity***. Iguala la probabilitat d'obtenir una predicció positiva si la resposta és, en efecte, positiva.
+
+\begin{equation}
+P(\hat Y = 1 \mid Y = 1, A = a) = P(\hat Y = 1 \mid Y = 1, A = b) \Leftrightarrow TVP_a = TVP_b
+\end{equation}
+
+***Predictive Equality***. Iguala la probabilitat d'obtenir una predicció positiva si la resposta és, en canvi, negativa. Noti's que, per les relacions entre la TVP i la TFN, i entre la TVN i la TFP, es podrien fer servir diferents estratègies de càlcul per arribar a aquestes dues mesures.
+
+\begin{equation}
+P(\hat Y = 1 \mid Y = 0, A = a) = P(\hat Y = 1 \mid Y = 0, A = b) \Leftrightarrow TFP_a = TFP_b
+\end{equation}
+
+***Equalized Odds***. És la combinació de les dues mètriques anteriors i, per tant, més restrictiva.
+
+\begin{equation}
+TVP_a = TVP_b \wedge TFP_a = TFP_b
+\end{equation}
+
+***Overall Accuracy Equality***. Igualtat en la probabilitat d'encert per als dos grups.
+
+\begin{equation}
+P(\hat Y = Y \mid A = a) = P(\hat Y = Y \mid A = b) \Leftrightarrow \frac{VP_a + VN_a}{n_a} = \frac{VP_n + VN_b}{n_b}
+\end{equation}
+
+***Treatment Equality***. Igualtat en la ràtio de FP i FN.
+
+\begin{equation}
+\frac{P(\hat Y = 1 \mid Y = 0, A = a)}{P(\hat Y = 0 \mid Y = 1, A = a)} \wedge \frac{P(\hat Y = 1 \mid Y = 0, A = b)}{P(\hat Y = 0 \mid Y = 1, A = b)}
+\end{equation}
+
+***Equalizing disincentives***. Compara la diferència entre la TVP i la TFP.
+
+\begin{equation}
+TVP_a - TFP_a = TVP_b - TFP_b
+\end{equation}
+
+A més, algunes d'aquestes expressions es poden modificar per tenir en compte el llindar per sobre del qual el model fa una predicció positiva, en lloc del resultat del model en si.
 
 ##### Suficiència
 
@@ -689,6 +814,8 @@ Text
 
 - **AVD**: activitats de la vida diària.
 - **FEVE**: fracció d'ejecció ventricular esquerra.
+- **FN**: fals negatiu.
+- **FP**: fals positiu.
 - **HADS**: Escala Hospitalària d'Ansietat i Depressió (de l'anglès *Hospital Anxiety & Depression Scale*).
 - **HIIT**: entrenament intervàl·lic d'alta intensitat (de l'anglès *high-intensity interval training*).
 - **HTA**: hipertensió arterial.
@@ -705,7 +832,15 @@ Text
 - **QIS**: força isomètrica màxima del quàdriceps (de l'anglès *quadriceps maximal isometric strength*).
 - **RC**: rehabilitació cardíaca.
 - **RR**: risc relatiu.
+- **TFN**: taxa de falsos negatius.
+- **TFP**: taxa de falsos positius.
+- **TVN**: taxa de veritables negatius.
+- **TVP**: taxa de veritables positius.
 - **UE**: Unió Europea.
+- **VN**: veritable negatiu.
+- **VP**: veritable positiu.
+- **VPP**: valor predictiu negatiu.
+- **VPP**: valor predictiu positiu.
 - **6MWT**: prova de la marxa de 6 minuts (de l'anglès *Six-Minute Walk Test*).
 
 ### Símbols

@@ -239,11 +239,11 @@ Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin
 A la \autoref{tab:taula1-1} es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat {[}\textbf{Enfocament i mètode seguit}{]}. S'indica també la relació amb els objectius proposats.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.4268}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1829}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1220}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1220}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1463}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
 \caption{Planificació de tasques}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
@@ -346,10 +346,10 @@ Cos del treball redactat & 31/12/26 & En curs \\
 La \autoref{tab:taula1-3} descriu els riscos que poden fer que la planificació no es compleixi i les accions previstes per al pla de contingència.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2466}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2466}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2466}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2603}}@{}}
 \caption{Anàlisi de riscos}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
@@ -562,19 +562,164 @@ Així, es parlarà de variable sensible \(A \in \{a, b\}\), en què \(a\) corres
 
 \subsection{Mesura i detecció de biaixos}\label{mesura-i-detecciuxf3-de-biaixos}
 
-Text
+La mesura de l'equitat algorítmica és complexa i poc estandarditzada. S'han proposat un nombre elevat de mètriques basades en diferents concepcions de la no-discriminació, categoritzades principalment en tres àmbits: individuals, de grup i de relacions causals. En aquest apartat se'n descriuen algunes de les més utilitzades, especialment en el cas de les mètriques de grup, que són les més esteses i estudiades en publicacions científiques.
 
-\subsubsection{Mètriques de grup}\label{muxe8triques-de-grup}
+De manera anàloga a les mesures de rendiment dels models, la majoria de mètriques més habituals es poden obtenir a partir de la matriu de confusió (v. \autoref{tab:taula2-1}).
 
-Text
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{Matriu de confusió per a un classificador binari}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Predicció positiva} (\(\hat Y = 1\))
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Predicció negativa} (\(\hat Y = 0\))
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Predicció positiva} (\(\hat Y = 1\))
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Predicció negativa} (\(\hat Y = 0\))
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Resposta positiva} (\(Y = 1\)) & VP & FN \\
+\textbf{Resposta negativa} (\(Y = 0\)) & FP & VN \\
+\end{longtable}
+
+\small FN: fals negatiu, FP: fals positiu, VN: veritable negatiu, VP: veritable positiu.
+
+\bigskip
+
+Si es té en compte la probabilitat condicional entre esdeveniments per a diversos escenaris es pot distingir entre:
+
+\bigskip
+
+\textbf{Taxa de veritables positius (TVP)}. Freqüència amb què s'assigna correctament una predicció positiva a un resultat positiu.
+
+\begin{equation}
+TVP = P(\hat Y = 1 \mid Y = 1) = VP / (VP + FN)
+\end{equation}
+
+\textbf{Taxa de falsos negatius (TFN)}. Freqüència amb què s'assigna erròniament una predicció negativa a un resultat positiu (relacionada amb TVP).
+
+\begin{equation}
+TFN = P(\hat Y = 0 \mid Y = 1) = 1 - TVP
+\end{equation}
+
+\textbf{Taxa de veritables negatius (TVN)}. Freqüència amb què s'assigna correctament una predicció negativa a un resultat negatiu.
+
+\begin{equation}
+TVN = P(\hat Y = 0 \mid Y = 0) = VN / (VN + FP)
+\end{equation}
+
+\textbf{Taxa de falsos positius (TFP)}. Freqüència amb què s'assigna erròniament una predicció positiva a un resultat negatiu (relacionada amb TVN).
+
+\begin{equation}
+TFP = P(\hat Y = 1 \mid Y = 0) = 1 - TVN
+\end{equation}
+
+En casos en què es vol conèixer la capacitat predictiva d'un classificador, es poden emprar també les mesures següents (i els seus respectius complements, que no s'inclouen aquí per evitar redundàncies):
+
+\bigskip
+
+\textbf{Valor predictiu positiu}. Fracció de les prediccions positives que són veritables positius.
+
+\begin{equation}
+VPP = P(Y = 1 \mid \hat Y = 1) = VP / (VP + FP)
+\end{equation}
+
+\textbf{Valor predictiu negatiu}. Fracció de les prediccions negatives que són veritables negatius.
+
+\begin{equation}
+VPN = P(Y = 0 \mid \hat Y = 0) = VN / (VN + FN)
+\end{equation}
+
+\subsubsection[Mètriques de grup]{\texorpdfstring{Mètriques de grup\footnote{A falta d'una traducció estandarditzada al català, s'ha optat per mantenir els noms de les mètriques en anglès per evitar confusions amb les publicacions originals}}{Mètriques de grup}}\label{muxe8triques-de-grup1}
+
+Avaluen que el rendiment del model sigui similar entre grups definits per un atribut sensible {[}45{]}. Es poden resumir en tres criteris segons quines de les anteriors mesures es vulguin igualar {[}3,46,47{]}:
 
 \paragraph{Independència}\label{independuxe8ncia}
 
-Text
+El criteri d'inedpendència estableix que la puntuació predita pel classificador ha de ser independent del grup, és a dir:
+
+\begin{equation}
+R \perp A
+\end{equation}
+
+S'hi inclouen les mètriques següents:
+
+\bigskip
+
+\textbf{\emph{Statistical Parity}}. També anomenada \emph{Demographic Parity} o \emph{Group Fairnes}. Implica que els dos grups tinguin la mateixa probabilitat d'una predicció positiva.
+
+\begin{equation}
+P(\hat Y = 1 \mid A = a) = P(\hat Y = 1 \mid A = b)
+\end{equation}
+
+\textbf{\emph{Disparate Impact}}. Ràtio entre probabilitats d'obtenir una predicció positiva.
+
+\begin{equation}
+\frac{P(\hat Y = 1 \mid A = a)}{P(\hat Y = 1 \mid A = b)}
+\end{equation}
 
 \paragraph{Separació}\label{separaciuxf3}
 
-Text
+El criteri de separació exigeix que la puntuació predita sigui independent al grup de manera condicional al valor de la resposta, és a dir:
+
+\begin{equation}
+R \perp A \mid Y
+\end{equation}
+
+En aquest cas, es poden imposar més o menys restriccions a la igualtat entre grups, emprant les mètriques que es defineixen a continuació:
+
+\bigskip
+
+\textbf{\emph{Equal Opportunity}}. Iguala la probabilitat d'obtenir una predicció positiva si la resposta és, en efecte, positiva.
+
+\begin{equation}
+P(\hat Y = 1 \mid Y = 1, A = a) = P(\hat Y = 1 \mid Y = 1, A = b) \Leftrightarrow TVP_a = TVP_b
+\end{equation}
+
+\textbf{\emph{Predictive Equality}}. Iguala la probabilitat d'obtenir una predicció positiva si la resposta és, en canvi, negativa. Noti's que, per les relacions entre la TVP i la TFN, i entre la TVN i la TFP, es podrien fer servir diferents estratègies de càlcul per arribar a aquestes dues mesures.
+
+\begin{equation}
+P(\hat Y = 1 \mid Y = 0, A = a) = P(\hat Y = 1 \mid Y = 0, A = b) \Leftrightarrow TFP_a = TFP_b
+\end{equation}
+
+\textbf{\emph{Equalized Odds}}. És la combinació de les dues mètriques anteriors i, per tant, més restrictiva.
+
+\begin{equation}
+TVP_a = TVP_b \wedge TFP_a = TFP_b
+\end{equation}
+
+\textbf{\emph{Overall Accuracy Equality}}. Igualtat en la probabilitat d'encert per als dos grups.
+
+\begin{equation}
+P(\hat Y = Y \mid A = a) = P(\hat Y = Y \mid A = b) \Leftrightarrow \frac{VP_a + VN_a}{n_a} = \frac{VP_n + VN_b}{n_b}
+\end{equation}
+
+\textbf{\emph{Treatment Equality}}. Igualtat en la ràtio de FN i FP.
+
+\begin{equation}
+\frac{P(\hat Y = 1 \mid Y = 0, A = a)}{P(\hat Y = 0 \mid Y = 1, A = a)} \wedge \frac{P(\hat Y = 1 \mid Y = 0, A = b)}{P(\hat Y = 0 \mid Y = 1, A = b)}
+\end{equation}
+
+\textbf{\emph{Equalizing disincentives}}. Compara la diferència entre la TVP i la TFP.
+
+\begin{equation}
+TVP_a - TFP_a = TVP_b - TFP_b
+\end{equation}
+
+A més, algunes d'aquestes expressions es poden modificar per tenir en compte el llindar per sobre del qual el model fa una predicció positiva, en lloc del resultat del model en si.
 
 \paragraph{Suficiència}\label{suficiuxe8ncia}
 
@@ -788,6 +933,10 @@ Text
 \CSLLeftMargin{46. }%
 \CSLRightInline{Barocas S, Hardt M, Narayanan A. Fairness and machine learning: Limitations and opportunities. MIT Press; 2023.}
 
+\bibitem[\citeproctext]{ref-criscuolo2026}
+\CSLLeftMargin{47. }%
+\CSLRightInline{Criscuolo C, Salnitri M, Martinenghi D. FAIR-CARE: A comparative evaluation of unfairness mitigation approaches. Information and Software Technology. 2026;189:107898. doi:\href{https://doi.org/10.1016/j.infsof.2025.107898}{10.1016/j.infsof.2025.107898}}
+
 \end{CSLReferences}
 
 \newpage
@@ -819,6 +968,10 @@ Text
   \textbf{AVD}: activitats de la vida diària.
 \item
   \textbf{FEVE}: fracció d'ejecció ventricular esquerra.
+\item
+  \textbf{FN}: fals negatiu.
+\item
+  \textbf{FP}: fals positiu.
 \item
   \textbf{HADS}: Escala Hospitalària d'Ansietat i Depressió (de l'anglès \emph{Hospital Anxiety \& Depression Scale}).
 \item
@@ -852,7 +1005,23 @@ Text
 \item
   \textbf{RR}: risc relatiu.
 \item
+  \textbf{TFN}: taxa de falsos negatius.
+\item
+  \textbf{TFP}: taxa de falsos positius.
+\item
+  \textbf{TVN}: taxa de veritables negatius.
+\item
+  \textbf{TVP}: taxa de veritables positius.
+\item
   \textbf{UE}: Unió Europea.
+\item
+  \textbf{VN}: veritable negatiu.
+\item
+  \textbf{VP}: veritable positiu.
+\item
+  \textbf{VPP}: valor predictiu negatiu.
+\item
+  \textbf{VPP}: valor predictiu positiu.
 \item
   \textbf{6MWT}: prova de la marxa de 6 minuts (de l'anglès \emph{Six-Minute Walk Test}).
 \end{itemize}
