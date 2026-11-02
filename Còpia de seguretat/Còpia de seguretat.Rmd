@@ -101,3 +101,13 @@ La **\autoref{tab:taula1-3}** descriu els riscos que poden fer que la planificac
 | Problemes de reproductibilitat | Mitjà | Baixa | Documentació rigorosa del codi i creació d'un repositori de GitHub que contingui tots els documents rellevants |
 
 : Anàlisi de riscos {#tab:taula1-3}
+
+[...]
+
+### Resultats clínics i variables predictores
+
+En general, els resultats clínics de la RC es poden agrupar en dos àmbits: la capacitat funcional i la qualitat de vida. En la primera sol ser rellevant conèixer la capacitat aeròbica, mitjançant una ergometria o una prova funcional com la 6MWT, i la força màxima dels principals grups musculars que intervenen a la marxa. Pel que fa a la segona, és habitual l'ús de mesures de resultat informades pel pacient (PROMs, per les seves sigles en anglès), que inclouen els nivells d'ansietat, depressió, activitat física o QdV relacionada amb la salut. És important disposar d'aquestes mesures perquè estan associades amb la taxa de mortalitat, la recurrència d'hospitalitzacions, la rendibilitat dels tractaments i l'impacte en les activitats de la vida diària (AVD) [@vieli2025].
+
+En general, la RC és una intervenció eficaç per incrementar la tolerància a l'exercici i el benestar de les persones que hi participen [@taylor2022]. No obstant això, els resultats poden diferir en funció de les característiques pròpies de cada pacient. Alguns factors que influeixen en la millora final són l'edat, l'estat físic inicial, l'índex de massa corporal (IMC), la presència de comorbiditats o paràmetres hemodinàmics, com l'hemoglobina, la pressió arterial o la fracció d'ejecció ventricular esquerra (FEVE) [@suzuki2018; @baldasseroni2022; @tokeshi2023; @uszko-lencer2017; @kurpaska2025].
+
+S'ha omès deliberadament d'aquesta llista el sexe, sobre el qual es tractarà amb més profunditat en els apartats següents. Tot i que alguns estudis apunten que les persones de sexe masculí (v. **[Consideracions sobre el sexe i el gènere]**) podrien aconseguir millors resultats en la 6MWT [@bargehr2017; @sutherland2018], d'altres obtenen resultats contraris [@artiles2023]. Per acabar, cal destacar la relació de reciprocitat que existeix entre la capacitat funcional i la QdV: mentre que l'ansietat i la depressió tenen un impacte negatiu en l'activitat física [@sakamoto2022], un augment d'aquesta darrera pot contribuir a obtenir nivells més elevats de benestar [@kjesbu2024].

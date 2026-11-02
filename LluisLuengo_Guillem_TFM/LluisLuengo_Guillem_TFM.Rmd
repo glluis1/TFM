@@ -205,7 +205,7 @@ Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin
 A la \autoref{tab:taula1-1} es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat [**Enfocament i mètode seguit**]. S'indica també la relació amb els objectius proposats.
 
 | Tasca                             | Objectius     | Inici    | Final    | Estat      |
-|---------------|---------------|---------------|---------------|---------------|
+|-----------------------------------|---------------|----------|----------|------------|
 | **1. Definició i pla de treball** |               |          |          |            |
 | Plantejament del treball          |               | 23/9/26  | 7/10/26  | Completada |
 |                                   |               |          |          |            |
@@ -364,7 +364,7 @@ A la \autoref{tab:taula1-2} s'indiquen les fites corresponents a cada prova d'av
 La \autoref{tab:taula1-3} descriu els riscos que poden fer que la planificació no es compleixi i les accions previstes per al pla de contingència.
 
 | Risc | Impacte | Probabilitat | Mitigació |
-|-----------------|-----------------|-----------------|---------------------|
+|----|----|----|----|
 | Abundància de registres incomplets en les dades | Alt | Alta | Imputació de valors faltants o eliminació dels registres afectats o de variables que no es considerin crítiques, segons el cas |
 | Biaixos inherents a la composició del conjunt de dades | Alt | Alta | Comparació dels resultats amb l'evidència disponible i aplicació de tècniques de ponderació o remostreig |
 | Desviacions del pla de treball marcat | Mitjà | Mitjana | Establiment de fites parcials per a les PAC, de manera que l'última setmana de cadascuna es pugui reservar per a la revisió o com a marge per acabar de completar les tasques pendents |
@@ -390,9 +390,9 @@ Al final del projecte s'obtindran els productes següents:
 
 <!-- Breu explicació dels continguts de cada capítol i la seva relació amb el projecte global. -->
 
-## Ús responsable de la Intel·ligència Artificial
+## Ús responsable de la intel·ligència artificial
 
-L'ús de la Intel·ligència Artificial (IA) generativa en aquest treball estarà limitat segons el que estableixen els criteris d'integritat acadèmica de la UOC. Se'n preveu l'ús en algunes tasques menors, com ara per complementar la recerca d'evidència científica, depurar codi o gestionar errors en l'exportació del document PDF final, sempre sota supervisió de l'autor.
+L'ús de la intel·ligència artificial (IA) generativa en aquest treball estarà limitat segons el que estableixen els criteris d'integritat acadèmica de la UOC. Se'n preveu l'ús en algunes tasques menors, com ara per complementar la recerca d'evidència científica, depurar codi o gestionar errors en l'exportació del document PDF final, sempre sota supervisió de l'autor.
 
 Es declara que en cap cas s'empraran eines d'IA per a la redacció de contingut o la interpretació de resultats, ni per a cap altra tasca que pugui entrar en conflicte amb les limitacions d'un ús ètic, crític i responsable.
 
@@ -420,9 +420,9 @@ Per entendre millor els efectes de la RC sobre diferents patologies cardiovascul
 
 En general, els resultats clínics de la RC es poden agrupar en dos àmbits: la capacitat funcional i la qualitat de vida. En la primera sol ser rellevant conèixer la capacitat aeròbica, mitjançant una ergometria o una prova funcional com la 6MWT, i la força màxima dels principals grups musculars que intervenen a la marxa. Pel que fa a la segona, és habitual l'ús de mesures de resultat informades pel pacient (PROMs, per les seves sigles en anglès), que inclouen els nivells d'ansietat, depressió, activitat física o QdV relacionada amb la salut. És important disposar d'aquestes mesures perquè estan associades amb la taxa de mortalitat, la recurrència d'hospitalitzacions, la rendibilitat dels tractaments i l'impacte en les activitats de la vida diària (AVD) [@vieli2025].
 
-En general, la RC és una intervenció eficaç per incrementar la tolerància a l'exercici i el benestar de les persones que hi participen [@taylor2022]. No obstant això, els resultats poden diferir en funció de les característiques pròpies de cada pacient. Alguns factors que influeixen en la millora final són l'edat, l'estat físic inicial, l'índex de massa corporal (IMC), la presència de comorbiditats o paràmetres hemodinàmics, com l'hemoglobina, la pressió arterial o la fracció d'ejecció ventricular esquerra (FEVE) [@suzuki2018; @baldasseroni2022; @tokeshi2023; @uszko-lencer2017; @kurpaska2025]. La identificació de variables predictores és necessària per poder adaptar millor els programes i optimitzar els beneficis per a totes les persones que hi participen [@smith2026].
+En general, la RC és una intervenció eficaç per incrementar la tolerància a l'exercici i el benestar de les persones que hi participen [@taylor2022]. No obstant això, els resultats poden diferir en funció de les característiques pròpies de cada pacient. Alguns factors que influeixen en la millora final són l'edat, l'estat físic inicial, l'índex de massa corporal (IMC), la presència de comorbiditats o paràmetres hemodinàmics, com l'hemoglobina, la pressió arterial o la fracció d'ejecció ventricular esquerra (FEVE) [@suzuki2018; @baldasseroni2022; @tokeshi2023; @uszko-lencer2017; @kurpaska2025].
 
-S'ha omès deliberadament d'aquesta llista el sexe, sobre el qual es tractarà en els apartats següents. Tot i que alguns estudis apunten que les persones de sexe masculí podrien aconseguir millors resultats en la 6MWT [@bargehr2017; @sutherland2018], d'altres obtenen resultats contraris [@artiles2023]. Per acabar, cal destacar la relació de reciprocitat que existeix entre la capacitat funcional i la QdV: mentre que l'ansietat i la depressió tenen un impacte negatiu en l'activitat física [@sakamoto2022], un augment d'aquesta darrera pot contribuir a obtenir nivells més elevats de benestar [@kjesbu2024].
+S'ha omès deliberadament d'aquesta llista el sexe, sobre el qual es tractarà amb més profunditat en els apartats següents. Tot i que alguns estudis apunten que les persones de sexe masculí (v. [**Consideracions sobre el sexe i el gènere**]) podrien aconseguir millors resultats en la 6MWT [@bargehr2017; @sutherland2018], d'altres obtenen resultats contraris [@artiles2023]. Per acabar, cal destacar la relació de reciprocitat que existeix entre la capacitat funcional i la QdV: mentre que l'ansietat i la depressió tenen un impacte negatiu en l'activitat física [@sakamoto2022], un augment d'aquesta darrera pot contribuir a obtenir nivells més elevats de benestar [@kjesbu2024].
 
 ### Reptes
 
@@ -499,6 +499,98 @@ Pel que fa als resultats clínics, no sembla que la solució passi per proposar 
 Les dones no són un col·lectiu homogeni i, com a tal, poden estar presents en altres eixos de desigualtat [@angelino2024]. Cal avançar en la sensibilització cultural i de gènere de la població i de les professionals de la salut per tal de garantir una atenció sanitària optimitzada i una recerca més inclusiva. Les mètriques d'equitat prenen força en un context en què és més necessària que mai l'automatització de decisions clíniques per rebaixar la pressió sobre els sistemes sanitaris.
 
 ## Equitat algorítmica
+
+La identificació de variables predictores és necessària per poder adaptar millor els programes de RC i optimitzar els beneficis per a totes les persones que hi participen [@smith2026]. El modelatge predictiu amb eines d'aprenentatge automàtic (ML, per les seves sigles en anglès) pot resultar útil per al suport en la presa de decisions clíniques, però també presenta reptes si no es volen reforçar desigualtats socials potencials [@anahideh2025]. En aquest apartat es desenvolupa el concepte d'equitat algorítmica (*fairness*) a través de la seva conceptualització ètica i estadística, i es plantegen desafiaments que cal resoldre en la seva aplicació en salut.
+
+### Fonaments
+
+L'equitat algorítmica es refereix a l'avaluació de processos de decisió automatitzats basats en ML i a la diversitat de mètodes emprats per corregir el biaix algorítmic que se'n desprèn. Aquesta necessitat sorgeix per la tendència dels models predictius complexos a aprendre biaixos socials presents a les dades, que poden comportar la presa de decisions discriminatòries i perpetuar les desigualtats existents [@wisniewski].
+
+En problemes d'alt impacte social, és clau garantir la fiabilitat i la confiança cap als models de ML i d'intel·ligència artificial (IA) en general [@caton2024]. Si bé es tracta d'un tema complex, especialment per la interseccionalitat de les desigualtats que s'ha comentat prèviament i per l'encreuament amb problemes de caire filosòfic i moral, s'han proposat alguns termes que poden ajudar a entendre millor què implica exactament l'equitat algorítmica. És important distingir entre:
+
+\bigskip
+
+**Variable protegida o sensible**. Aspectes o atributs de les dades amb influència sociocultural que poden conduir a la creació de grups amb més probabilitat de ser classificats correctament. A la Unió Europea (UE) es consideren variables protegides el sexe, la identitat de gènere, l'orientació sexual, la discapacitat, l'edat, l'ètnia, la nacionalitat, la religió o creença, l'origen social, la llengua i les opinions polítiques, entre d'altres [@wisniewski].
+
+**Variable indirecta (*proxy*)**. Variables altament correlacionades amb atributs sensibles que poden emmascarar biaixos si no es detecten i s'analitzen correctament [@caton2024].
+
+\bigskip
+
+En salut, cal tenir en compte que no tots els biaixos són discriminatoris. Per exemple, un tractament pot actuar de manera diferent en funció del sexe, l'edat o paràmetres fisiològics com l'IMC. Ara bé, quan aquests biaixos es troben ocults, poden comprometre el rendiment dels models. A continuació es detallen algunes de les fonts de biaix més habituals [@gao2025].
+
+#### Biaixos en les dades
+
+**Biaix social o històric**. Ocorre quan les dades reflecteixen desigualtats presents a la societat.
+
+**Biaix de selecció**. Les dades no són prou representatives de la població d'interès.
+
+**Biaix de mesura**. Existeixen imprecisions en la recol·lecció de dades.
+
+**Biaix temporal**. Les dades històriques no reflecteixen la situació present o futura de la població.
+
+**Biaix de minoria**. Té lloc per la falta de representació de grups minoritaris (encara que les dades en conjunt siguin representatives de la població).
+
+**Biaix per valors faltants**. És degut a mesures incompletes que distorsionen el conjunt de dades.
+
+#### Biaixos en el disseny dels models
+
+**Biaix d'etiqueta**. Està relacionat amb la inclusió de variables indirectes als models.
+
+**Biaix algorítmic**. Succeeix quan les característiques del model amplifiquen els biaixos presents en les dades.
+
+**Biaix d'avaluació**. Ocasionat per la tria inapropiada de dades o mesures de rendiment.
+
+#### Biaixos en el desplegament dels models
+
+**Biaix d'automatització**. És propi de les persones que utilitzen els models, si hi dipositen una confiança excessiva o no ho fan amb judici crític.
+
+**Biaix de rebuig**. Oposat a l'anterior, apareix quan les persones usuàries ignoren les recomanacions dels models per desconfiança o desconeixement.
+
+**Biaix de privilegi**. Té a veure amb la disponibilitat de tecnologies (p. ex. en funció de la zona geogràfica).
+
+### Nomenclatura
+
+En aquest text es farà servir la nomenclatura matemàtica proposada per Solon Barocas et al. [@barocas-hardt-narayanan]. Per tal de simplificar la conceptualització i l'anàlisi posterior, es prendrà com a exemple una tasca de classificació binària amb un atribut sensible de caràcter també binari. No obstant això, com es comentarà més endavant, es podria estendre el model a variables amb més de dos categories o a altres models de regressió.
+
+Així, es parlarà de variable sensible $A \in \{a, b\}$, en què $a$ correspon al grup protegit i $b$ al grup privilegiat, variables explicatives o predictores $X = \{x_1, x_2, \dots, x_n\}$, variable resposta $Y \in \{0, 1\}$ i prediccions $\hat Y \in \{0, 1\}$ o puntuacions del model $R$.
+
+### Mesura i detecció de biaixos
+
+Text
+
+#### Mètriques de grup
+
+Text
+
+##### Independència
+
+Text
+
+##### Separació
+
+Text
+
+##### Suficiència
+
+Text
+
+#### Mètriques individuals
+
+Text
+
+#### Mètriques causals
+
+Text
+
+### Tècniques de mitigació
+
+Text
+
+### Aplicacions en salut
+
+Text
+
+### Dilemes i direccions de futur
 
 Text
 
@@ -591,6 +683,7 @@ Text
 - et al.: i altres (*et alii*).
 - i\. e.: és a dir (*id est*).
 - p\. ex.: per exemple.
+- v.: vegeu.
 
 ### Sigles i acrònims
 
@@ -612,6 +705,7 @@ Text
 - **QIS**: força isomètrica màxima del quàdriceps (de l'anglès *quadriceps maximal isometric strength*).
 - **RC**: rehabilitació cardíaca.
 - **RR**: risc relatiu.
+- **UE**: Unió Europea.
 - **6MWT**: prova de la marxa de 6 minuts (de l'anglès *Six-Minute Walk Test*).
 
 ### Símbols
