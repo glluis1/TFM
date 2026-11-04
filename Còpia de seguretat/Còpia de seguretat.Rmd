@@ -128,3 +128,56 @@ De manera anàloga a les mesures de rendiment dels models, la majoria de mètriq
 : Matriu de confusió per a un classificador binari {#tab:taula2-1}
 
 \small FN: fals negatiu, FP: fals positiu, TN: veritable negatiu, TP: veritable positiu.
+
+[...]
+
+# Annex 3
+
+## Informe d'avaluació continuada (PAC 2)
+
+### Identificació del treball i data de l'informe
+
+- **Títol**: "Biaixos de sexe i gènere en rehabilitació cardíaca: anàlisi d'equitat algorítmica (*fairness*) en la predicció de resultats clínics".
+
+- **Autor**: Guillem Lluís i Luengo.
+
+- **Tutora**: Susana Pérez Álvarez.
+
+- **Data**: 4 de novembre de 2026.
+
+### Descripció de l'avanç del projecte
+
+En aquest lliurament es recull el resum de l'evidència científica disponible sobre l'àmbit d'estudi. Per ara, s'ha completat la primera fase de cerca de literatura, que es materialitza en el capítol complet **[Estat de l'art]**. Al marge de les revisions que es puguin fer, el text que es presenta és el que s'utilitzarà per al lliurament final. A més, s'ha iniciat l'estudi preliminar del conjunt de dades triat per a l'anàlisi, que es desenvoluparà en profunditat de cara a la propera entrega.
+
+#### Grau de compliment dels objectius i resultats previstos en el pla de treball
+
+Aquesta entrega se centra principalment en els objectius 1.1. Descriure l'estat actual de l'evidència científica en l'àmbit d'estudi i 2.1. Exposar tècniques de preprocessament, processament i postprocessament utilitzades per corregir la disparitat de les dades. Malgrat que alguns dels temes es desenvoluparan més a fons en els capítols de Materials i mètodes i Discussió, es considera que s'han complert els resultats previstos per a aquesta primera fase.
+
+#### Justificació dels canvis en cas necessari
+
+No s'ha hagut de fer cap modificació respecte de la planificació inicial del projecte.
+
+### Relació de les activitats executades
+
+#### Activitats previstes en el pla de treball
+
+Les activitats previstes que s'han dut a terme han estat:
+
+- Revisió de la **[Introducció]**.
+- Cerca preliminar d'evidència.
+- Revisió de l'evidència trobada.
+- Redacció de l'**[Estat de l'art]**.
+- Inici de l'estudi preliminar del conjunt de dades (no inclòs en aquesta entrega).
+- Inici de la redacció del Glossari i els Annexos.
+
+#### Activitats no previstes i realitzades
+
+No s'ha dut a terme cap activitat fora de les planificades.
+
+### Relació de les desviacions en la temporització, accions de mitigació i actualització del cronograma
+
+S'ha seguit sense problemes la planificació temporal proposada al lliurament anterior, per la qual cosa no ha calgut dur a terme cap acció de mitigació. Les accions preventives, com ara marcar fites parcials, han permès arribar a temps a tots els resultats esperats i deixar marge per a la revisió. En aquest document s'han actualitzat el calendari i les tasques per adequar-los a l'evolució del treball (v. **[Planificació del treball]**).
+
+### Llistat dels resultats parcials obtinguts fins al moment (lliurables que s'adjunten)
+
+S'adjunta un únic document que inclou els capítols redactats fins ara i aquest informe de progrés com a annex.
