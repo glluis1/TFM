@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.10.30)  2 NOV 2026 15:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.10.30)  4 NOV 2026 19:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1697,7 +1697,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 608.
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 616.
+Package pdftex.def Info: noulogo.png  used on input line 613.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -1708,7 +1708,7 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 616.
+Package pdftex.def Info: eimt.png  used on input line 613.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
 [25{C:/Users/gllui/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.e
 nc}]
@@ -1720,7 +1720,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 646.
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 680.
+Package pdftex.def Info: noulogo.png  used on input line 678.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -1731,25 +1731,9 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 680.
+Package pdftex.def Info: eimt.png  used on input line 678.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
 [26]
-File: noulogo.png Graphic file (type png)
-<use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 744.
-(pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
-
-Package fancyhdr Warning: \headheight is too small (35.0pt): 
-(fancyhdr)                Make it at least 42.67912pt, for example:
-(fancyhdr)                \setlength{\headheight}{42.67912pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-7.67912pt}.
-
-File: eimt.png Graphic file (type png)
-<use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 744.
-(pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[27]
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
 Package pdftex.def Info: noulogo.png  used on input line 748.
@@ -1765,162 +1749,210 @@ File: eimt.png Graphic file (type png)
 <use eimt.png>
 Package pdftex.def Info: eimt.png  used on input line 748.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
+[27]
+File: noulogo.png Graphic file (type png)
+<use noulogo.png>
+Package pdftex.def Info: noulogo.png  used on input line 797.
+(pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
+
+Package fancyhdr Warning: \headheight is too small (35.0pt): 
+(fancyhdr)                Make it at least 42.67912pt, for example:
+(fancyhdr)                \setlength{\headheight}{42.67912pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-7.67912pt}.
+
+File: eimt.png Graphic file (type png)
+<use eimt.png>
+Package pdftex.def Info: eimt.png  used on input line 797.
+(pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
 [28]
+File: noulogo.png Graphic file (type png)
+<use noulogo.png>
+Package pdftex.def Info: noulogo.png  used on input line 817.
+(pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
+
+Package fancyhdr Warning: \headheight is too small (35.0pt): 
+(fancyhdr)                Make it at least 42.67912pt, for example:
+(fancyhdr)                \setlength{\headheight}{42.67912pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-7.67912pt}.
+
+File: eimt.png Graphic file (type png)
+<use eimt.png>
+Package pdftex.def Info: eimt.png  used on input line 817.
+(pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
+[29]
+File: noulogo.png Graphic file (type png)
+<use noulogo.png>
+Package pdftex.def Info: noulogo.png  used on input line 822.
+(pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
+
+Package fancyhdr Warning: \headheight is too small (35.0pt): 
+(fancyhdr)                Make it at least 42.67912pt, for example:
+(fancyhdr)                \setlength{\headheight}{42.67912pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-7.67912pt}.
+
+File: eimt.png Graphic file (type png)
+<use eimt.png>
+Package pdftex.def Info: eimt.png  used on input line 822.
+(pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
+[30]
 Cap\'{\i }tol 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 754--754
+Underfull \hbox (badness 10000) in paragraph at lines 828--828
 \T1/lmr/m/n/10.95 hing; 2026.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 754--754
+Underfull \hbox (badness 10000) in paragraph at lines 828--828
 
  []
 
 
-Underfull \hbox (badness 2401) in paragraph at lines 758--758
+Underfull \hbox (badness 2401) in paragraph at lines 832--832
 []\T1/lmr/m/n/10.95 Coutinho T, Kha-dan-ga S, Ade-din-sewo D, Ba-rac A, Brown T
 M, De-a-ton C, et al.
  []
 
 
-Underfull \hbox (badness 5817) in paragraph at lines 758--758
+Underfull \hbox (badness 5817) in paragraph at lines 832--832
 \T1/lmr/m/n/10.95 Car-di-ac re-ha-bi-li-ta-ti-on in wo-men: A sci-en-ti-fic sta
 -te-ment from the ame-ri-can he-
  []
 
 
-Underfull \hbox (badness 3271) in paragraph at lines 758--758
+Underfull \hbox (badness 3271) in paragraph at lines 832--832
 \T1/lmr/m/n/10.95 art as-so-ci-a-ti-on. Cir-cu-la-ti-on. 2025;152:e376e390. doi
 :[]10.1161/cir.0000000000001379[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 758--758
+Underfull \hbox (badness 10000) in paragraph at lines 832--832
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 762--762
+Underfull \hbox (badness 10000) in paragraph at lines 836--836
 []\T1/lmr/m/n/10.95 Caton S, Ha-as C. Fair-ness in mac-hi-ne le-ar-ning: A sur-
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 762--762
+Underfull \hbox (badness 10000) in paragraph at lines 836--836
 \T1/lmr/m/n/10.95 vey. ACM Com-pu-ting Sur-veys. 2024;56:138. doi:[]10.1145/361
 6865[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 762--762
+Underfull \hbox (badness 10000) in paragraph at lines 836--836
 
  []
 
 
-Underfull \hbox (badness 1189) in paragraph at lines 766--766
+Underfull \hbox (badness 1189) in paragraph at lines 840--840
 \T1/lmr/m/n/10.95 with 6-month follow-up. Swiss Me-di-cal We-ekly. 2025;155:416
 0. doi:[]10.57187/s.4160[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 766--766
+Underfull \hbox (badness 10000) in paragraph at lines 840--840
 
  []
 
 
-Underfull \hbox (badness 1221) in paragraph at lines 770--770
+Underfull \hbox (badness 1221) in paragraph at lines 844--844
 \T1/lmr/m/n/10.95 al. Glo-bal bur-den of 292 cau-ses of de-ath in 204 coun-tri-
 es and ter-ri-to-ri-es and 660
  []
 
 
-Underfull \hbox (badness 1215) in paragraph at lines 770--770
+Underfull \hbox (badness 1215) in paragraph at lines 844--844
 \T1/lmr/m/n/10.95 a-se study 2023. The Lan-cet. 2025;406:18111872. doi:[]10.101
 6/s0140-6736(25)01917-8[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 770--770
+Underfull \hbox (badness 10000) in paragraph at lines 844--844
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 774--774
+Underfull \hbox (badness 10000) in paragraph at lines 848--848
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 778--778
+Underfull \hbox (badness 10000) in paragraph at lines 852--852
 
  []
 
 
-Underfull \hbox (badness 6001) in paragraph at lines 782--782
+Underfull \hbox (badness 6001) in paragraph at lines 856--856
 []\T1/lmr/m/n/10.95 Dibben GO, Faulk-ner J, Ol-drid-ge N, Re-es K, Thomp-son DR
 , Zwis-ler AD, et
  []
 
 
-Underfull \hbox (badness 6364) in paragraph at lines 782--782
+Underfull \hbox (badness 6364) in paragraph at lines 856--856
 \T1/lmr/m/n/10.95 al. Exercise-based car-di-ac re-ha-bi-li-ta-ti-on for co-ro-n
 ary he-art dise-a-se: A meta-
  []
 
 
-Underfull \hbox (badness 2529) in paragraph at lines 782--782
+Underfull \hbox (badness 2529) in paragraph at lines 856--856
 \T1/lmr/m/n/10.95 analysis. Eu-ro-pe-an He-art Jour-nal. 2023;44:452469. doi:[]
 10.1093/eurheartj/ehac747[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 856--856
 
  []
 
 
-Underfull \hbox (badness 1859) in paragraph at lines 786--786
+Underfull \hbox (badness 1859) in paragraph at lines 860--860
 []\T1/lmr/m/n/10.95 Molloy C, Long L, Mor-di IR, Brid-ges C, Sa-gar VA, Da-vi-e
 s EJ, et al. Exercise-
  []
 
 
-Underfull \hbox (badness 3428) in paragraph at lines 786--786
+Underfull \hbox (badness 3428) in paragraph at lines 860--860
 \T1/lmr/m/n/10.95 based car-di-ac re-ha-bi-li-ta-ti-on for adults with he-art f
 ai-lu-re. Coch-ra-ne Da-ta-ba-se of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 786--786
+Underfull \hbox (badness 10000) in paragraph at lines 860--860
 \T1/lmr/m/n/10.95 Sys-te-ma-tic Re-vi-ews. 2024;2024:CD003331. doi:[]10.1002/14
 651858.cd003331.pub6[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 786--786
+Underfull \hbox (badness 10000) in paragraph at lines 860--860
 
  []
 
 
-Underfull \hbox (badness 1715) in paragraph at lines 790--790
+Underfull \hbox (badness 1715) in paragraph at lines 864--864
 \T1/lmr/m/n/10.95 based car-di-ac re-ha-bi-li-ta-ti-on for adults af-ter he-art
  val-ve sur-gery. Coch-ra-ne Da-ta-ba-
  []
 
 
-Underfull \hbox (badness 1817) in paragraph at lines 790--790
+Underfull \hbox (badness 1817) in paragraph at lines 864--864
 \T1/lmr/m/n/10.95 se of Sys-te-ma-tic Re-vi-ews. 2021;2021:CD010876. doi:[]10.1
 002/14651858.cd010876.pub3[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 790--790
+Underfull \hbox (badness 10000) in paragraph at lines 864--864
 
  []
 
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 792.
+Package pdftex.def Info: noulogo.png  used on input line 866.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -1931,254 +1963,254 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 792.
+Package pdftex.def Info: eimt.png  used on input line 866.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[29
+[31
 
 ]
-Underfull \hbox (badness 2165) in paragraph at lines 794--794
+Underfull \hbox (badness 2165) in paragraph at lines 868--868
 []\T1/lmr/m/n/10.95 Buckley BJ, Long L, Ri-som SS, La-ne DA, Berg SK, Gluud C, 
 et al. Exercise-
  []
 
 
-Underfull \hbox (badness 4013) in paragraph at lines 794--794
+Underfull \hbox (badness 4013) in paragraph at lines 868--868
 \T1/lmr/m/n/10.95 based car-di-ac re-ha-bi-li-ta-ti-on for adults with atri-al 
 fi-bri-lla-ti-on. Coch-ra-ne Da-ta-ba-
  []
 
 
-Underfull \hbox (badness 1817) in paragraph at lines 794--794
+Underfull \hbox (badness 1817) in paragraph at lines 868--868
 \T1/lmr/m/n/10.95 se of Sys-te-ma-tic Re-vi-ews. 2024;2024:CD011197. doi:[]10.1
 002/14651858.cd011197.pub3[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 794--794
+Underfull \hbox (badness 10000) in paragraph at lines 868--868
 
  []
 
 
-Underfull \hbox (badness 1852) in paragraph at lines 798--798
+Underfull \hbox (badness 1852) in paragraph at lines 872--872
 \T1/lmr/m/n/10.95 enhanced car-di-ac re-ha-bi-li-ta-ti-on for psyc-ho-lo-gi-cal
  and func-ti-o-nal im-pro-ve-ment in pa-ti-
  []
 
 
-Underfull \hbox (badness 1577) in paragraph at lines 798--798
+Underfull \hbox (badness 1577) in paragraph at lines 872--872
 \T1/lmr/m/n/10.95 ents with car-di-o-vas-cu-lar dise-a-se: A sys-te-ma-tic re-v
 i-ew with meta-analysis and fu-tu-re
  []
 
 
-Underfull \hbox (badness 1292) in paragraph at lines 798--798
+Underfull \hbox (badness 1292) in paragraph at lines 872--872
 \T1/lmr/m/n/10.95 re-se-arch di-rec-ti-ons. Phy-si-ot-he-rapy. 2024;125:101412.
  doi:[]10.1016/j.physio.2024.07.003[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 798--798
+Underfull \hbox (badness 10000) in paragraph at lines 872--872
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 802--802
+Underfull \hbox (badness 10000) in paragraph at lines 876--876
 
  []
 
 
-Underfull \hbox (badness 2065) in paragraph at lines 806--806
+Underfull \hbox (badness 2065) in paragraph at lines 880--880
 []\T1/lmr/m/n/10.95 Suzuki Y, Ito K, Ya-ma-mo-to K, Fukui N, Ya-na-gi H, Ki-ta-
 gaki K, et al. Pre-dic-
  []
 
 
-Underfull \hbox (badness 3919) in paragraph at lines 806--806
+Underfull \hbox (badness 3919) in paragraph at lines 880--880
 \T1/lmr/m/n/10.95 tors of im-pro-ve-ments in exer-ci-se capa-city du-ring car-d
 i-ac re-ha-bi-li-ta-ti-on in the re-
  []
 
 
-Underfull \hbox (badness 7081) in paragraph at lines 806--806
+Underfull \hbox (badness 7081) in paragraph at lines 880--880
 \T1/lmr/m/n/10.95 co-very pha-se af-ter co-ro-nary ar-tery by-pass graft sur-ge
 ry ver-sus acu-te myo-car-di-
  []
 
 
-Underfull \hbox (badness 3281) in paragraph at lines 806--806
+Underfull \hbox (badness 3281) in paragraph at lines 880--880
 \T1/lmr/m/n/10.95 al in-farc-ti-on. He-art and Ves-sels. 2018;33:358366. doi:[]
 10.1007/s00380-017-1076-2[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 806--806
+Underfull \hbox (badness 10000) in paragraph at lines 880--880
 
  []
 
 
-Underfull \hbox (badness 1917) in paragraph at lines 810--810
+Underfull \hbox (badness 1917) in paragraph at lines 884--884
 \T1/lmr/m/n/10.95 di-ac re-ha-bi-li-ta-ti-on in ad-van-ced aGE af-ter PCI for a
 cu-te co-ro-nary syn-dro-mes: Pre-
  []
 
 
-Underfull \hbox (badness 2443) in paragraph at lines 810--810
+Underfull \hbox (badness 2443) in paragraph at lines 884--884
 \T1/lmr/m/n/10.95 dic-tors of exer-ci-se capa-city im-pro-ve-ment in the CR-AGE
  ACS study. Aging Cli-
  []
 
 
-Underfull \hbox (badness 2269) in paragraph at lines 810--810
+Underfull \hbox (badness 2269) in paragraph at lines 884--884
 \T1/lmr/m/n/10.95 ni-cal and Ex-pe-ri-men-tal Re-se-arch. 2022;34:21952203. doi
 :[]10.1007/s40520-022-02130-y[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 810--810
+Underfull \hbox (badness 10000) in paragraph at lines 884--884
 
  []
 
 
-Underfull \hbox (badness 2409) in paragraph at lines 814--814
+Underfull \hbox (badness 2409) in paragraph at lines 888--888
 []\T1/lmr/m/n/10.95 Tokeshi T, Da-te A, Miu-ra H, Ku-ma-saka L, Arakawa T, Naka
 o K, et al. Pre-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 814--814
+Underfull \hbox (badness 10000) in paragraph at lines 888--888
 \T1/lmr/m/n/10.95 dic-tors of im-pro-ve-ment in exer-ci-se capa-city af-ter car
 -di-ac re-ha-bi-li-ta-ti-on dif-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 814--814
+Underfull \hbox (badness 10000) in paragraph at lines 888--888
 \T1/lmr/m/n/10.95 fer betwe-en oc-to-ge-na-ri-an and young-old pa-ti-ents with 
 acu-te myo-car-di-al in-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 814--814
+Underfull \hbox (badness 10000) in paragraph at lines 888--888
 \T1/lmr/m/n/10.95 farc-ti-on. Cir-cu-la-ti-on Jour-nal. 2023;87:815823. doi:[]1
 0.1253/circj.cj-22-0606[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 814--814
+Underfull \hbox (badness 10000) in paragraph at lines 888--888
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--818
+Underfull \hbox (badness 10000) in paragraph at lines 892--892
 []\T1/lmr/m/n/10.95 Uszko-Lencer NHMK, Mes-qui-ta R, Jans-sen E, Wer-ter C, Roc
 -ca HPBL, Pit-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--818
+Underfull \hbox (badness 10000) in paragraph at lines 892--892
 \T1/lmr/m/n/10.95 ta F, et al. Re-li-a-bi-lity, cons-truct va-li-dity and de-te
 r-mi-nants of 6-minute
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--818
+Underfull \hbox (badness 10000) in paragraph at lines 892--892
 \T1/lmr/m/n/10.95 walk test per-for-man-ce in pa-ti-ents with chro-nic he-art f
 ai-lu-re. In-ter-na-ti-o-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--818
+Underfull \hbox (badness 10000) in paragraph at lines 892--892
 \T1/lmr/m/n/10.95 nal Jour-nal of Car-di-o-logy. 2017;240:285290. doi:[]10.1016
 /j.ijcard.2017.02.109[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--818
+Underfull \hbox (badness 10000) in paragraph at lines 892--892
 
  []
 
 
-Underfull \hbox (badness 2617) in paragraph at lines 822--822
+Underfull \hbox (badness 2617) in paragraph at lines 896--896
 []\T1/lmr/m/n/10.95 Kurpaska M, Kr-ze-si«ski P, Ba-nak M, Pi-o-trowicz K. Pre-d
 ic-tors of im-pai-red exer-ci-
  []
 
 
-Underfull \hbox (badness 1215) in paragraph at lines 822--822
+Underfull \hbox (badness 1215) in paragraph at lines 896--896
 \T1/lmr/m/n/10.95 co-mor-bi-di-ti-es. Jour-nal of Cli-ni-cal Me-di-ci-ne. 2025;
 14:7512. doi:[]10.3390/jcm14217512[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 822--822
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 
  []
 
 
-Underfull \hbox (badness 1776) in paragraph at lines 826--826
+Underfull \hbox (badness 1776) in paragraph at lines 900--900
 \T1/lmr/m/n/10.95 Pre-dic-tors of sub-op-ti-mal gain in exer-ci-se capa-city af
 -ter car-di-ac re-ha-bi-li-ta-ti-on. The
  []
 
 
-Underfull \hbox (badness 2173) in paragraph at lines 826--826
+Underfull \hbox (badness 2173) in paragraph at lines 900--900
 \T1/lmr/m/n/10.95 Ame-ri-can Jour-nal of Car-di-o-logy. 2017;119:687691. doi:[]
 10.1016/j.amjcard.2016.08.005[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 826--826
+Underfull \hbox (badness 10000) in paragraph at lines 900--900
 
  []
 
 
-Underfull \hbox (badness 1997) in paragraph at lines 830--830
+Underfull \hbox (badness 1997) in paragraph at lines 904--904
 []\T1/lmr/m/n/10.95 Sutherland N, Har-ri-son A, Do-herty P. Fac-tors in-flu-en-
 cing chan-ge in walking abi-lity
  []
 
 
-Underfull \hbox (badness 2799) in paragraph at lines 830--830
+Underfull \hbox (badness 2799) in paragraph at lines 904--904
 \T1/lmr/m/n/10.95 in pa-ti-ents with he-art fai-lu-re un-der-going exercise-bas
 ed car-di-ac re-ha-bi-li-ta-ti-on. In-
  []
 
 
-Underfull \hbox (badness 2990) in paragraph at lines 830--830
+Underfull \hbox (badness 2990) in paragraph at lines 904--904
 \T1/lmr/m/n/10.95 ter-na-ti-o-nal Jour-nal of Car-di-o-logy. 2018;268:162165. d
 oi:[]10.1016/j.ijcard.2018.05.021[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 830--830
+Underfull \hbox (badness 10000) in paragraph at lines 904--904
 
  []
 
 
-Underfull \hbox (badness 3199) in paragraph at lines 834--834
+Underfull \hbox (badness 3199) in paragraph at lines 908--908
 []\T1/lmr/m/n/10.95 Artiles RF, Eu-ler S, Ausch-ra B, Sil-va HB da, Ni-e-der-se
 -er D, Sch-mi-ed C, et al.
  []
 
 
-Underfull \hbox (badness 6188) in paragraph at lines 834--834
+Underfull \hbox (badness 6188) in paragraph at lines 908--908
 \T1/lmr/m/n/10.95 Pre-dic-tors of gain in exer-ci-se capa-city through car-di-a
 c re-ha-bi-li-ta-ti-on: Sex and
  []
 
 
-Underfull \hbox (badness 6188) in paragraph at lines 834--834
+Underfull \hbox (badness 6188) in paragraph at lines 908--908
 \T1/lmr/m/n/10.95 age mat-ter. He-art & Lung. 2023;62:200206. doi:[]10.1016/j.h
 rtlng.2023.08.003[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 834--834
+Underfull \hbox (badness 10000) in paragraph at lines 908--908
 
  []
 
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 836.
+Package pdftex.def Info: noulogo.png  used on input line 910.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -2189,274 +2221,274 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 836.
+Package pdftex.def Info: eimt.png  used on input line 910.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[30]
-Underfull \hbox (badness 1215) in paragraph at lines 838--838
+[32]
+Underfull \hbox (badness 1215) in paragraph at lines 912--912
 []\T1/lmr/m/n/10.95 Sakamoto M, Su-e-mat-su Y, Ya-no Y, Kai-no K, Tes-hi-ma R, 
 Mat-su-da T, et al. De-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 838--838
+Underfull \hbox (badness 10000) in paragraph at lines 912--912
 \T1/lmr/m/n/10.95 pres-si-on and an-xi-ety are as-so-ci-a-ted with phy-si-cal p
 er-for-man-ce in pa-ti-ents un-
  []
 
 
-Underfull \hbox (badness 5036) in paragraph at lines 838--838
+Underfull \hbox (badness 5036) in paragraph at lines 912--912
 \T1/lmr/m/n/10.95 der-going car-di-ac re-ha-bi-li-ta-ti-on: A re-tros-pec-ti-ve
  ob-ser-va-ti-o-nal study. Jour-nal of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 838--838
+Underfull \hbox (badness 10000) in paragraph at lines 912--912
 \T1/lmr/m/n/10.95 Car-di-o-vas-cu-lar De-ve-lop-ment and Dise-a-se. 2022;9:21. 
 doi:[]10.3390/jcdd9010021[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 838--838
+Underfull \hbox (badness 10000) in paragraph at lines 912--912
 
  []
 
 
-Underfull \hbox (badness 2384) in paragraph at lines 842--842
+Underfull \hbox (badness 2384) in paragraph at lines 916--916
 []\T1/lmr/m/n/10.95 Kjesbu IE, Si-bi-litz KL, Pe-ter-sen J, Hou-ben VJG, Wil-he
 lm M, Pena-Gil C, et al.
  []
 
 
-Underfull \hbox (badness 3417) in paragraph at lines 842--842
+Underfull \hbox (badness 3417) in paragraph at lines 916--916
 \T1/lmr/m/n/10.95 Health-related qua-lity of li-fe in el-derly car-di-ac pa-ti-
 ents un-der-going car-di-ac re-ha-bi-
  []
 
 
-Underfull \hbox (badness 1701) in paragraph at lines 842--842
+Underfull \hbox (badness 1701) in paragraph at lines 916--916
 \T1/lmr/m/n/10.95 li-ta-ti-on and the as-so-ci-a-ti-on with exer-ci-se capa-cit
 y: The EU-CaRE study. Eu-ro-pe-
  []
 
 
-Underfull \hbox (badness 2012) in paragraph at lines 842--842
+Underfull \hbox (badness 2012) in paragraph at lines 916--916
 \T1/lmr/m/n/10.95 an Jour-nal of Pre-ven-ti-ve Car-di-o-logy. 2024;31:19501957.
  doi:[]10.1093/eurjpc/zwae195[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 842--842
+Underfull \hbox (badness 10000) in paragraph at lines 916--916
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 846--846
+Underfull \hbox (badness 10000) in paragraph at lines 920--920
 []\T1/lmr/m/n/10.95 Young L, Zhang Q, Li-an E, Ro-berts K, Wein-traub N, Dong Y
 , et
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 846--846
+Underfull \hbox (badness 10000) in paragraph at lines 920--920
 \T1/lmr/m/n/10.95 al. Fac-tors pre-dic-ting the uti-li-za-ti-on of center-based
  car-di-ac re-ha-bi-li-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 846--846
+Underfull \hbox (badness 10000) in paragraph at lines 920--920
 \T1/lmr/m/n/10.95 ta-ti-on pro-gram. Ge-ri-a-trics. 2020;5:66. doi:[]10.3390/ge
 riatrics5040066[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 846--846
+Underfull \hbox (badness 10000) in paragraph at lines 920--920
 
  []
 
 
-Underfull \hbox (badness 1803) in paragraph at lines 850--850
+Underfull \hbox (badness 1803) in paragraph at lines 924--924
 []\T1/lmr/m/n/10.95 Malak MM, Hushc-ha P, Ja-fri SH, Bous-quet G, Ca-bral L, Lu
 tfy C, et al. PRE-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 850--850
+Underfull \hbox (badness 10000) in paragraph at lines 924--924
 \T1/lmr/m/n/10.95 DIC-TORS OF CAR-DI-AC RE-HA-BI-LI-TA-TI-ON COM-PLE-TI-ON. Jou
 r-nal of the
  []
 
 
-Underfull \hbox (badness 4726) in paragraph at lines 850--850
+Underfull \hbox (badness 4726) in paragraph at lines 924--924
 \T1/lmr/m/n/10.95 Ame-ri-can Colle-ge of Car-di-o-logy. 2021;77:1585. doi:[]10.
 1016/s0735-1097(21)02942-9[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 850--850
+Underfull \hbox (badness 10000) in paragraph at lines 924--924
 
  []
 
 
-Underfull \hbox (badness 1406) in paragraph at lines 854--854
+Underfull \hbox (badness 1406) in paragraph at lines 928--928
 \T1/lmr/m/n/10.95 based car-di-ac re-ha-bi-li-ta-ti-on exer-ci-ses in pa-ti-ent
 s with co-ro-nary he-art dise-a-se: A co-
  []
 
 
-Underfull \hbox (badness 1194) in paragraph at lines 854--854
+Underfull \hbox (badness 1194) in paragraph at lines 928--928
 \T1/lmr/m/n/10.95 hort study. Jour-nal of Ad-van-ced Nur-sing. 2026;82:72907299
 . doi:[]10.1111/jan.70369[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 854--854
+Underfull \hbox (badness 10000) in paragraph at lines 928--928
 
  []
 
 
-Underfull \hbox (badness 6775) in paragraph at lines 858--858
+Underfull \hbox (badness 6775) in paragraph at lines 932--932
 []\T1/lmr/m/n/10.95 Regensteiner JG, Libby AM, Hux-ley R, Clay-ton JA. In-te-gr
 a-ting sex and gen-
  []
 
 
-Underfull \hbox (badness 6961) in paragraph at lines 858--858
+Underfull \hbox (badness 6961) in paragraph at lines 932--932
 \T1/lmr/m/n/10.95 der con-si-de-ra-ti-ons in re-se-arch: Edu-ca-ting the sci-en
 -ti-fic work-for-ce. The Lan-
  []
 
 
-Underfull \hbox (badness 5475) in paragraph at lines 858--858
+Underfull \hbox (badness 5475) in paragraph at lines 932--932
 \T1/lmr/m/n/10.95 cet Di-a-be-tes & En-do-cri-no-logy. 2019;7:248250. doi:[]10.
 1016/s2213-8587(19)30038-5[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 858--858
+Underfull \hbox (badness 10000) in paragraph at lines 932--932
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 862--862
+Underfull \hbox (badness 10000) in paragraph at lines 936--936
 []\T1/lmr/m/n/10.95 Bewley S, Mc-Cart-ney M, Me-ads C, Ro-gers A. Sex, gen-der,
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 862--862
+Underfull \hbox (badness 10000) in paragraph at lines 936--936
 \T1/lmr/m/n/10.95 and me-di-cal da-ta. BMJ. 2021;372:n735. doi:[]10.1136/bmj.n7
 35[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 862--862
+Underfull \hbox (badness 10000) in paragraph at lines 936--936
 
  []
 
 
-Underfull \hbox (badness 4254) in paragraph at lines 866--866
+Underfull \hbox (badness 4254) in paragraph at lines 940--940
 []\T1/lmr/m/n/10.95 Bauer GR. Sex and gen-der mul-ti-di-men-si-o-na-lity in epi
 -de-mi-o-lo-gic re-se-arch. Ame-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 866--866
+Underfull \hbox (badness 10000) in paragraph at lines 940--940
 \T1/lmr/m/n/10.95 ri-can Jour-nal of Epi-de-mi-o-logy. 2022;192:122132. doi:[]1
 0.1093/aje/kwac173[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 866--866
+Underfull \hbox (badness 10000) in paragraph at lines 940--940
 
  []
 
 
-Underfull \hbox (badness 1472) in paragraph at lines 870--870
+Underfull \hbox (badness 1472) in paragraph at lines 944--944
 \T1/lmr/m/n/10.95 de-mi-o-logy: A cha-llen-ge beyond ter-mi-no-logy. From con-c
 ep-tu-al analy-sis to met-ho-do-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 870--870
+Underfull \hbox (badness 10000) in paragraph at lines 944--944
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 874--874
+Underfull \hbox (badness 10000) in paragraph at lines 948--948
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 878--878
+Underfull \hbox (badness 10000) in paragraph at lines 952--952
 []\T1/lmr/m/n/10.95 Alexander S, Li S, Tracy M. Car-di-ac re-ha-bi-li-ta-ti-on 
 - the answer for
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 878--878
+Underfull \hbox (badness 10000) in paragraph at lines 952--952
 \T1/lmr/m/n/10.95 the se-cond chan-ce. Ame-ri-can He-art Jour-nal Plus: Car-di-
 o-logy Re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 878--878
+Underfull \hbox (badness 10000) in paragraph at lines 952--952
 \T1/lmr/m/n/10.95 se-arch and Prac-ti-ce. 2022;13:100108. doi:[]10.1016/j.ahjo.
 2022.100108[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 878--878
+Underfull \hbox (badness 10000) in paragraph at lines 952--952
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 882--882
+Underfull \hbox (badness 10000) in paragraph at lines 956--956
 []\T1/lmr/m/n/10.95 Khadanga S, Ga-a-le-ma DE, Sa-va-ge P, Ades PA. Un-de-ru-ti
 -li-za-ti-on of car-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 882--882
+Underfull \hbox (badness 10000) in paragraph at lines 956--956
 \T1/lmr/m/n/10.95 di-ac re-ha-bi-li-ta-ti-on in wo-men. Jour-nal of Car-di-o-pu
 l-mo-nary Re-ha-bi-li-ta-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 882--882
+Underfull \hbox (badness 10000) in paragraph at lines 956--956
 \T1/lmr/m/n/10.95 ti-on and Pre-ven-ti-on. 2021;41:207213. doi:[]10.1097/hcr.00
 00000000000629[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 882--882
+Underfull \hbox (badness 10000) in paragraph at lines 956--956
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 886--886
+Underfull \hbox (badness 10000) in paragraph at lines 960--960
 []\T1/lmr/m/n/10.95 Sawan MA, Cal-houn AE, Fa-ta-de YA, Wen-ger NK. Car-di-ac r
 e-ha-bi-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 886--886
+Underfull \hbox (badness 10000) in paragraph at lines 960--960
 \T1/lmr/m/n/10.95 li-ta-ti-on in wo-men, cha-llen-ges and op-por-tu-ni-ti-es. P
 ro-gress in Car-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 886--886
+Underfull \hbox (badness 10000) in paragraph at lines 960--960
 \T1/lmr/m/n/10.95 di-o-vas-cu-lar Dise-a-ses. 2022;70:111118. doi:[]10.1016/j.p
 cad.2022.01.007[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 886--886
+Underfull \hbox (badness 10000) in paragraph at lines 960--960
 
  []
 
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 888.
+Package pdftex.def Info: noulogo.png  used on input line 962.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -2467,285 +2499,285 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 888.
+Package pdftex.def Info: eimt.png  used on input line 962.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[31]
-Underfull \hbox (badness 8000) in paragraph at lines 890--890
+[33]
+Underfull \hbox (badness 8000) in paragraph at lines 964--964
 []\T1/lmr/m/n/10.95 HOEVE NT, BAKKER MD, SU-NA-MU-RA M, LEN-NEP JERV, BO-ERS-MA
  E,
  []
 
 
-Underfull \hbox (badness 5245) in paragraph at lines 890--890
+Underfull \hbox (badness 5245) in paragraph at lines 964--964
 \T1/lmr/m/n/10.95 BERG-EMONS RJGVD. WO-MEN AND MEN PRO-FIT EQUALLY FROM CAR-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 890--890
+Underfull \hbox (badness 10000) in paragraph at lines 964--964
 \T1/lmr/m/n/10.95 DI-AC RE-HA-BI-LI-TA-TI-ON: A SE-CON-DARY ANALY-SIS OF THE OP
 -TI-CA-RE
  []
 
 
-Underfull \hbox (badness 1924) in paragraph at lines 890--890
+Underfull \hbox (badness 1924) in paragraph at lines 964--964
 \T1/lmr/m/n/10.95 RCT. Jour-nal of Re-ha-bi-li-ta-ti-on Me-di-ci-ne. 2026;58:44
 504. doi:[]10.2340/jrm.v58.44504[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 890--890
+Underfull \hbox (badness 10000) in paragraph at lines 964--964
 
  []
 
 
-Underfull \hbox (badness 3343) in paragraph at lines 894--894
+Underfull \hbox (badness 3343) in paragraph at lines 968--968
 []\T1/lmr/m/n/10.95 Rengo JL, Kha-dan-ga S, Sa-va-ge PD, Ades PA. Res-pon-se to
  exer-ci-se trai-ning du-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 894--894
+Underfull \hbox (badness 10000) in paragraph at lines 968--968
 \T1/lmr/m/n/10.95 ring car-di-ac re-ha-bi-li-ta-ti-on dif-fers by sex. Jour-nal
  of Car-di-o-pul-mo-nary Re-ha-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 894--894
+Underfull \hbox (badness 10000) in paragraph at lines 968--968
 \T1/lmr/m/n/10.95 bi-li-ta-ti-on and Pre-ven-ti-on. 2020;40:319324. doi:[]10.10
 97/hcr.0000000000000536[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 894--894
+Underfull \hbox (badness 10000) in paragraph at lines 968--968
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 898--898
+Underfull \hbox (badness 10000) in paragraph at lines 972--972
 []\T1/lmr/m/n/10.95 McFeely AE, Bitt-ner VA. Sex and gender-based dif-fe-ren-ce
 s in out-co-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 898--898
+Underfull \hbox (badness 10000) in paragraph at lines 972--972
 \T1/lmr/m/n/10.95 mes of car-di-ac re-ha-bi-li-ta-ti-on fo-llowing acu-te myo-c
 ar-di-al in-farc-ti-on. Cur-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 898--898
+Underfull \hbox (badness 10000) in paragraph at lines 972--972
 \T1/lmr/m/n/10.95 rent At-he-ros-cle-ro-sis Re-ports. 2025;27:109. doi:[]10.100
 7/s11883-025-01360-5[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 898--898
+Underfull \hbox (badness 10000) in paragraph at lines 972--972
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 902--902
+Underfull \hbox (badness 10000) in paragraph at lines 976--976
 
  []
 
 
-Underfull \hbox (badness 3108) in paragraph at lines 906--906
+Underfull \hbox (badness 3108) in paragraph at lines 980--980
 \T1/lmr/m/n/10.95 di-ac re-ha-bi-li-ta-ti-on at-te-nu-a-tes the gen-der gap in 
 car-di-ac re-ha-bi-li-ta-ti-on par-ti-ci-pa-ti-on.
  []
 
 
-Underfull \hbox (badness 1874) in paragraph at lines 906--906
+Underfull \hbox (badness 1874) in paragraph at lines 980--980
 \T1/lmr/m/n/10.95 Cur-rent Pro-blems in Car-di-o-logy. 2023;48:101668. doi:[]10
 .1016/j.cpcardiol.2023.101668[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 906--906
+Underfull \hbox (badness 10000) in paragraph at lines 980--980
 
  []
 
 
-Underfull \hbox (badness 3058) in paragraph at lines 910--910
+Underfull \hbox (badness 3058) in paragraph at lines 984--984
 []\T1/lmr/m/n/10.95 Chung S, Can-de-la-ria D, Ga-llag-her R. Wo-men's health-re
 lated qua-lity of li-fe subs-
  []
 
 
-Underfull \hbox (badness 2486) in paragraph at lines 910--910
+Underfull \hbox (badness 2486) in paragraph at lines 984--984
 \T1/lmr/m/n/10.95 tan-ti-ally im-pro-ves with tai-lo-red car-di-ac re-ha-bi-li-
 ta-ti-on. Jour-nal of Car-di-o-pul-mo-nary
  []
 
 
-Underfull \hbox (badness 5954) in paragraph at lines 910--910
+Underfull \hbox (badness 5954) in paragraph at lines 984--984
 \T1/lmr/m/n/10.95 Re-ha-bi-li-ta-ti-on and Pre-ven-ti-on. 2022;42:217226. doi:[
 ]10.1097/hcr.0000000000000692[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 910--910
+Underfull \hbox (badness 10000) in paragraph at lines 984--984
 
  []
 
 
-Underfull \hbox (badness 2903) in paragraph at lines 914--914
+Underfull \hbox (badness 2903) in paragraph at lines 988--988
 []\T1/lmr/m/n/10.95 Angelino E. 41Brid-ging the gen-der gap in car-di-ac re-ha-
 bi-li-ta-ti-on. The first step:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 914--914
+Underfull \hbox (badness 10000) in paragraph at lines 988--988
 \T1/lmr/m/n/10.95 The equal op-por-tu-ni-ti-es pro-ject. In-ter-na-ti-o-nal Jou
 r-nal of Car-di-o-logy Car-di-o-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 914--914
+Underfull \hbox (badness 10000) in paragraph at lines 988--988
 \T1/lmr/m/n/10.95 vas-cu-lar Risk and Pre-ven-ti-on. 2024;21:200268. doi:[]10.1
 016/j.ijcrp.2024.200268[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 914--914
+Underfull \hbox (badness 10000) in paragraph at lines 988--988
 
  []
 
 
-Underfull \hbox (badness 5036) in paragraph at lines 918--918
+Underfull \hbox (badness 5036) in paragraph at lines 992--992
 []\T1/lmr/m/n/10.95 Smith JR, Medina-Inojosa JR, Su-a-rez ASC, Tay-lor JL, Fisc
 -her KM, Bo-nikowske
  []
 
 
-Underfull \hbox (badness 3547) in paragraph at lines 918--918
+Underfull \hbox (badness 3547) in paragraph at lines 992--992
 \T1/lmr/m/n/10.95 AR, et al. Sex dif-fe-ren-ces in exer-ci-se capa-city and out
 -co-mes fo-llowing out-pa-ti-
  []
 
 
-Underfull \hbox (badness 2134) in paragraph at lines 918--918
+Underfull \hbox (badness 2134) in paragraph at lines 992--992
 \T1/lmr/m/n/10.95 ent car-di-ac re-ha-bi-li-ta-ti-on. Jour-nal of the Ame-ri-ca
 n He-art As-so-ci-a-ti-on: Car-di-o-vas-
  []
 
 
-Underfull \hbox (badness 5726) in paragraph at lines 918--918
+Underfull \hbox (badness 5726) in paragraph at lines 992--992
 \T1/lmr/m/n/10.95 cu-lar and Ce-re-bro-vas-cu-lar Dise-a-se. 2026;15:e044403. d
 oi:[]10.1161/jaha.125.044403[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 918--918
+Underfull \hbox (badness 10000) in paragraph at lines 992--992
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 996--996
 []\T1/lmr/m/n/10.95 Anahideh H, Ne-za-mi N, Asu-deh A. Fin-ding re-pre-sen-ta-t
 i-ve group
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 996--996
 \T1/lmr/m/n/10.95 fair-ness me-trics using cor-re-la-ti-on es-ti-ma-ti-ons. Ex-
 pert Sys-tems
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 996--996
 \T1/lmr/m/n/10.95 with Ap-pli-ca-ti-ons. 2025;262:125652. doi:[]10.1016/j.eswa.
 2024.125652[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 996--996
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 926--926
+Underfull \hbox (badness 10000) in paragraph at lines 1000--1000
 []\T1/lmr/m/n/10.95 Wi±niewski J, Bi-e-cek P. Fair-mo-dels: A fle-xi-ble to-ol 
 for bi-as de-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 926--926
+Underfull \hbox (badness 10000) in paragraph at lines 1000--1000
 \T1/lmr/m/n/10.95 tec-ti-on, vi-su-a-li-za-ti-on, and mi-ti-ga-ti-on. doi:[]10.
 48550/arXiv.2104.00507[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 926--926
+Underfull \hbox (badness 10000) in paragraph at lines 1000--1000
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 930--930
+Underfull \hbox (badness 10000) in paragraph at lines 1004--1004
 []\T1/lmr/m/n/10.95 Gao J, Chou B, Mc-Caw ZR, Thurs-ton H, Varg-he-se P, Hong C
 , et
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 930--930
+Underfull \hbox (badness 10000) in paragraph at lines 1004--1004
 \T1/lmr/m/n/10.95 al. What is fair? De-fi-ning fair-ness in mac-hi-ne le-ar-nin
 g for he-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 930--930
+Underfull \hbox (badness 10000) in paragraph at lines 1004--1004
 \T1/lmr/m/n/10.95 alth. Sta-tis-tics in Me-di-ci-ne. 2025;44:e70234. doi:[]10.1
 002/sim.70234[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 930--930
+Underfull \hbox (badness 10000) in paragraph at lines 1004--1004
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 934--934
+Underfull \hbox (badness 10000) in paragraph at lines 1008--1008
 []\T1/lmr/m/n/10.95 Barocas S, Hardt M, Na-raya-nan A. Fair-ness and mac-hi-ne 
 le-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 934--934
+Underfull \hbox (badness 10000) in paragraph at lines 1008--1008
 \T1/lmr/m/n/10.95 ar-ning: Li-mi-ta-ti-ons and op-por-tu-ni-ti-es. MIT Press; 2
 023.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 934--934
+Underfull \hbox (badness 10000) in paragraph at lines 1008--1008
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 938--938
+Underfull \hbox (badness 10000) in paragraph at lines 1012--1012
 []\T1/lmr/m/n/10.95 Criscuolo C, Sal-ni-tri M, Mar-ti-neng-hi D. FAIR-CARE: A c
 om-pa-ra-ti-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 938--938
+Underfull \hbox (badness 10000) in paragraph at lines 1012--1012
 \T1/lmr/m/n/10.95 ve eva-lu-a-ti-on of un-fair-ness mi-ti-ga-ti-on ap-pro-ac-he
 s. In-for-ma-ti-on and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 938--938
+Underfull \hbox (badness 10000) in paragraph at lines 1012--1012
 \T1/lmr/m/n/10.95 Softwa-re Tech-no-logy. 2026;189:107898. doi:[]10.1016/j.infs
 of.2025.107898[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 938--938
+Underfull \hbox (badness 10000) in paragraph at lines 1012--1012
 
  []
 
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 940.
+Package pdftex.def Info: noulogo.png  used on input line 1014.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -2756,12 +2788,56 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 940.
+Package pdftex.def Info: eimt.png  used on input line 1014.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[32]
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 1016--1016
+[]\T1/lmr/m/n/10.95 Oneto L, Chi-ap-pa S. Re-cent trends in le-ar-ning from da-
+ta, tu-to-ri-als from
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1016--1016
+\T1/lmr/m/n/10.95 the INNS big da-ta and de-ep le-ar-ning con-fe-ren-ce (INNSBD
+DL2019). Stu-di-
+ []
+
+
+Underfull \hbox (badness 6792) in paragraph at lines 1016--1016
+\T1/lmr/m/n/10.95 es in Com-pu-ta-ti-o-nal In-te-lli-gen-ce. 2020;155196. doi:[
+]10.1007/978-3-030-43883-8_7[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1016--1016
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1020--1020
+
+ []
+
+
+Underfull \hbox (badness 2359) in paragraph at lines 1024--1024
+[]\T1/lmr/m/n/10.95 Srinivasan A, Srit-ha-ran DV, Ane-ja S, Rich-man IB. Cha-ll
+en-ges in me-di-cal al-go-rith-
+ []
+
+
+Underfull \hbox (badness 1442) in paragraph at lines 1024--1024
+\T1/lmr/m/n/10.95 mic fair-ness. JN-CI Can-cer Spec-trum. 2026;10:pkag081. doi:
+[]10.1093/jncics/pkag081[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1024--1024
+
+ []
+
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 942.
+Package pdftex.def Info: noulogo.png  used on input line 1028.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -2772,12 +2848,12 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 942.
+Package pdftex.def Info: eimt.png  used on input line 1028.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[33]
+[35]
 Ap\`endix A.
 
-Overfull \hbox (3.06047pt too wide) in paragraph at lines 1002--1004
+Overfull \hbox (3.06047pt too wide) in paragraph at lines 1092--1094
 []\T1/lmr/bx/n/10.95 QIS\T1/lmr/m/n/10.95 : for-ça iso-mè-tri-ca mà-xi-ma del q
 uà-dri-ceps (de l'an-glès \T1/lmr/m/it/10.95 qua-dri-ceps ma-xi-mal iso-me-tric
  strength\T1/lmr/m/n/10.95 ). 
@@ -2785,7 +2861,7 @@ uà-dri-ceps (de l'an-glès \T1/lmr/m/it/10.95 qua-dri-ceps ma-xi-mal iso-me-tric
 
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 1008.
+Package pdftex.def Info: noulogo.png  used on input line 1094.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -2796,17 +2872,17 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 1008.
+Package pdftex.def Info: eimt.png  used on input line 1094.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[34
+[36
 
 ]
 
-LaTeX Warning: Command \` invalid in math mode on input line 1034.
+LaTeX Warning: Command \` invalid in math mode on input line 1124.
 
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 1037.
+Package pdftex.def Info: noulogo.png  used on input line 1127.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -2817,20 +2893,20 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 1037.
+Package pdftex.def Info: eimt.png  used on input line 1127.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[35]
+[37]
 Ap\`endix B.
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1043.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1133.
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-1060.
+1150.
 (C:\Users\gllui\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 1193.
+Package pdftex.def Info: noulogo.png  used on input line 1283.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -2841,21 +2917,21 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 1193.
+Package pdftex.def Info: eimt.png  used on input line 1283.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[36
+[38
 
 ]
-Underfull \vbox (badness 10000) detected at line 1193
+Underfull \vbox (badness 10000) detected at line 1283
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1193
+Underfull \vbox (badness 10000) detected at line 1283
  []
 
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 1193.
+Package pdftex.def Info: noulogo.png  used on input line 1283.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -2866,19 +2942,19 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 1193.
+Package pdftex.def Info: eimt.png  used on input line 1283.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[37]
-Underfull \vbox (badness 10000) detected at line 1193
+[39]
+Underfull \vbox (badness 10000) detected at line 1283
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1193
+Underfull \vbox (badness 10000) detected at line 1283
  []
 
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 1193.
+Package pdftex.def Info: noulogo.png  used on input line 1283.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -2889,12 +2965,12 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 1193.
+Package pdftex.def Info: eimt.png  used on input line 1283.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[38]
+[40]
 File: noulogo.png Graphic file (type png)
 <use noulogo.png>
-Package pdftex.def Info: noulogo.png  used on input line 1196.
+Package pdftex.def Info: noulogo.png  used on input line 1286.
 (pdftex.def)             Requested size: 165.26283pt x 42.67912pt.
 
 Package fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -2905,9 +2981,9 @@ Package fancyhdr Warning: \headheight is too small (35.0pt):
 
 File: eimt.png Graphic file (type png)
 <use eimt.png>
-Package pdftex.def Info: eimt.png  used on input line 1196.
+Package pdftex.def Info: eimt.png  used on input line 1286.
 (pdftex.def)             Requested size: 73.03314pt x 9.95863pt.
-[39] (LluisLuengo_Guillem_TFM.aux)
+[41] (LluisLuengo_Guillem_TFM.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-09-09>
@@ -2920,13 +2996,13 @@ Package rerunfilecheck Info: File `LluisLuengo_Guillem_TFM.out' has not changed
 (rerunfilecheck)             Checksum: 20E93C3C179DEFE54FB009785027DEB2;6775.
  ) 
 Here is how much of TeX's memory you used:
- 14891 strings out of 467392
- 244096 string characters out of 5405638
- 724299 words of memory out of 5000000
- 43842 multiletter control sequences out of 15000+600000
+ 14904 strings out of 467392
+ 244270 string characters out of 5405638
+ 724412 words of memory out of 5000000
+ 43845 multiletter control sequences out of 15000+600000
  722550 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,21n,98p,1042b,726s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 74i,21n,98p,1210b,726s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
 b><C:/Users/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
 b><C:/Users/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.p
@@ -2946,10 +3022,10 @@ ers/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Us
 ers/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Us
 ers/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb><C:/Us
 ers/gllui/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtti10.pfb>
-Output written on LluisLuengo_Guillem_TFM.pdf (40 pages, 726025 bytes).
+Output written on LluisLuengo_Guillem_TFM.pdf (42 pages, 741828 bytes).
 PDF statistics:
- 643 PDF objects out of 1000 (max. 8388607)
- 124 named destinations out of 1000 (max. 500000)
+ 664 PDF objects out of 1000 (max. 8388607)
+ 134 named destinations out of 1000 (max. 500000)
  354 words of extra memory for PDF output out of 10000 (max. 10000000)
 
 

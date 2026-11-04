@@ -550,9 +550,9 @@ En salut, cal tenir en compte que no tots els biaixos són discriminatoris. Per 
 
 ### Nomenclatura
 
-En aquest text es farà servir la nomenclatura matemàtica proposada per Solon Barocas et al. [@barocas-hardt-narayanan]. Per tal de simplificar la conceptualització i l'anàlisi posterior, es prendrà com a exemple una tasca de classificació binària amb un atribut sensible de caràcter també binari. No obstant això, com es comentarà més endavant, es podria estendre el model a variables amb més de dos categories o a altres models de regressió.
+En aquest text es farà servir la nomenclatura matemàtica proposada per Solon Barocas et al. [@barocas-hardt-narayanan]. Per tal de simplificar la conceptualització i l'anàlisi posterior, es prendrà com a exemple una tasca de classificació binària amb un atribut sensible de caràcter també binari. No obstant això, es podria estendre el model a variables amb més de dos categories o a altres models de regressió.
 
-Així, es parlarà de variable sensible $A \in \{a, b\}$, en què $a$ correspon al grup protegit i $b$ al grup privilegiat, variables explicatives o predictores $X = \{x_1, x_2, \dots, x_n\}$, variable resposta $Y \in \{0, 1\}$ i prediccions $\hat Y \in \{0, 1\}$ o puntuacions del model $R$.
+Així, es parlarà de variable sensible $A \in \{a, b\}$, en què $a$ correspon al grup protegit i $b$ al grup privilegiat, variables explicatives o predictores $X = \{x_1, x_2, \dots, x_n\}$, variable resposta $Y \in \{0, 1\}$ i prediccions $\hat Y \in \{0, 1\}$ o puntuacions del model $R \in [0, 1]$, en què, generalment, $\hat Y = 1$ quan $R \geq 0,5$ i $\hat Y = 0$ en cas contrari.
 
 ### Mesura i detecció de biaixos
 
@@ -578,7 +578,7 @@ Si es té en compte la probabilitat condicional entre esdeveniments per a divers
 **Taxa de veritables positius (TVP)**. Freqüència amb què s'assigna correctament una predicció positiva a un resultat positiu.
 
 \begin{equation}
-TVP = P(\hat Y = 1 \mid Y = 1) = VP / (VP + FN)
+TVP = P(\hat Y = 1 \mid Y = 1) = \frac{VP}{VP + FN}
 \end{equation}
 
 **Taxa de falsos negatius (TFN)**. Freqüència amb què s'assigna erròniament una predicció negativa a un resultat positiu (relacionada amb TVP).
@@ -590,7 +590,7 @@ TFN = P(\hat Y = 0 \mid Y = 1) = 1 - TVP
 **Taxa de veritables negatius (TVN)**. Freqüència amb què s'assigna correctament una predicció negativa a un resultat negatiu.
 
 \begin{equation}
-TVN = P(\hat Y = 0 \mid Y = 0) = VN / (VN + FP)
+TVN = P(\hat Y = 0 \mid Y = 0) = \frac{VN}{VN + FP}
 \end{equation}
 
 **Taxa de falsos positius (TFP)**. Freqüència amb què s'assigna erròniament una predicció positiva a un resultat negatiu (relacionada amb TVN).
@@ -606,13 +606,13 @@ En casos en què es vol conèixer la capacitat predictiva d'un classificador, es
 **Valor predictiu positiu**. Fracció de les prediccions positives que són veritables positius.
 
 \begin{equation}
-VPP = P(Y = 1 \mid \hat Y = 1) = VP / (VP + FP)
+VPP = P(Y = 1 \mid \hat Y = 1) = \frac{VP}{VP + FP}
 \end{equation}
 
 **Valor predictiu negatiu**. Fracció de les prediccions negatives que són veritables negatius.
 
 \begin{equation}
-VPN = P(Y = 0 \mid \hat Y = 0) = VN / (VN + FN)
+VPN = P(Y = 0 \mid \hat Y = 0) = \frac{VN}{VN + FN}
 \end{equation}
 
 #### Mètriques de grup[^1]
@@ -636,7 +636,7 @@ S'hi inclouen les mètriques següents:
 ***Statistical Parity***. També anomenada *Demographic Parity* o *Group Fairnes*. Implica que els dos grups tinguin la mateixa probabilitat d'una predicció positiva.
 
 \begin{equation}
-P(\hat Y = 1 \mid A = a) = P(\hat Y = 1 \mid A = b)
+P(\hat Y = 1 \mid A = a) = P(\hat Y = 1 \mid A = b) \Leftrightarrow \frac{VP_a + FP_a}{n_a} = \frac{VP_b + FP_b}{n_b}
 \end{equation}
 
 ***Disparate Impact***. Ràtio entre probabilitats d'obtenir una predicció positiva.
@@ -675,16 +675,16 @@ P(\hat Y = 1 \mid Y = 0, A = a) = P(\hat Y = 1 \mid Y = 0, A = b) \Leftrightarro
 TVP_a = TVP_b \wedge TFP_a = TFP_b
 \end{equation}
 
-***Overall Accuracy Equality***. Igualtat en la probabilitat d'encert per als dos grups.
+***Overall accuracy equality***. Igualtat en la probabilitat d'encert per als dos grups.
 
 \begin{equation}
-P(\hat Y = Y \mid A = a) = P(\hat Y = Y \mid A = b) \Leftrightarrow \frac{VP_a + VN_a}{n_a} = \frac{VP_n + VN_b}{n_b}
+P(\hat Y = Y \mid A = a) = P(\hat Y = Y \mid A = b) \Leftrightarrow \frac{VP_a + VN_a}{n_a} = \frac{VP_b + VN_b}{n_b}
 \end{equation}
 
-***Treatment Equality***. Igualtat en la ràtio de FP i FN.
+***Treatment equality***. Igualtat en la ràtio entre la TFP i la TFN.
 
 \begin{equation}
-\frac{P(\hat Y = 1 \mid Y = 0, A = a)}{P(\hat Y = 0 \mid Y = 1, A = a)} \wedge \frac{P(\hat Y = 1 \mid Y = 0, A = b)}{P(\hat Y = 0 \mid Y = 1, A = b)}
+\frac{P(\hat Y = 1 \mid Y = 0, A = a)}{P(\hat Y = 0 \mid Y = 1, A = a)} = \frac{P(\hat Y = 1 \mid Y = 0, A = b)}{P(\hat Y = 0 \mid Y = 1, A = b)}
 \end{equation}
 
 ***Equalizing disincentives***. Compara la diferència entre la TVP i la TFP.
@@ -693,27 +693,101 @@ P(\hat Y = Y \mid A = a) = P(\hat Y = Y \mid A = b) \Leftrightarrow \frac{VP_a +
 TVP_a - TFP_a = TVP_b - TFP_b
 \end{equation}
 
-A més, algunes d'aquestes expressions es poden modificar per tenir en compte el llindar per sobre del qual el model fa una predicció positiva, en lloc del resultat del model en si.
+A més, algunes d'aquestes expressions es poden modificar per tenir en compte el llindar per sobre del qual el model fa una predicció positiva, en lloc del resultat del model en si. És el cas de:
+
+\bigskip
+
+***Balance for positive and negative class***. El valor esperat per a les categories positiva i negativa ha de ser igual entre grups.
+
+\begin{equation}
+E(R = r \mid Y = 1, A = a) = E(R = r \mid Y = 1, A = b)
+\end{equation} \begin{equation}
+E(R = r \mid Y = 0, A = a) = E(R = r \mid Y = 0, A = b)
+\end{equation}
 
 ##### Suficiència
 
-Text
+La suficiència es compleix quan hi ha independència entre la resposta i el grup donada una puntuació determinada, és a dir:
+
+\begin{equation}
+Y \perp A \mid R
+\end{equation}
+
+Algunes de les mesures principals de suficiència són:
+
+\bigskip
+
+***Predictive Parity***. Donada una predicció positiva, la probabilitat de pertànyer a la categoria positiva és la mateixa entre grups. Una vegada més, es podrien emprar de manera anàloga el VPN o les mesures complementàries.
+
+\begin{equation}
+P(Y = 1\mid \hat Y = 1, A = a) = P(Y = 1\mid \hat Y = 1, A = b) \Leftrightarrow VPP_a = VPP_b
+\end{equation}
+
+***Conditional use accuracy equality***. Mètrica més restrictiva que inclou el VPP i el VPN.
+
+\begin{equation}
+VPP_a = VPP_b \wedge VPN_a = VPN_b
+\end{equation}
+
+I basada en la puntuació:
+
+\bigskip
+
+***Test fairness***. Mesura si un test està ben calibrat; això és, si la probabilitat de pertànyer a la categoria positiva és la mateixa per a dos individus de diferents grups amb la mateixa puntuació $r$.
+
+\begin{equation}
+P(Y = 1\mid R = r, A = a) = P(Y = 1\mid R = r, A = b)
+\end{equation}
+
+És important destacar que no hi ha una mètrica o conjunt de mètriques de caràcter universal; per tant, la seva tria dependrà del context d’aplicació i l’àmbit d’equitat que es vulgui potenciar [@criscuolo2026]. De fet, en la majoria de casos d’ús reals, els criteris d’equitat entren en conflicte i el compliment d’un dels tres és incompatible amb el dels altres dos. És per això que sovint s’accepta que les diferències entre grups estiguin dintre d’un marge de tolerància [@barocas-hardt-narayanan], de manera que:
+
+\begin{equation}
+Test_a \geq Test_b - \epsilon
+\end{equation}
+
+O en forma de ràtio:
+
+\begin{equation}
+\frac{Test_a}{Test_b} \geq 1 - \epsilon
+\end{equation}
 
 #### Mètriques individuals
 
-Text
+En el cas de l’equitat individual, es fa èmfasi en què casos semblants siguin tractats de manera similar (Gao 2025). Alguns exemples de mètriques són [@caton2024]:
 
-#### Mètriques causals
+\bigskip
 
-Text
+***Counterfactual Fairness***. Si es modifica el valor de la variable protegida d’un individu, mantenint la resta de variables independents constants, no canvia la predicció.
+
+***Generalized Entropy Index***. Mesura les diferències entre prediccions individuals i l’exactitud mitjana de les prediccions. Un cas simplificat és l’índex de Theil.
+
+\bigskip
+
+És necessari destacar que eliminar l’atribut sensible del conjunt de dades no resol automàticament els problemes d’equitat i, de fet, pot ser potencialment perjudicial [@barocas-hardt-narayanan]. Aquesta pràctica, coneguda com a *fairness through unawareness*, presenta dos problemes principals: d’una banda, no té en compte que altres variables correlacionades amb la variable protegida poden estar-la emmascarant i, de l’altra, no contempla que la variable protegida pugui tenir un efecte en la resposta.
+
+#### Mètriques de causalitat
+
+En molts casos, la qualitat i representativitat de les dades sol ser la principal font de biaix dels models de predicció [@caton2024]. Per aquest motiu, alguns estudis proposen l’anàlisi de les relacions causals que s’estableixen entre variables, de manera que es puguin detectar diferents escenaris possibles d’inequitat ocults en un conjunt de dades [@oneto2020]. Es tracta d’un àmbit complex i encara en un estadi primerenc de desenvolupament, per la qual cosa queda fora de l’abast d’aquest treball.
 
 ### Tècniques de mitigació
 
-Text
+S’han proposat nombroses estratègies per reduir o eliminar el biaix present en totes les etapes del cicle de vida de les dades i construir models més equitatius. En aquest apartat es fa una síntesi de les més rellevants, sense voluntat que sigui exhaustiva, agrupades segons si tenen lloc abans, durant o després de l’aplicació d’un algoritme determinat [@caton2024; @anahideh2025; @criscuolo2026].
+
+\bigskip
+
+**Preprocessament**. Les tècniques d’aquest bloc pretenen mitigar el biaix existent en les dades mitjançant transformacions en el conjunt d’entrenament. Es busca reduir l’efecte de distribucions desequilibrades o altres fonts potencials de discriminació. Alguns exemples són la reponderació (*reweighing*) d’observacions o les modificacions per reduir la correlació entre atributs protegits i no protegits o per ajustar les dades segons el grup de pertinença.
+
+**Processament**. Se centren en aconseguir un disseny més equitatiu de l’algoritme en qüestió. Posen el focus en els biaixos presents en les mateixes tècniques de modelització estadística per aconseguir una optimització que en maximitzi el rendiment i la justícia. Inclouen des de mètodes de regularització (p. ex. *prejudice remover*) fins a algoritmes més complexos d’aprenentatge profund (DL, per les seves sigles en anglès).
+
+**Postprocessament**. Impliquen una manipulació dels resultats per reduir les desigualtats, com per exemple la transformació de les prediccions per adequar-les a una mètrica concreta (p. ex. *Equalized Odds*). També es pot optar per ajustar els llindars de decisió (*threshold optimizer*) o per modificar les prediccions properes a un llindar establert (*reject option classification*).
 
 ### Aplicacions en salut
 
-Text
+A l’hora d’avaluar un model de ML, és rellevant considerar factors com el rendiment, la complexitat i, com s’ha justificat fins ara, l’equitat [@njoku2025]. En aplicacions de salut, a més, és important garantir aspectes com la seguretat, l’eficàcia i, especialment, la interpretabilitat dels resultats i la reproductibilitat de les anàlisis [@criscuolo2026]. Això implica haver de prendre decisions complexes en la tria de models, mètriques i estratègies de mitigació de biaixos.
+
+Pel que fa a les mètriques de grup, sovint el criteri d’independència és poc rellevant en l’àmbit clínic: les prediccions positives solen ser desiguals entre grups i atributs sensibles com el sexe poden tenir efectes fisiopatològics determinants que es tradueixen en els resultats. En tot cas, mesures com *Demographic Parity* poden esdevenir útils per detectar biaixos de representació en les dades [@srinivasan2026]. En el cas de la separació i la suficiència, és habitual trobar incompatibilitats entre mètriques. Cal triar en quin valor posar èmfasi en funció dels potencials riscs i beneficis de cada intervenció. La TVP (o, equivalentment, la TFN) és important quan no detectar un esdeveniment pot suposar un perill per a la salut o un retard en l’accés a un tractament. De manera semblant, la TVN (íd. La TFP) és útil per evitar tractaments innecessaris que suposen un cost elevat als sistemes sanitaris. Finalment, el VPP i el VPN s’utilitzen en models de classificació de risc i de triatge de pacients [@gao2025]. En general, aquestes mesures solen ser relativament senzilles d’implementar i interpretar, malgrat les seves limitacions.
+
+Sobre l’equitat individual, és important valorar la inclusió de variables protegides: poden contribuir a la millora del rendiment i l’equitat del model, però també poden reforçar falsos determinismes biològics quan emmascaren factors psicosocials latents. Un ús destacat d’aquesta mena de mesures pot ser en anàlisi de supervivència [@gao2025]. Si bé les mètriques individuals poden contribuir a la presa de decisions més justes en individus semblants, també poden ocultar desigualtats a escala de grup i perpetuar discriminacions sistèmiques. En aquest cas, pren rellevància el context causal, que permet identificar fonts de biaix, encara que també augmenta considerablement la complexitat.
 
 ### Dilemes i direccions de futur
 
@@ -806,6 +880,7 @@ Text
 ### Abreviatures
 
 - et al.: i altres (*et alii*).
+- íd.: ídem.
 - i\. e.: és a dir (*id est*).
 - p\. ex.: per exemple.
 - v.: vegeu.
@@ -813,6 +888,7 @@ Text
 ### Sigles i acrònims
 
 - **AVD**: activitats de la vida diària.
+- **DL**: aprenentatge profund (de l'anglès *deep learning*).
 - **FEVE**: fracció d'ejecció ventricular esquerra.
 - **FN**: fals negatiu.
 - **FP**: fals positiu.
