@@ -126,11 +126,23 @@ data |>
   bold_p()
 
 # Valors nuls
-data_in |> arrange(Sex) |> vis_miss()
-gg_miss_var(data_in, facet = Sex, show_pct = TRUE)
-gg_miss_fct(data_in, fct = Sex)
+# data_in |> arrange(Sex) |> vis_miss()
+# gg_miss_var(data_in, facet = Sex, show_pct = TRUE)
 
-data_in |> mcar_test()
+p <- gg_miss_fct(data_in, fct = Sex)
+
+p + geom_text(
+  data = p$data,
+  aes(
+    label = paste0(round(pct_miss, 1), "%"),
+    color = pct_miss < 10
+  ),
+) +
+  scale_color_manual(
+    values = c("FALSE" = "black", "TRUE" = "white"), guide = "none"
+  )
+
+# data_in |> mcar_test()
 
 data_in |> 
   mutate(across(-Sex, ~ factor(if_else(is.na(.), "Missing", "Observed"),
@@ -145,15 +157,9 @@ data_in |>
   bold_labels() |> 
   bold_p()
 
-# Eliminació NA
-data |> 
-  drop_na(`Smoking entry`)
 
-
-prop.table(table(data$Sex, data$imp_6MWT), 1)
-
-data |> 
-  select(`6MWT_in`, `6MWT_out`, dif_6MWT) |> 
-  pivot_longer(cols = c(`6MWT_in`, `6MWT_out`, dif_6MWT)) |> 
-  ggplot(aes(x = name, y = value)) + 
-  geom_boxplot()
+# data |> 
+#   select(`6MWT_in`, `6MWT_out`, dif_6MWT) |> 
+#   pivot_longer(cols = c(`6MWT_in`, `6MWT_out`, dif_6MWT)) |> 
+#   ggplot(aes(x = name, y = value)) + 
+#   geom_boxplot()
