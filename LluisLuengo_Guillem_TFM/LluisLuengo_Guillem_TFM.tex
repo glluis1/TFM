@@ -77,6 +77,13 @@
 
 \usepackage{enumitem}
 \usepackage{float}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{anyfontsize}
+\usepackage{multirow}
 
 \usepackage[hidelinks,unicode]{hyperref}
 
@@ -85,7 +92,7 @@
 \title{Biaixos de sexe i gènere en rehabilitació cardíaca: anàlisi d'equitat algorítmica (\emph{fairness}) en la predicció de resultats clínics}
 \titcrt{\emph{Fairness} en rehabilitació cardíaca} %Títol curt que apareixerà a la capçalera
 \author{Guillem Lluís i Luengo}
-\date{4 de novembre de 2026}
+\date{11 de novembre de 2026}
 
 \nomPDC{Susana Pérez Álvarez}
 \nomPRA{Laia Subirats Maté}
@@ -829,6 +836,108 @@ Les malalties cardiovasculars han estat i continuen sent una bona representació
 
 Aquest treball pretén determinar l'impacte dels biaixos de sexe i gènere en la predicció de la resposta a la rehabilitació cardíaca mitjançant una anàlisi d'equitat algorítmica i avaluar l'adequació de diferents mesures per atenuar els biaixos detectats.
 
+\chapter{Materials i mètodes}\label{materials-i-muxe8todes}
+
+\section{Població (font de dades)}\label{poblaciuxf3-font-de-dades}
+
+Text
+
+\section{Mesures}\label{mesures}
+
+Text
+
+\subsection{Capacitat funcional}\label{capacitat-funcional}
+
+Text
+
+\subsection{Qüestionaris de salut}\label{quxfcestionaris-de-salut}
+
+Text
+
+\section{Anàlisi estadística}\label{anuxe0lisi-estaduxedstica}
+
+Text
+
+\subsection{Dades faltants}\label{dades-faltants}
+
+Text
+
+\subsection{Modelització}\label{modelitzaciuxf3}
+
+Text
+
+\subsection{Anàlisi d'equitat i mitigació de biaixos}\label{anuxe0lisi-dequitat-i-mitigaciuxf3-de-biaixos}
+
+Text
+
+\chapter{Resultats}\label{resultats}
+
+\section{Característiques basals}\label{caracteruxedstiques-basals}
+
+Text
+
+\begin{table}[t]
+\caption{\label{tab:unnamed-chunk-4}Característiques basals de la mostra} 
+\fontsize{12.0pt}{14.0pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lccc}
+\toprule
+\textbf{Variable} & \textbf{M}  N = 222\textsuperscript{\textit{1}} & \textbf{F}  N = 51\textsuperscript{\textit{1}} & \textbf{Valor p}\textsuperscript{\textit{2}} \\ 
+\midrule\addlinespace[2.5pt]
+\multicolumn{4}{l}{Demogràfics} \\[2.5pt] 
+\midrule\addlinespace[2.5pt]
+{\bfseries Grup d'edat} &  &  & 0.5 \\ 
+    <50 anys & 34 (15\%) & 4 (7.8\%) &  \\ 
+    51-60 anys & 60 (27\%) & 16 (31\%) &  \\ 
+    61-70 anys & 80 (36\%) & 18 (35\%) &  \\ 
+    >70 anys & 48 (22\%) & 13 (25\%) &  \\ 
+{\bfseries Diagnòstic / Intervenció} &  &  & 0.4 \\ 
+    Síndrome coronària aguda & 171 (77\%) & 36 (71\%) &  \\ 
+    Insuficiència cardíaca & 10 (4.5\%) & 3 (5.9\%) &  \\ 
+    Cirurgia valvular & 25 (11\%) & 5 (9.8\%) &  \\ 
+    Altres & 16 (7.2\%) & 7 (14\%) &  \\ 
+{\bfseries Tabaquisme} & 67 (31\%) & 18 (36\%) & 0.5 \\ 
+\midrule\addlinespace[2.5pt]
+\multicolumn{4}{l}{Capacitat funcional} \\[2.5pt] 
+\midrule\addlinespace[2.5pt]
+{\bfseries 6MWT (m)} & 563 ± 84 & 523 ± 82 & {\bfseries 0.003} \\ 
+{\bfseries QIS esquerre (N·m)} & 47 ± 13 & 29 ± 8 & {\bfseries <0.001} \\ 
+{\bfseries QIS dret (N·m)} & 49 ± 15 & 30 ± 9 & {\bfseries <0.001} \\ 
+{\bfseries MSEC (W)} & 235 ± 75 & 144 ± 55 & {\bfseries <0.001} \\ 
+{\bfseries MET} & 8.81 ± 2.51 & 7.01 ± 2.35 & {\bfseries <0.001} \\ 
+\midrule\addlinespace[2.5pt]
+\multicolumn{4}{l}{Qüestionaris de salut} \\[2.5pt] 
+\midrule\addlinespace[2.5pt]
+{\bfseries HADS | Depressió} & 5.0 (3.0, 8.0) & 6.0 (4.0, 9.0) & {\bfseries 0.027} \\ 
+{\bfseries HADS | Ansietat} & 5.0 (4.0, 7.0) & 6.0 (4.0, 8.0) & 0.090 \\ 
+{\bfseries HeartQoL | Física} & 19 (15, 24) & 19 (15, 24) & 0.3 \\ 
+{\bfseries HeartQoL | Emocional} & 10.00 (7.00, 11.00) & 9.00 (7.00, 10.00) & {\bfseries 0.014} \\ 
+{\bfseries Baecke | Treball} & 2.50 (1.25, 3.38) & 2.00 (1.00, 3.25) & 0.056 \\ 
+{\bfseries Baecke | Esport} & 2.67 (2.00, 3.25) & 2.25 (1.75, 2.75) & {\bfseries 0.017} \\ 
+{\bfseries Baecke | Oci} & 3.00 (2.33, 3.33) & 3.00 (2.42, 3.42) & 0.7 \\ 
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\vspace{.05em}
+\textsuperscript{\textit{1}}n (\%); Mitjana ± DE; Mediana (Q1, Q3)\\
+\textsuperscript{\textit{2}}Prova de khi quadrat de Pearson; Prova exacta de Fisher;
+Prova t de Welch; Prova U de Mann-Whitney\\
+\end{minipage}
+\end{table}
+
+\section{Resultats de la rehabilitació}\label{resultats-de-la-rehabilitaciuxf3}
+
+Text
+
+\section{Modelització de la millora de la capacitat funcional}\label{modelitzaciuxf3-de-la-millora-de-la-capacitat-funcional}
+
+Text
+
+\section{Anàlisi d'equitat}\label{anuxe0lisi-dequitat}
+
+Text
+
+\section{Mitigació de biaixos}\label{mitigaciuxf3-de-biaixos}
+
 \chapter{Bibliografia}\label{bibliografia}
 
 \protect\phantomsection\label{refs}
@@ -1135,7 +1244,13 @@ Aquest treball pretén determinar l'impacte dels biaixos de sexe i gènere en la
 \begin{itemize}
 \tightlist
 \item
+  \(N \cdot m\): newton metre.
+\item
+  \(m\): metre.
+\item
   \(VO_2\ màx\): consum màxim d'oxigen.
+\item
+  \(W\): watt.
 \end{itemize}
 
 \chapter{Annex 2}\label{annex-2}
@@ -1188,19 +1303,27 @@ Aquest treball pretén determinar l'impacte dels biaixos de sexe i gènere en la
 \NormalTok{\}}
 
 \CommentTok{\# Llista de paquets i instal·lació}
-\NormalTok{paquets }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+\NormalTok{paquets }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{, }\StringTok{"readxl"}\NormalTok{, }\StringTok{"gtsummary"}\NormalTok{, }\StringTok{"GGally"}\NormalTok{, }\StringTok{"naniar"}\NormalTok{)}
 
 \FunctionTok{install\_if\_not}\NormalTok{(paquets)}
 
 \FunctionTok{rm}\NormalTok{(paquets)}
 
-\CommentTok{\# Llibreries carregades}
+\CommentTok{\# Gestió de dades}
 \FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(readxl)}
+
+\CommentTok{\# Estadística descriptiva}
+\FunctionTok{library}\NormalTok{(gtsummary)}
+\FunctionTok{library}\NormalTok{(GGally)}
+
+\CommentTok{\# Gestió de valors faltants}
+\FunctionTok{library}\NormalTok{(naniar)}
 
 
 \CommentTok{\# {-}{-}{-}{-} 1.6 PLANIFICACIÓ DEL TREBALL {-}{-}{-}{-}}
 
-\CommentTok{\# Data frame de tasques}
+\CommentTok{\# 1. Data frame de tasques}
 \NormalTok{df\_gantt }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
   \AttributeTok{Fase =} \FunctionTok{factor}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}
     \StringTok{"1. Definició i pla de treball"}\NormalTok{,}
@@ -1256,31 +1379,39 @@ Aquest treball pretén determinar l'impacte dels biaixos de sexe i gènere en la
 \NormalTok{  ), }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Completada"}\NormalTok{, }\StringTok{"En curs"}\NormalTok{, }\StringTok{"Pendent"}\NormalTok{))}
 \NormalTok{)}
 
-\CommentTok{\# Tasques ordenades}
-\NormalTok{df\_gantt}\SpecialCharTok{$}\NormalTok{Tasca }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(df\_gantt}\SpecialCharTok{$}\NormalTok{Tasca, }
-                         \AttributeTok{levels =} \FunctionTok{rev}\NormalTok{(}\FunctionTok{unique}\NormalTok{(df\_gantt}\SpecialCharTok{$}\NormalTok{Tasca)))}
+\CommentTok{\# 2. Tasques ordenades}
+\NormalTok{df\_gantt }\OtherTok{\textless{}{-}}\NormalTok{ df\_gantt }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Tasca =} \FunctionTok{fct\_inorder}\NormalTok{(Tasca) }\SpecialCharTok{|\textgreater{}} \FunctionTok{fct\_rev}\NormalTok{())}
 
-\CommentTok{\# Dates}
+\CommentTok{\# 3. Dates}
 \NormalTok{inici }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(}\StringTok{"2026{-}09{-}23"}\NormalTok{)}
 \NormalTok{final }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(}\StringTok{"2027{-}01{-}13"}\NormalTok{)}
 
 \NormalTok{dates }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(inici, final, }\AttributeTok{by =} \StringTok{"1 week"}\NormalTok{)}
 
-\CommentTok{\# Diagrama de Gantt}
+\CommentTok{\# 4. Diagrama de Gantt}
 \NormalTok{plot\_gantt }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(df\_gantt, }
                      \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Inici, }\AttributeTok{xend =}\NormalTok{ Final,}
                          \AttributeTok{y =}\NormalTok{ Tasca, }\AttributeTok{yend =}\NormalTok{ Tasca,}
                          \AttributeTok{color =}\NormalTok{ Estat)) }\SpecialCharTok{+}
   \FunctionTok{geom\_segment}\NormalTok{(}\AttributeTok{linewidth =} \DecValTok{3}\NormalTok{) }\SpecialCharTok{+}
+  
+  \CommentTok{\# 4.1. Eix x (data)}
   \FunctionTok{scale\_x\_date}\NormalTok{(}\AttributeTok{date\_labels =} \StringTok{"\%d/\%m"}\NormalTok{,}
                \AttributeTok{breaks =}\NormalTok{ dates,}
                \AttributeTok{limits =} \FunctionTok{c}\NormalTok{(inici, final),}
                \AttributeTok{expand =} \FunctionTok{expansion}\NormalTok{(}\AttributeTok{mult =} \FunctionTok{c}\NormalTok{(}\FloatTok{0.01}\NormalTok{, }\FloatTok{0.02}\NormalTok{))) }\SpecialCharTok{+}
+  
+  \CommentTok{\# 4.2. Color segons estat}
   \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"Completada"} \OtherTok{=} \StringTok{"\#03047a"}\NormalTok{,}
                                 \StringTok{"En curs"} \OtherTok{=} \StringTok{"\#7ff0ff"}\NormalTok{,}
                                 \StringTok{"Pendent"} \OtherTok{=} \StringTok{"\#d0d0d0"}\NormalTok{)) }\SpecialCharTok{+}
+  
+  \CommentTok{\# 4.3. Separació per fases}
   \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ Fase, }\AttributeTok{ncol =} \DecValTok{1}\NormalTok{, }\AttributeTok{scales =} \StringTok{"free\_y"}\NormalTok{, }
              \AttributeTok{space =} \StringTok{"free\_y"}\NormalTok{) }\SpecialCharTok{+}
+  
+  \CommentTok{\# 4.4. Estètica}
   \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
   \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{""}\NormalTok{, }\AttributeTok{y =} \StringTok{""}\NormalTok{, }\AttributeTok{color =} \ConstantTok{NULL}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{theme}\NormalTok{(}
@@ -1293,6 +1424,162 @@ Aquest treball pretén determinar l'impacte dels biaixos de sexe i gènere en la
 \NormalTok{plot\_gantt}
 
 \FunctionTok{rm}\NormalTok{(inici, final, dates)}
+
+\CommentTok{\# {-}{-}{-}{-} 4 RESULTATS {-}{-}{-}{-}}
+
+\CommentTok{\# 1. Càrrega de dades}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"CARC\_ database.xls"}\NormalTok{)}
+
+\CommentTok{\# 2. Transformacions preliminars}
+\NormalTok{data }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{|\textgreater{}} 
+  \CommentTok{\# 2.1. Conversió de caràcters a factors}
+  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.character), as.factor)) }\SpecialCharTok{|\textgreater{}} 
+  
+  \CommentTok{\# 2.2. Gestió de nivells}
+  \FunctionTok{mutate}\NormalTok{(}
+    \StringTok{\textasciigrave{}}\AttributeTok{Age group}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{fct\_relevel}\NormalTok{(}
+      \StringTok{\textasciigrave{}}\AttributeTok{Age group}\StringTok{\textasciigrave{}}\NormalTok{, }\FunctionTok{c}\NormalTok{(}\StringTok{"\textless{}50 years"}\NormalTok{, }\StringTok{"51{-}60 years"}\NormalTok{, }\StringTok{"61{-}70 years"}\NormalTok{, }\StringTok{"\textgreater{}70 years"}\NormalTok{)}
+\NormalTok{    ),}
+    \StringTok{\textasciigrave{}}\AttributeTok{Diagnosis/intervention}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{fct\_collapse}\NormalTok{(}
+      \StringTok{\textasciigrave{}}\AttributeTok{Diagnosis/intervention}\StringTok{\textasciigrave{}}\NormalTok{, }
+      \StringTok{"Others"} \OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"Intervention on large vessles"}\NormalTok{, }\StringTok{"Others"}\NormalTok{)}
+\NormalTok{    )}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}} 
+  
+  \CommentTok{\# 2.3. Gestió d\textquotesingle{}etiquetes}
+  \FunctionTok{mutate}\NormalTok{(}
+    \StringTok{\textasciigrave{}}\AttributeTok{Age group}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{fct\_relabel}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Age group}\StringTok{\textasciigrave{}}\NormalTok{, }\SpecialCharTok{\textasciitilde{}} \FunctionTok{str\_replace}\NormalTok{(., }\StringTok{"years"}\NormalTok{, }\StringTok{"anys"}\NormalTok{)),}
+    \AttributeTok{Sex =} \FunctionTok{fct\_recode}\NormalTok{(Sex, }\StringTok{"F"} \OtherTok{=} \StringTok{"W"}\NormalTok{),}
+    \StringTok{\textasciigrave{}}\AttributeTok{Diagnosis/intervention}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{fct\_recode}\NormalTok{(}
+      \StringTok{\textasciigrave{}}\AttributeTok{Diagnosis/intervention}\StringTok{\textasciigrave{}}\NormalTok{,}
+      \StringTok{"Síndrome coronària aguda"} \OtherTok{=} \StringTok{"ACS +/{-} PCI"}\NormalTok{,}
+      \StringTok{"Insuficiència cardíaca"} \OtherTok{=} \StringTok{"Heart insufficiency"}\NormalTok{,}
+      \StringTok{"Cirurgia valvular"} \OtherTok{=} \StringTok{"Heart valve surgery"}\NormalTok{,}
+      \StringTok{"Altres"} \OtherTok{=} \StringTok{"Others"}
+\NormalTok{    )}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}} 
+  
+  \CommentTok{\# 2.4. Gestió de registres erronis}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{mets\_in =} \FunctionTok{if\_else}\NormalTok{(}\FunctionTok{row\_number}\NormalTok{() }\SpecialCharTok{==} \DecValTok{174}\NormalTok{, }\FloatTok{6.7}\NormalTok{, mets\_in),}
+    \StringTok{\textasciigrave{}}\AttributeTok{6MWT\_out}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{if\_else}\NormalTok{(}\FunctionTok{row\_number}\NormalTok{() }\SpecialCharTok{==} \DecValTok{174}\NormalTok{, }\ConstantTok{NA\_real\_}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{6MWT\_out}\StringTok{\textasciigrave{}}\NormalTok{)}
+\NormalTok{  )}
+
+\CommentTok{\# {-}{-}{-}{-} 4.1 CARACTERÍSTIQUES BASALS {-}{-}{-}{-}}
+
+\CommentTok{\# 1. Selecció de variables basals}
+\NormalTok{data\_in }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{select}\NormalTok{(}
+    \StringTok{\textasciigrave{}}\AttributeTok{Age group}\StringTok{\textasciigrave{}}\NormalTok{, Sex, }\StringTok{\textasciigrave{}}\AttributeTok{Diagnosis/intervention}\StringTok{\textasciigrave{}}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{Smoking entry}\StringTok{\textasciigrave{}}\NormalTok{, }
+    \StringTok{\textasciigrave{}}\AttributeTok{6MWT\_in}\StringTok{\textasciigrave{}}\NormalTok{, QIS\_left\_in, QIS\_right\_in, MSEC\_in, mets\_in, }
+\NormalTok{    had\_depression\_in, had\_anxiety\_in, }
+\NormalTok{    heart\_quality\_physical\_in, heart\_quality\_emotion\_in, }
+\NormalTok{    baecke\_work\_in, baecke\_sport\_in, baecke\_leisure\_in}
+\NormalTok{  )}
+
+\CommentTok{\# 2. Blocs de variables}
+\NormalTok{var\_blocks }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}
+  \StringTok{\textasciigrave{}}\AttributeTok{Demogràfics}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"Age group"}\NormalTok{, }\StringTok{"Diagnosis/intervention"}\NormalTok{, }\StringTok{"Smoking entry"}\NormalTok{),}
+  \StringTok{\textasciigrave{}}\AttributeTok{Capacitat funcional}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"6MWT\_in"}\NormalTok{, }\StringTok{"QIS\_left\_in"}\NormalTok{, }\StringTok{"QIS\_right\_in"}\NormalTok{, }
+                            \StringTok{"MSEC\_in"}\NormalTok{, }\StringTok{"mets\_in"}\NormalTok{),}
+  \StringTok{\textasciigrave{}}\AttributeTok{Qüestionaris de salut}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"had\_depression\_in"}\NormalTok{, }\StringTok{"had\_anxiety\_in"}\NormalTok{, }
+                              \StringTok{"heart\_quality\_physical\_in"}\NormalTok{, }
+                              \StringTok{"heart\_quality\_emotion\_in"}\NormalTok{, }\StringTok{"baecke\_work\_in"}\NormalTok{, }
+                              \StringTok{"baecke\_sport\_in"}\NormalTok{, }\StringTok{"baecke\_leisure\_in"}\NormalTok{)}
+\NormalTok{)}
+
+  
+\CommentTok{\#\textquotesingle{} Title}
+\CommentTok{\#\textquotesingle{}}
+\CommentTok{\#\textquotesingle{} @param vars }
+\CommentTok{\#\textquotesingle{}}
+\CommentTok{\#\textquotesingle{} @returns}
+\CommentTok{\#\textquotesingle{} @export}
+\CommentTok{\#\textquotesingle{}}
+\CommentTok{\#\textquotesingle{} @examples}
+\NormalTok{create\_tbl\_summary }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(vars, }\AttributeTok{label =} \ConstantTok{NULL}\NormalTok{, }
+                               \AttributeTok{statistic =} \FunctionTok{list}\NormalTok{(}\FunctionTok{all\_continuous}\NormalTok{() }\SpecialCharTok{\textasciitilde{}} 
+                                                  \StringTok{"\{median\} (\{p25\}, \{p75\})"}\NormalTok{, }
+                                                \FunctionTok{all\_categorical}\NormalTok{() }\SpecialCharTok{\textasciitilde{}} 
+                                                  \StringTok{"\{n\} (\{p\}\%)"}\NormalTok{), }
+                               \AttributeTok{test =} \ConstantTok{NULL}\NormalTok{) \{}
+\NormalTok{  data\_in }\SpecialCharTok{|\textgreater{}}
+    \CommentTok{\# 1. Selecció de variables}
+    \FunctionTok{select}\NormalTok{(Sex, }\FunctionTok{all\_of}\NormalTok{(vars)) }\SpecialCharTok{|\textgreater{}} 
+    
+    \CommentTok{\# 2. Taula}
+    \FunctionTok{tbl\_summary}\NormalTok{(}
+      \AttributeTok{by =}\NormalTok{ Sex, }
+      \AttributeTok{label =}\NormalTok{ label, }
+      \AttributeTok{statistic =}\NormalTok{ statistic, }
+      \AttributeTok{missing =} \StringTok{"no"}
+\NormalTok{    ) }\SpecialCharTok{|\textgreater{}} 
+    
+    \CommentTok{\# 3. Tests estadístics i valor p}
+    \FunctionTok{add\_p}\NormalTok{(test) }\SpecialCharTok{|\textgreater{}} 
+    
+    \CommentTok{\# 4. Estètica}
+    \FunctionTok{bold\_labels}\NormalTok{() }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{bold\_p}\NormalTok{()}
+\NormalTok{\}}
+
+
+\CommentTok{\# 3. Subtaules}
+\NormalTok{t\_demo }\OtherTok{\textless{}{-}} \FunctionTok{create\_tbl\_summary}\NormalTok{(}
+\NormalTok{  var\_blocks}\SpecialCharTok{$}\NormalTok{Demogràfics, }
+  \AttributeTok{label =} \FunctionTok{list}\NormalTok{(}
+    \StringTok{\textasciigrave{}}\AttributeTok{Age group}\StringTok{\textasciigrave{}} \SpecialCharTok{\textasciitilde{}} \StringTok{"Grup d\textquotesingle{}edat"}\NormalTok{, }
+    \StringTok{\textasciigrave{}}\AttributeTok{Diagnosis/intervention}\StringTok{\textasciigrave{}} \SpecialCharTok{\textasciitilde{}} \StringTok{"Diagnòstic / Intervenció"}\NormalTok{, }
+    \StringTok{\textasciigrave{}}\AttributeTok{Smoking entry}\StringTok{\textasciigrave{}} \SpecialCharTok{\textasciitilde{}} \StringTok{"Tabaquisme"}
+\NormalTok{  )}
+\NormalTok{)}
+
+\NormalTok{t\_func }\OtherTok{\textless{}{-}} \FunctionTok{create\_tbl\_summary}\NormalTok{(}
+\NormalTok{  var\_blocks}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Capacitat funcional}\StringTok{\textasciigrave{}}\NormalTok{,}
+  \AttributeTok{label =} \FunctionTok{list}\NormalTok{(}
+    \StringTok{\textasciigrave{}}\AttributeTok{6MWT\_in}\StringTok{\textasciigrave{}} \SpecialCharTok{\textasciitilde{}} \StringTok{"6MWT (m)"}\NormalTok{, }
+\NormalTok{    QIS\_left\_in }\SpecialCharTok{\textasciitilde{}} \StringTok{"QIS esquerre (N·m)"}\NormalTok{, }
+\NormalTok{    QIS\_right\_in }\SpecialCharTok{\textasciitilde{}} \StringTok{"QIS dret (N·m)"}\NormalTok{, }
+\NormalTok{    MSEC\_in }\SpecialCharTok{\textasciitilde{}} \StringTok{"MSEC (W)"}\NormalTok{, }
+\NormalTok{    mets\_in }\SpecialCharTok{\textasciitilde{}} \StringTok{"MET"}
+\NormalTok{  ), }
+  \AttributeTok{statistic =} \FunctionTok{list}\NormalTok{(}
+    \FunctionTok{c}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{6MWT\_in}\StringTok{\textasciigrave{}}\NormalTok{, QIS\_left\_in, QIS\_right\_in, MSEC\_in, mets\_in) }\SpecialCharTok{\textasciitilde{}} \StringTok{"\{mean\} ± \{sd\}"}
+\NormalTok{  ), }
+  \AttributeTok{test =} \FunctionTok{list}\NormalTok{(}
+    \FunctionTok{c}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{6MWT\_in}\StringTok{\textasciigrave{}}\NormalTok{, QIS\_left\_in, QIS\_right\_in, MSEC\_in, mets\_in) }\SpecialCharTok{\textasciitilde{}} \StringTok{"t.test"}
+\NormalTok{  )}
+\NormalTok{)}
+
+\NormalTok{t\_prom }\OtherTok{\textless{}{-}} \FunctionTok{create\_tbl\_summary}\NormalTok{(}
+\NormalTok{  var\_blocks}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{Qüestionaris de salut}\StringTok{\textasciigrave{}}\NormalTok{,}
+  \AttributeTok{label =} \FunctionTok{list}\NormalTok{(}
+\NormalTok{    had\_depression\_in }\SpecialCharTok{\textasciitilde{}} \StringTok{"HADS | Depressió"}\NormalTok{, }
+\NormalTok{    had\_anxiety\_in }\SpecialCharTok{\textasciitilde{}} \StringTok{"HADS | Ansietat"}\NormalTok{, }
+\NormalTok{    heart\_quality\_physical\_in }\SpecialCharTok{\textasciitilde{}} \StringTok{"HeartQoL | Física"}\NormalTok{, }
+\NormalTok{    heart\_quality\_emotion\_in }\SpecialCharTok{\textasciitilde{}} \StringTok{"HeartQoL | Emocional"}\NormalTok{, }
+\NormalTok{    baecke\_work\_in }\SpecialCharTok{\textasciitilde{}} \StringTok{"Baecke | Treball"}\NormalTok{, }
+\NormalTok{    baecke\_sport\_in }\SpecialCharTok{\textasciitilde{}} \StringTok{"Baecke | Esport"}\NormalTok{, }
+\NormalTok{    baecke\_leisure\_in }\SpecialCharTok{\textasciitilde{}} \StringTok{"Baecke | Oci"}
+\NormalTok{  )}
+\NormalTok{)}
+
+\CommentTok{\# 4. Taula 1}
+\NormalTok{table\_1 }\OtherTok{\textless{}{-}} \FunctionTok{tbl\_stack}\NormalTok{(}
+  \AttributeTok{tbls =} \FunctionTok{list}\NormalTok{(t\_demo, t\_func, t\_prom),}
+  \AttributeTok{group\_header =} \FunctionTok{names}\NormalTok{(var\_blocks)}
+\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+  
+  \CommentTok{\# 4.1. Etiquetes i estètica}
+  \FunctionTok{modify\_caption}\NormalTok{(}\StringTok{"Característiques basals de la mostra"}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{modify\_header}\NormalTok{(}\AttributeTok{label =} \StringTok{"**Variable**"}\NormalTok{, }\AttributeTok{p.value =} \StringTok{"**Valor p**"}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{modify\_footnote}\NormalTok{(}
+      \FunctionTok{all\_stat\_cols}\NormalTok{() }\SpecialCharTok{\textasciitilde{}} \StringTok{"n (\%); Mitjana ± DE; Mediana (Q1, Q3)"}\NormalTok{,}
+\NormalTok{      p.value }\SpecialCharTok{\textasciitilde{}} \StringTok{"Prova de khi quadrat de Pearson; Prova exacta de Fisher; }
+\StringTok{      Prova t de Welch; Prova U de Mann{-}Whitney"}
+\NormalTok{    )}
+
+\NormalTok{table\_1}
 \end{Highlighting}
 \end{Shaded}
 

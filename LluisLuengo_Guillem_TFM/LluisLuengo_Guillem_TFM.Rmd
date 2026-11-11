@@ -81,7 +81,7 @@ install_if_not <- function(pkg) {
 }
 
 # Llista de paquets i instal·lació
-paquets <- c("tidyverse")
+paquets <- c("tidyverse", "readxl", "gtsummary", "GGally", "naniar")
 
 install_if_not(paquets)
 
@@ -90,8 +90,16 @@ rm(paquets)
 ```
 
 ```{r}
-# Llibreries carregades
+# Gestió de dades
 library(tidyverse)
+library(readxl)
+
+# Estadística descriptiva
+library(gtsummary)
+library(GGally)
+
+# Gestió de valors faltants
+library(naniar)
 
 
 ```
@@ -244,7 +252,7 @@ La \autoref{fig:gantt} mostra el diagrama de Gantt corresponent a les tasques de
 ```{r gantt, fig.cap="Calendari de tasques", fig.pos="H", fig.height=6, out.width="100%"}
 # ---- 1.6 PLANIFICACIÓ DEL TREBALL ----
 
-# Data frame de tasques
+# 1. Data frame de tasques
 df_gantt <- data.frame(
   Fase = factor(rep(c(
     "1. Definició i pla de treball",
@@ -300,31 +308,39 @@ df_gantt <- data.frame(
   ), levels = c("Completada", "En curs", "Pendent"))
 )
 
-# Tasques ordenades
-df_gantt$Tasca <- factor(df_gantt$Tasca, 
-                         levels = rev(unique(df_gantt$Tasca)))
+# 2. Tasques ordenades
+df_gantt <- df_gantt |> 
+  mutate(Tasca = fct_inorder(Tasca) |> fct_rev())
 
-# Dates
+# 3. Dates
 inici <- as.Date("2026-09-23")
 final <- as.Date("2027-01-13")
 
 dates <- seq(inici, final, by = "1 week")
 
-# Diagrama de Gantt
+# 4. Diagrama de Gantt
 plot_gantt <- ggplot(df_gantt, 
                      aes(x = Inici, xend = Final,
                          y = Tasca, yend = Tasca,
                          color = Estat)) +
   geom_segment(linewidth = 3) +
+  
+  # 4.1. Eix x (data)
   scale_x_date(date_labels = "%d/%m",
                breaks = dates,
                limits = c(inici, final),
                expand = expansion(mult = c(0.01, 0.02))) +
+  
+  # 4.2. Color segons estat
   scale_color_manual(values = c("Completada" = "#03047a",
                                 "En curs" = "#7ff0ff",
                                 "Pendent" = "#d0d0d0")) +
+  
+  # 4.3. Separació per fases
   facet_wrap(~ Fase, ncol = 1, scales = "free_y", 
              space = "free_y") +
+  
+  # 4.4. Estètica
   theme_minimal() +
   labs(x = "", y = "", color = NULL) +
   theme(
@@ -801,7 +817,39 @@ Les malalties cardiovasculars han estat i continuen sent una bona representació
 
 Aquest treball pretén determinar l'impacte dels biaixos de sexe i gènere en la predicció de la resposta a la rehabilitació cardíaca mitjançant una anàlisi d'equitat algorítmica i avaluar l'adequació de diferents mesures per atenuar els biaixos detectats.
 
-<!-- # Materials i mètodes -->
+# Materials i mètodes
+
+## Població (font de dades)
+
+Text
+
+## Mesures
+
+Text
+
+### Capacitat funcional
+
+Text
+
+### Qüestionaris de salut
+
+Text
+
+## Anàlisi estadística
+
+Text
+
+### Dades faltants
+
+Text
+
+### Modelització
+
+Text
+
+### Anàlisi d'equitat i mitigació de biaixos
+
+Text
 
 <!-- En aquests apartats, cal descriure: -->
 
@@ -811,7 +859,187 @@ Aquest treball pretén determinar l'impacte dels biaixos de sexe i gènere en la
 
 <!-- - Els productes obtinguts. -->
 
-<!-- # Resultats -->
+# Resultats
+
+```{r}
+# ---- 4 RESULTATS ----
+
+# 1. Càrrega de dades
+data <- read_excel("CARC_ database.xls")
+
+# 2. Transformacions preliminars
+data <- data |> 
+  # 2.1. Conversió de caràcters a factors
+  mutate(across(where(is.character), as.factor)) |> 
+  
+  # 2.2. Gestió de nivells
+  mutate(
+    `Age group` = fct_relevel(
+      `Age group`, c("<50 years", "51-60 years", "61-70 years", ">70 years")
+    ),
+    `Diagnosis/intervention` = fct_collapse(
+      `Diagnosis/intervention`, 
+      "Others" = c("Intervention on large vessles", "Others")
+    )
+  ) |> 
+  
+  # 2.3. Gestió d'etiquetes
+  mutate(
+    `Age group` = fct_relabel(`Age group`, ~ str_replace(., "years", "anys")),
+    Sex = fct_recode(Sex, "F" = "W"),
+    `Diagnosis/intervention` = fct_recode(
+      `Diagnosis/intervention`,
+      "Síndrome coronària aguda" = "ACS +/- PCI",
+      "Insuficiència cardíaca" = "Heart insufficiency",
+      "Cirurgia valvular" = "Heart valve surgery",
+      "Altres" = "Others"
+    )
+  ) |> 
+  
+  # 2.4. Gestió de registres erronis
+  mutate(
+    mets_in = if_else(row_number() == 174, 6.7, mets_in),
+    `6MWT_out` = if_else(row_number() == 174, NA_real_, `6MWT_out`)
+  )
+
+```
+
+## Característiques basals
+
+Text
+
+```{r}
+# ---- 4.1 CARACTERÍSTIQUES BASALS ----
+
+# 1. Selecció de variables basals
+data_in <- data |> 
+  select(
+    `Age group`, Sex, `Diagnosis/intervention`, `Smoking entry`, 
+    `6MWT_in`, QIS_left_in, QIS_right_in, MSEC_in, mets_in, 
+    had_depression_in, had_anxiety_in, 
+    heart_quality_physical_in, heart_quality_emotion_in, 
+    baecke_work_in, baecke_sport_in, baecke_leisure_in
+  )
+
+# 2. Blocs de variables
+var_blocks <- list(
+  `Demogràfics` = c("Age group", "Diagnosis/intervention", "Smoking entry"),
+  `Capacitat funcional` = c("6MWT_in", "QIS_left_in", "QIS_right_in", 
+                            "MSEC_in", "mets_in"),
+  `Qüestionaris de salut` = c("had_depression_in", "had_anxiety_in", 
+                              "heart_quality_physical_in", 
+                              "heart_quality_emotion_in", "baecke_work_in", 
+                              "baecke_sport_in", "baecke_leisure_in")
+)
+
+  
+#' Title
+#'
+#' @param vars 
+#'
+#' @returns
+#' @export
+#'
+#' @examples
+create_tbl_summary <- function(vars, label = NULL, 
+                               statistic = list(all_continuous() ~ 
+                                                  "{median} ({p25}, {p75})", 
+                                                all_categorical() ~ 
+                                                  "{n} ({p}%)"), 
+                               test = NULL) {
+  data_in |>
+    # 1. Selecció de variables
+    select(Sex, all_of(vars)) |> 
+    
+    # 2. Taula
+    tbl_summary(
+      by = Sex, 
+      label = label, 
+      statistic = statistic, 
+      missing = "no"
+    ) |> 
+    
+    # 3. Tests estadístics i valor p
+    add_p(test) |> 
+    
+    # 4. Estètica
+    bold_labels() |> 
+    bold_p()
+}
+
+
+# 3. Subtaules
+t_demo <- create_tbl_summary(
+  var_blocks$Demogràfics, 
+  label = list(
+    `Age group` ~ "Grup d'edat", 
+    `Diagnosis/intervention` ~ "Diagnòstic / Intervenció", 
+    `Smoking entry` ~ "Tabaquisme"
+  )
+)
+
+t_func <- create_tbl_summary(
+  var_blocks$`Capacitat funcional`,
+  label = list(
+    `6MWT_in` ~ "6MWT (m)", 
+    QIS_left_in ~ "QIS esquerre (N·m)", 
+    QIS_right_in ~ "QIS dret (N·m)", 
+    MSEC_in ~ "MSEC (W)", 
+    mets_in ~ "MET"
+  ), 
+  statistic = list(
+    c(`6MWT_in`, QIS_left_in, QIS_right_in, MSEC_in, mets_in) ~ "{mean} ± {sd}"
+  ), 
+  test = list(
+    c(`6MWT_in`, QIS_left_in, QIS_right_in, MSEC_in, mets_in) ~ "t.test"
+  )
+)
+
+t_prom <- create_tbl_summary(
+  var_blocks$`Qüestionaris de salut`,
+  label = list(
+    had_depression_in ~ "HADS | Depressió", 
+    had_anxiety_in ~ "HADS | Ansietat", 
+    heart_quality_physical_in ~ "HeartQoL | Física", 
+    heart_quality_emotion_in ~ "HeartQoL | Emocional", 
+    baecke_work_in ~ "Baecke | Treball", 
+    baecke_sport_in ~ "Baecke | Esport", 
+    baecke_leisure_in ~ "Baecke | Oci"
+  )
+)
+
+# 4. Taula 1
+table_1 <- tbl_stack(
+  tbls = list(t_demo, t_func, t_prom),
+  group_header = names(var_blocks)
+) |> 
+  
+  # 4.1. Etiquetes i estètica
+  modify_caption("Característiques basals de la mostra") |> 
+  modify_header(label = "**Variable**", p.value = "**Valor p**") |> 
+  modify_footnote(
+      all_stat_cols() ~ "n (%); Mitjana ± DE; Mediana (Q1, Q3)",
+      p.value ~ "Prova de khi quadrat de Pearson; Prova exacta de Fisher; 
+      Prova t de Welch; Prova U de Mann-Whitney"
+    )
+
+table_1
+
+```
+
+## Resultats de la rehabilitació
+
+Text
+
+## Modelització de la millora de la capacitat funcional
+
+Text
+
+## Anàlisi d'equitat
+
+Text
+
+## Mitigació de biaixos
 
 <!-- Detalleu en aquest apartat els resultats obtinguts utilitzant la metodologia descrita a l’apartat anterior. -->
 
@@ -929,7 +1157,10 @@ Aquest treball pretén determinar l'impacte dels biaixos de sexe i gènere en la
 
 ### Símbols
 
+- $N \cdot m$: newton metre.
+- $m$: metre.
 - $VO_2\ màx$: consum màxim d'oxigen.
+- $W$: watt.
 
 # Annex 2
 

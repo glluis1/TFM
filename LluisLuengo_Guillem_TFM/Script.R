@@ -30,7 +30,7 @@ data <- data |>
   )
 
 # Resums estadístics
-summary(data)
+# summary(data)
 
 # Caracterització mostra
 data_in <- data |> 
