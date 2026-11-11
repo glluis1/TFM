@@ -881,7 +881,7 @@ Text
 \fontsize{12.0pt}{14.0pt}\selectfont
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lccc}
 \toprule
-\textbf{Variable} & \textbf{M}  N = 222\textsuperscript{\textit{1}} & \textbf{F}  N = 51\textsuperscript{\textit{1}} & \textbf{Valor p}\textsuperscript{\textit{2}} \\ 
+\textbf{Variable} & \textbf{M} \textbar{} N = 222 (81\%)\textsuperscript{\textit{1}} & \textbf{F} \textbar{} N = 51 (19\%)\textsuperscript{\textit{1}} & \textbf{Valor p}\textsuperscript{\textit{2}} \\ 
 \midrule\addlinespace[2.5pt]
 \multicolumn{4}{l}{Demogràfics} \\[2.5pt] 
 \midrule\addlinespace[2.5pt]
@@ -899,11 +899,11 @@ Text
 \midrule\addlinespace[2.5pt]
 \multicolumn{4}{l}{Capacitat funcional} \\[2.5pt] 
 \midrule\addlinespace[2.5pt]
-{\bfseries 6MWT (m)} & 563 ± 84 & 523 ± 82 & {\bfseries 0.003} \\ 
-{\bfseries QIS esquerre (N·m)} & 47 ± 13 & 29 ± 8 & {\bfseries <0.001} \\ 
-{\bfseries QIS dret (N·m)} & 49 ± 15 & 30 ± 9 & {\bfseries <0.001} \\ 
-{\bfseries MSEC (W)} & 235 ± 75 & 144 ± 55 & {\bfseries <0.001} \\ 
-{\bfseries MET} & 8.81 ± 2.51 & 7.01 ± 2.35 & {\bfseries <0.001} \\ 
+{\bfseries 6MWT (m)} & 570 (510, 615) & 530 (490, 580) & {\bfseries 0.002} \\ 
+{\bfseries QIS esquerre (N·m)} & 47 (38, 55) & 28 (23, 34) & {\bfseries <0.001} \\ 
+{\bfseries QIS dret (N·m)} & 48 (39, 58) & 30 (24, 34) & {\bfseries <0.001} \\ 
+{\bfseries MSEC (W)} & 225 (175, 275) & 125 (100, 175) & {\bfseries <0.001} \\ 
+{\bfseries MET} & 8.90 (6.90, 10.70) & 7.10 (5.20, 9.10) & {\bfseries <0.001} \\ 
 \midrule\addlinespace[2.5pt]
 \multicolumn{4}{l}{Qüestionaris de salut} \\[2.5pt] 
 \midrule\addlinespace[2.5pt]
@@ -918,9 +918,9 @@ Text
 \end{tabular*}
 \begin{minipage}{\linewidth}
 \vspace{.05em}
-\textsuperscript{\textit{1}}n (\%); Mitjana ± DE; Mediana (Q1, Q3)\\
-\textsuperscript{\textit{2}}Prova de khi quadrat de Pearson; Prova exacta de Fisher;
-Prova t de Welch; Prova U de Mann-Whitney\\
+\textsuperscript{\textit{1}}n (\%); Mediana (Q1, Q3)\\
+\textsuperscript{\textit{2}}Prova de khi quadrat de Pearson; Prova exacta de Fisher,
+Prova U de Mann-Whitney\\
 \end{minipage}
 \end{table}
 
@@ -1497,12 +1497,7 @@ Text
 \CommentTok{\#\textquotesingle{} @export}
 \CommentTok{\#\textquotesingle{}}
 \CommentTok{\#\textquotesingle{} @examples}
-\NormalTok{create\_tbl\_summary }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(vars, }\AttributeTok{label =} \ConstantTok{NULL}\NormalTok{, }
-                               \AttributeTok{statistic =} \FunctionTok{list}\NormalTok{(}\FunctionTok{all\_continuous}\NormalTok{() }\SpecialCharTok{\textasciitilde{}} 
-                                                  \StringTok{"\{median\} (\{p25\}, \{p75\})"}\NormalTok{, }
-                                                \FunctionTok{all\_categorical}\NormalTok{() }\SpecialCharTok{\textasciitilde{}} 
-                                                  \StringTok{"\{n\} (\{p\}\%)"}\NormalTok{), }
-                               \AttributeTok{test =} \ConstantTok{NULL}\NormalTok{) \{}
+\NormalTok{create\_tbl\_summary }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(vars, }\AttributeTok{label =} \ConstantTok{NULL}\NormalTok{) \{}
 \NormalTok{  data\_in }\SpecialCharTok{|\textgreater{}}
     \CommentTok{\# 1. Selecció de variables}
     \FunctionTok{select}\NormalTok{(Sex, }\FunctionTok{all\_of}\NormalTok{(vars)) }\SpecialCharTok{|\textgreater{}} 
@@ -1511,15 +1506,14 @@ Text
     \FunctionTok{tbl\_summary}\NormalTok{(}
       \AttributeTok{by =}\NormalTok{ Sex, }
       \AttributeTok{label =}\NormalTok{ label, }
-      \AttributeTok{statistic =}\NormalTok{ statistic, }
       \AttributeTok{missing =} \StringTok{"no"}
 \NormalTok{    ) }\SpecialCharTok{|\textgreater{}} 
     
     \CommentTok{\# 3. Tests estadístics i valor p}
-    \FunctionTok{add\_p}\NormalTok{(test) }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{add\_p}\NormalTok{() }\SpecialCharTok{|\textgreater{}} 
     
     \CommentTok{\# 4. Estètica}
-    \FunctionTok{bold\_labels}\NormalTok{() }\SpecialCharTok{|\textgreater{}} 
+    \FunctionTok{bold\_labels}\NormalTok{() }\SpecialCharTok{|\textgreater{}}
     \FunctionTok{bold\_p}\NormalTok{()}
 \NormalTok{\}}
 
@@ -1542,12 +1536,6 @@ Text
 \NormalTok{    QIS\_right\_in }\SpecialCharTok{\textasciitilde{}} \StringTok{"QIS dret (N·m)"}\NormalTok{, }
 \NormalTok{    MSEC\_in }\SpecialCharTok{\textasciitilde{}} \StringTok{"MSEC (W)"}\NormalTok{, }
 \NormalTok{    mets\_in }\SpecialCharTok{\textasciitilde{}} \StringTok{"MET"}
-\NormalTok{  ), }
-  \AttributeTok{statistic =} \FunctionTok{list}\NormalTok{(}
-    \FunctionTok{c}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{6MWT\_in}\StringTok{\textasciigrave{}}\NormalTok{, QIS\_left\_in, QIS\_right\_in, MSEC\_in, mets\_in) }\SpecialCharTok{\textasciitilde{}} \StringTok{"\{mean\} ± \{sd\}"}
-\NormalTok{  ), }
-  \AttributeTok{test =} \FunctionTok{list}\NormalTok{(}
-    \FunctionTok{c}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{6MWT\_in}\StringTok{\textasciigrave{}}\NormalTok{, QIS\_left\_in, QIS\_right\_in, MSEC\_in, mets\_in) }\SpecialCharTok{\textasciitilde{}} \StringTok{"t.test"}
 \NormalTok{  )}
 \NormalTok{)}
 
@@ -1572,11 +1560,15 @@ Text
   
   \CommentTok{\# 4.1. Etiquetes i estètica}
   \FunctionTok{modify\_caption}\NormalTok{(}\StringTok{"Característiques basals de la mostra"}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
-  \FunctionTok{modify\_header}\NormalTok{(}\AttributeTok{label =} \StringTok{"**Variable**"}\NormalTok{, }\AttributeTok{p.value =} \StringTok{"**Valor p**"}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{modify\_header}\NormalTok{(}
+    \AttributeTok{label =} \StringTok{"**Variable**"}\NormalTok{, }
+    \FunctionTok{all\_stat\_cols}\NormalTok{() }\SpecialCharTok{\textasciitilde{}} \StringTok{"**\{level\}** | N = \{n\} (\{style\_percent(p)\}\%)"}\NormalTok{,}
+    \AttributeTok{p.value =} \StringTok{"**Valor p**"}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}} 
   \FunctionTok{modify\_footnote}\NormalTok{(}
-      \FunctionTok{all\_stat\_cols}\NormalTok{() }\SpecialCharTok{\textasciitilde{}} \StringTok{"n (\%); Mitjana ± DE; Mediana (Q1, Q3)"}\NormalTok{,}
-\NormalTok{      p.value }\SpecialCharTok{\textasciitilde{}} \StringTok{"Prova de khi quadrat de Pearson; Prova exacta de Fisher; }
-\StringTok{      Prova t de Welch; Prova U de Mann{-}Whitney"}
+      \FunctionTok{all\_stat\_cols}\NormalTok{() }\SpecialCharTok{\textasciitilde{}} \StringTok{"n (\%); Mediana (Q1, Q3)"}\NormalTok{,}
+\NormalTok{      p.value }\SpecialCharTok{\textasciitilde{}} \StringTok{"Prova de khi quadrat de Pearson; Prova exacta de Fisher, }
+\StringTok{      Prova U de Mann{-}Whitney"}
 \NormalTok{    )}
 
 \NormalTok{table\_1}

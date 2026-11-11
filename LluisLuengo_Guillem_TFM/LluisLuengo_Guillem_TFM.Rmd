@@ -941,12 +941,7 @@ var_blocks <- list(
 #' @export
 #'
 #' @examples
-create_tbl_summary <- function(vars, label = NULL, 
-                               statistic = list(all_continuous() ~ 
-                                                  "{median} ({p25}, {p75})", 
-                                                all_categorical() ~ 
-                                                  "{n} ({p}%)"), 
-                               test = NULL) {
+create_tbl_summary <- function(vars, label = NULL) {
   data_in |>
     # 1. Selecció de variables
     select(Sex, all_of(vars)) |> 
@@ -955,15 +950,14 @@ create_tbl_summary <- function(vars, label = NULL,
     tbl_summary(
       by = Sex, 
       label = label, 
-      statistic = statistic, 
       missing = "no"
     ) |> 
     
     # 3. Tests estadístics i valor p
-    add_p(test) |> 
+    add_p() |> 
     
     # 4. Estètica
-    bold_labels() |> 
+    bold_labels() |>
     bold_p()
 }
 
@@ -986,12 +980,6 @@ t_func <- create_tbl_summary(
     QIS_right_in ~ "QIS dret (N·m)", 
     MSEC_in ~ "MSEC (W)", 
     mets_in ~ "MET"
-  ), 
-  statistic = list(
-    c(`6MWT_in`, QIS_left_in, QIS_right_in, MSEC_in, mets_in) ~ "{mean} ± {sd}"
-  ), 
-  test = list(
-    c(`6MWT_in`, QIS_left_in, QIS_right_in, MSEC_in, mets_in) ~ "t.test"
   )
 )
 
@@ -1016,11 +1004,15 @@ table_1 <- tbl_stack(
   
   # 4.1. Etiquetes i estètica
   modify_caption("Característiques basals de la mostra") |> 
-  modify_header(label = "**Variable**", p.value = "**Valor p**") |> 
+  modify_header(
+    label = "**Variable**", 
+    all_stat_cols() ~ "**{level}** | N = {n} ({style_percent(p)}%)",
+    p.value = "**Valor p**"
+  ) |> 
   modify_footnote(
-      all_stat_cols() ~ "n (%); Mitjana ± DE; Mediana (Q1, Q3)",
-      p.value ~ "Prova de khi quadrat de Pearson; Prova exacta de Fisher; 
-      Prova t de Welch; Prova U de Mann-Whitney"
+      all_stat_cols() ~ "n (%); Mediana (Q1, Q3)",
+      p.value ~ "Prova de khi quadrat de Pearson; Prova exacta de Fisher, 
+      Prova U de Mann-Whitney"
     )
 
 table_1
