@@ -36,18 +36,10 @@ bibliography: references.bib
 ```{r setup, include=FALSE}
 library(knitr)
 
-opts_chunk$set(echo = FALSE,
-               warning = FALSE,
-               message = FALSE,
-               comment = "", 
-               cache = TRUE,
-               tidy = FALSE,
-               prompt = FALSE,
-               tidy.opts = list(width.cutoff = 72))
-
-options(width = 75)
-
-Sys.setlocale("LC_TIME", "C")
+opts_chunk$set(
+  echo = FALSE, warning = FALSE, message = FALSE, comment = "", 
+  cache = TRUE, tidy = FALSE, prompt = FALSE
+)
 
 ```
 
@@ -865,41 +857,36 @@ Text
 # ---- 4 RESULTATS ----
 
 # 1. Càrrega de dades
-data <- read_excel("CARC_ database.xls")
-
-# 2. Transformacions preliminars
-data <- data |> 
-  # 2.1. Conversió de caràcters a factors
+data <- read_excel("CARC_ database.xls") |> 
+  
+  # 2. Conversió de caràcters a factors
   mutate(across(where(is.character), as.factor)) |> 
   
-  # 2.2. Gestió de nivells
-  mutate(
-    `Age group` = fct_relevel(
-      `Age group`, c("<50 years", "51-60 years", "61-70 years", ">70 years")
-    ),
-    `Diagnosis/intervention` = fct_collapse(
-      `Diagnosis/intervention`, 
-      "Others" = c("Intervention on large vessles", "Others")
-    )
-  ) |> 
-  
-  # 2.3. Gestió d'etiquetes
-  mutate(
-    `Age group` = fct_relabel(`Age group`, ~ str_replace(., "years", "anys")),
-    Sex = fct_recode(Sex, "F" = "W"),
-    `Diagnosis/intervention` = fct_recode(
-      `Diagnosis/intervention`,
-      "Síndrome coronària aguda" = "ACS +/- PCI",
-      "Insuficiència cardíaca" = "Heart insufficiency",
-      "Cirurgia valvular" = "Heart valve surgery",
-      "Altres" = "Others"
-    )
-  ) |> 
-  
-  # 2.4. Gestió de registres erronis
+  # 3. Gestió de registres erronis
   mutate(
     mets_in = if_else(row_number() == 174, 6.7, mets_in),
     `6MWT_out` = if_else(row_number() == 174, NA_real_, `6MWT_out`)
+  ) |> 
+  
+  # 4. Gestió de factors
+  mutate(
+    # Edat
+    `Age group` = `Age group` |> 
+      fct_relevel("<50 years", "51-60 years", "61-70 years", ">70 years") |> 
+      fct_relabel(~ str_replace(., "years", "anys")),
+    
+    # Sexe
+    Sex = fct_recode(Sex, "F" = "W"),
+    
+    # Diagnòstic
+    `Diagnosis/intervention` = `Diagnosis/intervention` |> 
+      fct_collapse("Others" = c("Intervention on large vessles", "Others")) |> 
+      fct_recode(
+        "Síndrome coronària aguda" = "ACS +/- PCI", 
+        "Insuficiència cardíaca" = "Heart insufficiency", 
+        "Cirurgia valvular" = "Heart valve surgery", 
+        "Altres" = "Others"
+      )
   )
 
 ```
@@ -919,9 +906,9 @@ Text
 #'
 #' @param data Un \code{data.frame} o \code{tibble} que conté les dades.
 #' @param vars Vector amb les variables que es vulguin afegir.
-#' @param label Llista amb la correspondència d'etiquetes per a les variables.
+#' @param labels Vector amb la correspondència d'etiquetes per a les variables.
 #'
-#' @returns
+#' @returns Una taula tbl_summary.
 #' 
 #' @importFrom dplyr select
 #' @importFrom gtsummary tbl_summary add_p bold_labels bold_p
@@ -930,24 +917,17 @@ Text
 #' @examples
 #' \dontrun{
 #' # Exemple d'ús amb dades hipotètiques
-#' create_tbl_summary(Sex, label = list(Sex ~ "Sexe biològic"))
+#' create_tbl_summary(data, c("6MWT", "Sex"), labels = c(Sex = "Sexe"))
 #' }
-create_tbl_summary <- function(data, vars, label = NULL) {
+create_tbl_summary <- function(data, vars, labels) {
   data |>
-    # 1. Selecció de variables
-    select(Sex, all_of(vars)) |> 
-    
-    # 2. Taula
     tbl_summary(
       by = Sex, 
-      label = label, 
-      missing = "no"
+      label = as.list(labels[vars]), 
+      missing = "no", 
+      include = vars
     ) |> 
-    
-    # 3. Tests estadístics i valor p
     add_p() |> 
-    
-    # 4. Estètica
     bold_labels() |>
     bold_p()
 }
@@ -965,38 +945,36 @@ vars_in <- list(
 )
 
 # 2. Etiquetes
-labels_demo <- list(
-  `Age group` ~ "Grup d'edat", 
-  `Diagnosis/intervention` ~ "Diagnòstic / Intervenció", 
-  `Smoking entry` ~ "Tabaquisme"
-)
-
-labels_func <- list(
-  `6MWT_in` ~ "6MWT (m)", 
-  QIS_left_in ~ "QIS esquerre (N·m)", 
-  QIS_right_in ~ "QIS dret (N·m)", 
-  MSEC_in ~ "MSEC (W)", 
-  mets_in ~ "MET"
-)
-
-labels_prom <- list(
-  had_depression_in ~ "HADS | Depressió", 
-  had_anxiety_in ~ "HADS | Ansietat", 
-  heart_quality_physical_in ~ "HeartQoL | Física", 
-  heart_quality_emotion_in ~ "HeartQoL | Emocional", 
-  baecke_work_in ~ "Baecke | Treball", 
-  baecke_sport_in ~ "Baecke | Esport", 
-  baecke_leisure_in ~ "Baecke | Oci"
+labels_in <- c(
+  # Demogràfics
+  `Age group` = "Grup d'edat", 
+  Sex = "Sexe", 
+  `Diagnosis/intervention` = "Diagnòstic / Intervenció", 
+  `Smoking entry` = "Tabaquisme", 
+  
+  # Capacitat funcional
+  `6MWT_in` = "6MWT (m)", 
+  QIS_left_in = "QIS esquerre (N·m)", 
+  QIS_right_in = "QIS dret (N·m)", 
+  MSEC_in = "MSEC (W)", 
+  mets_in = "MET", 
+  
+  # Qüestionaris de salut
+  had_depression_in = "HADS | Depressió", 
+  had_anxiety_in = "HADS | Ansietat", 
+  heart_quality_physical_in = "HeartQoL | Física", 
+  heart_quality_emotion_in = "HeartQoL | Emocional", 
+  baecke_work_in = "Baecke | Treball", 
+  baecke_sport_in = "Baecke | Esport", 
+  baecke_leisure_in = "Baecke | Oci"
 )
 
 # 3. Subtaules
-t_demo <- create_tbl_summary(data, vars_in$Demogràfics, label = labels_demo)
+t_demo <- create_tbl_summary(data, vars_in$Demogràfics, labels_in)
 
-t_func <- create_tbl_summary(data, vars_in$`Capacitat funcional`, 
-                             label = labels_func)
+t_func <- create_tbl_summary(data, vars_in$`Capacitat funcional`, labels_in)
 
-t_prom <- create_tbl_summary(data, vars_in$`Qüestionaris de salut`, 
-                             label = labels_prom)
+t_prom <- create_tbl_summary(data, vars_in$`Qüestionaris de salut`, labels_in)
 
 # 4. Taula 1
 table_1 <- tbl_stack(
@@ -1031,15 +1009,33 @@ plot_miss <- data |>
   gg_miss_fct(fct = Sex)
 
 # 5.1. Etiquetes
-plot_miss <- plot_miss + geom_text(
-  data = plot_miss$data,
-  aes(
-    label = paste0(round(pct_miss, 1), "%"),
-    color = pct_miss < 10
-  ),
-) +
+plot_miss <- plot_miss + 
+  geom_text(
+    data = plot_miss$data, 
+    aes(
+      label = paste0(round(pct_miss, 1), "%"), color = pct_miss < 10
+    ), 
+    size = 3
+  ) + 
   scale_color_manual(
     values = c("FALSE" = "black", "TRUE" = "white"), guide = "none"
+  ) +
+  scale_y_discrete(labels = labels_in) + 
+  scale_fill_viridis_c(name = "% faltant") + 
+  labs(
+    x = "Sexe", 
+    y = "Variable", 
+    fill = "% faltant", 
+    caption = str_wrap(
+      "HADS: Escala Hospitalària d'Ansietat i Depressió. 
+      MET: equivalent metabòlic de l'activitat. 
+      MSEC: capacitat d'exercici màxima a curt termini. 
+      QIS: força isomètrica màxima del quàdriceps. 
+      6MWT: prova de la marxa de 6 minuts."
+    )
+  ) + 
+  theme(
+    plot.caption = element_text(hjust = 0)
   )
 
 plot_miss
@@ -1073,18 +1069,12 @@ data <- data |>
     # Activitat física
     dif_baecke_work = baecke_work_out - baecke_work_in,
     dif_baecke_sport = baceke_sport_out - baecke_sport_in,
-    dif_baecke_leisure = baecke_leisure_out - baecke_leisure_in
-  ) |> 
-  
-  # 1.2. Columna binària millora en 6MWT
-  mutate(imp_6MWT = factor(if_else(dif_6MWT >= 25, 1, 0))) |> 
-  
-  # 1.3. Columna mitjana QIS
-  mutate(
-    avg_QIS_in = (QIS_right_in + QIS_left_in) / 2,
-    avg_QIS_out = (QIS_right_out + QIS_left_out) / 2
+    dif_baecke_leisure = baecke_leisure_out - baecke_leisure_in, 
+    
+    # Millora en 6MWT segonc MCID
+    imp_6MWT = factor(if_else(dif_6MWT >= 25, "Yes", "No"))
   )
-
+  
 # 2. Variables de resultat
 vars_res <- c(
   "dif_6MWT", "dif_QIS_left", "dif_QIS_right", "dif_MSEC", "dif_mets", 
@@ -1094,29 +1084,29 @@ vars_res <- c(
 )
 
 # 3. Etiquetes
-labels_res <- list(
-  dif_6MWT ~ "6MWT (m)", 
-  dif_QIS_left ~ "QIS esquerre (N·m)", 
-  dif_QIS_right ~ "QIS dret (N·m)", 
-  dif_MSEC ~ "MSEC (W)", 
-  dif_mets ~ "MET", 
-  dif_had_depression ~ "HADS | Depressió", 
-  dif_had_anxiety ~ "HADS | Ansietat", 
-  dif_hqol_physical ~ "HeartQoL | Física", 
-  dif_hqol_emotion ~ "HeartQoL | Emocional", 
-  dif_baecke_work ~ "Baecke | Treball", 
-  dif_baecke_sport ~ "Baecke | Esport", 
-  dif_baecke_leisure ~ "Baecke | Oci", 
+labels_res <- c(
+  dif_6MWT = "6MWT (m)", 
+  dif_QIS_left = "QIS esquerre (N·m)", 
+  dif_QIS_right = "QIS dret (N·m)", 
+  dif_MSEC = "MSEC (W)", 
+  dif_mets = "MET", 
+  dif_had_depression = "HADS | Depressió", 
+  dif_had_anxiety = "HADS | Ansietat", 
+  dif_hqol_physical = "HeartQoL | Física", 
+  dif_hqol_emotion = "HeartQoL | Emocional", 
+  dif_baecke_work = "Baecke | Treball", 
+  dif_baecke_sport = "Baecke | Esport", 
+  dif_baecke_leisure = "Baecke | Oci", 
   imp_6MWT = "Millora >25m 6MWT"
 )
 
 # 4. Resum de resultats
-table_res <- create_tbl_summary(data, vars_res, label = labels_res) |> 
+table_res <- create_tbl_summary(data, vars_res, labels_res) |> 
   
   # 4.1. Etiquetes i estètica
   modify_caption(
     "Diferències en resultats clínics al final de la rehabilitació"
-  ) |> 
+  ) |>
   modify_header(
     label = "**Variable**", 
     all_stat_cols() ~ "**{level}** | N = {n} ({style_percent(p)}%)",
@@ -1132,26 +1122,119 @@ table_res
   
 ```
 
-```{r, fig.cap="Anàlisi descriptiva bivariant | Capacitat funcional"}
-# 5. Anàlisi bivariant (capacitat funcional)
-plot_func <- data |> 
-  # 5.1. Selecció de variables
-  select(dif_6MWT, vars_in$`Capacitat funcional`, Sex) |> 
-  
-  # 5.2. Gràfic
-  ggpairs(
-    mapping = aes(color = Sex), 
-    upper = list(continuous = wrap("cor", size = 2)), 
-    axisLabels = "none", 
-    legend = c(7, 7)
+```{r}
+#' Creació de gràfics d'anàlisi bivariant
+#' 
+#' @description
+#' Crea un gràfic ggpairs amb comparació per colors.
+#' 
+#'
+#' @param data Un \code{data.frame} o \code{tibble} que conté les dades.
+#' @param vars Vector amb les variables que es vulguin afegir.
+#' @param by Variable de comparació (reanomenada).
+#' @param labels Vector amb les etiquetes per a les variables (per a dplyr).
+#'
+#' @returns Un gràfic ggpairs.
+#' 
+#' @importFrom dplyr select rename
+#' @importFrom GGally ggpairs
+#' @importFrom ggplot2 scale_fill_viridis_d scale_color_viridis_d
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' # Exemple d'ús amb dades hipotètiques
+#' create_ggpairs(data, c("6MWT", "Sex"), by = "Sexe", labels = c("Sexe" = "Sex"))
+#' }
+create_ggpairs <- function(data, vars, by, labels) {
+  data |> 
+    # 1. Selecció de variables
+    select(vars) |> 
+    
+    # 2. Etiquetes
+    rename(any_of(labels)) |> 
+    
+    # 3. Gràfic
+    ggpairs(
+      mapping = aes(color = .data[[by]]), 
+      upper = list(continuous = wrap("cor", size = 2, method = "spearman")), 
+      axisLabels = "none", 
+      legend = c(7, 7)
+    ) + 
+    
+    # 4. Estètica
+    scale_fill_viridis_d(alpha = 0.6, end = 0.5) + 
+    scale_color_viridis_d(alpha = 0.6, end = 0.5) +
+    theme(
+      legend.position = "bottom", 
+      strip.text = element_text(size = 8)
+    )
+}
+
+
+```
+
+```{r, fig.cap="Anàlisi descriptiva bivariant | Capacitat funcional", fig.height=6}
+# 5. Etiquetes reduïdes
+labels_short <- c(
+  "Dif. 6MWT" = "dif_6MWT", 
+  "6MWT bas." = "6MWT_in", 
+  "QIS esq." = "QIS_left_in", 
+  "QIS dr." = "QIS_right_in", 
+  "MSEC" = "MSEC_in", 
+  "MET" = "mets_in", 
+  "HADS-D" = "had_depression_in", 
+  "HADS-A" = "had_anxiety_in", 
+  "QdV-F" = "heart_quality_physical_in", 
+  "QdV-E" = "heart_quality_emotion_in", 
+  "Baecke-T" = "baecke_work_in", 
+  "Baecke-E" = "baecke_sport_in", 
+  "Baecke-O" = "baecke_leisure_in", 
+  "Sexe" = "Sex"
+)
+
+# 6. Anàlisi bivariant (capacitat funcional)
+plot_func <- create_ggpairs(
+  data,
+  vars = c("dif_6MWT", vars_in$`Capacitat funcional`, "Sex"), 
+  by = "Sexe", 
+  labels = labels_short
+) + 
+  labs(
+    caption = str_wrap(
+      "MET: equivalent metabòlic de l'activitat. 
+      MSEC: capacitat d'exercici màxima a curt termini. 
+      QIS: força isomètrica màxima del quàdriceps. 
+      6MWT: prova de la marxa de 6 minuts."
+    )
   ) + 
-  
-  # 5.3. Estètica
-  scale_fill_viridis_d(alpha = 0.6, end = 0.5) + 
-  scale_color_viridis_d(alpha = 0.6, end = 0.5) + 
-  theme(legend.position = "bottom")
+  theme(
+    plot.caption = element_text(hjust = 0)
+  )
 
 plot_func
+
+```
+
+```{r, fig.cap="Anàlisi descriptiva bivariant | Qüestionaris de salut", fig.height=7}
+# 6. Anàlisi bivariant (capacitat funcional)
+plot_prom <- create_ggpairs(
+  data,
+  vars = c("dif_6MWT", vars_in$`Qüestionaris de salut`, "Sex"), 
+  by = "Sexe", 
+  labels = labels_short
+) + 
+  labs(
+    caption = str_wrap(
+      "HADS: Escala Hospitalària d'Ansietat i Depressió.
+      QdV: qualitat de vida (escala HeartQoL)"
+    )
+  ) + 
+  theme(
+    plot.caption = element_text(hjust = 0)
+  )
+
+plot_prom
 
 ```
 
