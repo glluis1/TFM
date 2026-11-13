@@ -911,38 +911,29 @@ Text
 ```{r}
 # ---- 4.1 CARACTERÍSTIQUES BASALS ----
 
-# 1. Selecció de variables basals
-data_in <- data |> 
-  select(
-    `Age group`, Sex, `Diagnosis/intervention`, `Smoking entry`, 
-    `6MWT_in`, QIS_left_in, QIS_right_in, MSEC_in, mets_in, 
-    had_depression_in, had_anxiety_in, 
-    heart_quality_physical_in, heart_quality_emotion_in, 
-    baecke_work_in, baecke_sport_in, baecke_leisure_in
-  )
-
-# 2. Blocs de variables
-var_blocks <- list(
-  `Demogràfics` = c("Age group", "Diagnosis/intervention", "Smoking entry"),
-  `Capacitat funcional` = c("6MWT_in", "QIS_left_in", "QIS_right_in", 
-                            "MSEC_in", "mets_in"),
-  `Qüestionaris de salut` = c("had_depression_in", "had_anxiety_in", 
-                              "heart_quality_physical_in", 
-                              "heart_quality_emotion_in", "baecke_work_in", 
-                              "baecke_sport_in", "baecke_leisure_in")
-)
-
-  
-#' Title
+#' Creació de taula de característiques de la mostra
+#' 
+#' @description
+#' Crea una taula resum amb comparació per sexe i valors p.
+#' 
 #'
-#' @param vars 
+#' @param data Un \code{data.frame} o \code{tibble} que conté les dades.
+#' @param vars Vector amb les variables que es vulguin afegir.
+#' @param label Llista amb la correspondència d'etiquetes per a les variables.
 #'
 #' @returns
+#' 
+#' @importFrom dplyr select
+#' @importFrom gtsummary tbl_summary add_p bold_labels bold_p
 #' @export
 #'
 #' @examples
-create_tbl_summary <- function(vars, label = NULL) {
-  data_in |>
+#' \dontrun{
+#' # Exemple d'ús amb dades hipotètiques
+#' create_tbl_summary(Sex, label = list(Sex ~ "Sexe biològic"))
+#' }
+create_tbl_summary <- function(data, vars, label = NULL) {
+  data |>
     # 1. Selecció de variables
     select(Sex, all_of(vars)) |> 
     
@@ -962,44 +953,55 @@ create_tbl_summary <- function(vars, label = NULL) {
 }
 
 
+# 1. Blocs de variables
+vars_in <- list(
+  `Demogràfics` = c("Age group", "Diagnosis/intervention", "Smoking entry"),
+  `Capacitat funcional` = c("6MWT_in", "QIS_left_in", "QIS_right_in", 
+                            "MSEC_in", "mets_in"),
+  `Qüestionaris de salut` = c("had_depression_in", "had_anxiety_in", 
+                              "heart_quality_physical_in", 
+                              "heart_quality_emotion_in", "baecke_work_in", 
+                              "baecke_sport_in", "baecke_leisure_in")
+)
+
+# 2. Etiquetes
+labels_demo <- list(
+  `Age group` ~ "Grup d'edat", 
+  `Diagnosis/intervention` ~ "Diagnòstic / Intervenció", 
+  `Smoking entry` ~ "Tabaquisme"
+)
+
+labels_func <- list(
+  `6MWT_in` ~ "6MWT (m)", 
+  QIS_left_in ~ "QIS esquerre (N·m)", 
+  QIS_right_in ~ "QIS dret (N·m)", 
+  MSEC_in ~ "MSEC (W)", 
+  mets_in ~ "MET"
+)
+
+labels_prom <- list(
+  had_depression_in ~ "HADS | Depressió", 
+  had_anxiety_in ~ "HADS | Ansietat", 
+  heart_quality_physical_in ~ "HeartQoL | Física", 
+  heart_quality_emotion_in ~ "HeartQoL | Emocional", 
+  baecke_work_in ~ "Baecke | Treball", 
+  baecke_sport_in ~ "Baecke | Esport", 
+  baecke_leisure_in ~ "Baecke | Oci"
+)
+
 # 3. Subtaules
-t_demo <- create_tbl_summary(
-  var_blocks$Demogràfics, 
-  label = list(
-    `Age group` ~ "Grup d'edat", 
-    `Diagnosis/intervention` ~ "Diagnòstic / Intervenció", 
-    `Smoking entry` ~ "Tabaquisme"
-  )
-)
+t_demo <- create_tbl_summary(data, vars_in$Demogràfics, label = labels_demo)
 
-t_func <- create_tbl_summary(
-  var_blocks$`Capacitat funcional`,
-  label = list(
-    `6MWT_in` ~ "6MWT (m)", 
-    QIS_left_in ~ "QIS esquerre (N·m)", 
-    QIS_right_in ~ "QIS dret (N·m)", 
-    MSEC_in ~ "MSEC (W)", 
-    mets_in ~ "MET"
-  )
-)
+t_func <- create_tbl_summary(data, vars_in$`Capacitat funcional`, 
+                             label = labels_func)
 
-t_prom <- create_tbl_summary(
-  var_blocks$`Qüestionaris de salut`,
-  label = list(
-    had_depression_in ~ "HADS | Depressió", 
-    had_anxiety_in ~ "HADS | Ansietat", 
-    heart_quality_physical_in ~ "HeartQoL | Física", 
-    heart_quality_emotion_in ~ "HeartQoL | Emocional", 
-    baecke_work_in ~ "Baecke | Treball", 
-    baecke_sport_in ~ "Baecke | Esport", 
-    baecke_leisure_in ~ "Baecke | Oci"
-  )
-)
+t_prom <- create_tbl_summary(data, vars_in$`Qüestionaris de salut`, 
+                             label = labels_prom)
 
 # 4. Taula 1
 table_1 <- tbl_stack(
   tbls = list(t_demo, t_func, t_prom),
-  group_header = names(var_blocks)
+  group_header = names(vars_in)
 ) |> 
   
   # 4.1. Etiquetes i estètica
@@ -1017,11 +1019,141 @@ table_1 <- tbl_stack(
 
 table_1
 
+rm(t_demo, t_func, t_prom)
+
+```
+
+```{r, fig.cap="Valors faltants per variable i sexe"}
+# 5. Mapa de calor de valors faltants
+plot_miss <- data |> 
+  select(vars_in$Demogràfics, vars_in$`Capacitat funcional`, 
+         vars_in$`Qüestionaris de salut`, Sex) |> 
+  gg_miss_fct(fct = Sex)
+
+# 5.1. Etiquetes
+plot_miss <- plot_miss + geom_text(
+  data = plot_miss$data,
+  aes(
+    label = paste0(round(pct_miss, 1), "%"),
+    color = pct_miss < 10
+  ),
+) +
+  scale_color_manual(
+    values = c("FALSE" = "black", "TRUE" = "white"), guide = "none"
+  )
+
+plot_miss
+
 ```
 
 ## Resultats de la rehabilitació
 
 Text
+
+```{r}
+# ---- 4.2 RESULTATS DE LA REHABILITACIÓ ----
+
+# 1. Creació de variables
+data <- data |> 
+  # 1.1. Diferències en resultats clínics
+  mutate(
+    # Capacitat funcional
+    dif_6MWT = `6MWT_out` - `6MWT_in`,
+    dif_QIS_left = QIS_left_out - QIS_left_in,
+    dif_QIS_right = QIS_right_out - QIS_right_in,
+    dif_MSEC = MSEC_out - MSEC_in,
+    dif_mets = mets_out - mets_in,
+    
+    # Salut mental i QdV
+    dif_had_depression = had_depression_out - had_depression_in,
+    dif_had_anxiety = had_anxiety_out - had_anxiety_in,
+    dif_hqol_physical = heart_quality_physical_out - heart_quality_physical_in,
+    dif_hqol_emotion = heart_quality_emotion_out - heart_quality_emotion_in,
+    
+    # Activitat física
+    dif_baecke_work = baecke_work_out - baecke_work_in,
+    dif_baecke_sport = baceke_sport_out - baecke_sport_in,
+    dif_baecke_leisure = baecke_leisure_out - baecke_leisure_in
+  ) |> 
+  
+  # 1.2. Columna binària millora en 6MWT
+  mutate(imp_6MWT = factor(if_else(dif_6MWT >= 25, 1, 0))) |> 
+  
+  # 1.3. Columna mitjana QIS
+  mutate(
+    avg_QIS_in = (QIS_right_in + QIS_left_in) / 2,
+    avg_QIS_out = (QIS_right_out + QIS_left_out) / 2
+  )
+
+# 2. Variables de resultat
+vars_res <- c(
+  "dif_6MWT", "dif_QIS_left", "dif_QIS_right", "dif_MSEC", "dif_mets", 
+  "dif_had_depression", "dif_had_anxiety", "dif_hqol_physical", 
+  "dif_hqol_emotion", "dif_baecke_work", "dif_baecke_sport", 
+  "dif_baecke_leisure", "imp_6MWT"
+)
+
+# 3. Etiquetes
+labels_res <- list(
+  dif_6MWT ~ "6MWT (m)", 
+  dif_QIS_left ~ "QIS esquerre (N·m)", 
+  dif_QIS_right ~ "QIS dret (N·m)", 
+  dif_MSEC ~ "MSEC (W)", 
+  dif_mets ~ "MET", 
+  dif_had_depression ~ "HADS | Depressió", 
+  dif_had_anxiety ~ "HADS | Ansietat", 
+  dif_hqol_physical ~ "HeartQoL | Física", 
+  dif_hqol_emotion ~ "HeartQoL | Emocional", 
+  dif_baecke_work ~ "Baecke | Treball", 
+  dif_baecke_sport ~ "Baecke | Esport", 
+  dif_baecke_leisure ~ "Baecke | Oci", 
+  imp_6MWT = "Millora >25m 6MWT"
+)
+
+# 4. Resum de resultats
+table_res <- create_tbl_summary(data, vars_res, label = labels_res) |> 
+  
+  # 4.1. Etiquetes i estètica
+  modify_caption(
+    "Diferències en resultats clínics al final de la rehabilitació"
+  ) |> 
+  modify_header(
+    label = "**Variable**", 
+    all_stat_cols() ~ "**{level}** | N = {n} ({style_percent(p)}%)",
+    p.value = "**Valor p**"
+  ) |> 
+  modify_footnote(
+      all_stat_cols() ~ "n (%); Mediana (Q1, Q3)",
+      p.value ~ "Prova de khi quadrat de Pearson; Prova exacta de Fisher, 
+      Prova U de Mann-Whitney"
+    )
+
+table_res
+  
+```
+
+```{r, fig.cap="Anàlisi descriptiva bivariant | Capacitat funcional"}
+# 5. Anàlisi bivariant (capacitat funcional)
+plot_func <- data |> 
+  # 5.1. Selecció de variables
+  select(dif_6MWT, vars_in$`Capacitat funcional`, Sex) |> 
+  
+  # 5.2. Gràfic
+  ggpairs(
+    mapping = aes(color = Sex), 
+    upper = list(continuous = wrap("cor", size = 2)), 
+    axisLabels = "none", 
+    legend = c(7, 7)
+  ) + 
+  
+  # 5.3. Estètica
+  scale_fill_viridis_d(alpha = 0.6, end = 0.5) + 
+  scale_color_viridis_d(alpha = 0.6, end = 0.5) + 
+  theme(legend.position = "bottom")
+
+plot_func
+
+```
 
 ## Modelització de la millora de la capacitat funcional
 
