@@ -148,31 +148,19 @@ A continuació es detalla la relació d'objectius principals i secundaris del tr
 
 ## Enfocament i mètode seguit
 
-### Estratègia de recerca
+Per a la realització d'aquest treball s'ha adoptat la metodologia CRISP-DM (de l'anglès *Cross-industry Standard Process for Data Mining*). Es tracta d'un procés estandarditzat de mineria de dades, aplicable al domini de les ciències de la salut i que comprèn les 6 fases que es detallen a continuació [@roller2024]. La seqüència no és fixa i és possible alterar l'ordre dels passos en un procés iteratiu segons les necessitats particulars de cada projecte.
 
-En una primera fase del treball, es durà a terme una cerca de literatura científica a les principals bases de dades d'investigació clínica (PubMed, Cochrane Library, ScienceDirect...), així com en altres fonts especialitzades que es considerin rellevants.
+1.  **Comprensió de l'àrea de treball**. Consisteix en la definició de la situació, els objectius, el pla de treball i les tasques tècniques del projecte. És important tenir en compte que l'àmbit sanitari és un cas especial en què, sovint, l'objectiu principal no és el benefici econòmic: a més dels costs dels tractaments, el valor d'una intervenció es pot mesurar en termes de qualitat de vida (QdV), resultats clínics, experiència de pacient o eficiència per al personal sanitari. Els projectes en l'àmbit de la salut també poden aportar valor al conjunt de la societat i solen estar regits per regulacions estrictes a escala ètica i legal, tot i que en aquest treball aquestes darreres no han de tenir un impacte significatiu.
 
-Els resultats obtinguts es filtraran segons la seva adequació al tema i es classificaran en tres àmbits que permetran estructurar-ne adequadament els continguts:
+2.  **Comprensió de les dades**. En aquest pas s'analitza la disponibilitat de dades adequades per respondre la pregunta de recerca formulada o se'n duu a terme la recol·lecció. Cal assegurar la qualitat de la informació i verificar-ne l'origen: en aquest cas, si bé el conjunt de dades sembla fiable en tant que prové d'un estudi publicat, no es deixarà de revisar-ne el contingut per garantir que el seu ús és viable per resoldre les qüestions plantejades. D'altra banda, en tractar-se d'un context especialitzat que requereix la comprensió del problema des d'un punt de vista fisiològic i clínic, es basarà la investigació en l'evidència científica que es reculli durant tot el procés.
 
-- **Rehabilitació cardíaca**: estat de l'art general, càrrega de les patologies cardiovasculars en la salut global, impacte en resultats clínics, descripció de variables predictores.
+3.  **Preparació de les dades**. Aquest pas està estretament lligat amb l'anterior i poden arribar a funcionar com un sol bloc. Comprèn la neteja, la conversió de formats o el tractament d'informació fantant o errònia. En estudis que utilitzin registres electrònics o dades del món real és especialment necessària una bona estructuració que faciliti les anàlisis posteriors.
 
-- **Biaixos de sexe i gènere**: diferències en l'accés, la participació i els resultats de la rehabilitació cardíaca, interseccionalitat de les desigualtats, intervencions proposades.
+4.  **Modelització**. Inclou la definició de les tècniques a emprar, com ara proves estadístiques, contrasts o models. En un context sanitari, cal tenir present que els mètodes que s'utilitzin han de poder generar resultats interpretables, de manera que puguin servir per a les aplicacions clíniques previstes.
 
-- **Equitat algorítmica**: evidència sobre mètodes estadístics, limitacions i propostes de mitigació de biaixos.
+5.  **Avaluació**. Si totes les etapes s'han realitzat amb èxit, es procedeix a l'anàlisi dels resultats; en cas contrari, caldrà revisar els passos anteriors. En salut, els indicadors més rellevants solen tenir a veure amb la millora de la qualitat de l'atenció sanitària, la facilitació de l'accés als sistemes de salut i la reducció dels costs dels tractaments. Aquest treball està enfocat principalment als dos primers àmbits, tot i que en molts casos poden estar indirectament relacionats amb el tercer.
 
-### Metodologia de treball
-
-Un cop feta la recerca d'evidència, es procedirà a l'anàlisi de les dades disponibles mitjançant el programari `R` i adoptant, en la mesura del possible, els principis del `tidyverse`. Se seguiran els passos que s'indiquen:
-
-- **Preprocessament de dades**: neteja, tractament de valors nuls, anàlisi descriptiva estratificada per sexe i definició de variables objectiu. Les principals variables d'interès són la capacitat funcional (mesurada habitualment amb la 6MWT) i la qualitat de vida, que es poden binaritzar en funció de si la millora és superior o no a la mínima diferència clínicament important per a cada cas.
-
-- **Modelització estadística**: construcció de models predictius a partir del conjunt de dades. Tenint en compte les característiques de les variables objectiu, es prendrà com a model de referència la regressió logística. S'optimitzarà el model amb mètodes de regularització (Ridge, LASSO). Malgrat que el nombre de registres és limitat, es podria comparar el resultat amb una alternativa no lineal, com ara un Random Forest.
-
-- **Avaluació i auditoria de gènere**: valoració del rendiment del model. A més de les mesures habituals, s'utilitzaran les mètriques d'equitat algorítmica que es considerin adequades d'entre les descrites a la literatura científica.
-
-- **Discussió de resultats**: exploració de tècniques de mitigació de biaixos i elaboració de recomanacions metodològiques per a futures investigacions.
-
-Aquest enfocament permetrà, d'una banda, disposar del context clínic adient per a la comprensió dels resultats i, de l'altra, garantir un tractament net i reproduïble de les dades.
+6.  **Desplegament**. Per acabar, es duu a terme la implementació de la intervenció o innovació proposada i el seu seguiment i manteniment si es dona el cas. Els resultats d'aquest treball no estan pensats en principi per al seu ús clínic, però poden plantejar línies de recerca a seguir en el futur, si es consideren rellevants.
 
 ## Impacte en sostenibilitat, ètic-social i de diversitat
 
@@ -192,7 +180,9 @@ L'impacte d'aquest treball es concreta principalment en els objectius de desenvo
 
   16.7. Garantir l'adopció en tots els nivells de decisions inclusives, participatives i representatives que responguin a les necessitats.
 
-D'altra banda, el treball inclou la perspectiva de gènere en el seu mateix disseny. En aquest sentit, es pretén identificar i combatre els biaixos existents en la recerca clínica per fomentar una investigació més inclusiva i accessible per a tothom. És responsabilitat del personal sanitari i de recerca contemplar la dimensió ètica i social de la seva tasca, de manera que puguin vetllar per la reducció de les desigualtats basades en prejudicis de gènere, ètnia, edat, estatus socioeconòmic, capacitats o orientació sexual, entre d'altres. A més, cal destacar que l'optimització de sistemes de suport a la decisió clínica basats en models predictius té la capacitat de millorar els circuits existents d'atenció sanitària. D'aquesta manera, es podrà contribuir a un ús més eficient dels recursos i, en conseqüència, s'aconseguirà un impacte positiu en termes de sostenibilitat a mitjà i llarg termini.
+D'altra banda, el treball inclou la perspectiva de gènere en el seu mateix disseny. En aquest sentit, es pretén identificar i combatre els biaixos existents en la recerca clínica per fomentar una investigació més inclusiva i accessible per a tothom. És responsabilitat del personal sanitari i de recerca contemplar la dimensió ètica i social de la seva tasca, de manera que puguin vetllar per la reducció de les desigualtats basades en prejudicis de gènere, ètnia, edat, estatus socioeconòmic, capacitats o orientació sexual, entre d'altres.
+
+A més, cal destacar que l'optimització de sistemes de suport a la decisió clínica basats en models predictius té la capacitat de millorar els circuits existents d'atenció sanitària. És previsible que aquest treball presenti limitacions pel que fa a la representativitat de les dades i que els resultats no siguin completament extrapolables degut a l'abast reduït de l'auditoria plantejada. No obstant això, té el potencial de mostrar la necessitat de seguir determinades línies de recerca que contribueixin a un ús més just i eficient dels recursos i, en conseqüència, aconsegueixin un impacte positiu en termes de sostenibilitat a mitjà i llarg termini.
 
 Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin en cada context. De manera puntual i honorífica, es pot emprar el femení com a genèric per referir-se a les persones professionals de la salut, de qualsevol gènere, donat l'elevat percentatge de dones que exerceixen aquestes professions.
 
@@ -202,7 +192,7 @@ Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin
 
 ### Tasques
 
-A la **\autoref{tab:taula1-1}** es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat **[Enfocament i mètode seguit]**. S'indica també la relació amb els objectius proposats.
+A la **\autoref{tab:taula1-1}** es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat **[Enfocament i mètode seguit]**. S'indica també la relació amb els objectius proposats. En funció de la completesa i la qualitat de les dades i del temps disponible es podran revisar les prioritats i els plantejaments definits en aquesta secció (p. ex. reduint el nombre de comparacions o limitant el nombre de mètodes de mitigació a aplicar). Durant tot el procés s'aniran incorporant també els comentaris de tutoria i les revisions acordades en cada prova d'avaluació.
 
 | Tasca                             | Objectius     | Inici    | Final    | Estat      |
 |-----------------------------|------------|----------|----------|-------------|
@@ -227,11 +217,13 @@ A la **\autoref{tab:taula1-1}** es descriuen les tasques que caldrà desenvolupa
 | Discussió                         | 1.1, 1.3, 2.2 | 17/12/26 | 31/12/26 | Pendent    |
 | Conclusions                       |               | 1/1/27   | 7/1/27   | Pendent    |
 | Glossari i Annexos                |               | 23/9/26  | 7/1/27   | En curs    |
-| Article                           |               | 15/10/26 | 7/1/27   | En curs    |
 |                                   |               |          |          |            |
 | **5. Presentació**                |               |          |          |            |
 | Elaboració de diapositives        |               | 8/1/27   | 13/1/27  | Pendent    |
 | Enregistrament                    |               | 8/1/27   | 13/1/27  | Pendent    |
+|                                   |               |          |          |            |
+| **Productes addicionals**         |               |          |          |            |
+| Article                           |               | 15/10/26 | 13/1/27  | En curs    |
 
 : Planificació de tasques {#tab:taula1-1}
 
@@ -251,8 +243,9 @@ df_gantt <- data.frame(
     "2. Estat de l'art",
     "3. Implementació",
     "4. Lliurament final",
-    "5. Presentació"
-  ), times = c(1, 2, 4, 8, 2))),
+    "5. Presentació", 
+    "Productes addicionals"
+  ), times = c(1, 2, 4, 7, 2, 1))),
   Tasca = c(
     "Plantejament del treball", 
     "Cerca preliminar d'evidència", 
@@ -268,9 +261,9 @@ df_gantt <- data.frame(
     "Discussió", 
     "Conclusions", 
     "Glossari i Annexos", 
-    "Article", 
     "Elaboració de diapositives", 
-    "Enregistrament"
+    "Enregistrament", 
+    "Article"
   ),
   Objectius = c(
     "", "1.1, 2.1", "1.1, 2.1", "1.2",
@@ -282,21 +275,21 @@ df_gantt <- data.frame(
     "2026-09-23", "2026-09-23", "2026-10-01", "2026-10-29",
     "2026-11-12", "2026-11-12", "2026-11-26", "2026-09-23",
     "2026-10-15", "2026-11-05", "2026-11-26", "2026-12-17",
-    "2027-01-01", "2026-09-23", "2026-10-15", "2027-01-08", 
-    "2027-01-08"
+    "2027-01-01", "2026-09-23", "2027-01-08", "2027-01-08", 
+    "2026-10-15"
   )),
   Final = as.Date(c(
     "2026-10-07", "2026-10-07", "2026-10-28", "2026-11-11",
     "2026-11-25", "2026-11-25", "2026-12-02", "2026-10-14",
     "2026-11-04", "2026-11-25", "2026-12-16", "2026-12-31",
-    "2027-01-07", "2027-01-07", "2027-01-07", "2027-01-13", 
+    "2027-01-07", "2027-01-07", "2027-01-13", "2027-01-13", 
     "2027-01-13"
   )),
   Estat = factor(c(
     "Completada", "Completada", "Completada", "En curs",
     "Pendent", "Pendent", "Pendent", "Completada",
     "Completada", "Pendent", "Pendent", "Pendent",
-    "Pendent", "En curs", "En curs", "Pendent", "Pendent"
+    "Pendent", "En curs", "Pendent", "Pendent", "En curs"
   ), levels = c("Completada", "En curs", "Pendent"))
 )
 
@@ -352,7 +345,7 @@ rm(inici, final, dates)
 
 ### Fites
 
-A la **\autoref{tab:taula1-2}** s'indiquen les fites corresponents a cada prova d'avaluació continuada (PAC).
+A la \autoref{tab:taula1-2} s'indiquen les fites corresponents a cada prova d'avaluació continuada (PAC).
 
 | Fita                              | Termini  | Estat      |
 |-----------------------------------|----------|------------|
@@ -365,20 +358,20 @@ A la **\autoref{tab:taula1-2}** s'indiquen les fites corresponents a cada prova 
 | **Entrega**: PAC 4 i article      | 7/1/27   | Pendent    |
 | **Entrega**: PAC 5                | 13/1/27  | Pendent    |
 
-: Fites {#tab:taula1-2}
+: Fites
 
 ### Anàlisi de riscos
 
-La **\autoref{tab:taula1-3}** descriu els riscos que poden fer que la planificació no es compleixi i les accions previstes per al pla de contingència.
+La \autoref{tab:taula1-3} descriu els riscos que poden fer que la planificació no es compleixi i les accions previstes per al pla de contingència.
 
 | Risc | Impacte | Probabilitat | Mitigació |
-|----------------------|----------|-------------|----------------------------|
+|-----------------|-----------------|-----------------|----------------------|
 | Abundància de registres incomplets en les dades | Alt | Alta | Imputació de valors faltants o eliminació dels registres afectats o de variables que no es considerin crítiques, segons el cas |
 | Biaixos inherents a la composició del conjunt de dades | Alt | Alta | Comparació dels resultats amb l'evidència disponible i aplicació de tècniques de ponderació o remostreig |
 | Desviacions del pla de treball marcat | Mitjà | Mitjana | Establiment de fites parcials per a les PAC, de manera que l'última setmana de cadascuna es pugui reservar per a la revisió o com a marge per acabar de completar les tasques pendents |
 | Problemes de reproductibilitat | Mitjà | Baixa | Documentació rigorosa del codi i creació d'un repositori de GitHub que contingui tots els documents rellevants |
 
-: Anàlisi de riscos {#tab:taula1-3}
+: Anàlisi de riscos
 
 ## Resultats esperats
 
@@ -390,9 +383,9 @@ Al final del projecte s'obtindran els productes següents:
 
 - **Informes** de progrés per a cadascuna de les entregues de l'avaluació continuada.
 
-- Una síntesi de les troballes més rellevants en format d'**article** científic.
-
 - Una **presentació** en format virtual i les corresponents diapositives de suport.
+
+- De manera complementària al treball i sempre que es disposi de temps suficient per a la seva redacció, una síntesi de les troballes més rellevants en format d'**article** científic.
 
 <!-- ## Breu descripció dels altres capítols de la memòria -->
 
@@ -428,7 +421,7 @@ En general, els resultats clínics de la RC es poden agrupar en dos àmbits: la 
 
 En general, la RC és una intervenció eficaç per incrementar la tolerància a l'exercici i el benestar de les persones que hi participen [@taylor2022]. No obstant això, els resultats poden diferir en funció de les característiques pròpies de cada pacient. Alguns factors que influeixen en la millora final són l'edat, l'estat físic inicial, l'índex de massa corporal (IMC), la presència de comorbiditats o paràmetres hemodinàmics, com l'hemoglobina, la pressió arterial o la fracció d'ejecció ventricular esquerra (FEVE) [@suzuki2018; @baldasseroni2022; @tokeshi2023; @uszko-lencer2017; @kurpaska2025].
 
-S'ha omès deliberadament d'aquesta llista el sexe, sobre el qual es tractarà amb més profunditat en els apartats següents. Tot i que alguns estudis apunten que les persones de sexe masculí (v. **[Consideracions sobre el sexe i el gènere]**) podrien aconseguir millors resultats en la 6MWT [@bargehr2017; @sutherland2018], d'altres obtenen resultats contraris [@artiles2023]. Per acabar, cal destacar la relació de reciprocitat que existeix entre la capacitat funcional i la QdV: mentre que l'ansietat i la depressió tenen un impacte negatiu en l'activitat física [@sakamoto2022], un augment d'aquesta darrera pot contribuir a obtenir nivells més elevats de benestar [@kjesbu2024].
+S'ha omès deliberadament d'aquesta llista el sexe, sobre el qual es tractarà amb més profunditat en els apartats següents. Tot i que alguns estudis apunten que les persones de sexe masculí (v. [**Consideracions sobre el sexe i el gènere**]) podrien aconseguir millors resultats en la 6MWT [@bargehr2017; @sutherland2018], d'altres obtenen resultats contraris [@artiles2023]. Per acabar, cal destacar la relació de reciprocitat que existeix entre la capacitat funcional i la QdV: mentre que l'ansietat i la depressió tenen un impacte negatiu en l'activitat física [@sakamoto2022], un augment d'aquesta darrera pot contribuir a obtenir nivells més elevats de benestar [@kjesbu2024].
 
 ### Reptes
 
@@ -564,14 +557,14 @@ Així, es parlarà de variable sensible $A \in \{a, b\}$, en què $a$ correspon 
 
 La mesura de l'equitat algorítmica és complexa i poc estandarditzada. S'han proposat un nombre elevat de mètriques basades en diferents concepcions de la no-discriminació, categoritzades principalment en tres àmbits: individuals, de grup i de relacions causals. En aquest apartat se'n descriuen algunes de les més utilitzades, especialment en el cas de les mètriques de grup, que són les més esteses i estudiades en publicacions científiques.
 
-De manera anàloga a les mesures de rendiment dels models, la majoria de mètriques més habituals es poden obtenir a partir de la matriu de confusió (v. **\autoref{tab:taula2-1}**).
+De manera anàloga a les mesures de rendiment dels models, la majoria de mètriques més habituals es poden obtenir a partir de la matriu de confusió (v. \autoref{tab:taula2-1}).
 
-|  | **Predicció positiva** ($\hat Y = 1$) | **Predicció negativa** ($\hat Y = 0$) |
+|   | **Predicció positiva** ($\hat Y = 1$) | **Predicció negativa** ($\hat Y = 0$) |
 |------------------------|------------------------|------------------------|
 | **Resposta positiva** ($Y = 1$) | TP | FN |
 | **Resposta negativa** ($Y = 0$) | FP | TN |
 
-: Matriu de confusió per a un classificador binari {#tab:taula2-1}
+: Matriu de confusió per a un classificador binari
 
 \small FN: fals negatiu, FP: fals positiu, TN: veritable negatiu, TP: veritable positiu.
 
@@ -810,6 +803,34 @@ Les malalties cardiovasculars han estat i continuen sent una bona representació
 Aquest treball pretén determinar l'impacte dels biaixos de sexe i gènere en la predicció de la resposta a la rehabilitació cardíaca mitjançant una anàlisi d'equitat algorítmica i avaluar l'adequació de diferents mesures per atenuar els biaixos detectats.
 
 # Materials i mètodes
+
+## Estratègia de recerca
+
+En una primera fase del treball, es durà a terme una cerca de literatura científica a les principals bases de dades d'investigació clínica (PubMed, Cochrane Library, ScienceDirect...), així com en altres fonts especialitzades que es considerin rellevants.
+
+Els resultats obtinguts es filtraran segons la seva adequació al tema i es classificaran en tres àmbits que permetran estructurar-ne adequadament els continguts:
+
+- **Rehabilitació cardíaca**: estat de l'art general, càrrega de les patologies cardiovasculars en la salut global, impacte en resultats clínics, descripció de variables predictores.
+
+- **Biaixos de sexe i gènere**: diferències en l'accés, la participació i els resultats de la rehabilitació cardíaca, interseccionalitat de les desigualtats, intervencions proposades.
+
+- **Equitat algorítmica**: evidència sobre mètodes estadístics, limitacions i propostes de mitigació de biaixos.
+
+### Metodologia de treball
+
+Un cop feta la recerca d'evidència, es procedirà a l'anàlisi de les dades disponibles mitjançant el programari `R` i adoptant, en la mesura del possible, els principis del `tidyverse`. Se seguiran els passos que s'indiquen:
+
+- **Preprocessament de dades**: neteja, tractament de valors nuls, anàlisi descriptiva estratificada per sexe i definició de variables objectiu. Les principals variables d'interès són la capacitat funcional (mesurada habitualment amb la 6MWT) i la qualitat de vida, que es poden binaritzar en funció de si la millora és superior o no a la mínima diferència clínicament important per a cada cas.
+
+- **Modelització estadística**: construcció de models predictius a partir del conjunt de dades. Tenint en compte les característiques de les variables objectiu, es prendrà com a model de referència la regressió logística. S'optimitzarà el model amb mètodes de regularització (Ridge, LASSO). Malgrat que el nombre de registres és limitat, es podria comparar el resultat amb una alternativa no lineal, com ara un Random Forest.
+
+- **Avaluació i auditoria de gènere**: valoració del rendiment del model. A més de les mesures habituals, s'utilitzaran les mètriques d'equitat algorítmica que es considerin adequades d'entre les descrites a la literatura científica.
+
+- **Discussió de resultats**: exploració de tècniques de mitigació de biaixos i elaboració de recomanacions metodològiques per a futures investigacions.
+
+Aquest enfocament permetrà, d'una banda, disposar del context clínic adient per a la comprensió dels resultats i, de l'altra, garantir un tractament net i reproduïble de les dades.
+
+Text
 
 ## Població (font de dades)
 
@@ -1331,6 +1352,7 @@ Text
 ### Sigles i acrònims
 
 - **AVD**: activitats de la vida diària.
+- **CRISP-DM**: *Cross-industry Standard Process for Data Mining*.
 - **DL**: aprenentatge profund (de l'anglès *deep learning*).
 - **FEVE**: fracció d'ejecció ventricular esquerra.
 - **FN**: fals negatiu.
@@ -1393,7 +1415,7 @@ Text
 
 ### Descripció de l'avanç del projecte
 
-En aquest lliurament es recull el resum de l'evidència científica disponible sobre l'àmbit d'estudi. Per ara, s'ha completat la primera fase de cerca de literatura, que es materialitza en el capítol complet **[Estat de l'art]**. Al marge de les revisions que es puguin fer, el text que es presenta és el que s'utilitzarà per al lliurament final. A més, s'ha iniciat l'estudi preliminar del conjunt de dades triat per a l'anàlisi, que es desenvoluparà en profunditat de cara a la propera entrega.
+En aquest lliurament es recull el resum de l'evidència científica disponible sobre l'àmbit d'estudi. Per ara, s'ha completat la primera fase de cerca de literatura, que es materialitza en el capítol complet [**Estat de l'art**]. Al marge de les revisions que es puguin fer, el text que es presenta és el que s'utilitzarà per al lliurament final. A més, s'ha iniciat l'estudi preliminar del conjunt de dades triat per a l'anàlisi, que es desenvoluparà en profunditat de cara a la propera entrega.
 
 #### Grau de compliment dels objectius i resultats previstos en el pla de treball
 
@@ -1409,10 +1431,10 @@ No s'ha hagut de fer cap modificació respecte de la planificació inicial del p
 
 Les activitats previstes que s'han dut a terme han estat:
 
-- Revisió de la **[Introducció]**.
+- Revisió de la [**Introducció**].
 - Cerca preliminar d'evidència.
 - Revisió de l'evidència trobada.
-- Redacció de l'**[Estat de l'art]**.
+- Redacció de l'[**Estat de l'art**].
 - Inici de l'estudi preliminar del conjunt de dades (no inclòs en aquesta entrega).
 - Inici de la redacció del Glossari i els Annexos.
 
@@ -1422,7 +1444,7 @@ No s'ha dut a terme cap activitat fora de les planificades.
 
 ### Relació de les desviacions en la temporització, accions de mitigació i actualització del cronograma
 
-S'ha seguit sense problemes la planificació temporal proposada al lliurament anterior, per la qual cosa no ha calgut dur a terme cap acció de mitigació. Les accions preventives, com ara marcar fites parcials, han permès arribar a temps a tots els resultats esperats i deixar marge per a la revisió. En aquest document s'han actualitzat el calendari i les tasques per adequar-los a l'evolució del treball (v. **[Planificació del treball]**).
+S'ha seguit sense problemes la planificació temporal proposada al lliurament anterior, per la qual cosa no ha calgut dur a terme cap acció de mitigació. Les accions preventives, com ara marcar fites parcials, han permès arribar a temps a tots els resultats esperats i deixar marge per a la revisió. En aquest document s'han actualitzat el calendari i les tasques per adequar-los a l'evolució del treball (v. [**Planificació del treball**]).
 
 ### Llistat dels resultats parcials obtinguts fins al moment (lliurables que s'adjunten)
 

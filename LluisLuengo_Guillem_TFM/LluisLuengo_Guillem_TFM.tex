@@ -92,7 +92,7 @@
 \title{Biaixos de sexe i gènere en rehabilitació cardíaca: anàlisi d'equitat algorítmica (\emph{fairness}) en la predicció de resultats clínics}
 \titcrt{\emph{Fairness} en rehabilitació cardíaca} %Títol curt que apareixerà a la capçalera
 \author{Guillem Lluís i Luengo}
-\date{13 de novembre de 2026}
+\date{15 de novembre de 2026}
 
 \nomPDC{Susana Pérez Álvarez}
 \nomPRA{Laia Subirats Maté}
@@ -180,37 +180,23 @@ A continuació es detalla la relació d'objectius principals i secundaris del tr
 
 \section{Enfocament i mètode seguit}\label{enfocament-i-muxe8tode-seguit}
 
-\subsection{Estratègia de recerca}\label{estratuxe8gia-de-recerca}
+Per a la realització d'aquest treball s'ha adoptat la metodologia CRISP-DM (de l'anglès \emph{Cross-industry Standard Process for Data Mining}). Es tracta d'un procés estandarditzat de mineria de dades, aplicable al domini de les ciències de la salut i que comprèn les 6 fases que es detallen a continuació {[}5{]}. La seqüència no és fixa i és possible alterar l'ordre dels passos en un procés iteratiu segons les necessitats particulars de cada projecte.
 
-En una primera fase del treball, es durà a terme una cerca de literatura científica a les principals bases de dades d'investigació clínica (PubMed, Cochrane Library, ScienceDirect\ldots), així com en altres fonts especialitzades que es considerin rellevants.
-
-Els resultats obtinguts es filtraran segons la seva adequació al tema i es classificaran en tres àmbits que permetran estructurar-ne adequadament els continguts:
-
-\begin{itemize}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
 \item
-  \textbf{Rehabilitació cardíaca}: estat de l'art general, càrrega de les patologies cardiovasculars en la salut global, impacte en resultats clínics, descripció de variables predictores.
+  \textbf{Comprensió de l'àrea de treball}. Consisteix en la definició de la situació, els objectius, el pla de treball i les tasques tècniques del projecte. És important tenir en compte que l'àmbit sanitari és un cas especial en què, sovint, l'objectiu principal no és el benefici econòmic: a més dels costs dels tractaments, el valor d'una intervenció es pot mesurar en termes de qualitat de vida (QdV), resultats clínics, experiència de pacient o eficiència per al personal sanitari. Els projectes en l'àmbit de la salut també poden aportar valor al conjunt de la societat i solen estar regits per regulacions estrictes a escala ètica i legal, tot i que en aquest treball aquestes darreres no han de tenir un impacte significatiu.
 \item
-  \textbf{Biaixos de sexe i gènere}: diferències en l'accés, la participació i els resultats de la rehabilitació cardíaca, interseccionalitat de les desigualtats, intervencions proposades.
+  \textbf{Comprensió de les dades}. En aquest pas s'analitza la disponibilitat de dades adequades per respondre la pregunta de recerca formulada o se'n duu a terme la recol·lecció. Cal assegurar la qualitat de la informació i verificar-ne l'origen: en aquest cas, si bé el conjunt de dades sembla fiable en tant que prové d'un estudi publicat, no es deixarà de revisar-ne el contingut per garantir que el seu ús és viable per resoldre les qüestions plantejades. D'altra banda, en tractar-se d'un context especialitzat que requereix la comprensió del problema des d'un punt de vista fisiològic i clínic, es basarà la investigació en l'evidència científica que es reculli durant tot el procés.
 \item
-  \textbf{Equitat algorítmica}: evidència sobre mètodes estadístics, limitacions i propostes de mitigació de biaixos.
-\end{itemize}
-
-\subsection{Metodologia de treball}\label{metodologia-de-treball}
-
-Un cop feta la recerca d'evidència, es procedirà a l'anàlisi de les dades disponibles mitjançant el programari \texttt{R} i adoptant, en la mesura del possible, els principis del \texttt{tidyverse}. Se seguiran els passos que s'indiquen:
-
-\begin{itemize}
+  \textbf{Preparació de les dades}. Aquest pas està estretament lligat amb l'anterior i poden arribar a funcionar com un sol bloc. Comprèn la neteja, la conversió de formats o el tractament d'informació fantant o errònia. En estudis que utilitzin registres electrònics o dades del món real és especialment necessària una bona estructuració que faciliti les anàlisis posteriors.
 \item
-  \textbf{Preprocessament de dades}: neteja, tractament de valors nuls, anàlisi descriptiva estratificada per sexe i definició de variables objectiu. Les principals variables d'interès són la capacitat funcional (mesurada habitualment amb la 6MWT) i la qualitat de vida, que es poden binaritzar en funció de si la millora és superior o no a la mínima diferència clínicament important per a cada cas.
+  \textbf{Modelització}. Inclou la definició de les tècniques a emprar, com ara proves estadístiques, contrasts o models. En un context sanitari, cal tenir present que els mètodes que s'utilitzin han de poder generar resultats interpretables, de manera que puguin servir per a les aplicacions clíniques previstes.
 \item
-  \textbf{Modelització estadística}: construcció de models predictius a partir del conjunt de dades. Tenint en compte les característiques de les variables objectiu, es prendrà com a model de referència la regressió logística. S'optimitzarà el model amb mètodes de regularització (Ridge, LASSO). Malgrat que el nombre de registres és limitat, es podria comparar el resultat amb una alternativa no lineal, com ara un Random Forest.
+  \textbf{Avaluació}. Si totes les etapes s'han realitzat amb èxit, es procedeix a l'anàlisi dels resultats; en cas contrari, caldrà revisar els passos anteriors. En salut, els indicadors més rellevants solen tenir a veure amb la millora de la qualitat de l'atenció sanitària, la facilitació de l'accés als sistemes de salut i la reducció dels costs dels tractaments. Aquest treball està enfocat principalment als dos primers àmbits, tot i que en molts casos poden estar indirectament relacionats amb el tercer.
 \item
-  \textbf{Avaluació i auditoria de gènere}: valoració del rendiment del model. A més de les mesures habituals, s'utilitzaran les mètriques d'equitat algorítmica que es considerin adequades d'entre les descrites a la literatura científica.
-\item
-  \textbf{Discussió de resultats}: exploració de tècniques de mitigació de biaixos i elaboració de recomanacions metodològiques per a futures investigacions.
-\end{itemize}
-
-Aquest enfocament permetrà, d'una banda, disposar del context clínic adient per a la comprensió dels resultats i, de l'altra, garantir un tractament net i reproduïble de les dades.
+  \textbf{Desplegament}. Per acabar, es duu a terme la implementació de la intervenció o innovació proposada i el seu seguiment i manteniment si es dona el cas. Els resultats d'aquest treball no estan pensats en principi per al seu ús clínic, però poden plantejar línies de recerca a seguir en el futur, si es consideren rellevants.
+\end{enumerate}
 
 \section{Impacte en sostenibilitat, ètic-social i de diversitat}\label{impacte-en-sostenibilitat-uxe8tic-social-i-de-diversitat}
 
@@ -233,7 +219,9 @@ L'impacte d'aquest treball es concreta principalment en els objectius de desenvo
   16.7. Garantir l'adopció en tots els nivells de decisions inclusives, participatives i representatives que responguin a les necessitats.
 \end{itemize}
 
-D'altra banda, el treball inclou la perspectiva de gènere en el seu mateix disseny. En aquest sentit, es pretén identificar i combatre els biaixos existents en la recerca clínica per fomentar una investigació més inclusiva i accessible per a tothom. És responsabilitat del personal sanitari i de recerca contemplar la dimensió ètica i social de la seva tasca, de manera que puguin vetllar per la reducció de les desigualtats basades en prejudicis de gènere, ètnia, edat, estatus socioeconòmic, capacitats o orientació sexual, entre d'altres. A més, cal destacar que l'optimització de sistemes de suport a la decisió clínica basats en models predictius té la capacitat de millorar els circuits existents d'atenció sanitària. D'aquesta manera, es podrà contribuir a un ús més eficient dels recursos i, en conseqüència, s'aconseguirà un impacte positiu en termes de sostenibilitat a mitjà i llarg termini.
+D'altra banda, el treball inclou la perspectiva de gènere en el seu mateix disseny. En aquest sentit, es pretén identificar i combatre els biaixos existents en la recerca clínica per fomentar una investigació més inclusiva i accessible per a tothom. És responsabilitat del personal sanitari i de recerca contemplar la dimensió ètica i social de la seva tasca, de manera que puguin vetllar per la reducció de les desigualtats basades en prejudicis de gènere, ètnia, edat, estatus socioeconòmic, capacitats o orientació sexual, entre d'altres.
+
+A més, cal destacar que l'optimització de sistemes de suport a la decisió clínica basats en models predictius té la capacitat de millorar els circuits existents d'atenció sanitària. És previsible que aquest treball presenti limitacions pel que fa a la representativitat de les dades i que els resultats no siguin completament extrapolables degut a l'abast reduït de l'auditoria plantejada. No obstant això, té el potencial de mostrar la necessitat de seguir determinades línies de recerca que contribueixin a un ús més just i eficient dels recursos i, en conseqüència, aconsegueixin un impacte positiu en termes de sostenibilitat a mitjà i llarg termini.
 
 Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin en cada context. De manera puntual i honorífica, es pot emprar el femení com a genèric per referir-se a les persones professionals de la salut, de qualsevol gènere, donat l'elevat percentatge de dones que exerceixen aquestes professions.
 
@@ -243,7 +231,7 @@ Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin
 
 \subsection{Tasques}\label{tasques}
 
-A la \textbf{\autoref{tab:taula1-1}} es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat \textbf{\hyperref[enfocament-i-muxe8tode-seguit]{Enfocament i mètode seguit}}. S'indica també la relació amb els objectius proposats.
+A la \textbf{\autoref{tab:taula1-1}} es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat \textbf{\hyperref[enfocament-i-muxe8tode-seguit]{Enfocament i mètode seguit}}. S'indica també la relació amb els objectius proposats. En funció de la completesa i la qualitat de les dades i del temps disponible es podran revisar les prioritats i els plantejaments definits en aquesta secció (p.~ex. reduint el nombre de comparacions o limitant el nombre de mètodes de mitigació a aplicar). Durant tot el procés s'aniran incorporant també els comentaris de tutoria i les revisions acordades en cada prova d'avaluació.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3919}}
@@ -303,11 +291,13 @@ Resultats & 1.3, 2.2 & 26/11/26 & 16/12/26 & Pendent \\
 Discussió & 1.1, 1.3, 2.2 & 17/12/26 & 31/12/26 & Pendent \\
 Conclusions & & 1/1/27 & 7/1/27 & Pendent \\
 Glossari i Annexos & & 23/9/26 & 7/1/27 & En curs \\
-Article & & 15/10/26 & 7/1/27 & En curs \\
 & & & & \\
 \textbf{5. Presentació} & & & & \\
 Elaboració de diapositives & & 8/1/27 & 13/1/27 & Pendent \\
 Enregistrament & & 8/1/27 & 13/1/27 & Pendent \\
+& & & & \\
+\textbf{Productes addicionals} & & & & \\
+Article & & 15/10/26 & 13/1/27 & En curs \\
 \end{longtable}
 
 \pagebreak
@@ -324,10 +314,10 @@ La \autoref{fig:gantt} mostra el diagrama de Gantt corresponent a les tasques de
 
 \subsection{Fites}\label{fites}
 
-A la \textbf{\autoref{tab:taula1-2}} s'indiquen les fites corresponents a cada prova d'avaluació continuada (PAC).
+A la \autoref{tab:taula1-2} s'indiquen les fites corresponents a cada prova d'avaluació continuada (PAC).
 
 \begin{longtable}[]{@{}lll@{}}
-\caption{Fites}\label{tab:taula1-2}\tabularnewline
+\caption{Fites}\tabularnewline
 \toprule\noalign{}
 Fita & Termini & Estat \\
 \midrule\noalign{}
@@ -350,14 +340,14 @@ Cos del treball redactat & 31/12/26 & En curs \\
 
 \subsection{Anàlisi de riscos}\label{anuxe0lisi-de-riscos}
 
-La \textbf{\autoref{tab:taula1-3}} descriu els riscos que poden fer que la planificació no es compleixi i les accions previstes per al pla de contingència.
+La \autoref{tab:taula1-3} descriu els riscos que poden fer que la planificació no es compleixi i les accions previstes per al pla de contingència.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3014}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1370}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1781}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3836}}@{}}
-\caption{Anàlisi de riscos}\label{tab:taula1-3}\tabularnewline
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2329}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2329}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2329}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3014}}@{}}
+\caption{Anàlisi de riscos}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Risc
@@ -400,9 +390,9 @@ Al final del projecte s'obtindran els productes següents:
 \item
   \textbf{Informes} de progrés per a cadascuna de les entregues de l'avaluació continuada.
 \item
-  Una síntesi de les troballes més rellevants en format d'\textbf{article} científic.
-\item
   Una \textbf{presentació} en format virtual i les corresponents diapositives de suport.
+\item
+  De manera complementària al treball i sempre que es disposi de temps suficient per a la seva redacció, una síntesi de les troballes més rellevants en format d'\textbf{article} científic.
 \end{itemize}
 
 \section{Ús responsable de la intel·ligència artificial}\label{uxfas-responsable-de-la-intelliguxe8ncia-artificial}
@@ -417,15 +407,15 @@ Es declara que en cap cas s'empraran eines d'IA per a la redacció de contingut 
 
 \subsection{Antecedents}\label{antecedents}
 
-Les cardiopaties isquèmiques han estat la primera causa de mortalitat estandarditzada per edat a tot el món des de l'any 1990 (amb l'única excepció del 2021, en què la primera posició va ser ocupada per la COVID-19) {[}5{]}. A més, l'any 2023 van esdevenir la primera causa de mortalitat prematura i salut precària a escala mundial {[}6{]}. Malgrat els avenços en el diagnòstic i el tractament d'aquesta mena de patologies, és necessari garantir que aquestes millores arriben a totes les poblacions de manera equitativa i lliure de discriminacions.
+Les cardiopaties isquèmiques han estat la primera causa de mortalitat estandarditzada per edat a tot el món des de l'any 1990 (amb l'única excepció del 2021, en què la primera posició va ser ocupada per la COVID-19) {[}6{]}. A més, l'any 2023 van esdevenir la primera causa de mortalitat prematura i salut precària a escala mundial {[}7{]}. Malgrat els avenços en el diagnòstic i el tractament d'aquesta mena de patologies, és necessari garantir que aquestes millores arriben a totes les poblacions de manera equitativa i lliure de discriminacions.
 
 La rehabilitació cardíaca (RC) és l'etiqueta sota la qual s'engloben un conjunt de programes de característiques similars que les guies de pràctica clínica recomanen per a la recuperació d'esdeveniments cardiovasculars (p.~ex. insuficiència cardíaca, infart agut de miocardi {[}IAM{]}, malalties cardíaques congènites o diferents intervencions quirúrgiques amb afectació de l'aparell cardiorespiratori). Els seus objectius principals són reduir l'estrès fisiològic i psicològic produït per aquestes patologies, reduir la mortalitat, prevenir hospitalitzacions recurrents i millorar la funció cardiovascular i la qualitat de vida (QdV) de les persones ateses {[}1{]}.
 
-Els programes de RC tradicionals es fonamenten en l'exercici terapèutic, però la pràctica basada en evidència hi ha anat incorporant altres components, convertint-la en una intervenció interdisciplinària que demana la col·laboració de professionals de disciplines tan diverses com la infermeria, la fisioteràpia, la medicina, la nutrició o la psicologia {[}7{]}. El seu contingut varia en funció de l'evolució de l'episodi: sol incloure teràpia de mobilització precoç i educació sanitària en la fase hospitalària, exercici supervisat, prevenció de factors de risc i suport psicosocial en fase ambulatòria i activitat física regular i intervencions d'autocontrol de la patologia en fase domiciliària {[}1{]}.
+Els programes de RC tradicionals es fonamenten en l'exercici terapèutic, però la pràctica basada en evidència hi ha anat incorporant altres components, convertint-la en una intervenció interdisciplinària que demana la col·laboració de professionals de disciplines tan diverses com la infermeria, la fisioteràpia, la medicina, la nutrició o la psicologia {[}8{]}. El seu contingut varia en funció de l'evolució de l'episodi: sol incloure teràpia de mobilització precoç i educació sanitària en la fase hospitalària, exercici supervisat, prevenció de factors de risc i suport psicosocial en fase ambulatòria i activitat física regular i intervencions d'autocontrol de la patologia en fase domiciliària {[}1{]}.
 
-Es tracta d'una intervenció segura, amb un risc baix de complicacions i amb nombrosos beneficis demostrats. En persones que conviuen amb malalties coronàries, la RC redueix el risc de patir un IAM (risc relatiu {[}RR{]} 0,72 {[}0,55--0,93{]}, qualitat d'evidència alta) i el nombre d'hospitalitzacions (RR 0,58 {[}0,43--0,77{]}, qualitat d'evidència moderada), a la vegada que permet aconseguir millores en la mortalitat per causes cardiovasculars, la QdV i la cost-efectivitat dels tractaments {[}8{]}. Resultats semblants s'obtenen en casos d'insuficiència cardíaca. En una patologia que suposa una elevada càrrega per a les persones que la pateixen, una disminució de la tolerància a l'exercici, un major risc de mortalitat i readmissions hospitalàries i, en conseqüència, un cost més elevat per als sistemes sanitaris, la RC permet reduir el nombre d'ingressos (RR 0,69 {[}0,56--0,86{]}, qualitat d'evidència moderada) i millorar la QdV relacionada amb la salut {[}9{]}.
+Es tracta d'una intervenció segura, amb un risc baix de complicacions i amb nombrosos beneficis demostrats. En persones que conviuen amb malalties coronàries, la RC redueix el risc de patir un IAM (risc relatiu {[}RR{]} 0,72 {[}0,55--0,93{]}, qualitat d'evidència alta) i el nombre d'hospitalitzacions (RR 0,58 {[}0,43--0,77{]}, qualitat d'evidència moderada), a la vegada que permet aconseguir millores en la mortalitat per causes cardiovasculars, la QdV i la cost-efectivitat dels tractaments {[}9{]}. Resultats semblants s'obtenen en casos d'insuficiència cardíaca. En una patologia que suposa una elevada càrrega per a les persones que la pateixen, una disminució de la tolerància a l'exercici, un major risc de mortalitat i readmissions hospitalàries i, en conseqüència, un cost més elevat per als sistemes sanitaris, la RC permet reduir el nombre d'ingressos (RR 0,69 {[}0,56--0,86{]}, qualitat d'evidència moderada) i millorar la QdV relacionada amb la salut {[}10{]}.
 
-En altres condicions de salut, com les cirurgies valvulars o la fibril·lació auricular, encara manca evidència de qualitat per avaluar l'impacte real de la RC basada en exercici {[}10,11{]}. Tanmateix, la RC podria reduir el risc de recurrència de la fibril·lació auricular (RR 0,70 {[}0,56--0,88{]}, qualitat d'evidència moderada) i millorar-ne la QdV {[}11{]}. Un altre aspecte que cal considerar és l'afectació que tenen les malalties cardiovasculars en salut mental, que precisament està considerada com un dels factors de risc que les pot desencadenar {[}12{]}. En persones que havien patit un IAM, la RC va tenir efectes positius en els nivells d'ansietat i depressió. A més, l'inici precoç del tractament va suposar un augment de la QdV i una reducció de la mortalitat i la morbiditat {[}13{]}.
+En altres condicions de salut, com les cirurgies valvulars o la fibril·lació auricular, encara manca evidència de qualitat per avaluar l'impacte real de la RC basada en exercici {[}11,12{]}. Tanmateix, la RC podria reduir el risc de recurrència de la fibril·lació auricular (RR 0,70 {[}0,56--0,88{]}, qualitat d'evidència moderada) i millorar-ne la QdV {[}12{]}. Un altre aspecte que cal considerar és l'afectació que tenen les malalties cardiovasculars en salut mental, que precisament està considerada com un dels factors de risc que les pot desencadenar {[}13{]}. En persones que havien patit un IAM, la RC va tenir efectes positius en els nivells d'ansietat i depressió. A més, l'inici precoç del tractament va suposar un augment de la QdV i una reducció de la mortalitat i la morbiditat {[}14{]}.
 
 Per entendre millor els efectes de la RC sobre diferents patologies cardiovasculars, cal analitzar-ne els principals resultats clínics i les variables que s'acostumen a emprar per a la seva predicció.
 
@@ -433,27 +423,27 @@ Per entendre millor els efectes de la RC sobre diferents patologies cardiovascul
 
 En general, els resultats clínics de la RC es poden agrupar en dos àmbits: la capacitat funcional i la qualitat de vida. En la primera sol ser rellevant conèixer la capacitat aeròbica, mitjançant una ergometria o una prova funcional com la 6MWT, i la força màxima dels principals grups musculars que intervenen a la marxa. Pel que fa a la segona, és habitual l'ús de mesures de resultat informades pel pacient (PROMs, per les seves sigles en anglès), que inclouen els nivells d'ansietat, depressió, activitat física o QdV relacionada amb la salut. És important disposar d'aquestes mesures perquè estan associades amb la taxa de mortalitat, la recurrència d'hospitalitzacions, la rendibilitat dels tractaments i l'impacte en les activitats de la vida diària (AVD) {[}4{]}.
 
-En general, la RC és una intervenció eficaç per incrementar la tolerància a l'exercici i el benestar de les persones que hi participen {[}7{]}. No obstant això, els resultats poden diferir en funció de les característiques pròpies de cada pacient. Alguns factors que influeixen en la millora final són l'edat, l'estat físic inicial, l'índex de massa corporal (IMC), la presència de comorbiditats o paràmetres hemodinàmics, com l'hemoglobina, la pressió arterial o la fracció d'ejecció ventricular esquerra (FEVE) {[}14--18{]}.
+En general, la RC és una intervenció eficaç per incrementar la tolerància a l'exercici i el benestar de les persones que hi participen {[}8{]}. No obstant això, els resultats poden diferir en funció de les característiques pròpies de cada pacient. Alguns factors que influeixen en la millora final són l'edat, l'estat físic inicial, l'índex de massa corporal (IMC), la presència de comorbiditats o paràmetres hemodinàmics, com l'hemoglobina, la pressió arterial o la fracció d'ejecció ventricular esquerra (FEVE) {[}15--19{]}.
 
-S'ha omès deliberadament d'aquesta llista el sexe, sobre el qual es tractarà amb més profunditat en els apartats següents. Tot i que alguns estudis apunten que les persones de sexe masculí (v. \textbf{\hyperref[consideracions-sobre-el-sexe-i-el-guxe8nere]{Consideracions sobre el sexe i el gènere}}) podrien aconseguir millors resultats en la 6MWT {[}19,20{]}, d'altres obtenen resultats contraris {[}21{]}. Per acabar, cal destacar la relació de reciprocitat que existeix entre la capacitat funcional i la QdV: mentre que l'ansietat i la depressió tenen un impacte negatiu en l'activitat física {[}22{]}, un augment d'aquesta darrera pot contribuir a obtenir nivells més elevats de benestar {[}23{]}.
+S'ha omès deliberadament d'aquesta llista el sexe, sobre el qual es tractarà amb més profunditat en els apartats següents. Tot i que alguns estudis apunten que les persones de sexe masculí (v. {[}\textbf{Consideracions sobre el sexe i el gènere}{]}) podrien aconseguir millors resultats en la 6MWT {[}20,21{]}, d'altres obtenen resultats contraris {[}22{]}. Per acabar, cal destacar la relació de reciprocitat que existeix entre la capacitat funcional i la QdV: mentre que l'ansietat i la depressió tenen un impacte negatiu en l'activitat física {[}23{]}, un augment d'aquesta darrera pot contribuir a obtenir nivells més elevats de benestar {[}24{]}.
 
 \subsection{Reptes}\label{reptes}
 
-A mesura que l'evidència científica sobre RC creix en nombre i en qualitat, també es van detectant reptes importants que cal abordar per tal d'optimitzar-ne els resultats clínics. D'una banda, la participació als programes és relativament baixa: només s'hi inscriuen prop d'un 25\% de pacients elegibles {[}1{]}. Aquest fet pot ser degut a l'existència de barreres tant clíniques com personals o dels sistemes sanitaris. Determinats col·lectius, com les dones, les persones d'edat avançada, racialitzades o de minories ètniques o socials, tenen menor probabilitat de participació. L'envelliment poblacional, a més, comporta un increment de les comorbiditats (p.~ex. hipertensió arterial {[}HTA{]}, diabetis, fibril·lació auricular), que també suposen un obstacle important per a la inclusió en programes de RC {[}7{]}.
+A mesura que l'evidència científica sobre RC creix en nombre i en qualitat, també es van detectant reptes importants que cal abordar per tal d'optimitzar-ne els resultats clínics. D'una banda, la participació als programes és relativament baixa: només s'hi inscriuen prop d'un 25\% de pacients elegibles {[}1{]}. Aquest fet pot ser degut a l'existència de barreres tant clíniques com personals o dels sistemes sanitaris. Determinats col·lectius, com les dones, les persones d'edat avançada, racialitzades o de minories ètniques o socials, tenen menor probabilitat de participació. L'envelliment poblacional, a més, comporta un increment de les comorbiditats (p.~ex. hipertensió arterial {[}HTA{]}, diabetis, fibril·lació auricular), que també suposen un obstacle important per a la inclusió en programes de RC {[}8{]}.
 
-L'adherència terapèutica és un component imprescindible de qualsevol tractament i, en el cas de la RC, les taxes d'abandonament són considerablement elevades. La persistència en l'exercici terapèutic pot caure fins a prop del 50\% al cap de 6 mesos o fins al 10\% al cap d'un any {[}24{]}. Aquest fet és preocupant, perquè el compliment terapèutic és un dels principals predictors de la millora de resultats clínics i del seu manteniment a mitjà i llarg termini. Es tracta d'un problema complex en què influeixen factors demogràfics, clínics i psicosocials {[}25,26{]}.
+L'adherència terapèutica és un component imprescindible de qualsevol tractament i, en el cas de la RC, les taxes d'abandonament són considerablement elevades. La persistència en l'exercici terapèutic pot caure fins a prop del 50\% al cap de 6 mesos o fins al 10\% al cap d'un any {[}25{]}. Aquest fet és preocupant, perquè el compliment terapèutic és un dels principals predictors de la millora de resultats clínics i del seu manteniment a mitjà i llarg termini. Es tracta d'un problema complex en què influeixen factors demogràfics, clínics i psicosocials {[}26,27{]}.
 
-És necessari, per tant, millorar l'accés i la participació als programes de RC. Amb aquesta finalitat, han pres força alternatives de rehabilitació domiciliària i, fins i tot, virtual, així com programes adaptats a diferents col·lectius. No obstant això, als estudis disponibles encara s'hi troben infrarepresentades les dones, les persones d'edat avançada o de països de renda baixa i mitjana {[}9{]}. Si bé s'està avançant en la generalitzabilitat de l'evidència, encara queda un llarg camí per recórrer, com s'argumentarà en els propers apartats.
+És necessari, per tant, millorar l'accés i la participació als programes de RC. Amb aquesta finalitat, han pres força alternatives de rehabilitació domiciliària i, fins i tot, virtual, així com programes adaptats a diferents col·lectius. No obstant això, als estudis disponibles encara s'hi troben infrarepresentades les dones, les persones d'edat avançada o de països de renda baixa i mitjana {[}10{]}. Si bé s'està avançant en la generalitzabilitat de l'evidència, encara queda un llarg camí per recórrer, com s'argumentarà en els propers apartats.
 
 \section{Consideracions sobre el sexe i el gènere}\label{consideracions-sobre-el-sexe-i-el-guxe8nere}
 
-La inclusió del sexe i el gènere en recerca és complexa i, a falta d'un estàndard clar, sovint existeix confusió entre els dos termes {[}27{]}. El sexe és una característica biològica, determinada pel cariotip, els gàmetes, els òrgans reproductius o la funció hormonal. El gènere, en canvi, es refereix als components socials que s'atribueixen a un sexe determinat: els rols, comportaments i expectatives associats a una població, lloc i temps històric, però també la identitat percebuda, la performativitat o l'estigma cap a certes expressions considerades fora de la normativitat {[}28,29{]}.
+La inclusió del sexe i el gènere en recerca és complexa i, a falta d'un estàndard clar, sovint existeix confusió entre els dos termes {[}28{]}. El sexe és una característica biològica, determinada pel cariotip, els gàmetes, els òrgans reproductius o la funció hormonal. El gènere, en canvi, es refereix als components socials que s'atribueixen a un sexe determinat: els rols, comportaments i expectatives associats a una població, lloc i temps històric, però també la identitat percebuda, la performativitat o l'estigma cap a certes expressions considerades fora de la normativitat {[}29,30{]}.
 
-La importància del sexe i el gènere rau en la seva multidimensionalitat i en l'associació amb altres variables que poden ser d'interès segons el context, com ara l'expressió gènica o el pes corporal. Més encara, el sexe i el gènere poden actuar com a mesures indirectes (\emph{proxy}), de manera que cal entendre les relacions causals subjacents que s'estableixen entre variables {[}29{]}.
+La importància del sexe i el gènere rau en la seva multidimensionalitat i en l'associació amb altres variables que poden ser d'interès segons el context, com ara l'expressió gènica o el pes corporal. Més encara, el sexe i el gènere poden actuar com a mesures indirectes (\emph{proxy}), de manera que cal entendre les relacions causals subjacents que s'estableixen entre variables {[}30{]}.
 
-Existeixen diferents problemes pel que fa a l'ús del sexe i el gènere en recerca clínica. Majoritàriament, els estudis inclouen només el sexe; és el cas del que s'utilitza en aquest treball com a font de dades. S'ha considerat que, tot i aquesta limitació, les dades disponibles seran suficients per il·lustrar les desigualtats entre sexes sense dilatar l'abast del treball més enllà d'uns límits raonables. Tanmateix, cal tenir en compte que el gènere també pot ser un factor de risc per a nombroses malalties i pot influir en l'adherència i l'eficàcia dels tractaments {[}28{]}.
+Existeixen diferents problemes pel que fa a l'ús del sexe i el gènere en recerca clínica. Majoritàriament, els estudis inclouen només el sexe; és el cas del que s'utilitza en aquest treball com a font de dades. S'ha considerat que, tot i aquesta limitació, les dades disponibles seran suficients per il·lustrar les desigualtats entre sexes sense dilatar l'abast del treball més enllà d'uns límits raonables. Tanmateix, cal tenir en compte que el gènere també pot ser un factor de risc per a nombroses malalties i pot influir en l'adherència i l'eficàcia dels tractaments {[}29{]}.
 
-De fet, els factors socials poden tenir efectes sobre els processos biològics: per exemple, en rehabilitació, els hàbits d'exercici afecten notablement la capacitat funcional. Ara bé, com examinen Hélène Colineaux et al. {[}30{]}, la mesura del gènere és complexa: encara que habitualment es binaritza per la influència de la concepció normativa del sexe, es tracta d'un fenomen continu que depèn del context i que pot fluctuar en el temps. També la mesura dels efectes del sexe i el gènere és difícil; en aquest sentit, les autores proposen un marc per entendre els diferents mecanismes causals que hi intervenen:
+De fet, els factors socials poden tenir efectes sobre els processos biològics: per exemple, en rehabilitació, els hàbits d'exercici afecten notablement la capacitat funcional. Ara bé, com examinen Hélène Colineaux et al. {[}31{]}, la mesura del gènere és complexa: encara que habitualment es binaritza per la influència de la concepció normativa del sexe, es tracta d'un fenomen continu que depèn del context i que pot fluctuar en el temps. També la mesura dels efectes del sexe i el gènere és difícil; en aquest sentit, les autores proposen un marc per entendre els diferents mecanismes causals que hi intervenen:
 
 \bigskip
 
@@ -467,29 +457,29 @@ De fet, els factors socials poden tenir efectes sobre els processos biològics: 
 
 \bigskip
 
-La manca d'anàlisi de les diferències de sexe i gènere o la infrarepresentació de les dones en recerca tenen efectes negatius en la qualitat dels resultats obtinguts i, per extensió, en la salut de totes les persones (no només les dones) {[}31{]}. Malgrat que existeixen guies per incloure el sexe i el gènere en recerca, els plans inicials no sempre es reflecteixen en la transferència del coneixement. A més, és important considerar la interseccionalitat amb altres desigualtats, com les que sorgeixen de l'edat, l'ètnia o la classe socioeconòmica, entre d'altres. En aquest treball s'intentarà donar resposta a alguns d'aquests aspectes.
+La manca d'anàlisi de les diferències de sexe i gènere o la infrarepresentació de les dones en recerca tenen efectes negatius en la qualitat dels resultats obtinguts i, per extensió, en la salut de totes les persones (no només les dones) {[}32{]}. Malgrat que existeixen guies per incloure el sexe i el gènere en recerca, els plans inicials no sempre es reflecteixen en la transferència del coneixement. A més, és important considerar la interseccionalitat amb altres desigualtats, com les que sorgeixen de l'edat, l'ètnia o la classe socioeconòmica, entre d'altres. En aquest treball s'intentarà donar resposta a alguns d'aquests aspectes.
 
 \section{Biaixos existents}\label{biaixos-existents}
 
-Les malalties cardiovasculars són la primera causa de mortalitat a escala global: això és cert també per a les dones {[}32{]}. La RC compta amb la recomanació de classe 1A de l'American Heart Association i l'American College of Cardiology {[}33{]} pels beneficis que aporta en la millora de factors de risc, la reducció d'hospitalitzacions i mortalitat i l'augment de QdV. Específicament en el cas de les dones, la RC pot contribuir a una major reducció del risc de mortalitat, millores superiors en capacitat d'exercici i salut mental i una disminució dels nivells d'HTA {[}2{]}.
+Les malalties cardiovasculars són la primera causa de mortalitat a escala global: això és cert també per a les dones {[}33{]}. La RC compta amb la recomanació de classe 1A de l'American Heart Association i l'American College of Cardiology {[}34{]} pels beneficis que aporta en la millora de factors de risc, la reducció d'hospitalitzacions i mortalitat i l'augment de QdV. Específicament en el cas de les dones, la RC pot contribuir a una major reducció del risc de mortalitat, millores superiors en capacitat d'exercici i salut mental i una disminució dels nivells d'HTA {[}2{]}.
 
 No obstant això, les dones pateixen restriccions en l'accés i la participació als programes de rehabilitació i, en conseqüència, els seus resultats clínics es veuen alterats. A continuació es detallen les principals barreres existents i les intervencions que s'han proposat per superar-les.
 
 \subsection{Derivació i reclutament}\label{derivaciuxf3-i-reclutament}
 
-La participació global als programes de RC ja és baixa, però encara ho és més entre les dones. La primera barrera d'accés es troba en el moment de la derivació per part del personal mèdic: malgrat que els beneficis d'aquesta mena d'intervencions no difereixen entre sexes, les dones tenen prop d'un 32\% menys de probabilitat de ser derivades a rehabilitació en comparació a homes amb criteris d'elegibilitat similars {[}32{]}. Aquest fet s'explica per diferents motius, que es poden agrupar en tres àmbits clau:
+La participació global als programes de RC ja és baixa, però encara ho és més entre les dones. La primera barrera d'accés es troba en el moment de la derivació per part del personal mèdic: malgrat que els beneficis d'aquesta mena d'intervencions no difereixen entre sexes, les dones tenen prop d'un 32\% menys de probabilitat de ser derivades a rehabilitació en comparació a homes amb criteris d'elegibilitat similars {[}33{]}. Aquest fet s'explica per diferents motius, que es poden agrupar en tres àmbits clau:
 
 \bigskip
 
-\textbf{Factors individuals}. Es refereixen a aspectes com la falta de coneixement sobre la RC, el nivell educatiu o barreres culturals i lingüístiques que dificulten l'accés a determinats col·lectius. Per exemple, encara que les dones afroamericanes tenen una major incidència de malalties cardiovasculars, les taxes de derivació en aquest grup poblacional són menors {[}34{]}.
+\textbf{Factors individuals}. Es refereixen a aspectes com la falta de coneixement sobre la RC, el nivell educatiu o barreres culturals i lingüístiques que dificulten l'accés a determinats col·lectius. Per exemple, encara que les dones afroamericanes tenen una major incidència de malalties cardiovasculars, les taxes de derivació en aquest grup poblacional són menors {[}35{]}.
 
-\textbf{Factors socials}. És l'àrea en què més influència tenen els rols i les expectatives de gènere. Les dones solen càrregar un pes molt superior en les tasques de cures, especialment en l'àmbit domèstic i familiar. Aquest fet, juntament amb la manca de suport psicosocial, està associat a nivells més elevats d'estrès, ansietat i depressió {[}32{]}. També poden comprometre l'accés a la RC els desavantatges socioeconòmics, els conflictes laborals o les dificultats en el transport fins als centres de rehabilitació.
+\textbf{Factors socials}. És l'àrea en què més influència tenen els rols i les expectatives de gènere. Les dones solen càrregar un pes molt superior en les tasques de cures, especialment en l'àmbit domèstic i familiar. Aquest fet, juntament amb la manca de suport psicosocial, està associat a nivells més elevats d'estrès, ansietat i depressió {[}33{]}. També poden comprometre l'accés a la RC els desavantatges socioeconòmics, els conflictes laborals o les dificultats en el transport fins als centres de rehabilitació.
 
-\textbf{Factors sanitaris}. Els serveis de salut també tenen part de responsabilitat en les diferències en la derivació i el reclutament. Per començar, la fallada en la detecció de símptomes provoca retards importants en el diagnòstic i el tractament de patologies cardiovasculars en dones, provocant fins i tot una mortalitat superior. A més, els biaixos del personal mèdic poden comportar l'exclusió de dones d'edat més avançada o amb més comorbiditats, però precisament aquestes característiques fan que la RC sigui encara més necessària i beneficiosa {[}33{]}. Per acabar, existeix una sèrie de malalties que afecten principalment les dones, com ara la dissecció espontània de les artèries coronàries, l'infart de miocardi sense obstrucció de les artèries coronàries o les cardiomiopaties per estrès (p.~ex. síndrome de Takotsubo). Tot i que la necessitat de rehabilitació en aquestes condicions és la mateixa, la derivació és molt menor {[}34{]}.
+\textbf{Factors sanitaris}. Els serveis de salut també tenen part de responsabilitat en les diferències en la derivació i el reclutament. Per començar, la fallada en la detecció de símptomes provoca retards importants en el diagnòstic i el tractament de patologies cardiovasculars en dones, provocant fins i tot una mortalitat superior. A més, els biaixos del personal mèdic poden comportar l'exclusió de dones d'edat més avançada o amb més comorbiditats, però precisament aquestes característiques fan que la RC sigui encara més necessària i beneficiosa {[}34{]}. Per acabar, existeix una sèrie de malalties que afecten principalment les dones, com ara la dissecció espontània de les artèries coronàries, l'infart de miocardi sense obstrucció de les artèries coronàries o les cardiomiopaties per estrès (p.~ex. síndrome de Takotsubo). Tot i que la necessitat de rehabilitació en aquestes condicions és la mateixa, la derivació és molt menor {[}35{]}.
 
 \bigskip
 
-Evidentment, la falta de recerca repercuteix enormement en el problema. Si bé el percentatge de dones amb malalties cariovasculars va augmentar de l'11\% al 17\% en la dècada del 2010, la seva representació en estudis clínics continua per sota del 15\% {[}8{]}. No hi ha raons de seguretat ni eficàcia per justificar aquest valor {[}32{]}. Per tal de poder prendre decisions més informades, és necessari disposar d'evidència sòlida sobre l'efecte de diversos factors biològics (p.~ex. nivells hormonals, distibució de teixit adipós i massa muscular, embaràs, lactància) en la resposta al desacondicionament físic.
+Evidentment, la falta de recerca repercuteix enormement en el problema. Si bé el percentatge de dones amb malalties cariovasculars va augmentar de l'11\% al 17\% en la dècada del 2010, la seva representació en estudis clínics continua per sota del 15\% {[}9{]}. No hi ha raons de seguretat ni eficàcia per justificar aquest valor {[}33{]}. Per tal de poder prendre decisions més informades, és necessari disposar d'evidència sòlida sobre l'efecte de diversos factors biològics (p.~ex. nivells hormonals, distibució de teixit adipós i massa muscular, embaràs, lactància) en la resposta al desacondicionament físic.
 
 \subsection{Adherència al tractament i compleció dels programes}\label{adheruxe8ncia-al-tractament-i-compleciuxf3-dels-programes}
 
@@ -497,39 +487,39 @@ L'accés a la RC no hi garanteix la participació, i la participació no n'asseg
 
 \subsection{Resultats clínics}\label{resultats-cluxednics}
 
-En circumstàncies semblants, les millores aconseguides gràcies a la RC en capacitat funcional, perfil de risc cardiovascular i benestar psicosocial són comparables entre homes i dones (en aquest darrer àmbit, les dones assolirien una reducció més important dels nivells de depressió) {[}35{]}. Ara bé, les dones habitualment parteixen d'un estat basal amb nivells menors d'activitat física, edat més avançada, més factors de risc cardiovasculars i comorbiditats i menor QdV. Tot això s'ha de tenir en compte a l'hora d'avaluar els resultats clínics de la RC i l'assoliment d'objectius de salut, que es poden veure afectats per la manca d'adaptació dels programes a les necessitats específiques d'alguns col·lectius {[}33{]}. Fins i tot la mesura emprada pot canviar la interpretació: les dones millorarien menys que els homes en consum màxim d'oxigen (\(VO_2\ màx\)), però no en MET {[}36{]}.
+En circumstàncies semblants, les millores aconseguides gràcies a la RC en capacitat funcional, perfil de risc cardiovascular i benestar psicosocial són comparables entre homes i dones (en aquest darrer àmbit, les dones assolirien una reducció més important dels nivells de depressió) {[}36{]}. Ara bé, les dones habitualment parteixen d'un estat basal amb nivells menors d'activitat física, edat més avançada, més factors de risc cardiovasculars i comorbiditats i menor QdV. Tot això s'ha de tenir en compte a l'hora d'avaluar els resultats clínics de la RC i l'assoliment d'objectius de salut, que es poden veure afectats per la manca d'adaptació dels programes a les necessitats específiques d'alguns col·lectius {[}34{]}. Fins i tot la mesura emprada pot canviar la interpretació: les dones millorarien menys que els homes en consum màxim d'oxigen (\(VO_2\ màx\)), però no en MET {[}37{]}.
 
-De nou, l'ús d'evidència basada principalment en dades d'homes impedeix la generalització dels resultats. Si s'extrapolen aquestes dades per prendre decisions sobre la pràctica clínica en dones, les recomanacions esdevenen inevitablement pitjors {[}35{]}.
+De nou, l'ús d'evidència basada principalment en dades d'homes impedeix la generalització dels resultats. Si s'extrapolen aquestes dades per prendre decisions sobre la pràctica clínica en dones, les recomanacions esdevenen inevitablement pitjors {[}36{]}.
 
 \subsection{Intervencions proposades}\label{intervencions-proposades}
 
-S'han proposat diverses solucions per a cadascun dels problemes identificats en els apartats anteriors. L'automatització de les derivacions a partir de criteris definits, el foment de l'atenció interdisciplinària en fase hospitalària, la flexibilització de les intervencions i la millora en l'educació sanitària podrien afavorir l'accés de persones que hi tenien dificultats {[}32{]}.
+S'han proposat diverses solucions per a cadascun dels problemes identificats en els apartats anteriors. L'automatització de les derivacions a partir de criteris definits, el foment de l'atenció interdisciplinària en fase hospitalària, la flexibilització de les intervencions i la millora en l'educació sanitària podrien afavorir l'accés de persones que hi tenien dificultats {[}33{]}.
 
-L'adherència al tractament podria incrementar amb programes de RC domiciliària, amb l'ús d'eines de salut digital o amb activitats alternatives a l'exercici aeròbic tradicional (p.~ex. ioga), sense que això suposi una disminució de l'eficàcia. Tanmateix, falta evidència de qualitat que confirmi aquestes hipòtesis {[}37{]}.
+L'adherència al tractament podria incrementar amb programes de RC domiciliària, amb l'ús d'eines de salut digital o amb activitats alternatives a l'exercici aeròbic tradicional (p.~ex. ioga), sense que això suposi una disminució de l'eficàcia. Tanmateix, falta evidència de qualitat que confirmi aquestes hipòtesis {[}38{]}.
 
-Pel que fa als resultats clínics, no sembla que la solució passi per proposar intervencions no-mixtes {[}38{]}, sinó més aviat per personalitzar més els tractaments. L'entrenament intervàl·lic d'alta intensitat (HIIT, per les seves sigles en anglès) podria ser més efectiu que l'entrenament continu per a les dones {[}37{]}. La rehabilitació intensiva, que combina exercici terapèutic amb intervencions de gestió de l'estrès, nutrició i teràpia en grup pot contribuir a una millora més important de la QdV amb nivells d'adherència semblants {[}39{]}. Addicionalment, el suport psicosocial personalitzat sembla clau per assegurar un millor benestar en qualsevol grup de pacients {[}40{]}.
+Pel que fa als resultats clínics, no sembla que la solució passi per proposar intervencions no-mixtes {[}39{]}, sinó més aviat per personalitzar més els tractaments. L'entrenament intervàl·lic d'alta intensitat (HIIT, per les seves sigles en anglès) podria ser més efectiu que l'entrenament continu per a les dones {[}38{]}. La rehabilitació intensiva, que combina exercici terapèutic amb intervencions de gestió de l'estrès, nutrició i teràpia en grup pot contribuir a una millora més important de la QdV amb nivells d'adherència semblants {[}40{]}. Addicionalment, el suport psicosocial personalitzat sembla clau per assegurar un millor benestar en qualsevol grup de pacients {[}41{]}.
 
-Les dones no són un col·lectiu homogeni i, com a tal, poden estar presents en altres eixos de desigualtat {[}41{]}. Cal avançar en la sensibilització cultural i de gènere de la població i de les professionals de la salut per tal de garantir una atenció sanitària optimitzada i una recerca més inclusiva. Les mètriques d'equitat prenen força en un context en què és més necessària que mai l'automatització de decisions clíniques per rebaixar la pressió sobre els sistemes sanitaris.
+Les dones no són un col·lectiu homogeni i, com a tal, poden estar presents en altres eixos de desigualtat {[}42{]}. Cal avançar en la sensibilització cultural i de gènere de la població i de les professionals de la salut per tal de garantir una atenció sanitària optimitzada i una recerca més inclusiva. Les mètriques d'equitat prenen força en un context en què és més necessària que mai l'automatització de decisions clíniques per rebaixar la pressió sobre els sistemes sanitaris.
 
 \section{Equitat algorítmica}\label{equitat-algoruxedtmica}
 
-La identificació de variables predictores és necessària per poder adaptar millor els programes de RC i optimitzar els beneficis per a totes les persones que hi participen {[}42{]}. El modelatge predictiu amb eines d'aprenentatge automàtic (ML, per les seves sigles en anglès) pot resultar útil per al suport en la presa de decisions clíniques, però també presenta reptes si no es volen reforçar desigualtats socials potencials {[}43{]}. En aquest apartat es desenvolupa el concepte d'equitat algorítmica (\emph{fairness}) a través de la seva conceptualització ètica i estadística, i es plantegen desafiaments que cal resoldre en la seva aplicació en salut.
+La identificació de variables predictores és necessària per poder adaptar millor els programes de RC i optimitzar els beneficis per a totes les persones que hi participen {[}43{]}. El modelatge predictiu amb eines d'aprenentatge automàtic (ML, per les seves sigles en anglès) pot resultar útil per al suport en la presa de decisions clíniques, però també presenta reptes si no es volen reforçar desigualtats socials potencials {[}44{]}. En aquest apartat es desenvolupa el concepte d'equitat algorítmica (\emph{fairness}) a través de la seva conceptualització ètica i estadística, i es plantegen desafiaments que cal resoldre en la seva aplicació en salut.
 
 \subsection{Fonaments}\label{fonaments}
 
-L'equitat algorítmica es refereix a l'avaluació de processos de decisió automatitzats basats en ML i a la diversitat de mètodes emprats per corregir el biaix algorítmic que se'n desprèn. Aquesta necessitat sorgeix per la tendència dels models predictius complexos a aprendre biaixos socials presents a les dades, que poden comportar la presa de decisions discriminatòries i perpetuar les desigualtats existents {[}44{]}.
+L'equitat algorítmica es refereix a l'avaluació de processos de decisió automatitzats basats en ML i a la diversitat de mètodes emprats per corregir el biaix algorítmic que se'n desprèn. Aquesta necessitat sorgeix per la tendència dels models predictius complexos a aprendre biaixos socials presents a les dades, que poden comportar la presa de decisions discriminatòries i perpetuar les desigualtats existents {[}45{]}.
 
 En problemes d'alt impacte social, és clau garantir la fiabilitat i la confiança cap als models de ML i d'intel·ligència artificial (IA) en general {[}3{]}. Si bé es tracta d'un tema complex, especialment per la interseccionalitat de les desigualtats que s'ha comentat prèviament i per l'encreuament amb problemes de caire filosòfic i moral, s'han proposat alguns termes que poden ajudar a entendre millor què implica exactament l'equitat algorítmica. És important distingir entre:
 
 \bigskip
 
-\textbf{Variable protegida o sensible}. Aspectes o atributs de les dades amb influència sociocultural que poden conduir a la creació de grups amb més probabilitat de ser classificats correctament. A la Unió Europea (UE) es consideren variables protegides el sexe, la identitat de gènere, l'orientació sexual, la discapacitat, l'edat, l'ètnia, la nacionalitat, la religió o creença, l'origen social, la llengua i les opinions polítiques, entre d'altres {[}44{]}.
+\textbf{Variable protegida o sensible}. Aspectes o atributs de les dades amb influència sociocultural que poden conduir a la creació de grups amb més probabilitat de ser classificats correctament. A la Unió Europea (UE) es consideren variables protegides el sexe, la identitat de gènere, l'orientació sexual, la discapacitat, l'edat, l'ètnia, la nacionalitat, la religió o creença, l'origen social, la llengua i les opinions polítiques, entre d'altres {[}45{]}.
 
 \textbf{Variable indirecta (\emph{proxy})}. Variables altament correlacionades amb atributs sensibles que poden emmascarar biaixos si no es detecten i s'analitzen correctament {[}3{]}.
 
 \bigskip
 
-En salut, cal tenir en compte que no tots els biaixos són discriminatoris. Per exemple, un tractament pot actuar de manera diferent en funció del sexe, l'edat o paràmetres fisiològics com l'IMC. Ara bé, quan aquests biaixos es troben ocults, poden comprometre el rendiment dels models. A continuació es detallen algunes de les fonts de biaix més habituals {[}45{]}.
+En salut, cal tenir en compte que no tots els biaixos són discriminatoris. Per exemple, un tractament pot actuar de manera diferent en funció del sexe, l'edat o paràmetres fisiològics com l'IMC. Ara bé, quan aquests biaixos es troben ocults, poden comprometre el rendiment dels models. A continuació es detallen algunes de les fonts de biaix més habituals {[}46{]}.
 
 \subsubsection{Biaixos en les dades}\label{biaixos-en-les-dades}
 
@@ -563,7 +553,7 @@ En salut, cal tenir en compte que no tots els biaixos són discriminatoris. Per 
 
 \subsection{Nomenclatura}\label{nomenclatura}
 
-En aquest text es farà servir la nomenclatura matemàtica proposada per Solon Barocas et al. {[}46{]}. Per tal de simplificar la conceptualització i l'anàlisi posterior, es prendrà com a exemple una tasca de classificació binària amb un atribut sensible de caràcter també binari. No obstant això, es podria estendre el model a variables amb més de dos categories o a altres models de regressió.
+En aquest text es farà servir la nomenclatura matemàtica proposada per Solon Barocas et al. {[}47{]}. Per tal de simplificar la conceptualització i l'anàlisi posterior, es prendrà com a exemple una tasca de classificació binària amb un atribut sensible de caràcter també binari. No obstant això, es podria estendre el model a variables amb més de dos categories o a altres models de regressió.
 
 Així, es parlarà de variable sensible \(A \in \{a, b\}\), en què \(a\) correspon al grup protegit i \(b\) al grup privilegiat, variables explicatives o predictores \(X = \{x_1, x_2, \dots, x_n\}\), variable resposta \(Y \in \{0, 1\}\) i prediccions \(\hat Y \in \{0, 1\}\) o puntuacions del model \(R \in [0, 1]\), en què, generalment, \(\hat Y = 1\) quan \(R \geq 0,5\) i \(\hat Y = 0\) en cas contrari.
 
@@ -571,13 +561,13 @@ Així, es parlarà de variable sensible \(A \in \{a, b\}\), en què \(a\) corres
 
 La mesura de l'equitat algorítmica és complexa i poc estandarditzada. S'han proposat un nombre elevat de mètriques basades en diferents concepcions de la no-discriminació, categoritzades principalment en tres àmbits: individuals, de grup i de relacions causals. En aquest apartat se'n descriuen algunes de les més utilitzades, especialment en el cas de les mètriques de grup, que són les més esteses i estudiades en publicacions científiques.
 
-De manera anàloga a les mesures de rendiment dels models, la majoria de mètriques més habituals es poden obtenir a partir de la matriu de confusió (v. \textbf{\autoref{tab:taula2-1}}).
+De manera anàloga a les mesures de rendiment dels models, la majoria de mètriques més habituals es poden obtenir a partir de la matriu de confusió (v. \autoref{tab:taula2-1}).
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
-\caption{Matriu de confusió per a un classificador binari}\label{tab:taula2-1}\tabularnewline
+\caption{Matriu de confusió per a un classificador binari}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -652,7 +642,7 @@ VPN = P(Y = 0 \mid \hat Y = 0) = \frac{VN}{VN + FN}
 
 \subsubsection[Mètriques de grup]{\texorpdfstring{Mètriques de grup\footnote{A falta d'una traducció estandarditzada al català, s'ha optat per mantenir els noms de les mètriques en anglès per evitar confusions amb les publicacions originals}}{Mètriques de grup}}\label{muxe8triques-de-grup1}
 
-Avaluen que el rendiment del model sigui similar entre grups definits per un atribut sensible {[}45{]}. Es poden resumir en tres criteris segons quines de les anteriors mesures es vulguin igualar {[}3,46,47{]}:
+Avaluen que el rendiment del model sigui similar entre grups definits per un atribut sensible {[}46{]}. Es poden resumir en tres criteris segons quines de les anteriors mesures es vulguin igualar {[}3,47,48{]}:
 
 \paragraph{Independència}\label{independuxe8ncia}
 
@@ -772,7 +762,7 @@ I basada en la puntuació:
 P(Y = 1\mid R = r, A = a) = P(Y = 1\mid R = r, A = b)
 \end{equation}
 
-És important destacar que no hi ha una mètrica o conjunt de mètriques de caràcter universal; per tant, la seva tria dependrà del context d'aplicació i l'àmbit d'equitat que es vulgui potenciar {[}47{]}. De fet, en la majoria de casos d'ús reals, els criteris d'equitat entren en conflicte i el compliment d'un dels tres és incompatible amb el dels altres dos. És per això que sovint s'accepta que les diferències entre grups estiguin dintre d'un marge de tolerància {[}46{]}, de manera que:
+És important destacar que no hi ha una mètrica o conjunt de mètriques de caràcter universal; per tant, la seva tria dependrà del context d'aplicació i l'àmbit d'equitat que es vulgui potenciar {[}48{]}. De fet, en la majoria de casos d'ús reals, els criteris d'equitat entren en conflicte i el compliment d'un dels tres és incompatible amb el dels altres dos. És per això que sovint s'accepta que les diferències entre grups estiguin dintre d'un marge de tolerància {[}47{]}, de manera que:
 
 \begin{equation}
 Test_a \geq Test_b - \epsilon
@@ -796,15 +786,15 @@ En el cas de l'equitat individual, es fa èmfasi en què casos semblants siguin 
 
 \bigskip
 
-És necessari destacar que eliminar l'atribut sensible del conjunt de dades no resol automàticament els problemes d'equitat i, de fet, pot ser potencialment perjudicial {[}46{]}. Aquesta pràctica, coneguda com a \emph{fairness through unawareness}, presenta dos problemes principals: d'una banda, no té en compte que altres variables correlacionades amb la variable protegida poden estar-la emmascarant i, de l'altra, no contempla que la variable protegida pugui tenir un efecte en la resposta.
+És necessari destacar que eliminar l'atribut sensible del conjunt de dades no resol automàticament els problemes d'equitat i, de fet, pot ser potencialment perjudicial {[}47{]}. Aquesta pràctica, coneguda com a \emph{fairness through unawareness}, presenta dos problemes principals: d'una banda, no té en compte que altres variables correlacionades amb la variable protegida poden estar-la emmascarant i, de l'altra, no contempla que la variable protegida pugui tenir un efecte en la resposta.
 
 \subsubsection{Mètriques de causalitat}\label{muxe8triques-de-causalitat}
 
-En molts casos, la qualitat i representativitat de les dades sol ser la principal font de biaix dels models de predicció {[}3{]}. Per aquest motiu, alguns estudis proposen l'anàlisi de les relacions causals que s'estableixen entre variables, de manera que es puguin detectar diferents escenaris possibles d'inequitat ocults en un conjunt de dades {[}48{]}. Es tracta d'un àmbit complex i encara en un estadi primerenc de desenvolupament, per la qual cosa queda fora de l'abast d'aquest treball.
+En molts casos, la qualitat i representativitat de les dades sol ser la principal font de biaix dels models de predicció {[}3{]}. Per aquest motiu, alguns estudis proposen l'anàlisi de les relacions causals que s'estableixen entre variables, de manera que es puguin detectar diferents escenaris possibles d'inequitat ocults en un conjunt de dades {[}49{]}. Es tracta d'un àmbit complex i encara en un estadi primerenc de desenvolupament, per la qual cosa queda fora de l'abast d'aquest treball.
 
 \subsection{Tècniques de mitigació}\label{tuxe8cniques-de-mitigaciuxf3}
 
-S'han proposat nombroses estratègies per reduir o eliminar el biaix present en totes les etapes del cicle de vida de les dades i construir models més equitatius. En aquest apartat es fa una síntesi de les més rellevants, sense voluntat que sigui exhaustiva, agrupades segons si tenen lloc abans, durant o després de l'aplicació d'un algoritme determinat {[}3,43,47{]}.
+S'han proposat nombroses estratègies per reduir o eliminar el biaix present en totes les etapes del cicle de vida de les dades i construir models més equitatius. En aquest apartat es fa una síntesi de les més rellevants, sense voluntat que sigui exhaustiva, agrupades segons si tenen lloc abans, durant o després de l'aplicació d'un algoritme determinat {[}3,44,48{]}.
 
 \bigskip
 
@@ -816,19 +806,19 @@ S'han proposat nombroses estratègies per reduir o eliminar el biaix present en 
 
 \subsection{Aplicacions en salut}\label{aplicacions-en-salut}
 
-A l'hora d'avaluar un model de ML, és rellevant considerar factors com el rendiment, la complexitat i, com s'ha justificat fins ara, l'equitat {[}49{]}. En aplicacions de salut, a més, és important garantir aspectes com la seguretat, l'eficàcia i, especialment, la interpretabilitat dels resultats i la reproductibilitat de les anàlisis {[}47{]}. Això implica haver de prendre decisions complexes en la tria de models, mètriques i estratègies de mitigació de biaixos.
+A l'hora d'avaluar un model de ML, és rellevant considerar factors com el rendiment, la complexitat i, com s'ha justificat fins ara, l'equitat {[}50{]}. En aplicacions de salut, a més, és important garantir aspectes com la seguretat, l'eficàcia i, especialment, la interpretabilitat dels resultats i la reproductibilitat de les anàlisis {[}48{]}. Això implica haver de prendre decisions complexes en la tria de models, mètriques i estratègies de mitigació de biaixos.
 
-Pel que fa a les mètriques de grup, sovint el criteri d'independència és poc rellevant en l'àmbit clínic: les prediccions positives solen ser desiguals entre grups i atributs sensibles com el sexe poden tenir efectes fisiopatològics determinants que es tradueixen en els resultats. En tot cas, mesures com \emph{Demographic Parity} poden esdevenir útils per detectar biaixos de representació en les dades {[}50{]}. En el cas de la separació i la suficiència, és habitual trobar incompatibilitats entre mètriques. Cal triar en quin valor posar èmfasi en funció dels potencials riscs i beneficis de cada intervenció. La TVP (o, equivalentment, la TFN) és important quan no detectar un esdeveniment pot suposar un perill per a la salut o un retard en l'accés a un tractament. De manera semblant, la TVN (íd. La TFP) és útil per evitar tractaments innecessaris que suposen un cost elevat als sistemes sanitaris. Finalment, el VPP i el VPN s'utilitzen en models de classificació de risc i de triatge de pacients {[}45{]}. En general, aquestes mesures solen ser relativament senzilles d'implementar i interpretar, malgrat les seves limitacions.
+Pel que fa a les mètriques de grup, sovint el criteri d'independència és poc rellevant en l'àmbit clínic: les prediccions positives solen ser desiguals entre grups i atributs sensibles com el sexe poden tenir efectes fisiopatològics determinants que es tradueixen en els resultats. En tot cas, mesures com \emph{Demographic Parity} poden esdevenir útils per detectar biaixos de representació en les dades {[}51{]}. En el cas de la separació i la suficiència, és habitual trobar incompatibilitats entre mètriques. Cal triar en quin valor posar èmfasi en funció dels potencials riscs i beneficis de cada intervenció. La TVP (o, equivalentment, la TFN) és important quan no detectar un esdeveniment pot suposar un perill per a la salut o un retard en l'accés a un tractament. De manera semblant, la TVN (íd. La TFP) és útil per evitar tractaments innecessaris que suposen un cost elevat als sistemes sanitaris. Finalment, el VPP i el VPN s'utilitzen en models de classificació de risc i de triatge de pacients {[}46{]}. En general, aquestes mesures solen ser relativament senzilles d'implementar i interpretar, malgrat les seves limitacions.
 
-Sobre l'equitat individual, és important valorar la inclusió de variables protegides: poden contribuir a la millora del rendiment i l'equitat del model, però també poden reforçar falsos determinismes biològics quan emmascaren factors psicosocials latents. Un ús destacat d'aquesta mena de mesures pot ser en anàlisi de supervivència {[}45{]}. Si bé les mètriques individuals poden contribuir a la presa de decisions més justes en individus semblants, també poden ocultar desigualtats a escala de grup i perpetuar discriminacions sistèmiques. En aquest cas, pren rellevància el context causal, que permet identificar fonts de biaix, encara que també augmenta considerablement la complexitat.
+Sobre l'equitat individual, és important valorar la inclusió de variables protegides: poden contribuir a la millora del rendiment i l'equitat del model, però també poden reforçar falsos determinismes biològics quan emmascaren factors psicosocials latents. Un ús destacat d'aquesta mena de mesures pot ser en anàlisi de supervivència {[}46{]}. Si bé les mètriques individuals poden contribuir a la presa de decisions més justes en individus semblants, també poden ocultar desigualtats a escala de grup i perpetuar discriminacions sistèmiques. En aquest cas, pren rellevància el context causal, que permet identificar fonts de biaix, encara que també augmenta considerablement la complexitat.
 
 \subsection{Dilemes i direccions de futur}\label{dilemes-i-direccions-de-futur}
 
-L'equitat algorítmica és un àmbit que encara necessita estudi i recerca de qualitat. Un dels dilemes més importants és que, en la majoria dels casos, un guany en justícia comporta una pèrdua en el rendiment del model. Així, cal trobar el compromís òptim entre precisió i no-discriminació, tenint en compte que la relació entre aquestes dues variables no és universal ni lineal {[}47{]}.
+L'equitat algorítmica és un àmbit que encara necessita estudi i recerca de qualitat. Un dels dilemes més importants és que, en la majoria dels casos, un guany en justícia comporta una pèrdua en el rendiment del model. Així, cal trobar el compromís òptim entre precisió i no-discriminació, tenint en compte que la relació entre aquestes dues variables no és universal ni lineal {[}48{]}.
 
-A més de les incompatibilitats que ja s'han esmentat entre criteris i entre mètriques individuals i de grup, un altre problema que sorgeix d'una anàlisi més en profunditat és que les definicions matemàtiques de justícia no sempre es corresponen amb la realitat social, econòmica i legal, que varia en funció de l'època i el lloc geogràfic {[}3{]}. És més, per molt que es trobin solucions computacionals efectives per reduir els biaixos en les dades, aquestes no són suficients si l'origen de la disparitat es troba en biaixos estructurals de les societats i els sistemes sanitaris {[}50{]}.
+A més de les incompatibilitats que ja s'han esmentat entre criteris i entre mètriques individuals i de grup, un altre problema que sorgeix d'una anàlisi més en profunditat és que les definicions matemàtiques de justícia no sempre es corresponen amb la realitat social, econòmica i legal, que varia en funció de l'època i el lloc geogràfic {[}3{]}. És més, per molt que es trobin solucions computacionals efectives per reduir els biaixos en les dades, aquestes no són suficients si l'origen de la disparitat es troba en biaixos estructurals de les societats i els sistemes sanitaris {[}51{]}.
 
-Per tant, cal avançar cap a un paradigma que combini la validesa científica amb la integritat ètica, de manera que es puguin generalitzar millor els resultats de qualsevol investigació mentre que es mantenen la transparència i l'explicabilitat dels models estadístics, imprescindibles en escenaris clínics {[}51{]}. La integració del context social i la capacitat d'involucrar les comunitats són elements clau per a l'empoderament de les persones ateses i l'optimització de l'atenció sanitària.
+Per tant, cal avançar cap a un paradigma que combini la validesa científica amb la integritat ètica, de manera que es puguin generalitzar millor els resultats de qualsevol investigació mentre que es mantenen la transparència i l'explicabilitat dels models estadístics, imprescindibles en escenaris clínics {[}52{]}. La integració del context social i la capacitat d'involucrar les comunitats són elements clau per a l'empoderament de les persones ateses i l'optimització de l'atenció sanitària.
 
 \section{Importància del treball}\label{importuxe0ncia-del-treball}
 
@@ -837,6 +827,40 @@ Les malalties cardiovasculars han estat i continuen sent una bona representació
 Aquest treball pretén determinar l'impacte dels biaixos de sexe i gènere en la predicció de la resposta a la rehabilitació cardíaca mitjançant una anàlisi d'equitat algorítmica i avaluar l'adequació de diferents mesures per atenuar els biaixos detectats.
 
 \chapter{Materials i mètodes}\label{materials-i-muxe8todes}
+
+\section{Estratègia de recerca}\label{estratuxe8gia-de-recerca}
+
+En una primera fase del treball, es durà a terme una cerca de literatura científica a les principals bases de dades d'investigació clínica (PubMed, Cochrane Library, ScienceDirect\ldots), així com en altres fonts especialitzades que es considerin rellevants.
+
+Els resultats obtinguts es filtraran segons la seva adequació al tema i es classificaran en tres àmbits que permetran estructurar-ne adequadament els continguts:
+
+\begin{itemize}
+\item
+  \textbf{Rehabilitació cardíaca}: estat de l'art general, càrrega de les patologies cardiovasculars en la salut global, impacte en resultats clínics, descripció de variables predictores.
+\item
+  \textbf{Biaixos de sexe i gènere}: diferències en l'accés, la participació i els resultats de la rehabilitació cardíaca, interseccionalitat de les desigualtats, intervencions proposades.
+\item
+  \textbf{Equitat algorítmica}: evidència sobre mètodes estadístics, limitacions i propostes de mitigació de biaixos.
+\end{itemize}
+
+\subsection{Metodologia de treball}\label{metodologia-de-treball}
+
+Un cop feta la recerca d'evidència, es procedirà a l'anàlisi de les dades disponibles mitjançant el programari \texttt{R} i adoptant, en la mesura del possible, els principis del \texttt{tidyverse}. Se seguiran els passos que s'indiquen:
+
+\begin{itemize}
+\item
+  \textbf{Preprocessament de dades}: neteja, tractament de valors nuls, anàlisi descriptiva estratificada per sexe i definició de variables objectiu. Les principals variables d'interès són la capacitat funcional (mesurada habitualment amb la 6MWT) i la qualitat de vida, que es poden binaritzar en funció de si la millora és superior o no a la mínima diferència clínicament important per a cada cas.
+\item
+  \textbf{Modelització estadística}: construcció de models predictius a partir del conjunt de dades. Tenint en compte les característiques de les variables objectiu, es prendrà com a model de referència la regressió logística. S'optimitzarà el model amb mètodes de regularització (Ridge, LASSO). Malgrat que el nombre de registres és limitat, es podria comparar el resultat amb una alternativa no lineal, com ara un Random Forest.
+\item
+  \textbf{Avaluació i auditoria de gènere}: valoració del rendiment del model. A més de les mesures habituals, s'utilitzaran les mètriques d'equitat algorítmica que es considerin adequades d'entre les descrites a la literatura científica.
+\item
+  \textbf{Discussió de resultats}: exploració de tècniques de mitigació de biaixos i elaboració de recomanacions metodològiques per a futures investigacions.
+\end{itemize}
+
+Aquest enfocament permetrà, d'una banda, disposar del context clínic adient per a la comprensió dels resultats i, de l'altra, garantir un tractament net i reproduïble de les dades.
+
+Text
 
 \section{Població (font de dades)}\label{poblaciuxf3-font-de-dades}
 
@@ -1006,192 +1030,196 @@ Text
 \CSLLeftMargin{4. }%
 \CSLRightInline{Vieli C, Duong HP, Duc M, Carré JL, Bast JD, Girod G, et al. Functional capacity and patient-reported outcome measures after cardiac rehabilitation: A prospective study with 6-month follow-up. Swiss Medical Weekly. 2025;155:4160. doi:\href{https://doi.org/10.57187/s.4160}{10.57187/s.4160}}
 
-\bibitem[\citeproctext]{ref-collaborators2025}
+\bibitem[\citeproctext]{ref-roller2024}
 \CSLLeftMargin{5. }%
+\CSLRightInline{Roller R, Weggelaar-Jansen AM, Martínez RM, Schmeier S, Hemsen H, Chatterjea S. Data processing in healthcare using CRISP {[}Internet{]}. 2024. doi:\href{https://doi.org/10.1561/978-1-63828-237-220251031}{10.1561/978-1-63828-237-220251031}}
+
+\bibitem[\citeproctext]{ref-collaborators2025}
+\CSLLeftMargin{6. }%
 \CSLRightInline{Collaborators G2023C of D, Naghavi M, Kyu HH, A B, Aalipour MA, Aalruz H, et al. Global burden of 292 causes of death in 204 countries and territories and 660 subnational locations, 1990{\textendash}2023: A systematic analysis for the global burden of disease study 2023. The Lancet. 2025;406:18111872. doi:\href{https://doi.org/10.1016/s0140-6736(25)01917-8}{10.1016/s0140-6736(25)01917-8}}
 
 \bibitem[\citeproctext]{ref-collaboratorsgbd2023diseaseandinjuryandriskfactor2025}
-\CSLLeftMargin{6. }%
+\CSLLeftMargin{7. }%
 \CSLRightInline{{Collaborators, GBD 2023 Disease and Injury and Risk Factor, Hay SI, Ong KL, Santomauro DF, A B, Aalipour MA, et al.} Burden of 375 diseases and injuries, risk-attributable burden of 88 risk factors, and healthy life expectancy in 204 countries and territories, including 660 subnational locations, 1990{\textendash}2023: A systematic analysis for the global burden of disease study 2023. The Lancet. 2025;406:18731922. doi:\href{https://doi.org/10.1016/s0140-6736(25)01637-x}{10.1016/s0140-6736(25)01637-x}}
 
 \bibitem[\citeproctext]{ref-taylor2022}
-\CSLLeftMargin{7. }%
+\CSLLeftMargin{8. }%
 \CSLRightInline{Taylor RS, Dalal HM, McDonagh STJ. The role of cardiac rehabilitation in improving cardiovascular outcomes. Nature Reviews Cardiology. 2022;19:180194. doi:\href{https://doi.org/10.1038/s41569-021-00611-7}{10.1038/s41569-021-00611-7}}
 
 \bibitem[\citeproctext]{ref-dibben2023}
-\CSLLeftMargin{8. }%
+\CSLLeftMargin{9. }%
 \CSLRightInline{Dibben GO, Faulkner J, Oldridge N, Rees K, Thompson DR, Zwisler AD, et al. Exercise-based cardiac rehabilitation for coronary heart disease: A meta-analysis. European Heart Journal. 2023;44:452469. doi:\href{https://doi.org/10.1093/eurheartj/ehac747}{10.1093/eurheartj/ehac747}}
 
 \bibitem[\citeproctext]{ref-molloy2024}
-\CSLLeftMargin{9. }%
+\CSLLeftMargin{10. }%
 \CSLRightInline{Molloy C, Long L, Mordi IR, Bridges C, Sagar VA, Davies EJ, et al. Exercise{-}based cardiac rehabilitation for adults with heart failure. Cochrane Database of Systematic Reviews. 2024;2024:CD003331. doi:\href{https://doi.org/10.1002/14651858.cd003331.pub6}{10.1002/14651858.cd003331.pub6}}
 
 \bibitem[\citeproctext]{ref-abraham2021}
-\CSLLeftMargin{10. }%
+\CSLLeftMargin{11. }%
 \CSLRightInline{Abraham LN, Sibilitz KL, Berg SK, Tang LH, Risom SS, Lindschou J, et al. Exercise{-}based cardiac rehabilitation for adults after heart valve surgery. Cochrane Database of Systematic Reviews. 2021;2021:CD010876. doi:\href{https://doi.org/10.1002/14651858.cd010876.pub3}{10.1002/14651858.cd010876.pub3}}
 
 \bibitem[\citeproctext]{ref-buckley2024}
-\CSLLeftMargin{11. }%
+\CSLLeftMargin{12. }%
 \CSLRightInline{Buckley BJ, Long L, Risom SS, Lane DA, Berg SK, Gluud C, et al. Exercise{-}based cardiac rehabilitation for adults with atrial fibrillation. Cochrane Database of Systematic Reviews. 2024;2024:CD011197. doi:\href{https://doi.org/10.1002/14651858.cd011197.pub3}{10.1002/14651858.cd011197.pub3}}
 
 \bibitem[\citeproctext]{ref-wrzeciono2024}
-\CSLLeftMargin{12. }%
+\CSLLeftMargin{13. }%
 \CSLRightInline{Wrzeciono A, Mazurek J, Cieślik B, Kiper P, Gajda R, Szczepańska-Gieracha J. Psychologically-enhanced cardiac rehabilitation for psychological and functional improvement in patients with cardiovascular disease: A systematic review with meta-analysis and future research directions. Physiotherapy. 2024;125:101412. doi:\href{https://doi.org/10.1016/j.physio.2024.07.003}{10.1016/j.physio.2024.07.003}}
 
 \bibitem[\citeproctext]{ref-zheng2019}
-\CSLLeftMargin{13. }%
+\CSLLeftMargin{14. }%
 \CSLRightInline{Zheng X, Zheng Y, Ma J, Zhang M, Zhang Y, Liu X, et al. Effect of exercise-based cardiac rehabilitation on anxiety and depression in patients with myocardial infarction: A systematic review and meta-analysis. Heart \& Lung. 2019;48:17. doi:\href{https://doi.org/10.1016/j.hrtlng.2018.09.011}{10.1016/j.hrtlng.2018.09.011}}
 
 \bibitem[\citeproctext]{ref-suzuki2018}
-\CSLLeftMargin{14. }%
+\CSLLeftMargin{15. }%
 \CSLRightInline{Suzuki Y, Ito K, Yamamoto K, Fukui N, Yanagi H, Kitagaki K, et al. Predictors of improvements in exercise capacity during cardiac rehabilitation in the recovery phase after coronary artery bypass graft surgery versus acute myocardial infarction. Heart and Vessels. 2018;33:358366. doi:\href{https://doi.org/10.1007/s00380-017-1076-2}{10.1007/s00380-017-1076-2}}
 
 \bibitem[\citeproctext]{ref-baldasseroni2022}
-\CSLLeftMargin{15. }%
+\CSLLeftMargin{16. }%
 \CSLRightInline{Baldasseroni S, Silverii MV, Pratesi A, Burgisser C, Orso F, Lucarelli G, et al. Cardiac rehabilitation in advanced aGE after PCI for acute coronary syndromes: Predictors of exercise capacity improvement in the CR-AGE ACS study. Aging Clinical and Experimental Research. 2022;34:21952203. doi:\href{https://doi.org/10.1007/s40520-022-02130-y}{10.1007/s40520-022-02130-y}}
 
 \bibitem[\citeproctext]{ref-tokeshi2023}
-\CSLLeftMargin{16. }%
+\CSLLeftMargin{17. }%
 \CSLRightInline{Tokeshi T, Date A, Miura H, Kumasaka L, Arakawa T, Nakao K, et al. Predictors of improvement in exercise capacity after cardiac rehabilitation differ between octogenarian and young-old patients with acute myocardial infarction. Circulation Journal. 2023;87:815823. doi:\href{https://doi.org/10.1253/circj.cj-22-0606}{10.1253/circj.cj-22-0606}}
 
 \bibitem[\citeproctext]{ref-uszko-lencer2017}
-\CSLLeftMargin{17. }%
+\CSLLeftMargin{18. }%
 \CSLRightInline{Uszko-Lencer NHMK, Mesquita R, Janssen E, Werter C, Rocca HPBL, Pitta F, et al. Reliability, construct validity and determinants of 6-minute walk test performance in patients with chronic heart failure. International Journal of Cardiology. 2017;240:285290. doi:\href{https://doi.org/10.1016/j.ijcard.2017.02.109}{10.1016/j.ijcard.2017.02.109}}
 
 \bibitem[\citeproctext]{ref-kurpaska2025}
-\CSLLeftMargin{18. }%
+\CSLLeftMargin{19. }%
 \CSLRightInline{Kurpaska M, Krzesiński P, Banak M, Piotrowicz K. Predictors of impaired exercise performance in patients qualified for cardiac rehabilitation: The impact of sex and comorbidities. Journal of Clinical Medicine. 2025;14:7512. doi:\href{https://doi.org/10.3390/jcm14217512}{10.3390/jcm14217512}}
 
 \bibitem[\citeproctext]{ref-bargehr2017}
-\CSLLeftMargin{19. }%
+\CSLLeftMargin{20. }%
 \CSLRightInline{Bargehr J, Thomas CS, Oken KR, Thomas RJ, Lopez-Jimenez F, Trejo-Gutierrez JF. Predictors of suboptimal gain in exercise capacity after cardiac rehabilitation. The American Journal of Cardiology. 2017;119:687691. doi:\href{https://doi.org/10.1016/j.amjcard.2016.08.005}{10.1016/j.amjcard.2016.08.005}}
 
 \bibitem[\citeproctext]{ref-sutherland2018}
-\CSLLeftMargin{20. }%
+\CSLLeftMargin{21. }%
 \CSLRightInline{Sutherland N, Harrison A, Doherty P. Factors influencing change in walking ability in patients with heart failure undergoing exercise-based cardiac rehabilitation. International Journal of Cardiology. 2018;268:162165. doi:\href{https://doi.org/10.1016/j.ijcard.2018.05.021}{10.1016/j.ijcard.2018.05.021}}
 
 \bibitem[\citeproctext]{ref-artiles2023}
-\CSLLeftMargin{21. }%
+\CSLLeftMargin{22. }%
 \CSLRightInline{Artiles RF, Euler S, Auschra B, Silva HB da, Niederseer D, Schmied C, et al. Predictors of gain in exercise capacity through cardiac rehabilitation: Sex and age matter. Heart \& Lung. 2023;62:200206. doi:\href{https://doi.org/10.1016/j.hrtlng.2023.08.003}{10.1016/j.hrtlng.2023.08.003}}
 
 \bibitem[\citeproctext]{ref-sakamoto2022}
-\CSLLeftMargin{22. }%
+\CSLLeftMargin{23. }%
 \CSLRightInline{Sakamoto M, Suematsu Y, Yano Y, Kaino K, Teshima R, Matsuda T, et al. Depression and anxiety are associated with physical performance in patients undergoing cardiac rehabilitation: A retrospective observational study. Journal of Cardiovascular Development and Disease. 2022;9:21. doi:\href{https://doi.org/10.3390/jcdd9010021}{10.3390/jcdd9010021}}
 
 \bibitem[\citeproctext]{ref-kjesbu2024}
-\CSLLeftMargin{23. }%
+\CSLLeftMargin{24. }%
 \CSLRightInline{Kjesbu IE, Sibilitz KL, Petersen J, Houben VJG, Wilhelm M, Pena-Gil C, et al. Health-related quality of life in elderly cardiac patients undergoing cardiac rehabilitation and the association with exercise capacity: The EU-CaRE study. European Journal of Preventive Cardiology. 2024;31:19501957. doi:\href{https://doi.org/10.1093/eurjpc/zwae195}{10.1093/eurjpc/zwae195}}
 
 \bibitem[\citeproctext]{ref-young2020}
-\CSLLeftMargin{24. }%
+\CSLLeftMargin{25. }%
 \CSLRightInline{Young L, Zhang Q, Lian E, Roberts K, Weintraub N, Dong Y, et al. Factors predicting the utilization of center-based cardiac rehabilitation program. Geriatrics. 2020;5:66. doi:\href{https://doi.org/10.3390/geriatrics5040066}{10.3390/geriatrics5040066}}
 
 \bibitem[\citeproctext]{ref-malak2021}
-\CSLLeftMargin{25. }%
+\CSLLeftMargin{26. }%
 \CSLRightInline{Malak MM, Hushcha P, Jafri SH, Bousquet G, Cabral L, Lutfy C, et al. PREDICTORS OF CARDIAC REHABILITATION COMPLETION. Journal of the American College of Cardiology. 2021;77:1585. doi:\href{https://doi.org/10.1016/s0735-1097(21)02942-9}{10.1016/s0735-1097(21)02942-9}}
 
 \bibitem[\citeproctext]{ref-yuan2026}
-\CSLLeftMargin{26. }%
+\CSLLeftMargin{27. }%
 \CSLRightInline{Yuan L, Xu L, Zhang C, Yang Z. The heterogeneous trajectory of adherence to home{-}based cardiac rehabilitation exercises in patients with coronary heart disease: A cohort study. Journal of Advanced Nursing. 2026;82:72907299. doi:\href{https://doi.org/10.1111/jan.70369}{10.1111/jan.70369}}
 
 \bibitem[\citeproctext]{ref-regensteiner2019}
-\CSLLeftMargin{27. }%
+\CSLLeftMargin{28. }%
 \CSLRightInline{Regensteiner JG, Libby AM, Huxley R, Clayton JA. Integrating sex and gender considerations in research: Educating the scientific workforce. The Lancet Diabetes \& Endocrinology. 2019;7:248250. doi:\href{https://doi.org/10.1016/s2213-8587(19)30038-5}{10.1016/s2213-8587(19)30038-5}}
 
 \bibitem[\citeproctext]{ref-bewley2021}
-\CSLLeftMargin{28. }%
+\CSLLeftMargin{29. }%
 \CSLRightInline{Bewley S, McCartney M, Meads C, Rogers A. Sex, gender, and medical data. BMJ. 2021;372:n735. doi:\href{https://doi.org/10.1136/bmj.n735}{10.1136/bmj.n735}}
 
 \bibitem[\citeproctext]{ref-bauer2022}
-\CSLLeftMargin{29. }%
+\CSLLeftMargin{30. }%
 \CSLRightInline{Bauer GR. Sex and gender multidimensionality in epidemiologic research. American Journal of Epidemiology. 2022;192:122132. doi:\href{https://doi.org/10.1093/aje/kwac173}{10.1093/aje/kwac173}}
 
 \bibitem[\citeproctext]{ref-colineaux2022}
-\CSLLeftMargin{30. }%
+\CSLLeftMargin{31. }%
 \CSLRightInline{Colineaux H, Soulier A, Lepage B, Kelly-Irving M. Considering sex and gender in epidemiology: A challenge beyond terminology. From conceptual analysis to methodological strategies. Biology of Sex Differences. 2022;13:23. doi:\href{https://doi.org/10.1186/s13293-022-00430-6}{10.1186/s13293-022-00430-6}}
 
 \bibitem[\citeproctext]{ref-colantonio2023}
-\CSLLeftMargin{31. }%
+\CSLLeftMargin{32. }%
 \CSLRightInline{Colantonio A. Sex and gender reporting in rehabilitation research: A commentary. Archives of Physical Medicine and Rehabilitation. 2023;104:13561358. doi:\href{https://doi.org/10.1016/j.apmr.2023.03.034}{10.1016/j.apmr.2023.03.034}}
 
 \bibitem[\citeproctext]{ref-alexander2022}
-\CSLLeftMargin{32. }%
+\CSLLeftMargin{33. }%
 \CSLRightInline{Alexander S, Li S, Tracy M. Cardiac rehabilitation - the answer for the second chance. American Heart Journal Plus: Cardiology Research and Practice. 2022;13:100108. doi:\href{https://doi.org/10.1016/j.ahjo.2022.100108}{10.1016/j.ahjo.2022.100108}}
 
 \bibitem[\citeproctext]{ref-khadanga2021}
-\CSLLeftMargin{33. }%
+\CSLLeftMargin{34. }%
 \CSLRightInline{Khadanga S, Gaalema DE, Savage P, Ades PA. Underutilization of cardiac rehabilitation in women. Journal of Cardiopulmonary Rehabilitation and Prevention. 2021;41:207213. doi:\href{https://doi.org/10.1097/hcr.0000000000000629}{10.1097/hcr.0000000000000629}}
 
 \bibitem[\citeproctext]{ref-sawan2022}
-\CSLLeftMargin{34. }%
+\CSLLeftMargin{35. }%
 \CSLRightInline{Sawan MA, Calhoun AE, Fatade YA, Wenger NK. Cardiac rehabilitation in women, challenges and opportunities. Progress in Cardiovascular Diseases. 2022;70:111118. doi:\href{https://doi.org/10.1016/j.pcad.2022.01.007}{10.1016/j.pcad.2022.01.007}}
 
 \bibitem[\citeproctext]{ref-hoeve2026}
-\CSLLeftMargin{35. }%
+\CSLLeftMargin{36. }%
 \CSLRightInline{HOEVE NT, BAKKER MD, SUNAMURA M, LENNEP JERV, BOERSMA E, BERG-EMONS RJGVD. WOMEN AND MEN PROFIT EQUALLY FROM CARDIAC REHABILITATION: A SECONDARY ANALYSIS OF THE OPTICARE RCT. Journal of Rehabilitation Medicine. 2026;58:44504. doi:\href{https://doi.org/10.2340/jrm.v58.44504}{10.2340/jrm.v58.44504}}
 
 \bibitem[\citeproctext]{ref-rengo2020}
-\CSLLeftMargin{36. }%
+\CSLLeftMargin{37. }%
 \CSLRightInline{Rengo JL, Khadanga S, Savage PD, Ades PA. Response to exercise training during cardiac rehabilitation differs by sex. Journal of Cardiopulmonary Rehabilitation and Prevention. 2020;40:319324. doi:\href{https://doi.org/10.1097/hcr.0000000000000536}{10.1097/hcr.0000000000000536}}
 
 \bibitem[\citeproctext]{ref-mcfeely2025}
-\CSLLeftMargin{37. }%
+\CSLLeftMargin{38. }%
 \CSLRightInline{McFeely AE, Bittner VA. Sex and gender-based differences in outcomes of cardiac rehabilitation following acute myocardial infarction. Current Atherosclerosis Reports. 2025;27:109. doi:\href{https://doi.org/10.1007/s11883-025-01360-5}{10.1007/s11883-025-01360-5}}
 
 \bibitem[\citeproctext]{ref-heald2021}
-\CSLLeftMargin{38. }%
+\CSLLeftMargin{39. }%
 \CSLRightInline{Heald FA, Marzolini S, Colella TJF, Oh P, Nijhawan R, Grace SL. Women{'}s outcomes following mixed-sex, women-only, and home-based cardiac rehabilitation participation and comparison by sex. BMC Women's Health. 2021;21:413. doi:\href{https://doi.org/10.1186/s12905-021-01553-5}{10.1186/s12905-021-01553-5}}
 
 \bibitem[\citeproctext]{ref-jafri2023}
-\CSLLeftMargin{39. }%
+\CSLLeftMargin{40. }%
 \CSLRightInline{Jafri SHH, Ngamdu KS, Price D, Baloch ZQ, Cohn J, Wilcox M, et al. Intensive cardiac rehabilitation attenuates the gender gap in cardiac rehabilitation participation. Current Problems in Cardiology. 2023;48:101668. doi:\href{https://doi.org/10.1016/j.cpcardiol.2023.101668}{10.1016/j.cpcardiol.2023.101668}}
 
 \bibitem[\citeproctext]{ref-chung2022}
-\CSLLeftMargin{40. }%
+\CSLLeftMargin{41. }%
 \CSLRightInline{Chung S, Candelaria D, Gallagher R. Women's health-related quality of life substantially improves with tailored cardiac rehabilitation. Journal of Cardiopulmonary Rehabilitation and Prevention. 2022;42:217226. doi:\href{https://doi.org/10.1097/hcr.0000000000000692}{10.1097/hcr.0000000000000692}}
 
 \bibitem[\citeproctext]{ref-angelino2024}
-\CSLLeftMargin{41. }%
+\CSLLeftMargin{42. }%
 \CSLRightInline{Angelino E. 41Bridging the gender gap in cardiac rehabilitation. The first step: The equal opportunities project. International Journal of Cardiology Cardiovascular Risk and Prevention. 2024;21:200268. doi:\href{https://doi.org/10.1016/j.ijcrp.2024.200268}{10.1016/j.ijcrp.2024.200268}}
 
 \bibitem[\citeproctext]{ref-smith2026}
-\CSLLeftMargin{42. }%
+\CSLLeftMargin{43. }%
 \CSLRightInline{Smith JR, Medina-Inojosa JR, Suarez ASC, Taylor JL, Fischer KM, Bonikowske AR, et al. Sex differences in exercise capacity and outcomes following outpatient cardiac rehabilitation. Journal of the American Heart Association: Cardiovascular and Cerebrovascular Disease. 2026;15:e044403. doi:\href{https://doi.org/10.1161/jaha.125.044403}{10.1161/jaha.125.044403}}
 
 \bibitem[\citeproctext]{ref-anahideh2025}
-\CSLLeftMargin{43. }%
+\CSLLeftMargin{44. }%
 \CSLRightInline{Anahideh H, Nezami N, Asudeh A. Finding representative group fairness metrics using correlation estimations. Expert Systems with Applications. 2025;262:125652. doi:\href{https://doi.org/10.1016/j.eswa.2024.125652}{10.1016/j.eswa.2024.125652}}
 
 \bibitem[\citeproctext]{ref-wisniewski}
-\CSLLeftMargin{44. }%
+\CSLLeftMargin{45. }%
 \CSLRightInline{Wiśniewski J, Biecek P. Fairmodels: A flexible tool for bias detection, visualization, and mitigation. doi:\href{https://doi.org/10.48550/arXiv.2104.00507}{10.48550/arXiv.2104.00507}}
 
 \bibitem[\citeproctext]{ref-gao2025}
-\CSLLeftMargin{45. }%
+\CSLLeftMargin{46. }%
 \CSLRightInline{Gao J, Chou B, McCaw ZR, Thurston H, Varghese P, Hong C, et al. What is fair? Defining fairness in machine learning for health. Statistics in Medicine. 2025;44:e70234. doi:\href{https://doi.org/10.1002/sim.70234}{10.1002/sim.70234}}
 
 \bibitem[\citeproctext]{ref-barocas-hardt-narayanan}
-\CSLLeftMargin{46. }%
+\CSLLeftMargin{47. }%
 \CSLRightInline{Barocas S, Hardt M, Narayanan A. Fairness and machine learning: Limitations and opportunities. MIT Press; 2023.}
 
 \bibitem[\citeproctext]{ref-criscuolo2026}
-\CSLLeftMargin{47. }%
+\CSLLeftMargin{48. }%
 \CSLRightInline{Criscuolo C, Salnitri M, Martinenghi D. FAIR-CARE: A comparative evaluation of unfairness mitigation approaches. Information and Software Technology. 2026;189:107898. doi:\href{https://doi.org/10.1016/j.infsof.2025.107898}{10.1016/j.infsof.2025.107898}}
 
 \bibitem[\citeproctext]{ref-oneto2020}
-\CSLLeftMargin{48. }%
+\CSLLeftMargin{49. }%
 \CSLRightInline{Oneto L, Chiappa S. Recent trends in learning from data, tutorials from the INNS big data and deep learning conference (INNSBDDL2019). Studies in Computational Intelligence. 2020;155196. doi:\href{https://doi.org/10.1007/978-3-030-43883-8_7}{10.1007/978-3-030-43883-8\_7}}
 
 \bibitem[\citeproctext]{ref-njoku2025}
-\CSLLeftMargin{49. }%
+\CSLLeftMargin{50. }%
 \CSLRightInline{Njoku UF, Abelló A, Bilalli B, Bontempi G. Towards fair machine learning using many-objective feature selection. Applied Soft Computing. 2025;181:113411. doi:\href{https://doi.org/10.1016/j.asoc.2025.113411}{10.1016/j.asoc.2025.113411}}
 
 \bibitem[\citeproctext]{ref-srinivasan2026}
-\CSLLeftMargin{50. }%
+\CSLLeftMargin{51. }%
 \CSLRightInline{Srinivasan A, Sritharan DV, Aneja S, Richman IB. Challenges in medical algorithmic fairness. JNCI Cancer Spectrum. 2026;10:pkag081. doi:\href{https://doi.org/10.1093/jncics/pkag081}{10.1093/jncics/pkag081}}
 
 \bibitem[\citeproctext]{ref-abbidi2026}
-\CSLLeftMargin{51. }%
+\CSLLeftMargin{52. }%
 \CSLRightInline{Abbidi SR, Sinha D. AI/ML-based strategies for enhancing equity, diversity, and inclusion in randomized clinical trials. Trials. 2026;27:217. doi:\href{https://doi.org/10.1186/s13063-026-09537-2}{10.1186/s13063-026-09537-2}}
 
 \end{CSLReferences}
@@ -1225,6 +1253,8 @@ Text
 \tightlist
 \item
   \textbf{AVD}: activitats de la vida diària.
+\item
+  \textbf{CRISP-DM}: \emph{Cross-industry Standard Process for Data Mining}.
 \item
   \textbf{DL}: aprenentatge profund (de l'anglès \emph{deep learning}).
 \item
@@ -1370,8 +1400,9 @@ Text
     \StringTok{"2. Estat de l\textquotesingle{}art"}\NormalTok{,}
     \StringTok{"3. Implementació"}\NormalTok{,}
     \StringTok{"4. Lliurament final"}\NormalTok{,}
-    \StringTok{"5. Presentació"}
-\NormalTok{  ), }\AttributeTok{times =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{2}\NormalTok{))),}
+    \StringTok{"5. Presentació"}\NormalTok{, }
+    \StringTok{"Productes addicionals"}
+\NormalTok{  ), }\AttributeTok{times =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{))),}
   \AttributeTok{Tasca =} \FunctionTok{c}\NormalTok{(}
     \StringTok{"Plantejament del treball"}\NormalTok{, }
     \StringTok{"Cerca preliminar d\textquotesingle{}evidència"}\NormalTok{, }
@@ -1387,9 +1418,9 @@ Text
     \StringTok{"Discussió"}\NormalTok{, }
     \StringTok{"Conclusions"}\NormalTok{, }
     \StringTok{"Glossari i Annexos"}\NormalTok{, }
-    \StringTok{"Article"}\NormalTok{, }
     \StringTok{"Elaboració de diapositives"}\NormalTok{, }
-    \StringTok{"Enregistrament"}
+    \StringTok{"Enregistrament"}\NormalTok{, }
+    \StringTok{"Article"}
 \NormalTok{  ),}
   \AttributeTok{Objectius =} \FunctionTok{c}\NormalTok{(}
     \StringTok{""}\NormalTok{, }\StringTok{"1.1, 2.1"}\NormalTok{, }\StringTok{"1.1, 2.1"}\NormalTok{, }\StringTok{"1.2"}\NormalTok{,}
@@ -1401,21 +1432,21 @@ Text
     \StringTok{"2026{-}09{-}23"}\NormalTok{, }\StringTok{"2026{-}09{-}23"}\NormalTok{, }\StringTok{"2026{-}10{-}01"}\NormalTok{, }\StringTok{"2026{-}10{-}29"}\NormalTok{,}
     \StringTok{"2026{-}11{-}12"}\NormalTok{, }\StringTok{"2026{-}11{-}12"}\NormalTok{, }\StringTok{"2026{-}11{-}26"}\NormalTok{, }\StringTok{"2026{-}09{-}23"}\NormalTok{,}
     \StringTok{"2026{-}10{-}15"}\NormalTok{, }\StringTok{"2026{-}11{-}05"}\NormalTok{, }\StringTok{"2026{-}11{-}26"}\NormalTok{, }\StringTok{"2026{-}12{-}17"}\NormalTok{,}
-    \StringTok{"2027{-}01{-}01"}\NormalTok{, }\StringTok{"2026{-}09{-}23"}\NormalTok{, }\StringTok{"2026{-}10{-}15"}\NormalTok{, }\StringTok{"2027{-}01{-}08"}\NormalTok{, }
-    \StringTok{"2027{-}01{-}08"}
+    \StringTok{"2027{-}01{-}01"}\NormalTok{, }\StringTok{"2026{-}09{-}23"}\NormalTok{, }\StringTok{"2027{-}01{-}08"}\NormalTok{, }\StringTok{"2027{-}01{-}08"}\NormalTok{, }
+    \StringTok{"2026{-}10{-}15"}
 \NormalTok{  )),}
   \AttributeTok{Final =} \FunctionTok{as.Date}\NormalTok{(}\FunctionTok{c}\NormalTok{(}
     \StringTok{"2026{-}10{-}07"}\NormalTok{, }\StringTok{"2026{-}10{-}07"}\NormalTok{, }\StringTok{"2026{-}10{-}28"}\NormalTok{, }\StringTok{"2026{-}11{-}11"}\NormalTok{,}
     \StringTok{"2026{-}11{-}25"}\NormalTok{, }\StringTok{"2026{-}11{-}25"}\NormalTok{, }\StringTok{"2026{-}12{-}02"}\NormalTok{, }\StringTok{"2026{-}10{-}14"}\NormalTok{,}
     \StringTok{"2026{-}11{-}04"}\NormalTok{, }\StringTok{"2026{-}11{-}25"}\NormalTok{, }\StringTok{"2026{-}12{-}16"}\NormalTok{, }\StringTok{"2026{-}12{-}31"}\NormalTok{,}
-    \StringTok{"2027{-}01{-}07"}\NormalTok{, }\StringTok{"2027{-}01{-}07"}\NormalTok{, }\StringTok{"2027{-}01{-}07"}\NormalTok{, }\StringTok{"2027{-}01{-}13"}\NormalTok{, }
+    \StringTok{"2027{-}01{-}07"}\NormalTok{, }\StringTok{"2027{-}01{-}07"}\NormalTok{, }\StringTok{"2027{-}01{-}13"}\NormalTok{, }\StringTok{"2027{-}01{-}13"}\NormalTok{, }
     \StringTok{"2027{-}01{-}13"}
 \NormalTok{  )),}
   \AttributeTok{Estat =} \FunctionTok{factor}\NormalTok{(}\FunctionTok{c}\NormalTok{(}
     \StringTok{"Completada"}\NormalTok{, }\StringTok{"Completada"}\NormalTok{, }\StringTok{"Completada"}\NormalTok{, }\StringTok{"En curs"}\NormalTok{,}
     \StringTok{"Pendent"}\NormalTok{, }\StringTok{"Pendent"}\NormalTok{, }\StringTok{"Pendent"}\NormalTok{, }\StringTok{"Completada"}\NormalTok{,}
     \StringTok{"Completada"}\NormalTok{, }\StringTok{"Pendent"}\NormalTok{, }\StringTok{"Pendent"}\NormalTok{, }\StringTok{"Pendent"}\NormalTok{,}
-    \StringTok{"Pendent"}\NormalTok{, }\StringTok{"En curs"}\NormalTok{, }\StringTok{"En curs"}\NormalTok{, }\StringTok{"Pendent"}\NormalTok{, }\StringTok{"Pendent"}
+    \StringTok{"Pendent"}\NormalTok{, }\StringTok{"En curs"}\NormalTok{, }\StringTok{"Pendent"}\NormalTok{, }\StringTok{"Pendent"}\NormalTok{, }\StringTok{"En curs"}
 \NormalTok{  ), }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Completada"}\NormalTok{, }\StringTok{"En curs"}\NormalTok{, }\StringTok{"Pendent"}\NormalTok{))}
 \NormalTok{)}
 
@@ -1842,7 +1873,7 @@ Text
 
 \subsection{Descripció de l'avanç del projecte}\label{descripciuxf3-de-lavanuxe7-del-projecte}
 
-En aquest lliurament es recull el resum de l'evidència científica disponible sobre l'àmbit d'estudi. Per ara, s'ha completat la primera fase de cerca de literatura, que es materialitza en el capítol complet \textbf{\hyperref[estat-de-lart]{Estat de l'art}}. Al marge de les revisions que es puguin fer, el text que es presenta és el que s'utilitzarà per al lliurament final. A més, s'ha iniciat l'estudi preliminar del conjunt de dades triat per a l'anàlisi, que es desenvoluparà en profunditat de cara a la propera entrega.
+En aquest lliurament es recull el resum de l'evidència científica disponible sobre l'àmbit d'estudi. Per ara, s'ha completat la primera fase de cerca de literatura, que es materialitza en el capítol complet {[}\textbf{Estat de l'art}{]}. Al marge de les revisions que es puguin fer, el text que es presenta és el que s'utilitzarà per al lliurament final. A més, s'ha iniciat l'estudi preliminar del conjunt de dades triat per a l'anàlisi, que es desenvoluparà en profunditat de cara a la propera entrega.
 
 \subsubsection{Grau de compliment dels objectius i resultats previstos en el pla de treball}\label{grau-de-compliment-dels-objectius-i-resultats-previstos-en-el-pla-de-treball}
 
@@ -1861,13 +1892,13 @@ Les activitats previstes que s'han dut a terme han estat:
 \begin{itemize}
 \tightlist
 \item
-  Revisió de la \textbf{\hyperref[introducciuxf3]{Introducció}}.
+  Revisió de la {[}\textbf{Introducció}{]}.
 \item
   Cerca preliminar d'evidència.
 \item
   Revisió de l'evidència trobada.
 \item
-  Redacció de l'\textbf{\hyperref[estat-de-lart]{Estat de l'art}}.
+  Redacció de l'{[}\textbf{Estat de l'art}{]}.
 \item
   Inici de l'estudi preliminar del conjunt de dades (no inclòs en aquesta entrega).
 \item
@@ -1880,7 +1911,7 @@ No s'ha dut a terme cap activitat fora de les planificades.
 
 \subsection{Relació de les desviacions en la temporització, accions de mitigació i actualització del cronograma}\label{relaciuxf3-de-les-desviacions-en-la-temporitzaciuxf3-accions-de-mitigaciuxf3-i-actualitzaciuxf3-del-cronograma}
 
-S'ha seguit sense problemes la planificació temporal proposada al lliurament anterior, per la qual cosa no ha calgut dur a terme cap acció de mitigació. Les accions preventives, com ara marcar fites parcials, han permès arribar a temps a tots els resultats esperats i deixar marge per a la revisió. En aquest document s'han actualitzat el calendari i les tasques per adequar-los a l'evolució del treball (v. \textbf{\hyperref[planificaciuxf3-del-treball]{Planificació del treball}}).
+S'ha seguit sense problemes la planificació temporal proposada al lliurament anterior, per la qual cosa no ha calgut dur a terme cap acció de mitigació. Les accions preventives, com ara marcar fites parcials, han permès arribar a temps a tots els resultats esperats i deixar marge per a la revisió. En aquest document s'han actualitzat el calendari i les tasques per adequar-los a l'evolució del treball (v. {[}\textbf{Planificació del treball}{]}).
 
 \subsection{Llistat dels resultats parcials obtinguts fins al moment (lliurables que s'adjunten)}\label{llistat-dels-resultats-parcials-obtinguts-fins-al-moment-lliurables-que-sadjunten}
 
