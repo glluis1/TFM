@@ -192,10 +192,10 @@ Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin
 
 ### Tasques
 
-A la **\autoref{tab:taula1-1}** es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat **[Enfocament i mètode seguit]**. S'indica també la relació amb els objectius proposats. En funció de la completesa i la qualitat de les dades i del temps disponible es podran revisar les prioritats i els plantejaments definits en aquesta secció (p. ex. reduint el nombre de comparacions o limitant el nombre de mètodes de mitigació a aplicar). Durant tot el procés s'aniran incorporant també els comentaris de tutoria i les revisions acordades en cada prova d'avaluació.
+A la \autoref{tab:taula1-1} es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat [**Enfocament i mètode seguit**]. S'indica també la relació amb els objectius proposats. En funció de la completesa i la qualitat de les dades i del temps disponible es podran revisar les prioritats i els plantejaments definits en aquesta secció (p. ex. reduint el nombre de comparacions o limitant el nombre de mètodes de mitigació a aplicar). Durant tot el procés s'aniran incorporant també els comentaris de tutoria i les revisions acordades en cada prova d'avaluació.
 
 | Tasca                             | Objectius     | Inici    | Final    | Estat      |
-|-----------------------------|------------|----------|----------|-------------|
+|---------------|---------------|---------------|---------------|---------------|
 | **1. Definició i pla de treball** |               |          |          |            |
 | Plantejament del treball          |               | 23/9/26  | 7/10/26  | Completada |
 |                                   |               |          |          |            |
@@ -225,7 +225,7 @@ A la **\autoref{tab:taula1-1}** es descriuen les tasques que caldrà desenvolupa
 | **Productes addicionals**         |               |          |          |            |
 | Article                           |               | 15/10/26 | 13/1/27  | En curs    |
 
-: Planificació de tasques {#tab:taula1-1}
+: Planificació de tasques
 
 \pagebreak
 
@@ -337,7 +337,7 @@ plot_gantt <- ggplot(df_gantt,
 
 plot_gantt
 
-rm(inici, final, dates)
+rm(df_gantt, inici, final, dates)
 
 ```
 
@@ -365,7 +365,7 @@ A la \autoref{tab:taula1-2} s'indiquen les fites corresponents a cada prova d'av
 La \autoref{tab:taula1-3} descriu els riscos que poden fer que la planificació no es compleixi i les accions previstes per al pla de contingència.
 
 | Risc | Impacte | Probabilitat | Mitigació |
-|-----------------|-----------------|-----------------|----------------------|
+|------------------|------------------|------------------|-------------------|
 | Abundància de registres incomplets en les dades | Alt | Alta | Imputació de valors faltants o eliminació dels registres afectats o de variables que no es considerin crítiques, segons el cas |
 | Biaixos inherents a la composició del conjunt de dades | Alt | Alta | Comparació dels resultats amb l'evidència disponible i aplicació de tècniques de ponderació o remostreig |
 | Desviacions del pla de treball marcat | Mitjà | Mitjana | Establiment de fites parcials per a les PAC, de manera que l'última setmana de cadascuna es pugui reservar per a la revisió o com a marge per acabar de completar les tasques pendents |
@@ -417,7 +417,7 @@ Per entendre millor els efectes de la RC sobre diferents patologies cardiovascul
 
 ### Resultats clínics i variables predictores
 
-En general, els resultats clínics de la RC es poden agrupar en dos àmbits: la capacitat funcional i la qualitat de vida. En la primera sol ser rellevant conèixer la capacitat aeròbica, mitjançant una ergometria o una prova funcional com la 6MWT, i la força màxima dels principals grups musculars que intervenen a la marxa. Pel que fa a la segona, és habitual l'ús de mesures de resultat informades pel pacient (PROMs, per les seves sigles en anglès), que inclouen els nivells d'ansietat, depressió, activitat física o QdV relacionada amb la salut. És important disposar d'aquestes mesures perquè estan associades amb la taxa de mortalitat, la recurrència d'hospitalitzacions, la rendibilitat dels tractaments i l'impacte en les activitats de la vida diària (AVD) [@vieli2025].
+En general, els resultats clínics de la RC es poden agrupar en dos àmbits: la capacitat funcional i la qualitat de vida. En la primera sol ser rellevant conèixer la capacitat aeròbica, mitjançant una ergometria o una prova funcional com la prova de la marxa de 6 minuts (6MWT, per les seves sigles en anglès), i la força màxima dels principals grups musculars que intervenen a la marxa. Pel que fa a la segona, és habitual l'ús de mesures de resultat informades pel pacient (PROMs, íd.), que inclouen els nivells d'ansietat, depressió, activitat física o QdV relacionada amb la salut. És important disposar d'aquestes mesures perquè estan associades amb la taxa de mortalitat, la recurrència d'hospitalitzacions, la rendibilitat dels tractaments i l'impacte en les activitats de la vida diària (AVD) [@vieli2025].
 
 En general, la RC és una intervenció eficaç per incrementar la tolerància a l'exercici i el benestar de les persones que hi participen [@taylor2022]. No obstant això, els resultats poden diferir en funció de les característiques pròpies de cada pacient. Alguns factors que influeixen en la millora final són l'edat, l'estat físic inicial, l'índex de massa corporal (IMC), la presència de comorbiditats o paràmetres hemodinàmics, com l'hemoglobina, la pressió arterial o la fracció d'ejecció ventricular esquerra (FEVE) [@suzuki2018; @baldasseroni2022; @tokeshi2023; @uszko-lencer2017; @kurpaska2025].
 
@@ -680,10 +680,10 @@ TVP_a = TVP_b \wedge TFP_a = TFP_b
 P(\hat Y = Y \mid A = a) = P(\hat Y = Y \mid A = b) \Leftrightarrow \frac{VP_a + VN_a}{n_a} = \frac{VP_b + VN_b}{n_b}
 \end{equation}
 
-***Treatment equality***. Igualtat en la ràtio entre la TFP i la TFN.
+***Treatment equality***. Igualtat en la ràtio entre FN i FP. Algun estudis usen, alternativament, la ràtio entre la TFP i la TFN [@caton2024].
 
 \begin{equation}
-\frac{P(\hat Y = 1 \mid Y = 0, A = a)}{P(\hat Y = 0 \mid Y = 1, A = a)} = \frac{P(\hat Y = 1 \mid Y = 0, A = b)}{P(\hat Y = 0 \mid Y = 1, A = b)}
+\frac{P(\hat Y = 0, Y = 1 \mid A = a)}{P(\hat Y = 1, Y = 0 \mid A = a)} = \frac{P(\hat Y = 0, Y = 1 \mid A = b)}{P(\hat Y = 1, Y = 0 \mid A = b)}
 \end{equation}
 
 ***Equalizing disincentives***. Compara la diferència entre la TVP i la TFP.
@@ -806,49 +806,57 @@ Aquest treball pretén determinar l'impacte dels biaixos de sexe i gènere en la
 
 ## Estratègia de recerca
 
-En una primera fase del treball, es durà a terme una cerca de literatura científica a les principals bases de dades d'investigació clínica (PubMed, Cochrane Library, ScienceDirect...), així com en altres fonts especialitzades que es considerin rellevants.
+En una primera fase del treball, s'ha dut a terme una cerca de literatura científica a les principals bases de dades d'investigació clínica (PubMed, Cochrane Library, ScienceDirect...), així com en altres fonts especialitzades que s'han considerat rellevants. L'exploració s'ha complementat amb les referències d'interès citades en els articles trobats durant la recerca inicial.
 
-Els resultats obtinguts es filtraran segons la seva adequació al tema i es classificaran en tres àmbits que permetran estructurar-ne adequadament els continguts:
+Els resultats obtinguts s'han filtrat segons la seva adequació al tema i s'han classificat en tres àmbits que han permès estructurar-ne adequadament els continguts:
 
-- **Rehabilitació cardíaca**: estat de l'art general, càrrega de les patologies cardiovasculars en la salut global, impacte en resultats clínics, descripció de variables predictores.
+\bigskip
 
-- **Biaixos de sexe i gènere**: diferències en l'accés, la participació i els resultats de la rehabilitació cardíaca, interseccionalitat de les desigualtats, intervencions proposades.
+**Rehabilitació cardíaca**: estat de l'art general, càrrega de les patologies cardiovasculars en la salut global, impacte en resultats clínics, descripció de variables predictores.
 
-- **Equitat algorítmica**: evidència sobre mètodes estadístics, limitacions i propostes de mitigació de biaixos.
+**Biaixos de sexe i gènere**: diferències en l'accés, la participació i els resultats de la rehabilitació cardíaca, interseccionalitat de les desigualtats, intervencions proposades.
 
-### Metodologia de treball
+**Equitat algorítmica**: evidència sobre mètodes estadístics, limitacions i propostes de mitigació de biaixos.
 
-Un cop feta la recerca d'evidència, es procedirà a l'anàlisi de les dades disponibles mitjançant el programari `R` i adoptant, en la mesura del possible, els principis del `tidyverse`. Se seguiran els passos que s'indiquen:
+## Població i intervenció
 
-- **Preprocessament de dades**: neteja, tractament de valors nuls, anàlisi descriptiva estratificada per sexe i definició de variables objectiu. Les principals variables d'interès són la capacitat funcional (mesurada habitualment amb la 6MWT) i la qualitat de vida, que es poden binaritzar en funció de si la millora és superior o no a la mínima diferència clínicament important per a cada cas.
+Les dades provenen de l'estudi prospectiu de Vieli et al. [@vieli2025], que va incloure pacients que havien completat un programa de rehabilitació cardíaca (RC) entre octubre de 2020 i octubre de 2022 després d'haver obtingut l'alta del Centre Hospitalier du Valais Romand (Sion, Suïssa).
 
-- **Modelització estadística**: construcció de models predictius a partir del conjunt de dades. Tenint en compte les característiques de les variables objectiu, es prendrà com a model de referència la regressió logística. S'optimitzarà el model amb mètodes de regularització (Ridge, LASSO). Malgrat que el nombre de registres és limitat, es podria comparar el resultat amb una alternativa no lineal, com ara un Random Forest.
-
-- **Avaluació i auditoria de gènere**: valoració del rendiment del model. A més de les mesures habituals, s'utilitzaran les mètriques d'equitat algorítmica que es considerin adequades d'entre les descrites a la literatura científica.
-
-- **Discussió de resultats**: exploració de tècniques de mitigació de biaixos i elaboració de recomanacions metodològiques per a futures investigacions.
-
-Aquest enfocament permetrà, d'una banda, disposar del context clínic adient per a la comprensió dels resultats i, de l'altra, garantir un tractament net i reproduïble de les dades.
-
-Text
-
-## Població (font de dades)
-
-Text
+El programa de RC es va estructurar en 3 sessions setmanals durant 10 setmanes, amb components d'exercici terapèutic (capacitat aeròbica i força resistència), suport psicològic (gestió de l'estrès) i educació sanitària (fisiopatologia cardiovascular, medicació, factors de risc, dieta). L'entrenament va incloure prop de 70 hores d'activitats al gimnàs o a la piscina, marxa per exteriors i sessions de relaxació, amb 5 nivells d'intensitat diferents que permetien adaptar el tractament a diferents patologies o graus de condició física.
 
 ## Mesures
 
-Text
+El conjunt de dades inclou, d'una banda, mesures demogràfiques: grup d'edat, sexe biològic, diagnòstic o intervenció realitzada i tabaquisme a l'admissió. A més, compta amb diferents mesures de la capacitat funcional preses a l'inici i al final del programa de rehabilitació i amb mesures de resultat informades pel pacient (PROMs) a l'inici i al final de la RC i 6 mesos després.
 
 ### Capacitat funcional
 
-Text
+La principal mesura de resultat que s'utilitzarà en aquest treball és la distància recorreguda durant la prova de la marxa de 6 minuts (6MWT). Es tracta d'un mètode per avaluar la capacitat d'exercici en pacients amb patologies cardiorespiratòries i determinar-ne el pronòstic, amb un rang de referència de 400 a 700 metres en persones adultes sanes. [@matoscasano2025]. Tanmateix, cal tenir en compte que el resultat del test pot variar en funció de característiques com l'edat o el pes corporal. La diferència mínima clínicament important (MCID, per les seves sigles en anglès) proposada per l'European Respiratory Society i l'American Thoracic Society és de 30 m [@holland2014]; ara bé, aquest valor pot canviar per a diferents patologies. En condicions cardiovasculars com la malaltia arterial coronària, la MCID proposada és de 25 m [@gremeaux2011].
+
+Les altres variables d'aquest àmbit són l'equivalent metabòlic de la tasca (MET, íd.), la capacitat d'exercici màxima a curt termini (MSEC, íd.), expressada en watts ($W$), i la força isomètrica màxima dels quàdriceps (QIS, íd.), expressada en newton metre ($N \cdot m$). Les dues primeres mesures es van obtenir amb una ergometria i la darrera, mitjançant un dinamòmetre.
 
 ### Qüestionaris de salut
 
-Text
+L'Escala Hospitalària d'Ansietat i Depressió (HADS, íd.) avalua els nivells d'ansietat i depressió en 14 ítems (7 per a cada categoria). La puntuació de cada apartat va de 0 a 21 i es considera que valors iguals o superiors a 8 són indicadors de possibles símptomes psicològics clínicament rellevants.
+
+La qualitat de vida (QdV) relacionada amb la salut es va mesurar amb el qüestionari HeartQoL, que consta de 10 ítems per a l'àmbit físic i 4 per a l'emocional. Les puntuacions van de 0 a 30 i de 0 a 12, respectivament, essent valors més elevats indicadors de millor QdV.
+
+Per acabar, el qüestionari de Baecke conté 16 preguntes distribuïdes en 3 blocs: 8 sobre l'activitat física en entorn laboral, 4 de caràcter esportiu i 4 més en temps d'oci. Cada domini pren una puntuació d'1 a 5, en què valors més elevats corresponen a un nivell major d'activitat física.
 
 ## Anàlisi estadística
+
+<!-- ### Metodologia de treball -->
+
+<!-- Un cop feta la recerca d'evidència, es procedirà a l'anàlisi de les dades disponibles mitjançant el programari `R` i adoptant, en la mesura del possible, els principis del `tidyverse`. Se seguiran els passos que s'indiquen: -->
+
+<!-- - **Preprocessament de dades**: neteja, tractament de valors nuls, anàlisi descriptiva estratificada per sexe i definició de variables objectiu. Les principals variables d'interès són la capacitat funcional (mesurada habitualment amb la 6MWT) i la qualitat de vida, que es poden binaritzar en funció de si la millora és superior o no a la mínima diferència clínicament important per a cada cas. -->
+
+<!-- - **Modelització estadística**: construcció de models predictius a partir del conjunt de dades. Tenint en compte les característiques de les variables objectiu, es prendrà com a model de referència la regressió logística. S'optimitzarà el model amb mètodes de regularització (Ridge, LASSO). Malgrat que el nombre de registres és limitat, es podria comparar el resultat amb una alternativa no lineal, com ara un Random Forest. -->
+
+<!-- - **Avaluació i auditoria de gènere**: valoració del rendiment del model. A més de les mesures habituals, s'utilitzaran les mètriques d'equitat algorítmica que es considerin adequades d'entre les descrites a la literatura científica. -->
+
+<!-- - **Discussió de resultats**: exploració de tècniques de mitigació de biaixos i elaboració de recomanacions metodològiques per a futures investigacions. -->
+
+<!-- Aquest enfocament permetrà, d'una banda, disposar del context clínic adient per a la comprensió dels resultats i, de l'altra, garantir un tractament net i reproduïble de les dades. -->
 
 Text
 
@@ -1045,7 +1053,7 @@ plot_miss <- plot_miss +
   scale_fill_viridis_c(name = "% faltant") + 
   labs(
     x = "Sexe", 
-    y = "Variable", 
+    y = "Variable basal", 
     fill = "% faltant", 
     caption = str_wrap(
       "HADS: Escala Hospitalària d'Ansietat i Depressió. 
@@ -1237,7 +1245,7 @@ plot_func
 
 ```
 
-```{r, fig.cap="Anàlisi descriptiva bivariant | Qüestionaris de salut", fig.height=7}
+```{r}
 # 6. Anàlisi bivariant (capacitat funcional)
 plot_prom <- create_ggpairs(
   data,
@@ -1254,8 +1262,6 @@ plot_prom <- create_ggpairs(
   theme(
     plot.caption = element_text(hjust = 0)
   )
-
-plot_prom
 
 ```
 
@@ -1337,11 +1343,9 @@ Text
 \newpage
 \appendix
 
-# Annex 1
+# Llistat d'abreviacions
 
-## Llistat d'abreviacions
-
-### Abreviatures
+## Abreviatures
 
 - et al.: i altres (*et alii*).
 - íd.: ídem.
@@ -1349,7 +1353,7 @@ Text
 - p\. ex.: per exemple.
 - v.: vegeu.
 
-### Sigles i acrònims
+## Sigles i acrònims
 
 - **AVD**: activitats de la vida diària.
 - **CRISP-DM**: *Cross-industry Standard Process for Data Mining*.
@@ -1364,6 +1368,7 @@ Text
 - **IAM**: infart agut de miocardi.
 - **IMC**: índex de massa corporal.
 - **LASSO**: operador de selecció i contracció mínima absoluta (de l'anglès *least absolute shrinkage and selection operator*).
+- **MCID**: diferència mínima clínicament important (de l'anglès *Minimal Clinically Important Difference*)
 - **MET**: equivalent metabòlic de l'activitat (de l'anglès *metabolic equivalent of task*).
 - **ML**: aprenentatge automàtic (de l'anglès *machine learning*).
 - **MSEC**: capacitat d'exercici màxima a curt termini (de l'anglès *maximal short-time exercise capacity*).
@@ -1384,26 +1389,32 @@ Text
 - **VPP**: valor predictiu positiu.
 - **6MWT**: prova de la marxa de 6 minuts (de l'anglès *Six-Minute Walk Test*).
 
-### Símbols
+## Símbols
 
 - $N \cdot m$: newton metre.
 - $m$: metre.
 - $VO_2\ màx$: consum màxim d'oxigen.
 - $W$: watt.
 
-# Annex 2
+# Taules i figures addicionals
 
-## Codi
+```{r, fig.cap="Anàlisi descriptiva bivariant | Qüestionaris de salut", fig.pos="H", fig.height=7}
+# ---- ANNEX 2 ----
+
+# Anàlisi bivariant | PROMs
+plot_prom
+
+```
+
+# Codi
 
 ```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
 
 ```
 
-# Annex 3
+# Informe d'avaluació continuada (PAC 2)
 
-## Informe d'avaluació continuada (PAC 2)
-
-### Identificació del treball i data de l'informe
+## Identificació del treball i data de l'informe
 
 - **Títol**: "Biaixos de sexe i gènere en rehabilitació cardíaca: anàlisi d'equitat algorítmica (*fairness*) en la predicció de resultats clínics".
 
@@ -1413,21 +1424,21 @@ Text
 
 - **Data**: 4 de novembre de 2026.
 
-### Descripció de l'avanç del projecte
+## Descripció de l'avanç del projecte
 
 En aquest lliurament es recull el resum de l'evidència científica disponible sobre l'àmbit d'estudi. Per ara, s'ha completat la primera fase de cerca de literatura, que es materialitza en el capítol complet [**Estat de l'art**]. Al marge de les revisions que es puguin fer, el text que es presenta és el que s'utilitzarà per al lliurament final. A més, s'ha iniciat l'estudi preliminar del conjunt de dades triat per a l'anàlisi, que es desenvoluparà en profunditat de cara a la propera entrega.
 
-#### Grau de compliment dels objectius i resultats previstos en el pla de treball
+### Grau de compliment dels objectius i resultats previstos en el pla de treball
 
 Aquesta entrega se centra principalment en els objectius 1.1. Descriure l'estat actual de l'evidència científica en l'àmbit d'estudi i 2.1. Exposar tècniques de preprocessament, processament i postprocessament utilitzades per corregir la disparitat de les dades. Malgrat que alguns dels temes es desenvoluparan més a fons en els capítols de Materials i mètodes i Discussió, es considera que s'han complert els resultats previstos per a aquesta primera fase.
 
-#### Justificació dels canvis en cas necessari
+### Justificació dels canvis en cas necessari
 
 No s'ha hagut de fer cap modificació respecte de la planificació inicial del projecte.
 
-### Relació de les activitats executades
+## Relació de les activitats executades
 
-#### Activitats previstes en el pla de treball
+### Activitats previstes en el pla de treball
 
 Les activitats previstes que s'han dut a terme han estat:
 
@@ -1438,14 +1449,16 @@ Les activitats previstes que s'han dut a terme han estat:
 - Inici de l'estudi preliminar del conjunt de dades (no inclòs en aquesta entrega).
 - Inici de la redacció del Glossari i els Annexos.
 
-#### Activitats no previstes i realitzades
+### Activitats no previstes i realitzades
 
 No s'ha dut a terme cap activitat fora de les planificades.
 
-### Relació de les desviacions en la temporització, accions de mitigació i actualització del cronograma
+## Relació de les desviacions en la temporització, accions de mitigació i actualització del cronograma
 
 S'ha seguit sense problemes la planificació temporal proposada al lliurament anterior, per la qual cosa no ha calgut dur a terme cap acció de mitigació. Les accions preventives, com ara marcar fites parcials, han permès arribar a temps a tots els resultats esperats i deixar marge per a la revisió. En aquest document s'han actualitzat el calendari i les tasques per adequar-los a l'evolució del treball (v. [**Planificació del treball**]).
 
-### Llistat dels resultats parcials obtinguts fins al moment (lliurables que s'adjunten)
+## Llistat dels resultats parcials obtinguts fins al moment (lliurables que s'adjunten)
 
 S'adjunta un únic document que inclou els capítols redactats fins ara i aquest informe de progrés com a annex.
+
+# Informe d'avaluació continuada (PAC 3)
