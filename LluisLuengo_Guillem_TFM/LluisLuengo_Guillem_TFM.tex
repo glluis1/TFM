@@ -92,7 +92,7 @@
 \title{Biaixos de sexe i gènere en rehabilitació cardíaca: anàlisi d'equitat algorítmica (\emph{fairness}) en la predicció de resultats clínics}
 \titcrt{\emph{Fairness} en rehabilitació cardíaca} %Títol curt que apareixerà a la capçalera
 \author{Guillem Lluís i Luengo}
-\date{16 de novembre de 2026}
+\date{20 de novembre de 2026}
 
 \nomPDC{Susana Pérez Álvarez}
 \nomPRA{Laia Subirats Maté}
@@ -234,11 +234,11 @@ Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin
 A la \autoref{tab:taula1-1} es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat {[}\textbf{Enfocament i mètode seguit}{]}. S'indica també la relació amb els objectius proposats. En funció de la completesa i la qualitat de les dades i del temps disponible es podran revisar les prioritats i els plantejaments definits en aquesta secció (p.~ex. reduint el nombre de comparacions o limitant el nombre de mètodes de mitigació a aplicar). Durant tot el procés s'aniran incorporant també els comentaris de tutoria i les revisions acordades en cada prova d'avaluació.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1667}}@{}}
 \caption{Planificació de tasques}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
@@ -343,10 +343,10 @@ Cos del treball redactat & 31/12/26 & En curs \\
 La \autoref{tab:taula1-3} descriu els riscos que poden fer que la planificació no es compleixi i les accions previstes per al pla de contingència.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2466}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2466}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2466}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2603}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
 \caption{Anàlisi de riscos}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
@@ -878,9 +878,64 @@ Text
 
 Text
 
+\begin{itemize}
+\item
+  Variable resposta contínua vs.~binària:
+
+  \begin{itemize}
+  \item
+    Contínua: potència estadística, conserva variabilitat, modelització robusta // Menor traducció clínica directa
+  \item
+    Binària: MCID avalada per la literatura, alta rellevància i interpretabilitat, impacte en salut // Pèrdua d'informació, problemes en la definició de llindars
+  \end{itemize}
+\item
+  Auditoria de fairness:
+
+  \begin{itemize}
+  \item
+    Més natural en variables binàries, eines estandarditzades
+  \item
+    En variables contínues, més sensible per detectar biaixos subtils // Mètriques més complexes
+  \end{itemize}
+\item
+  Possibilitats:
+
+  \begin{itemize}
+  \item
+    Regressió logística
+  \item
+    Arbres de decisió
+  \item
+    Regressió lineal + binarització posterior (?): conservaria la informació de la variable contínua amb un criteri de decisió equivalent (interpretabilitat + robustesa)
+  \end{itemize}
+\end{itemize}
+
 \subsection{Anàlisi d'equitat i mitigació de biaixos}\label{anuxe0lisi-dequitat-i-mitigaciuxf3-de-biaixos}
 
 Text
+
+\begin{itemize}
+\item
+  Hipòtesis:
+
+  \begin{itemize}
+  \item
+    Falsos negatius: no derivació a RHB (molt important!!!)
+  \item
+    Falsos positius: no adaptació del tractament (en casos de 6MWT basal baixa)
+  \end{itemize}
+\item
+  Criteris:
+
+  \begin{itemize}
+  \item
+    Separació: dels pacients que han millorat (o no), quants es classifiquen correctament? Avaluació del model explicatiu, justícia distributiva i accés a recursos
+  \item
+    Suficiència: si el model s'utilitza com a CDSS, importància de VPP i VPN
+  \item
+    Compromisos: llindar de diferències per obtenir criteris menys restrictius
+  \end{itemize}
+\end{itemize}
 
 \chapter{Resultats}\label{resultats}
 
@@ -933,6 +988,7 @@ Text
 \textsuperscript{\textit{1}}n (\%); Mediana (Q1, Q3)\\
 \textsuperscript{\textit{2}}Prova de khi quadrat de Pearson; Prova exacta de Fisher,
 Prova U de Mann-Whitney\\
+HADS: Escala Hospitalària d'Ansietat i Depressió. MET: equivalent metabòlic de l'activitat. MSEC: capacitat d'exercici màxima a curt termini. QIS: força isomètrica màxima del quàdriceps. 6MWT: prova de la marxa de 6 minuts.\\
 \end{minipage}
 \end{table}
 
@@ -973,6 +1029,7 @@ Text
 \textsuperscript{\textit{1}}n (\%); Mediana (Q1, Q3)\\
 \textsuperscript{\textit{2}}Prova de khi quadrat de Pearson; Prova exacta de Fisher,
 Prova U de Mann-Whitney\\
+HADS: Escala Hospitalària d'Ansietat i Depressió. MET: equivalent metabòlic de l'activitat. MSEC: capacitat d'exercici màxima a curt termini. QIS: força isomètrica màxima del quàdriceps. 6MWT: prova de la marxa de 6 minuts.\\
 \end{minipage}
 \end{table}
 
@@ -1625,10 +1682,19 @@ Text
     \AttributeTok{p.value =} \StringTok{"**Valor p**"}
 \NormalTok{  ) }\SpecialCharTok{|\textgreater{}} 
   \FunctionTok{modify\_footnote}\NormalTok{(}
-      \FunctionTok{all\_stat\_cols}\NormalTok{() }\SpecialCharTok{\textasciitilde{}} \StringTok{"n (\%); Mediana (Q1, Q3)"}\NormalTok{,}
-\NormalTok{      p.value }\SpecialCharTok{\textasciitilde{}} \StringTok{"Prova de khi quadrat de Pearson; Prova exacta de Fisher, }
-\StringTok{      Prova U de Mann{-}Whitney"}
+    \FunctionTok{all\_stat\_cols}\NormalTok{() }\SpecialCharTok{\textasciitilde{}} \StringTok{"n (\%); Mediana (Q1, Q3)"}\NormalTok{, }
+\NormalTok{    p.value }\SpecialCharTok{\textasciitilde{}} \StringTok{"Prova de khi quadrat de Pearson; Prova exacta de Fisher, }
+\StringTok{    Prova U de Mann{-}Whitney"}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{modify\_source\_note}\NormalTok{(}
+    \FunctionTok{paste}\NormalTok{(}
+      \StringTok{"HADS: Escala Hospitalària d\textquotesingle{}Ansietat i Depressió."}\NormalTok{, }
+      \StringTok{"MET: equivalent metabòlic de l\textquotesingle{}activitat."}\NormalTok{, }
+      \StringTok{"MSEC: capacitat d\textquotesingle{}exercici màxima a curt termini."}\NormalTok{, }
+      \StringTok{"QIS: força isomètrica màxima del quàdriceps."}\NormalTok{, }
+      \StringTok{"6MWT: prova de la marxa de 6 minuts."}
 \NormalTok{    )}
+\NormalTok{  )}
 
 \NormalTok{table\_1}
 
@@ -1738,10 +1804,19 @@ Text
     \AttributeTok{p.value =} \StringTok{"**Valor p**"}
 \NormalTok{  ) }\SpecialCharTok{|\textgreater{}} 
   \FunctionTok{modify\_footnote}\NormalTok{(}
-      \FunctionTok{all\_stat\_cols}\NormalTok{() }\SpecialCharTok{\textasciitilde{}} \StringTok{"n (\%); Mediana (Q1, Q3)"}\NormalTok{,}
-\NormalTok{      p.value }\SpecialCharTok{\textasciitilde{}} \StringTok{"Prova de khi quadrat de Pearson; Prova exacta de Fisher, }
-\StringTok{      Prova U de Mann{-}Whitney"}
+    \FunctionTok{all\_stat\_cols}\NormalTok{() }\SpecialCharTok{\textasciitilde{}} \StringTok{"n (\%); Mediana (Q1, Q3)"}\NormalTok{, }
+\NormalTok{    p.value }\SpecialCharTok{\textasciitilde{}} \StringTok{"Prova de khi quadrat de Pearson; Prova exacta de Fisher, }
+\StringTok{    Prova U de Mann{-}Whitney"}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{modify\_source\_note}\NormalTok{(}
+    \FunctionTok{paste}\NormalTok{(}
+      \StringTok{"HADS: Escala Hospitalària d\textquotesingle{}Ansietat i Depressió."}\NormalTok{, }
+      \StringTok{"MET: equivalent metabòlic de l\textquotesingle{}activitat."}\NormalTok{, }
+      \StringTok{"MSEC: capacitat d\textquotesingle{}exercici màxima a curt termini."}\NormalTok{, }
+      \StringTok{"QIS: força isomètrica màxima del quàdriceps."}\NormalTok{, }
+      \StringTok{"6MWT: prova de la marxa de 6 minuts."}
 \NormalTok{    )}
+\NormalTok{  )}
 
 \NormalTok{table\_res}
   

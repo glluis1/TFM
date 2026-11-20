@@ -73,7 +73,8 @@ install_if_not <- function(pkg) {
 }
 
 # Llista de paquets i instal·lació
-paquets <- c("tidyverse", "readxl", "gtsummary", "GGally", "naniar")
+paquets <- c("tidyverse", "readxl", "gtsummary", "GGally", "naniar", 
+             "tidymodels", "car")
 
 install_if_not(paquets)
 
@@ -92,6 +93,10 @@ library(GGally)
 
 # Gestió de valors faltants
 library(naniar)
+
+# Modelització estadística
+library(tidymodels)
+library(car)
 
 
 ```
@@ -195,7 +200,7 @@ Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin
 A la \autoref{tab:taula1-1} es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat [**Enfocament i mètode seguit**]. S'indica també la relació amb els objectius proposats. En funció de la completesa i la qualitat de les dades i del temps disponible es podran revisar les prioritats i els plantejaments definits en aquesta secció (p. ex. reduint el nombre de comparacions o limitant el nombre de mètodes de mitigació a aplicar). Durant tot el procés s'aniran incorporant també els comentaris de tutoria i les revisions acordades en cada prova d'avaluació.
 
 | Tasca                             | Objectius     | Inici    | Final    | Estat      |
-|---------------|---------------|---------------|---------------|---------------|
+|------------------------|------------|------------|------------|------------|
 | **1. Definició i pla de treball** |               |          |          |            |
 | Plantejament del treball          |               | 23/9/26  | 7/10/26  | Completada |
 |                                   |               |          |          |            |
@@ -365,7 +370,7 @@ A la \autoref{tab:taula1-2} s'indiquen les fites corresponents a cada prova d'av
 La \autoref{tab:taula1-3} descriu els riscos que poden fer que la planificació no es compleixi i les accions previstes per al pla de contingència.
 
 | Risc | Impacte | Probabilitat | Mitigació |
-|------------------|------------------|------------------|-------------------|
+|------------------|------------------|------------------|------------------|
 | Abundància de registres incomplets en les dades | Alt | Alta | Imputació de valors faltants o eliminació dels registres afectats o de variables que no es considerin crítiques, segons el cas |
 | Biaixos inherents a la composició del conjunt de dades | Alt | Alta | Comparació dels resultats amb l'evidència disponible i aplicació de tècniques de ponderació o remostreig |
 | Desviacions del pla de treball marcat | Mitjà | Mitjana | Establiment de fites parcials per a les PAC, de manera que l'última setmana de cadascuna es pugui reservar per a la revisió o com a marge per acabar de completar les tasques pendents |
@@ -868,9 +873,43 @@ Text
 
 Text
 
+- Variable resposta contínua vs. binària:
+
+  - Contínua: potència estadística, conserva variabilitat, modelització robusta // Menor traducció clínica directa
+
+  - Binària: MCID avalada per la literatura, alta rellevància i interpretabilitat, impacte en salut // Pèrdua d'informació, problemes en la definició de llindars
+
+- Auditoria de fairness:
+
+  - Més natural en variables binàries, eines estandarditzades
+
+  - En variables contínues, més sensible per detectar biaixos subtils // Mètriques més complexes
+
+- Possibilitats:
+
+  - Regressió logística
+
+  - Arbres de decisió
+
+  - Regressió lineal + binarització posterior (?): conservaria la informació de la variable contínua amb un criteri de decisió equivalent (interpretabilitat + robustesa)
+
 ### Anàlisi d'equitat i mitigació de biaixos
 
 Text
+
+- Hipòtesis:
+
+  - Falsos negatius: no derivació a RHB (molt important!!!)
+
+  - Falsos positius: no adaptació del tractament (en casos de 6MWT basal baixa)
+
+- Criteris:
+
+  - Separació: dels pacients que han millorat (o no), quants es classifiquen correctament? Avaluació del model explicatiu, justícia distributiva i accés a recursos
+
+  - Suficiència: si el model s'utilitza com a CDSS, importància de VPP i VPN
+
+  - Compromisos: llindar de diferències per obtenir criteris menys restrictius
 
 <!-- En aquests apartats, cal descriure: -->
 
@@ -1019,10 +1058,19 @@ table_1 <- tbl_stack(
     p.value = "**Valor p**"
   ) |> 
   modify_footnote(
-      all_stat_cols() ~ "n (%); Mediana (Q1, Q3)",
-      p.value ~ "Prova de khi quadrat de Pearson; Prova exacta de Fisher, 
-      Prova U de Mann-Whitney"
+    all_stat_cols() ~ "n (%); Mediana (Q1, Q3)", 
+    p.value ~ "Prova de khi quadrat de Pearson; Prova exacta de Fisher, 
+    Prova U de Mann-Whitney"
+  ) |> 
+  modify_source_note(
+    paste(
+      "HADS: Escala Hospitalària d'Ansietat i Depressió.", 
+      "MET: equivalent metabòlic de l'activitat.", 
+      "MSEC: capacitat d'exercici màxima a curt termini.", 
+      "QIS: força isomètrica màxima del quàdriceps.", 
+      "6MWT: prova de la marxa de 6 minuts."
     )
+  )
 
 table_1
 
@@ -1142,10 +1190,19 @@ table_res <- create_tbl_summary(data, vars_res, labels_res) |>
     p.value = "**Valor p**"
   ) |> 
   modify_footnote(
-      all_stat_cols() ~ "n (%); Mediana (Q1, Q3)",
-      p.value ~ "Prova de khi quadrat de Pearson; Prova exacta de Fisher, 
-      Prova U de Mann-Whitney"
+    all_stat_cols() ~ "n (%); Mediana (Q1, Q3)", 
+    p.value ~ "Prova de khi quadrat de Pearson; Prova exacta de Fisher, 
+    Prova U de Mann-Whitney"
+  ) |> 
+  modify_source_note(
+    paste(
+      "HADS: Escala Hospitalària d'Ansietat i Depressió.", 
+      "MET: equivalent metabòlic de l'activitat.", 
+      "MSEC: capacitat d'exercici màxima a curt termini.", 
+      "QIS: força isomètrica màxima del quàdriceps.", 
+      "6MWT: prova de la marxa de 6 minuts."
     )
+  )
 
 table_res
   
@@ -1263,11 +1320,84 @@ plot_prom <- create_ggpairs(
     plot.caption = element_text(hjust = 0)
   )
 
+rm(vars_in, vars_res)
+
 ```
 
 ## Modelització de la millora de la capacitat funcional
 
 Text
+
+- QIS_left_in i QIS_right_in tenen alta correlació i VIF > 5
+
+```{r}
+# ---- 4.3 Modelització ----
+
+# 1. Llavor aleatòria
+set.seed(764)
+
+# 2. Transformacions i selecció de variables
+data_mod <- data |> 
+  # 2.1. Mitjana de QIS
+  mutate(
+    avg_QIS_in = (QIS_right_in + QIS_left_in) / 2
+  ) |>
+  
+  # 2.2. Filtratge de valors faltants en la resposta
+  drop_na(dif_6MWT) |> 
+  
+  # 2.3. Selecció de variables per als models
+  select(`Age group`, Sex, `Diagnosis/intervention`, `Smoking entry`, 
+         `6MWT_in`, avg_QIS_in, MSEC_in, mets_in, 
+         had_depression_in, had_anxiety_in, 
+         heart_quality_physical_in, heart_quality_emotion_in, 
+         baecke_work_in, baecke_sport_in, baecke_leisure_in, 
+         dif_6MWT, imp_6MWT)
+
+# 3. Partició del conjunt de dades
+data_split <- data_mod |> 
+  # 3.1. Factor d'estratificació
+  mutate(
+    strata_var = interaction(Sex, imp_6MWT)
+  ) |> 
+  
+  # 3.2. Objecte de partició
+  initial_split(prop = 0.7, strata = strata_var)
+
+# 4. Conjunt d'entrenament
+data_train <- data_split |>
+  training() |>
+  select(-strata_var)
+
+# 5. Conjunt de test
+data_test <- data_split |>
+  testing() |>
+  select(-strata_var)
+
+# 6. Factors d'inflació de la variància
+vif_data_mod <- vif(lm(dif_6MWT ~ . - imp_6MWT, data = data_train))
+
+```
+
+```{r}
+# ---- Regressió lineal ----
+
+# 1. Model de regressió
+lm_model <- linear_reg() |> 
+  set_engine("lm") |> 
+  set_mode("regression")
+
+# 2. Ajust del model
+lm_fit <- lm_model |> 
+  last_fit(dif_6MWT ~ . - imp_6MWT - strata_var, split = data_split)
+
+# 3. Prediccions
+lm_predictions <- lm_fit |> collect_predictions()
+
+# 4. Avaluació
+lm_metrics <- lm_fit |> collect_metrics()
+
+```
 
 ## Anàlisi d'equitat
 
