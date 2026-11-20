@@ -1149,7 +1149,8 @@ data <- data |>
     dif_baecke_leisure = baecke_leisure_out - baecke_leisure_in, 
     
     # Millora en 6MWT segonc MCID
-    imp_6MWT = factor(if_else(dif_6MWT >= 25, "Yes", "No"))
+    imp_6MWT = factor(if_else(dif_6MWT >= 25, "Yes", "No")), 
+    imp_6MWT = fct_rev(imp_6MWT)
   )
   
 # 2. Variables de resultat
@@ -1362,7 +1363,7 @@ data_split <- data_mod |>
   ) |> 
   
   # 3.2. Objecte de partició
-  initial_split(prop = 0.7, strata = strata_var)
+  initial_split(prop = 0.75, strata = strata_var)
 
 # 4. Conjunt d'entrenament
 data_train <- data_split |>
@@ -1392,10 +1393,38 @@ lm_fit <- lm_model |>
   last_fit(dif_6MWT ~ . - imp_6MWT - strata_var, split = data_split)
 
 # 3. Prediccions
-lm_predictions <- lm_fit |> collect_predictions()
+lm_predictions <- lm_fit |> 
+  collect_predictions()
 
 # 4. Avaluació
-lm_metrics <- lm_fit |> collect_metrics()
+lm_metrics <- lm_fit |> 
+  collect_metrics()
+
+```
+
+```{r}
+# ---- Regressió logística ----
+
+# 1. Model de regressió
+logreg_model <- logistic_reg() |> 
+  set_engine("glm") |> 
+  set_mode("classification")
+
+# 2. Ajust del model
+logreg_fit <- logreg_model |> 
+  last_fit(imp_6MWT ~ . - dif_6MWT - strata_var, split = data_split)
+
+# 3. Prediccions
+logreg_predictions <- logreg_fit |> 
+  collect_predictions()
+
+# 4. Avaluació
+custom_metrics <- metric_set(accuracy, sens, spec, ppv, npv, roc_auc)
+
+custom_metrics(logreg_predictions, 
+               truth = imp_6MWT, 
+               estimate = .pred_class, 
+               .pred_Yes)
 
 ```
 
