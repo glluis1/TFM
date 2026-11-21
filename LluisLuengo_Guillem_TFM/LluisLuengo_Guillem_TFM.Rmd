@@ -1149,8 +1149,10 @@ data <- data |>
     dif_baecke_leisure = baecke_leisure_out - baecke_leisure_in, 
     
     # Millora en 6MWT segonc MCID
-    imp_6MWT = factor(if_else(dif_6MWT >= 25, "Yes", "No")), 
-    imp_6MWT = fct_rev(imp_6MWT)
+    imp_6MWT = factor(
+      if_else(dif_6MWT >= 25, "Yes", "No"), 
+      levels = c("Yes", "No")
+    )
   )
   
 # 2. Variables de resultat
@@ -1379,77 +1381,273 @@ vif_data_mod <- vif(lm(dif_6MWT ~ . - imp_6MWT - strata_var, data = data_train))
 ```
 
 ```{r}
-mod_reg_recipe_glmnet <- recipe(dif_6MWT ~ ., data = data_train) |> 
+# ---- Regressió lineal (LASSO) ----
+
+set.seed(827)
+
+# 1. Validació creuada
+mod_folds <- vfold_cv(data_train, v = 5, repeats = 5, strata = strata_var)
+
+# 2. Preprocessament
+mod_reg_recipe <- recipe(dif_6MWT ~ ., data = data_train) |> 
+  # 2.1. Eliminació de variables
   step_rm(imp_6MWT, strata_var) |> 
+  
+  # 2.2. Imputació per la mediana/moda
   step_impute_median(all_numeric_predictors()) |> 
   step_impute_mode(all_nominal_predictors()) |> 
-  step_normalize(all_numeric_predictors()) |> 
-  step_dummy(all_nominal_predictors())
+  
+  # 2.3. Creació de variables indicadores
+  step_dummy(all_nominal_predictors()) |> 
+  
+  # 2.4. Normalització
+  step_normalize(all_numeric_predictors())
 
-ridge_model <- linear_reg(penalty = tune(), mixture = 0) |> 
-  set_engine("glmnet") |> 
-  set_mode("regression")
-
+# 3. Model
 lasso_model <- linear_reg(penalty = tune(), mixture = 1) |> 
   set_engine("glmnet") |> 
   set_mode("regression")
 
-penalty_grid <- grid_regular(penalty(range = c(0, 1)), levels = 100)
+# 4. Flux de treball
+lasso_workflow <- workflow() |> 
+  add_model(lasso_model) |> 
+  add_recipe(mod_reg_recipe)
 
-glmnet_workflow <- workflow_set(
-  preproc = list(med_mode = mod_reg_recipe_glmnet), 
-  models = list(ridge = ridge_model, lasso = lasso_model)
-) |> 
-  workflow_map(
-    fn = "tune_grid", 
-    resamples = mod_reg_folds, 
-    grid = penalty_grid, 
-    seed = 827
+# 5. Definició de paràmetres
+lasso_tune <- lasso_workflow |> 
+  tune_grid(
+    resamples = mod_folds, 
+    grid = grid_regular(penalty(range = c(-4, 2)), levels = 50)
   )
 
-best_ridge_params <- glmnet_workflow |> 
-  extract_workflow_set_result("med_mode_ridge") |> 
-  select_best(metric = "rmse")
+# 6. Mètriques d'entrenament
+lasso_metrics_train <- lasso_tune |> 
+  show_best()
 
-best_lasso_params <- glmnet_workflow |> 
-  extract_workflow_set_result("med_mode_lasso") |> 
-  select_best(metric = "rmse")
+# 7. Millor model
+lasso_best <- select_best(lasso_tune, metric = "rmse")
 
-fit_ridge_final <- glmnet_workflow |> 
-  extract_workflow("med_mode_ridge") |> 
-  finalize_workflow(best_ridge_params) |> 
-  fit(data_train)
+# 8. Flux de treball actualitzat
+lasso_workflow <- lasso_workflow |> 
+  finalize_workflow(lasso_best)
 
-fit_lasso_final <- glmnet_workflow |> 
-  extract_workflow("med_mode_lasso") |> 
-  finalize_workflow(best_lasso_params) |> 
-  fit(data_train)
+# 9. Resultats
+lasso_fit <- lasso_workflow |> 
+  last_fit(split = mod_split)
+
+# 10. Mètriques de test
+lasso_metrics_test <- lasso_fit |> 
+  collect_metrics()
+
+# 11. Prediccions
+lasso_predictions <- lasso_fit |> 
+  collect_predictions() |> 
+  mutate(
+    imp_6MWT = data_mod$imp_6MWT[.row], 
+    .pred_class = factor(
+      if_else(.pred > 25, "Yes", "No"), 
+      levels = levels(data_test$imp_6MWT)
+    )
+  )
+
+# 12. Mètriques de classificació
+mod_class_metrics <- metric_set(accuracy, sens, spec, ppv, npv, roc_auc)
+
+# 13. Avaluació
+lasso_eval <- mod_class_metrics(
+  lasso_predictions, 
+  truth = imp_6MWT, 
+  estimate = .pred_class, 
+  .pred
+)
+
+# 14. Coeficients
+lasso_coefs <- lasso_fit |> 
+  extract_fit_parsnip() |> 
+  tidy() |> 
+  filter(estimate != 0)
 
 ```
 
 ```{r}
-# ---- Regressió logística ----
+# ---- Regressió logística (multiple stepwise selection) ----
 
-# 1. Model de regressió
+set.seed(827)
+
+# 1. Preprocessament
+mod_class_recipe <- recipe(
+  imp_6MWT ~ `6MWT_in` + MSEC_in + mets_in + baecke_work_in + `Age group` + 
+    `Diagnosis/intervention`, data = data_train
+) |> 
+  step_impute_median(all_numeric_predictors()) |> 
+  step_impute_mode(all_nominal_predictors()) |> 
+  step_dummy(all_nominal_predictors())
+
+# 2. Model
 logreg_model <- logistic_reg() |> 
   set_engine("glm") |> 
   set_mode("classification")
 
-# 2. Ajust del model
-logreg_fit <- logreg_model |> 
-  last_fit(imp_6MWT ~ . - dif_6MWT - strata_var, split = mod_split)
+# 3. Flux de treball
+logreg_workflow <- workflow() |> 
+  add_model(logreg_model) |> 
+  add_recipe(mod_class_recipe)
 
-# 3. Prediccions
+# 4. Mètriques d'entrenament
+logreg_metrics_train <- logreg_workflow |> 
+  fit_resamples(
+    resamples = mod_folds, 
+    metrics = mod_class_metrics
+  ) |> 
+  collect_metrics()
+
+# 5. Resultats
+logreg_fit <- logreg_workflow |> 
+  last_fit(split = mod_split, metrics = mod_class_metrics)
+
+# 6. Mètriques de test
+logreg_metrics_test <- logreg_fit |> 
+  collect_metrics()
+
+# 7. Prediccions
 logreg_predictions <- logreg_fit |> 
   collect_predictions()
 
-# 4. Avaluació
-custom_metrics <- metric_set(accuracy, sens, spec, ppv, npv, roc_auc)
+# 8. Odds ratio
+logreg_coefs <- logreg_fit |> 
+  extract_fit_parsnip() |> 
+  tidy(exponentiate = TRUE, conf.int = TRUE) |> 
+  filter(term != "(Intercept)") |> 
+  mutate(
+    estimate = 1 / estimate, 
+    .low = 1 / conf.high, 
+    .high = 1 / conf.low, 
+    conf.low = .low, 
+    conf.high = .high, 
+    .low = NULL, .high = NULL
+  )
 
-custom_metrics(logreg_predictions, 
-               truth = imp_6MWT, 
-               estimate = .pred_class, 
-               .pred_Yes)
+```
+
+```{r}
+# ---- Random forest ----
+
+set.seed(827)
+
+# 1. Preprocessament
+mod_tree_recipe <- recipe(imp_6MWT ~ ., data = data_train) |> 
+  step_rm(dif_6MWT, strata_var) |> 
+  step_impute_median(all_numeric_predictors()) |> 
+  step_impute_mode(all_nominal_predictors())
+
+# 2. Model
+rf_model <- rand_forest(mtry = tune(), trees = 1000, min_n = tune()) |> 
+  set_engine("ranger", importance = "permutation") |> 
+  set_mode("classification")
+
+# 3. Flux de treball
+rf_workflow <- workflow() |> 
+  add_model(rf_model) |> 
+  add_recipe(mod_tree_recipe)
+
+# 4. Definició de paràmetres
+rf_tune <- rf_workflow |> 
+  tune_grid(
+    resamples = mod_folds, 
+    grid = 20, 
+    metrics = mod_class_metrics
+  )
+
+# 5. Mètriques d'entrenament
+rf_metrics_train <- rf_tune |> 
+  show_best(metric = "roc_auc")
+
+# 6. Millor model
+rf_best <- select_best(rf_tune, metric = "roc_auc")
+
+# 7. Flux de treball actualitzat
+rf_workflow <- rf_workflow |> 
+  finalize_workflow(rf_best)
+
+# 8. Resultats
+rf_fit <- rf_workflow |> 
+  last_fit(split = mod_split, metrics = mod_class_metrics)
+
+# 9. Mètriques de test
+rf_metrics_test <- rf_fit |> 
+  collect_metrics()
+
+# 10. Prediccions
+rf_predictions <- rf_fit |> 
+  collect_predictions()
+
+# 11. Importància de les variables
+rf_coefs <- rf_fit |> 
+  extract_fit_engine() |> 
+  ranger::importance() |> 
+  tibble::enframe(name = "variable", value = "importance") |> 
+  arrange(desc(importance))
+
+```
+
+```{r}
+# ---- Decision tree ----
+
+set.seed(827)
+
+# 1. Model
+dt_model <- decision_tree(cost_complexity = tune(), 
+                          tree_depth = tune(), 
+                          min_n = tune()) |> 
+  set_engine("rpart") |> 
+  set_mode("classification")
+
+# 2. Flux de treball
+dt_workflow <- workflow() |> 
+  add_model(dt_model) |> 
+  add_recipe(mod_tree_recipe)
+
+# 3. Definició de paràmetres
+dt_tune <- dt_workflow |> 
+  tune_grid(
+    resamples = mod_folds, 
+    grid = 20, 
+    metrics = mod_class_metrics
+  )
+
+# 4. Mètriques d'entrenament
+dt_metrics_train <- dt_tune |> 
+  show_best(metric = "roc_auc")
+
+# 5. Millor model
+dt_best <- dt_tune |> 
+  select_by_one_std_err(metric = "roc_auc", desc(cost_complexity))
+
+# 6. Flux de treball actualitzat
+dt_workflow <- dt_workflow |> 
+  finalize_workflow(dt_best)
+
+# 7. Resultats
+dt_fit <- dt_workflow |> 
+  last_fit(split = mod_split, metrics = mod_class_metrics)
+
+# 8. Mètriques de test
+dt_metrics_test <- dt_fit |> 
+  collect_metrics()
+
+# 9. Prediccions
+dt_predictions <- dt_fit |> 
+  collect_predictions()
+
+# 10. Arbre de decisió i importància
+dt_tree <- rpart.plot(extract_fit_engine(dt_fit), roundint = FALSE)
+
+# 11. Importància de les variables
+dt_coefs <- tibble::enframe(
+  extract_fit_engine(dt_fit)$variable.importance, 
+  name = "variable", value = "importance"
+) |> 
+  arrange(desc(importance))
 
 ```
 

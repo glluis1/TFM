@@ -63,7 +63,10 @@ data <- data |>
     dif_baecke_leisure = baecke_leisure_out - baecke_leisure_in, 
     
     # Millora en 6MWT segonc MCID
-    imp_6MWT = factor(if_else(dif_6MWT >= 25, "Yes", "No"))
+    imp_6MWT = factor(
+      if_else(dif_6MWT >= 25, "Yes", "No"), 
+      levels = c("Yes", "No")
+    )
   )
 
 
@@ -125,7 +128,7 @@ set.seed(827)
 mod_reg_metrics <- metric_set(rmse, rsq)
 
 # Validació creuada
-mod_reg_folds <- vfold_cv(data_train, v = 5, repeats = 5, strata = strata_var)
+mod_folds <- vfold_cv(data_train, v = 5, repeats = 5, strata = strata_var)
 
 # Preprocessament
 mod_reg_recipe <- recipe(dif_6MWT ~ ., data = data_train) |> 
@@ -147,7 +150,7 @@ lm_workflow <- workflow() |>
 # Mètriques d'entrenament
 lm_metrics_train <- lm_workflow |> 
   fit_resamples(
-    resamples = mod_reg_folds, 
+    resamples = mod_folds, 
     metrics = mod_reg_metrics, 
     seed = 827
   ) |> 
@@ -203,7 +206,7 @@ stepwise_workflow <- workflow() |>
 # Mètriques d'entrenament
 stepwise_metrics_train <- stepwise_workflow |> 
   fit_resamples(
-    resamples = mod_reg_folds, 
+    resamples = mod_folds, 
     metrics = mod_reg_metrics, 
     seed = 827
   ) |> 
@@ -246,7 +249,7 @@ lasso_workflow <- workflow() |>
 # Definició de paràmetres
 lasso_tune <- lasso_workflow |> 
   tune_grid(
-    resamples = mod_reg_folds, 
+    resamples = mod_folds, 
     grid = grid_regular(penalty(range = c(-4, 2)), levels = 30), 
     metrics = mod_reg_metrics, 
     seed = 827
@@ -295,7 +298,7 @@ ridge_workflow <- workflow() |>
 # Definició de paràmetres
 ridge_tune <- ridge_workflow |> 
   tune_grid(
-    resamples = mod_reg_folds, 
+    resamples = mod_folds, 
     grid = grid_regular(penalty(range = c(-4, 2)), levels = 30), 
     metrics = mod_reg_metrics, 
     seed = 827
@@ -376,7 +379,7 @@ ridge_n_vars <- fit(ridge_workflow, data = data_train) |>
   nrow()
 
 # Taula final
-table_mod <- tibble(
+table_mod_reg <- tibble(
   model = c("lm_full", "stepwise", "lasso", "ridge"), 
   n_vars = c(lm_n_vars, stepwise_n_vars, lasso_n_vars, ridge_n_vars), 
   penalty = c(NA_real_, NA_real_, lasso_best$penalty, ridge_best$penalty)
@@ -384,3 +387,269 @@ table_mod <- tibble(
   left_join(summary_cv, by = "model") |> 
   left_join(summary_test, by = "model") |> 
   arrange(test_rmse)
+
+
+# ---- Regressió logística ----
+
+set.seed(827)
+
+# Mètriques
+mod_class_metrics <- metric_set(accuracy, sens, spec, ppv, npv, roc_auc)
+
+# Preprocessament
+mod_class_recipe <- recipe(imp_6MWT ~ ., data = data_train) |> 
+  step_rm(dif_6MWT, strata_var) |> 
+  step_impute_median(all_numeric_predictors()) |> 
+  step_impute_mode(all_nominal_predictors()) |> 
+  step_dummy(all_nominal_predictors())
+
+# Model
+logreg_model <- logistic_reg() |> 
+  set_engine("glm") |> 
+  set_mode("classification")
+
+# Flux de treball
+logreg_workflow <- workflow() |> 
+  add_model(logreg_model) |> 
+  add_recipe(mod_class_recipe)
+
+# Mètriques d'entrenament
+logreg_metrics_train <- logreg_workflow |> 
+  fit_resamples(
+    resamples = mod_folds, 
+    metrics = mod_class_metrics, 
+    seed = 827
+  ) |> 
+  collect_metrics() |> 
+  mutate(model = "logreg_full", split_set = "cv")
+
+# Resultats
+logreg_fit <- logreg_workflow |> 
+  last_fit(split = mod_split, metrics = mod_class_metrics)
+
+# Mètriques de test
+logreg_metrics_test <- collect_metrics(logreg_fit) |> 
+  mutate(model = "logreg_full", split_set = "test")
+
+# Prediccions
+logreg_predictions <- collect_predictions(logreg_fit) |> 
+  mutate(model = "logreg_full")
+
+
+# ---- Stepwise selection (logreg) ----
+
+set.seed(827)
+
+# Preprocessament
+stepwise_prep <- prep(mod_class_recipe, training = data_train)
+stepwise_train <- bake(stepwise_prep, new_data = data_train)
+
+# Models complet i nul
+glm_full <- glm(imp_6MWT ~ ., family = binomial, data = stepwise_train)
+glm_null <- glm(imp_6MWT ~ 1, family = binomial, data = stepwise_train)
+
+# Selecció múltiple
+stepwise_model <- stats::step(
+  glm_full, 
+  scope = list(lower = glm_null, upper = glm_full), 
+  direction = "both", 
+  trace = FALSE
+)
+
+stepwise_vars <- names(coef(stepwise_model))
+stepwise_vars <- stepwise_vars[stepwise_vars != "(Intercept)"]
+stepwise_vars <- gsub("`", "", stepwise_vars, fixed = TRUE)
+
+# Preprocessament
+mod_class_recipe_stepwise <- mod_class_recipe |> 
+  step_select(imp_6MWT, all_of(stepwise_vars))
+
+# Flux de treball
+stepwise_workflow <- workflow() |> 
+  add_model(logreg_model) |> 
+  add_recipe(mod_class_recipe_stepwise)
+
+# Mètriques d'entrenament
+stepwise_metrics_train <- stepwise_workflow |> 
+  fit_resamples(
+    resamples = mod_folds, 
+    metrics = mod_class_metrics, 
+    seed = 827
+  ) |> 
+  collect_metrics() |> 
+  mutate(model = "stepwise", split_set = "cv")
+
+# Resultats
+stepwise_fit <- stepwise_workflow |> 
+  last_fit(split = mod_split, metrics = mod_class_metrics)
+
+# Mètriques de test
+stepwise_metrics_test <- collect_metrics(stepwise_fit) |> 
+  mutate(model = "stepwise", split_set = "test")
+
+# Prediccions
+stepwise_predictions <- collect_predictions(stepwise_fit) |> 
+  mutate(model = "stepwise")
+
+rm(glm_full, glm_null, stepwise_prep, stepwise_train)
+
+
+# ---- LASSO (logreg) ----
+
+set.seed(827)
+
+# Preprocessament
+mod_class_recipe_glmnet <- mod_class_recipe |> 
+  step_normalize(all_numeric_predictors())
+
+# Model
+lasso_model <- logistic_reg(penalty = tune(), mixture = 1) |> 
+  set_engine("glmnet") |> 
+  set_mode("classification")
+
+# Flux de treball
+lasso_workflow <- workflow() |> 
+  add_model(lasso_model) |> 
+  add_recipe(mod_class_recipe_glmnet)
+
+# Definició de paràmetres
+lasso_tune <- lasso_workflow |> 
+  tune_grid(
+    resamples = mod_folds, 
+    grid = grid_regular(penalty(range = c(-4, 2)), levels = 50), 
+    metrics = mod_class_metrics, 
+    seed = 827
+  )
+
+# Millor model
+lasso_best <- select_best(lasso_tune, metric = "roc_auc")
+
+# Flux de treball actualitzat
+lasso_workflow <- lasso_workflow |> 
+  finalize_workflow(lasso_best)
+
+# Mètriques d'entrenament
+lasso_metrics_train <- lasso_tune |> 
+  collect_metrics() |> 
+  semi_join(lasso_best, by = "penalty") |> 
+  mutate(model = "lasso", split_set = "cv")
+
+# Resultats
+lasso_fit <- lasso_workflow |> 
+  last_fit(split = mod_split, metrics = mod_class_metrics)
+
+# Mètriques de test
+lasso_metrics_test <- collect_metrics(lasso_fit) |> 
+  mutate(model = "lasso", split_set = "test")
+
+# Prediccions
+lasso_predictions <- collect_predictions(lasso_fit) |> 
+  mutate(model = "lasso")
+
+
+# ---- Ridge (logreg) ----
+
+set.seed(827)
+
+# Model
+ridge_model <- logistic_reg(penalty = tune(), mixture = 0) |> 
+  set_engine("glmnet") |> 
+  set_mode("classification")
+
+# Flux de treball
+ridge_workflow <- workflow() |> 
+  add_model(ridge_model) |> 
+  add_recipe(mod_class_recipe_glmnet)
+
+# Definició de paràmetres
+ridge_tune <- ridge_workflow |> 
+  tune_grid(
+    resamples = mod_folds, 
+    grid = grid_regular(penalty(range = c(-4, 2)), levels = 50), 
+    metrics = mod_class_metrics, 
+    seed = 827
+  )
+
+# Millor model
+ridge_best <- select_best(ridge_tune, metric = "roc_auc")
+
+# Flux de treball actualitzat
+ridge_workflow <- ridge_workflow |> 
+  finalize_workflow(ridge_best)
+
+# Mètriques d'entrenament
+ridge_metrics_train <- ridge_tune |> 
+  collect_metrics() |> 
+  semi_join(ridge_best, by = "penalty") |> 
+  mutate(model = "ridge", split_set = "cv")
+
+# Resultats
+ridge_fit <- ridge_workflow |> 
+  last_fit(split = mod_split, metrics = mod_class_metrics)
+
+# Mètriques de test
+ridge_metrics_test <- collect_metrics(ridge_fit) |> 
+  mutate(model = "ridge", split_set = "test")
+
+# Prediccions
+ridge_predictions <- collect_predictions(ridge_fit) |> 
+  mutate(model = "ridge")
+
+
+# ---- Comparació ----
+
+# Entrenament
+summary_cv <- bind_rows(
+  logreg_metrics_train, 
+  stepwise_metrics_train, 
+  lasso_metrics_train, 
+  ridge_metrics_train
+) |> 
+  select(model, .metric, mean, std_err) |> 
+  pivot_wider(
+    names_from = .metric, 
+    values_from = c(mean, std_err), 
+    names_glue = "cv_{.metric}_{.value}"
+  )
+
+# Test
+summary_test <- bind_rows(
+  logreg_metrics_test, 
+  stepwise_metrics_test, 
+  lasso_metrics_test, 
+  ridge_metrics_test
+) |> 
+  select(model, .metric, .estimate) |> 
+  pivot_wider(
+    names_from = .metric, 
+    values_from = .estimate, 
+    names_glue = "test_{.metric}"
+  )
+
+# Nombre de predictors
+logreg_n_vars <- fit(logreg_workflow, data = data_train) |> 
+  tidy() |> 
+  filter(term != "(Intercept)", !is.na(estimate)) |> 
+  nrow()
+
+stepwise_n_vars <- length(stepwise_vars)
+
+lasso_n_vars <- fit(lasso_workflow, data = data_train) |> 
+  tidy() |> 
+  filter(term != "(Intercept)", estimate != 0) |> 
+  nrow()
+
+ridge_n_vars <- fit(ridge_workflow, data = data_train) |> 
+  tidy() |> 
+  filter(term != "(Intercept)", estimate != 0) |> 
+  nrow()
+
+# Taula final
+table_mod_class <- tibble(
+  model = c("logreg_full", "stepwise", "lasso", "ridge"), 
+  n_vars = c(logreg_n_vars, stepwise_n_vars, lasso_n_vars, ridge_n_vars), 
+  penalty = c(NA_real_, NA_real_, lasso_best$penalty, ridge_best$penalty)
+) |> 
+  left_join(summary_cv, by = "model") |> 
+  left_join(summary_test, by = "model") |> 
+  arrange(desc(test_roc_auc))
