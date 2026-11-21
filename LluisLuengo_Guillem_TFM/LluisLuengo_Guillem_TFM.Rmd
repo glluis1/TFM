@@ -1518,6 +1518,8 @@ logreg_coefs <- logreg_fit |>
   extract_fit_parsnip() |> 
   tidy(exponentiate = TRUE, conf.int = TRUE) |> 
   filter(term != "(Intercept)") |> 
+  
+  # 8.1. Coeficients per a la classe positiva
   mutate(
     estimate = 1 / estimate, 
     .low = 1 / conf.high, 
@@ -1551,10 +1553,16 @@ rf_workflow <- workflow() |>
   add_recipe(mod_tree_recipe)
 
 # 4. Definició de paràmetres
+rf_params <- extract_parameter_set_dials(rf_workflow) |> 
+  update(
+    mtry = mtry(range = c(2, 12)), 
+    min_n = min_n(range = c(3, 30))
+  )
+
 rf_tune <- rf_workflow |> 
   tune_grid(
     resamples = mod_folds, 
-    grid = 20, 
+    grid = grid_regular(rf_params, levels = c(6, 5)), 
     metrics = mod_class_metrics
   )
 
@@ -1608,10 +1616,17 @@ dt_workflow <- workflow() |>
   add_recipe(mod_tree_recipe)
 
 # 3. Definició de paràmetres
+dt_params <- extract_parameter_set_dials(dt_workflow) |> 
+  update(
+    cost_complexity = cost_complexity(range = c(-3, -1.5)), 
+    tree_depth = tree_depth(range = c(2, 5)), 
+    min_n = min_n(range = c(10, 30))
+  )
+
 dt_tune <- dt_workflow |> 
   tune_grid(
     resamples = mod_folds, 
-    grid = 20, 
+    grid = grid_regular(dt_params, levels = c(6, 4, 4)), 
     metrics = mod_class_metrics
   )
 
@@ -1621,7 +1636,7 @@ dt_metrics_train <- dt_tune |>
 
 # 5. Millor model
 dt_best <- dt_tune |> 
-  select_by_one_std_err(metric = "roc_auc", desc(cost_complexity))
+  select_best(metric = "roc_auc")
 
 # 6. Flux de treball actualitzat
 dt_workflow <- dt_workflow |> 
