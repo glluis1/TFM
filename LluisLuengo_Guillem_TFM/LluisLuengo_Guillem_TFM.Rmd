@@ -1335,7 +1335,7 @@ Text
 # ---- 4.3 Modelització ----
 
 # 1. Llavor aleatòria
-set.seed(764)
+set.seed(827)
 
 # 2. Transformacions i selecció de variables
 data_mod <- data |> 
@@ -1356,49 +1356,74 @@ data_mod <- data |>
          dif_6MWT, imp_6MWT)
 
 # 3. Partició del conjunt de dades
-data_split <- data_mod |> 
+mod_split <- data_mod |> 
   # 3.1. Factor d'estratificació
   mutate(
-    strata_var = interaction(Sex, imp_6MWT)
+    strata_var = interaction(Sex, imp_6MWT, drop = TRUE)
   ) |> 
   
   # 3.2. Objecte de partició
   initial_split(prop = 0.75, strata = strata_var)
 
 # 4. Conjunt d'entrenament
-data_train <- data_split |>
-  training() |>
-  select(-strata_var)
+data_train <- mod_split |>
+  training()
 
 # 5. Conjunt de test
-data_test <- data_split |>
-  testing() |>
-  select(-strata_var)
+data_test <- mod_split |>
+  testing()
 
 # 6. Factors d'inflació de la variància
-vif_data_mod <- vif(lm(dif_6MWT ~ . - imp_6MWT, data = data_train))
+vif_data_mod <- vif(lm(dif_6MWT ~ . - imp_6MWT - strata_var, data = data_train))
 
 ```
 
 ```{r}
-# ---- Regressió lineal ----
+mod_reg_recipe_glmnet <- recipe(dif_6MWT ~ ., data = data_train) |> 
+  step_rm(imp_6MWT, strata_var) |> 
+  step_impute_median(all_numeric_predictors()) |> 
+  step_impute_mode(all_nominal_predictors()) |> 
+  step_normalize(all_numeric_predictors()) |> 
+  step_dummy(all_nominal_predictors())
 
-# 1. Model de regressió
-lm_model <- linear_reg() |> 
-  set_engine("lm") |> 
+ridge_model <- linear_reg(penalty = tune(), mixture = 0) |> 
+  set_engine("glmnet") |> 
   set_mode("regression")
 
-# 2. Ajust del model
-lm_fit <- lm_model |> 
-  last_fit(dif_6MWT ~ . - imp_6MWT - strata_var, split = data_split)
+lasso_model <- linear_reg(penalty = tune(), mixture = 1) |> 
+  set_engine("glmnet") |> 
+  set_mode("regression")
 
-# 3. Prediccions
-lm_predictions <- lm_fit |> 
-  collect_predictions()
+penalty_grid <- grid_regular(penalty(range = c(0, 1)), levels = 100)
 
-# 4. Avaluació
-lm_metrics <- lm_fit |> 
-  collect_metrics()
+glmnet_workflow <- workflow_set(
+  preproc = list(med_mode = mod_reg_recipe_glmnet), 
+  models = list(ridge = ridge_model, lasso = lasso_model)
+) |> 
+  workflow_map(
+    fn = "tune_grid", 
+    resamples = mod_reg_folds, 
+    grid = penalty_grid, 
+    seed = 827
+  )
+
+best_ridge_params <- glmnet_workflow |> 
+  extract_workflow_set_result("med_mode_ridge") |> 
+  select_best(metric = "rmse")
+
+best_lasso_params <- glmnet_workflow |> 
+  extract_workflow_set_result("med_mode_lasso") |> 
+  select_best(metric = "rmse")
+
+fit_ridge_final <- glmnet_workflow |> 
+  extract_workflow("med_mode_ridge") |> 
+  finalize_workflow(best_ridge_params) |> 
+  fit(data_train)
+
+fit_lasso_final <- glmnet_workflow |> 
+  extract_workflow("med_mode_lasso") |> 
+  finalize_workflow(best_lasso_params) |> 
+  fit(data_train)
 
 ```
 
@@ -1412,7 +1437,7 @@ logreg_model <- logistic_reg() |>
 
 # 2. Ajust del model
 logreg_fit <- logreg_model |> 
-  last_fit(imp_6MWT ~ . - dif_6MWT - strata_var, split = data_split)
+  last_fit(imp_6MWT ~ . - dif_6MWT - strata_var, split = mod_split)
 
 # 3. Prediccions
 logreg_predictions <- logreg_fit |> 
