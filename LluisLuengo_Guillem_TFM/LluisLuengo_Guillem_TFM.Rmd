@@ -74,7 +74,7 @@ install_if_not <- function(pkg) {
 
 # Llista de paquets i instal·lació
 paquets <- c("tidyverse", "readxl", "gtsummary", "GGally", "naniar", 
-             "tidymodels", "car")
+             "tidymodels", "car", "rpart.plot", "fairmodels", "DALEX")
 
 install_if_not(paquets)
 
@@ -97,6 +97,11 @@ library(naniar)
 # Modelització estadística
 library(tidymodels)
 library(car)
+library(rpart.plot)
+
+# Anàlisi d'equitat
+library(fairmodels)
+library(DALEX)
 
 
 ```
@@ -971,7 +976,6 @@ Text
 #' @description
 #' Crea una taula resum amb comparació per sexe i valors p.
 #' 
-#'
 #' @param data Un \code{data.frame} o \code{tibble} que conté les dades.
 #' @param vars Vector amb les variables que es vulguin afegir.
 #' @param labels Vector amb la correspondència d'etiquetes per a les variables.
@@ -1217,7 +1221,6 @@ table_res
 #' @description
 #' Crea un gràfic ggpairs amb comparació per colors.
 #' 
-#'
 #' @param data Un \code{data.frame} o \code{tibble} que conté les dades.
 #' @param vars Vector amb les variables que es vulguin afegir.
 #' @param by Variable de comparació (reanomenada).
@@ -1341,9 +1344,10 @@ set.seed(827)
 
 # 2. Transformacions i selecció de variables
 data_mod <- data |> 
-  # 2.1. Mitjana de QIS
+  # 2.1. Mitjana de QIS i factor d'estratificació
   mutate(
-    avg_QIS_in = (QIS_right_in + QIS_left_in) / 2
+    avg_QIS_in = (QIS_right_in + QIS_left_in) / 2, 
+    strata_var = interaction(Sex, imp_6MWT, drop = TRUE)
   ) |>
   
   # 2.2. Filtratge de valors faltants en la resposta
@@ -1355,16 +1359,10 @@ data_mod <- data |>
          had_depression_in, had_anxiety_in, 
          heart_quality_physical_in, heart_quality_emotion_in, 
          baecke_work_in, baecke_sport_in, baecke_leisure_in, 
-         dif_6MWT, imp_6MWT)
+         dif_6MWT, imp_6MWT, strata_var)
 
 # 3. Partició del conjunt de dades
 mod_split <- data_mod |> 
-  # 3.1. Factor d'estratificació
-  mutate(
-    strata_var = interaction(Sex, imp_6MWT, drop = TRUE)
-  ) |> 
-  
-  # 3.2. Objecte de partició
   initial_split(prop = 0.75, strata = strata_var)
 
 # 4. Conjunt d'entrenament
@@ -1670,7 +1668,114 @@ dt_coefs <- tibble::enframe(
 
 Text
 
+Parity loss is computed as follows: M_parity_loss = sum(abs(log(metric/metric_privileged)))
+
+```{r}
+# ---- 4.4 Anàlisi d'equitat ----
+
+#' Creació d'explicadors de DALEX
+#' 
+#' @description
+#' Extreu el workflow d'un objecte de `tidymodels` i crea un explicador DALEX. 
+#'
+#' @param fit Model ajustat de `tidymodels`.
+#' @param df Data frame amb les observacions i la variable resposta.
+#' @param label Cadena de text per al nom del model.
+#' @param regression Lògic (per defecte `FALSE`). `TRUE`: models de regressió.
+#'
+#' @returns Objecte de classe `explainer` de `DALEX`.
+#' 
+#' @importFrom dplyr select
+#' @importFrom stats predict
+#' @importFrom DALEX explain
+#' @importFrom tune extract_workflow
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' # Exemple d'ús amb dades hipotètiques
+#' create_explainer(lm_fit, test_set, label = "lm", regression = TRUE)
+#' }
+create_explainer <- function(fit, df, label, regression = FALSE) {
+  # 1. Selecció de variables i funció de predicció
+  if (regression) {
+    data <- df |> select(-dif_6MWT)
+    predict_function <- function(m, newdata) {
+      as.numeric(predict(m, newdata)$.pred > 25)
+    }
+  } else {
+    data <- df |> select(-imp_6MWT)
+    predict_function <- function(m, newdata) {
+      predict(m, newdata, type = "prob")$.pred_Yes
+    }
+  }
+  
+  # 2. Creació de l'objecte
+  explain(
+    model = extract_workflow(fit), 
+    data = data, 
+    y = as.numeric(df$imp_6MWT == "Yes"), 
+    label = label, 
+    predict_function = predict_function, 
+    model_info = list(package = "tidymodels", type = "classification")
+  )
+}
+
+
+# 1. Models
+lasso_explainer <- create_explainer(lasso_fit, data_test, "LASSO", 
+                                    regression = TRUE)
+logreg_explainer <- create_explainer(logreg_fit, data_test, "Logistic reg.")
+rf_explainer <- create_explainer(rf_fit, data_test, "Random forest")
+dt_explainer <- create_explainer(dt_fit, data_test, "Decision tree")
+
+```
+
+```{r, fig.cap="Anàlisi d'equitat sobre el conjunt de dades de prova", fig.pos="H"}
+# 2. Fairness
+fobject <- fairness_check(
+  lasso_explainer, logreg_explainer, rf_explainer, dt_explainer, 
+  protected = data_test$Sex, 
+  privileged = "M"
+)
+
+plot_fairness <- plot(fobject)
+
+plot_fairness
+
+```
+
+```{r}
+# 3. Intervals de confiança
+
+
+```
+
+```{r}
+# ---- Anàlisi de sensibilitat ----
+
+# 1. Models
+lasso_mod_explainer <- create_explainer(lasso_fit, data_mod, "LASSO", 
+                                        regression = TRUE)
+logreg_mod_explainer <- create_explainer(logreg_fit, data_mod, "Logistic reg.")
+rf_mod_explainer <- create_explainer(rf_fit, data_mod, "Random forest")
+dt_mod_explainer <- create_explainer(dt_fit, data_mod, "Decision tree")
+
+# 2. Fairness
+fobject_mod <- fairness_check(
+  lasso_mod_explainer, logreg_mod_explainer, 
+  rf_mod_explainer, dt_mod_explainer, 
+  protected = data_mod$Sex, 
+  privileged = "M"
+)
+
+plot_fairness_mod <- plot(fobject_mod)
+
+```
+
 ## Mitigació de biaixos
+
+Text
 
 <!-- Detalleu en aquest apartat els resultats obtinguts utilitzant la metodologia descrita a l’apartat anterior. -->
 
@@ -1800,6 +1905,11 @@ Text
 
 # Anàlisi bivariant | PROMs
 plot_prom
+
+```
+
+```{r, fig.cap="Anàlisi d'equitat sobre el conjunt de dades complet", fig.pos="H"}
+plot_fairness_mod
 
 ```
 
