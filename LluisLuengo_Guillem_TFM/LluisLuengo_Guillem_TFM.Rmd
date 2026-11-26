@@ -73,8 +73,10 @@ install_if_not <- function(pkg) {
 }
 
 # Llista de paquets i instal·lació
-paquets <- c("tidyverse", "readxl", "gtsummary", "GGally", "naniar", 
-             "tidymodels", "car", "rpart.plot", "fairmodels", "DALEX")
+paquets <- c(
+  "tidyverse", "readxl", "gtsummary", "GGally", "naniar", "tidymodels", "car", 
+  "rpart.plot", "DescTools", "fairmodels", "DALEX"
+)
 
 install_if_not(paquets)
 
@@ -98,6 +100,7 @@ library(naniar)
 library(tidymodels)
 library(car)
 library(rpart.plot)
+library(DescTools)
 
 # Anàlisi d'equitat
 library(fairmodels)
@@ -202,10 +205,10 @@ Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin
 
 ### Tasques
 
-A la \autoref{tab:taula1-1} es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat [**Enfocament i mètode seguit**]. S'indica també la relació amb els objectius proposats. En funció de la completesa i la qualitat de les dades i del temps disponible es podran revisar les prioritats i els plantejaments definits en aquesta secció (p. ex. reduint el nombre de comparacions o limitant el nombre de mètodes de mitigació a aplicar). Durant tot el procés s'aniran incorporant també els comentaris de tutoria i les revisions acordades en cada prova d'avaluació.
+A la \autoref{tab:taula1-1} es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat [**Enfocament i mètode seguit**]. S'indica també la relació amb els objectius proposats.
 
 | Tasca                             | Objectius     | Inici    | Final    | Estat      |
-|------------------------|------------|------------|------------|------------|
+|-------------------|--------------|--------------|--------------|--------------|
 | **1. Definició i pla de treball** |               |          |          |            |
 | Plantejament del treball          |               | 23/9/26  | 7/10/26  | Completada |
 |                                   |               |          |          |            |
@@ -214,16 +217,16 @@ A la \autoref{tab:taula1-1} es descriuen les tasques que caldrà desenvolupar du
 | Revisió de l'evidència trobada    | 1.1, 2.1      | 1/10/26  | 28/10/26 | Completada |
 |                                   |               |          |          |            |
 | **3. Implementació**              |               |          |          |            |
-| Preprocessament de dades          | 1.2           | 29/10/26 | 11/11/26 | En curs    |
-| Modelització estadística          | 1.2           | 12/11/26 | 25/11/26 | Pendent    |
-| Avaluació i auditoria de gènere   | 1.2, 1.3, 2.2 | 12/11/26 | 25/11/26 | Pendent    |
-| Discussió de resultats            | 1.3, 2.2      | 26/11/26 | 2/12/26  | Pendent    |
+| Preprocessament de dades          | 1.2           | 29/10/26 | 11/11/26 | Completada |
+| Modelització estadística          | 1.2           | 12/11/26 | 25/11/26 | Completada |
+| Avaluació i auditoria de gènere   | 1.2, 1.3, 2.2 | 12/11/26 | 25/11/26 | Completada |
+| Discussió de resultats            | 1.3, 2.2      | 26/11/26 | 2/12/26  | En curs    |
 |                                   |               |          |          |            |
 | **4. Lliurament final**           |               |          |          |            |
 | Introducció                       |               | 23/9/26  | 14/10/26 | Completada |
 | Estat de l'art                    | 1.1, 2.1      | 15/10/26 | 4/11/26  | Completada |
-| Materials i mètodes               | 1.2           | 5/11/26  | 25/11/26 | Pendent    |
-| Resultats                         | 1.3, 2.2      | 26/11/26 | 16/12/26 | Pendent    |
+| Materials i mètodes               | 1.2           | 5/11/26  | 25/11/26 | Completada |
+| Resultats                         | 1.3, 2.2      | 26/11/26 | 16/12/26 | En curs    |
 | Discussió                         | 1.1, 1.3, 2.2 | 17/12/26 | 31/12/26 | Pendent    |
 | Conclusions                       |               | 1/1/27   | 7/1/27   | Pendent    |
 | Glossari i Annexos                |               | 23/9/26  | 7/1/27   | En curs    |
@@ -296,9 +299,9 @@ df_gantt <- data.frame(
     "2027-01-13"
   )),
   Estat = factor(c(
-    "Completada", "Completada", "Completada", "En curs",
-    "Pendent", "Pendent", "Pendent", "Completada",
-    "Completada", "Pendent", "Pendent", "Pendent",
+    "Completada", "Completada", "Completada", "Completada",
+    "Completada", "Completada", "En curs", "Completada",
+    "Completada", "Completada", "En curs", "Pendent",
     "Pendent", "En curs", "Pendent", "Pendent", "En curs"
   ), levels = c("Completada", "En curs", "Pendent"))
 )
@@ -362,8 +365,8 @@ A la \autoref{tab:taula1-2} s'indiquen les fites corresponents a cada prova d'av
 | **Entrega**: PAC 1                | 7/10/26  | Completada |
 | Final de la recerca bibliogràfica | 28/10/26 | Completada |
 | **Entrega**: PAC 2                | 4/11/26  | Completada |
-| Final de la implementació         | 25/11/26 | En curs    |
-| **Entrega**: PAC 3                | 2/12/26  | Pendent    |
+| Final de la implementació         | 25/11/26 | Completada |
+| **Entrega**: PAC 3                | 2/12/26  | Completada |
 | Cos del treball redactat          | 31/12/26 | En curs    |
 | **Entrega**: PAC 4 i article      | 7/1/27   | Pendent    |
 | **Entrega**: PAC 5                | 13/1/27  | Pendent    |
@@ -854,75 +857,63 @@ Per acabar, el qüestionari de Baecke conté 16 preguntes distribuïdes en 3 blo
 
 ## Anàlisi estadística
 
-<!-- ### Metodologia de treball -->
+### Anàlisi descriptiva
 
-<!-- Un cop feta la recerca d'evidència, es procedirà a l'anàlisi de les dades disponibles mitjançant el programari `R` i adoptant, en la mesura del possible, els principis del `tidyverse`. Se seguiran els passos que s'indiquen: -->
+Les variables categòriques (i. e. edat, sexe, diagnòstic, tabaquisme) es mostren en forma de recompte i percentatge. Pel que fa a les variables quantitatives, se n'ha analitzat la normalitat mitjançant la prova de Shapiro-Wilk i anàlisis gràfiques. Malgrat que la distribució d'algunes variables s'aproxima a la normal (especialment en el cas de les mesures de capacitat funcional), en desagregar les dades per sexe s'observen asimetries més pronunciades; això pot ser degut al nombre reduït de registres corresponents a dones. Per facilitar les comparacions entre grups, es presenten totes les variables numèriques en forma de mediana i rang interquartílic.
 
-<!-- - **Preprocessament de dades**: neteja, tractament de valors nuls, anàlisi descriptiva estratificada per sexe i definició de variables objectiu. Les principals variables d'interès són la capacitat funcional (mesurada habitualment amb la 6MWT) i la qualitat de vida, que es poden binaritzar en funció de si la millora és superior o no a la mínima diferència clínicament important per a cada cas. -->
+S'han emprat la prova de khi quadrat de Pearson, la prova exacta de Fisher i la prova U de Mann-Whitney per comparar les dades basals entre els dos sexes i també per comparar els resultats clínics al final de la rehabilitació. Les dades de PROMs registrades 6 mesos després, tot i que estan disponibles al conjunt de dades, no es faran servir en aquesta anàlisi.
 
-<!-- - **Modelització estadística**: construcció de models predictius a partir del conjunt de dades. Tenint en compte les característiques de les variables objectiu, es prendrà com a model de referència la regressió logística. S'optimitzarà el model amb mètodes de regularització (Ridge, LASSO). Malgrat que el nombre de registres és limitat, es podria comparar el resultat amb una alternativa no lineal, com ara un Random Forest. -->
+### Preprocessament de dades
 
-<!-- - **Avaluació i auditoria de gènere**: valoració del rendiment del model. A més de les mesures habituals, s'utilitzaran les mètriques d'equitat algorítmica que es considerin adequades d'entre les descrites a la literatura científica. -->
+Abans de passar a la modelització estadística, ha calgut tractar les dades per adequar-les al propòsit de l'estudi. D'una banda, s'han cercat possibles registres erronis (p. ex. errors tipogràfics o resultats fisiològicament impossibles) i s'han convertit les variables categòriques a factors, amb nivells ordenats quan ha resultat convenient (p. ex. grup d'edat).
 
-<!-- - **Discussió de resultats**: exploració de tècniques de mitigació de biaixos i elaboració de recomanacions metodològiques per a futures investigacions. -->
-
-<!-- Aquest enfocament permetrà, d'una banda, disposar del context clínic adient per a la comprensió dels resultats i, de l'altra, garantir un tractament net i reproduïble de les dades. -->
-
-Text
-
-### Dades faltants
-
-Text
+De l'altra, s'ha dut a terme una anàlisi numèrica i gràfica de la proporció de valors faltants segons variable i sexe. S'ha optat per realitzar una imputació per la mediana en el cas de les variables explicatives quantitatives i per la moda en el cas de les qualitatives. Malgrat que aquesta mena d'imputació pot introduir biaixos a les dades, el rendiment dels models no era significativament inferior al de l'anàlisi de casos complets i, en algun cas, fins i tot s'observava una millora modesta en l'ajust a les dades d'entrenament. S'ha considerat que es tractava d'una mesura adequada per aconseguir un compromís entre la potència estadística i la complexitat del flux de treball.
 
 ### Modelització
 
-Text
+#### Definició de variables
 
-- Variable resposta contínua vs. binària:
+S'ha definit com a variable principal de l'estudi la diferència entre la distància recorreguda en la 6MWT abans i després de la rehabilitació, expressada en metres. Tenint en compte que la majoria de decisions clíniques que es podrien prendre a partir d'aquestes dades són de caràcter dicotòmic (p. ex. derivar pacients a un programa de RC o no, adaptar el tractament o no), s'ha decidit transformar la variable per reproduir aquest caràcter binari. Així, s'ha utilitzat la MCID de 25 m per diferenciar entre pacients amb millora significativa després del tractament o sense.
 
-  - Contínua: potència estadística, conserva variabilitat, modelització robusta // Menor traducció clínica directa
+Aquesta aproximació té algunes limitacions, entre les quals destaca la pèrdua de potència estadística i de variabilitat en categoritzar una variable contínua. No obstant això, es considera que l'ús de la MCID avalada per la literatura científica afavoreix que l'anàlisi guanyi en rellevància i interpretabilitat, ja que l'impacte en salut és mesurable i traduïble a la pràctica clínica. També l'auditoria d'equitat, tot i que existeixen mètriques per analitzar models de regressió, és més natural en problemes de classificació, per als quals es disposa d'eines més estandarditzades que permeten mantenir la complexitat de l'estudi dins dels límits del treball.
 
-  - Binària: MCID avalada per la literatura, alta rellevància i interpretabilitat, impacte en salut // Pèrdua d'informació, problemes en la definició de llindars
+La resta de variables s'utilitzen com a explicatives o predictores. En funció del model emprat, es poden fer servir totes o un subconjunt d'aquestes. A més, s'ha creat una nova variable amb la mitjana de QIS de les dues cames per evitar potencials problemes de multicol·linealitat.
 
-- Auditoria de fairness:
+#### Models emprats
 
-  - Més natural en variables binàries, eines estandarditzades
+S'han comparat 4 models diferents per explicar els factors associats amb la millora en la 6MWT. Com a model principal s'ha pres la regressió logística, que estableix un llindar lineal per diferenciar entre categories de la variable resposta (que, com s'ha esmentat, en aquest cas és binària). Com a alternativa per avaluar la pèrdua de potència estadística, es proposa també un model de regressió lineal múltiple amb una categorització posterior de les prediccions, emprant el mateix llindar de la MCID. D'aquesta manera, es pot generar una matriu de confusió equivalent a l'anterior conservant la informació de la variable contínua al model. En tots dos casos s'ha optimitzat el model amb mètodes de selecció de variables o de regularització (i. e. selecció múltiple pas a pas, Ridge, LASSO).
 
-  - En variables contínues, més sensible per detectar biaixos subtils // Mètriques més complexes
+Per acabar, es proposen també dos models de classificació no-lineal: un arbre de decisió i un bosc aleatori (*random forest*). Per a tots quatre models s'ha dividit el conjunt de dades en els mateixos dos subconjunts: un d'entrenament amb el 75% dels registres i un de prova amb el 25%, estratificant per la variable resposta i pel sexe. S'ha utilitzat validació creuada amb 5 plecs (*folds*) i 5 repeticions per seleccionar els hiperparàmetres en els casos en què ha estat necessari. El millor model de cada tipus s'ha seleccionat comparant els valors de l'arrel de l'error quadràtic mitjà (RMSE, per les seves sigles en anglès) en els models de regressió o de l'àrea sota la corba característica de funcionament del receptor (ROC, íd.) en els de classificació. El rendiment de cadascun s'ha avaluat sobre el conjunt de prova per evitar el sobreajust de les dades.
 
-- Possibilitats:
-
-  - Regressió logística
-
-  - Arbres de decisió
-
-  - Regressió lineal + binarització posterior (?): conservaria la informació de la variable contínua amb un criteri de decisió equivalent (interpretabilitat + robustesa)
+Totes les anàlisis s'han dut a terme amb el programari `R`, adoptant, en la mesura del possible, els estàndards de programació del `tidyverse` [@tidyverse; @tidymodels] per afavorir-ne la llegibilitat i reproductibilitat. Per a les diferents proves estadístiques, així com per als intervals de confiança, s'ha adoptat un nivell de significació $\alpha = 0.05$.
 
 ### Anàlisi d'equitat i mitigació de biaixos
 
-Text
+L'anàlisi d'equitat s'ha plantejat en base a les hipòtesis següents sobre les prediccions en la millora de la capacitat funcional:
 
-- Hipòtesis:
+\bigskip
 
-  - Falsos negatius: no derivació a RHB (molt important!!!)
+Si s'obté un nombre elevat de falsos negatius, es corre el risc de no derivar a programes de rehabilitació a pacients que se'n podrien beneficiar. Es tracta d'un fet greu, perquè la RC té efectes sobre les taxes de mortalitat i morbiditat de les patologies cardiovasculars.
 
-  - Falsos positius: no adaptació del tractament (en casos de 6MWT basal baixa)
+Si s'obté un nombre elevat de falsos positius, es corre el risc de descartar adaptacions del tractament quan serien necessàries. Aquest fet no és tan greu, però pot fer que l'ús dels recursos sanitaris sigui menys eficient.
 
-- Criteris:
+\bigskip
 
-  - Separació: dels pacients que han millorat (o no), quants es classifiquen correctament? Avaluació del model explicatiu, justícia distributiva i accés a recursos
+Per tant, el criteri de separació és molt rellevant per detectar possibles diferències entre sexes pel que fa a la sensibilitat i l'especificitat dels models i garantir la justícia distributiva i l'accés equitatiu als recursos. En el cas hipotètic que un model d'aquesta mena fos apte per ser utilitzat com a sistema de suport a la decisió clínica (CDSS, per les seves sigles en anglès), prenen importància també els valors predictius; per tant, es tindrà en consideració el criteri de suficiència. En canvi, el criteri d'independència no sembla crític en aquest cas, ja que les diferències fisiològiques entre sexes poden originar-hi un desequilibri que no seria discriminatori.
 
-  - Suficiència: si el model s'utilitza com a CDSS, importància de VPP i VPN
+El paquet `fairmodels` [@fairmodels] permet analitzar numèricament i gràfica les diferències en mètriques d'equitat entre diferents grups d'un atribut sensible i fer comparacions entre mnodels. Concretament, es presenten les mètriques en forma de ràtio entre el valor del grup protegit i el del grup privilegiat. També s'aplica una relaxació dels criteris per fer-los menys restrictius, de manera que es considera que si
 
-  - Compromisos: llindar de diferències per obtenir criteris menys restrictius
+\begin{equation}
+\epsilon < \frac{Test_a}{Test_b} < \frac{1}{\epsilon}
+\end{equation}
 
-<!-- En aquests apartats, cal descriure: -->
+aleshores la quantitat de biaix és acceptable. Aquest llindar $\epsilon$ és configurable i té un valor per defecte (que s'utilitzarà en aquest treball) de 0,8.
 
-<!-- - Els aspectes més rellevant del disseny i desenvolupament del treball. -->
+S'han seleccionat per a l'anàlisi l'exactitud global del model (*accuracy equality ratio*), la TVP *(equal opportunity ratio*), la TFP (*predictive equality ratio*) i el VPP (*predictive parity ratio*). A tall informatiu, s'inclou també la mètrica d'independència *statistical parity ratio*. Els intervals de confiança s'han construït a partir d'una prova exacta binomial, de manera similar al que es faria per al RR.
 
-<!-- - La metodologia triada per a fer aquest desenvolupament, descrivint les alternatives possibles, les decisions preses, i els criteris utilitzats per prendre aquestes decisions. -->
+\bigskip
 
-<!-- - Els productes obtinguts. -->
+[Pendent per a la PAC 4: Mitigació de biaixos]
 
 # Resultats
 
@@ -1334,7 +1325,7 @@ rm(vars_in, vars_res)
 
 Text
 
-- QIS_left_in i QIS_right_in tenen alta correlació i VIF > 5
+- QIS_left_in i QIS_right_in tenen alta correlació i VIF \> 5
 
 ```{r}
 # ---- 4.3 Modelització ----
@@ -1354,12 +1345,12 @@ data_mod <- data |>
   drop_na(dif_6MWT) |> 
   
   # 2.3. Selecció de variables per als models
-  select(`Age group`, Sex, `Diagnosis/intervention`, `Smoking entry`, 
-         `6MWT_in`, avg_QIS_in, MSEC_in, mets_in, 
-         had_depression_in, had_anxiety_in, 
-         heart_quality_physical_in, heart_quality_emotion_in, 
-         baecke_work_in, baecke_sport_in, baecke_leisure_in, 
-         dif_6MWT, imp_6MWT, strata_var)
+  select(
+    `Age group`, Sex, `Diagnosis/intervention`, `Smoking entry`, `6MWT_in`, 
+    avg_QIS_in, MSEC_in, mets_in, had_depression_in, had_anxiety_in, 
+    heart_quality_physical_in, heart_quality_emotion_in, baecke_work_in, 
+    baecke_sport_in, baecke_leisure_in, dif_6MWT, imp_6MWT, strata_var
+  )
 
 # 3. Partició del conjunt de dades
 mod_split <- data_mod |> 
@@ -1717,7 +1708,8 @@ create_explainer <- function(fit, df, label, regression = FALSE) {
     y = as.numeric(df$imp_6MWT == "Yes"), 
     label = label, 
     predict_function = predict_function, 
-    model_info = list(package = "tidymodels", type = "classification")
+    model_info = list(package = "tidymodels", type = "classification"), 
+    verbose = FALSE
   )
 }
 
@@ -1736,7 +1728,8 @@ dt_explainer <- create_explainer(dt_fit, data_test, "Decision tree")
 fobject <- fairness_check(
   lasso_explainer, logreg_explainer, rf_explainer, dt_explainer, 
   protected = data_test$Sex, 
-  privileged = "M"
+  privileged = "M", 
+  verbose = FALSE
 )
 
 plot_fairness <- plot(fobject)
@@ -1821,6 +1814,8 @@ table_fair_rf <- map_dfr(
   ) |> 
   select(metric, prop_F, prop_M, ratio)
 
+table_fair
+
 ```
 
 ```{r}
@@ -1838,7 +1833,8 @@ fobject_mod <- fairness_check(
   lasso_mod_explainer, logreg_mod_explainer, 
   rf_mod_explainer, dt_mod_explainer, 
   protected = data_mod$Sex, 
-  privileged = "M"
+  privileged = "M", 
+  verbose = FALSE
 )
 
 plot_fairness_mod <- plot(fobject_mod)
@@ -2005,6 +2001,7 @@ Text
 ## Sigles i acrònims
 
 - **AVD**: activitats de la vida diària.
+- **CDSS**: sistema de suport a la decisió clínica (de l'anglès *clinical decision support system*).
 - **CRISP-DM**: *Cross-industry Standard Process for Data Mining*.
 - **DL**: aprenentatge profund (de l'anglès *deep learning*).
 - **FEVE**: fracció d'ejecció ventricular esquerra.
@@ -2026,6 +2023,8 @@ Text
 - **QdV**: qualitat de vida.
 - **QIS**: força isomètrica màxima del quàdriceps (de l'anglès *quadriceps maximal isometric strength*).
 - **RC**: rehabilitació cardíaca.
+- **RMSE**: arrel de l'error quadràtic mitjà (de l'anglès *root mean square error*).
+- **ROC**: [corba] característica de funcionament del receptor (de l'anglès *receiver operating characteristic*).
 - **RR**: risc relatiu.
 - **TFN**: taxa de falsos negatius.
 - **TFP**: taxa de falsos positius.

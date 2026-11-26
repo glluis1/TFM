@@ -70,15 +70,7 @@ data <- data |>
   )
 
 
-# Anàlisi de normalitat
-data |> 
-  ggplot(aes(sample = dif_6MWT)) + 
-  geom_qq() + 
-  geom_qq_line(color = "red", linewidth = 1) + 
-  facet_wrap(~ Sex)
-
-
-# ---- 4.3 Modelització ----
+# ---- Modelització ----
 
 # Llavor aleatòria
 set.seed(827)
