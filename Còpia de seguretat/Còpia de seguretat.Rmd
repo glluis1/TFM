@@ -78,7 +78,7 @@ A la **\autoref{tab:taula1-1}** es descriuen les tasques que caldrà desenvolupa
 
 La **\autoref{fig:gantt}** mostra el diagrama de Gantt corresponent a les tasques descrites.
 
-\pagebreak
+[...]
 
 ### Fites
 
@@ -139,6 +139,38 @@ De manera anàloga a les mesures de rendiment dels models, la majoria de mètriq
 
 [...]
 
+## Característiques basals
+
+S'han inclòs a l'anàlisi un total de 273 participants, les dades basals dels quals es mostren desagregades per sexe a la **\autoref{tab:table-1}**. Segons les dades de l'estudi original [@vieli2025], la mediana d'edat és de 63 anys (RIQ 57, 69). El diagnòstic principal d'admissió va ser la síndrome coronària aguda (76% dels casos) i la taxa de tabaquisme abans del tractament era del 32%. El 81% dels pacients (n = 222) són homes.
+
+Les principals diferències entre sexes es troben a les mesures de capacitat funcional. A la prova de la marxa de 6 minuts (6MWT), els homes partien d'una mediana de 570 m (RIQ 510, 615), mentre que la mediana de les dones era de 530 m (RIQ 490, 580). Els valors de força isomètrica màxima del quàdriceps (QIS) de les dues cames, capacitat d'exercici màxima a curt termini (MSEC) i equivalent metabòlic de la tasca (MET) també són superiors en el cas dels homes.
+
+A més, les dones partien d'una puntuació més alta a l'escala de depressió, amb 6 punts (RIQ 4, 9) en comparació als 5 (RIQ 3, 8) dels homes. És a dir, les dones presenten una qualitat de vida (QdV) basal pitjor, com també s'aprecia a la secció del qüestionari HeartQoL que avalua l'estat emocional. Finalment, els nivells d'activitat física dels homes recollits a l'escala de Baecke també són superiors.
+
+[...]
+
+La distribució de dades no disponibles també difereix entre sexes, la qual cosa pot comprometre l'equitat dels resultats que se n'extreguin. La **\autoref{fig:plot-miss}** mostra que les variables demogràfiques i la majoria de les mesures de capacitat funcional (excepte la QIS) tenen percentatges baixos de valors faltants. En canvi, les dades de mesures de resultat informades pel pacient (PROMs) són més incompletes, especialment en el cas de les dones. Aquesta anàlisi fa pensar que la distribució de valors no disponibles no és completament aleatòria.
+
+[...]
+
+## Resultats de la rehabilitació
+
+Un cop finalitzat el programa de RC, el canvi en la 6MWT va ser de +60 m (RIQ 30, 100) en els homes i de +45 m (RIQ 20, 70) en les dones. Aquest resultat és significatiu (p = 0,037), igual que ho és la diferència en MSEC, que també és superior en homes. La rehabilitació cardíaca (RC) també aconsegueix resultats positius a la resta de mesures de capacitat funcional, sense diferències destacables entre sexes. Si es binaritza la millora en la 6MWT utilitzant la diferència mínima clínicament important (MCID), s'obté que un 81% dels homes i un 75% de les dones superen aquest llindar (v. **\autoref{tab:table-res}**).
+
+Pel que fa a la QdV, les dones aconsegueixen una disminuació major que els homes en els nivells de depressió mesurats amb l'escala HADS. Concretament, presenten un canvi de -2 punts (RIQ -3, -1) en contrast amb el de -1 punts (RIQ -2, +1) dels homes. Els resultats del qüestionari HeartQoL també són positius per a la majoria de pacients; en canvi, la millora en els nivells d'activitat física és modesta o nul·la. Només en la subescala d'oci les dones podrien tenir tendència a aconseguir resultats superiors, tot i que aquesta diferència no és significativa.
+
+[...]
+
+La **\autoref{fig:plot-func}** mostra una anàlisi gràfica de la variable resposta i les relacions que s'estableixen amb les variables de capacitat funcional. Els coeficients de correlació de Spearman són propers a 0, de manera que no es pot dir que cap variable estigui directament associada a la millora en la 6MWT. Sembla que les que poden tenir més pes són la 6MWT basal ($\rho = -0,173$) i el valor de MET ($\rho = 0,185$).
+
+També cal tenir en compte que algunes de les variables de capacitat funcional estan estretament lligades entre elles. Per exemple, com sembla lògic, el coeficient de correlació entre la QIS de les dues cames és de $\rho = 0,883$. També les correlacions entre QIS i MSEC ($\rho_{esq} = 0,693$ i $\rho_{dr} = 0,651$) i entre MSEC i MET ($\rho = 0,649$) són elevades, per la qual cosa serà necessari assegurar que els models de regressió no tinguin problemes de multicol·linealitat.
+
+[...]
+
+La mateixa anàlisi gràfica per a les PROMs s'afegeix a l'Apèndix B: **[Taules i figures addicionals]** (v. **\autoref{fig:plot-prom}**). En aquest cas, les correlacions de les variables amb la diferència en la 6MWT són encara més reduïdes, excepte en la QdV emocional, en què les dones presenten un coeficient de correlació $\rho = 0,416$. Els únics potencials problemes es troben en la relació entre les subescales de HADS ($\rho = 0,717$) i entre HADS i l'àmbit emocional de HeartQoL ($\rho_D = -0,68$, $\rho_A = -0,536$).
+
+[...]
+
 # Informe d'avaluació continuada (PAC 2)
 
 ## Identificació del treball i data de l'informe
@@ -187,3 +219,71 @@ S'ha seguit sense problemes la planificació temporal proposada al lliurament an
 ## Llistat dels resultats parcials obtinguts fins al moment (lliurables que s'adjunten)
 
 S'adjunta un únic document que inclou els capítols redactats fins ara i aquest informe de progrés com a annex.
+
+# Informe d'avaluació continuada (PAC 3)
+
+## Identificació del treball i data de l'informe
+
+- **Títol**: "Biaixos de sexe i gènere en rehabilitació cardíaca: anàlisi d'equitat algorítmica (*fairness*) en la predicció de resultats clínics".
+
+- **Autor**: Guillem Lluís i Luengo.
+
+- **Tutora**: Susana Pérez Álvarez.
+
+- **Data**: 27 de novembre de 2026.
+
+## Descripció de l'avanç del projecte
+
+En aquest lliurament es fa la implementació pràctica de la recerca que s'havia presentat a la PAC 2. S'entrega el capítol de **[Materials i mètodes]** complet i, tal com estava previst a la planificació, s'hi afegeix també una part del text del capítol de **[Resultats]**. La resta d'aquest capítol es lliura ara de manera sintetitzada i sense maquetar; la versió definitiva s'acabarà per al lliurament final. En qualsevol cas, l'anàlisi principal del treball està completa; per a la propera PAC, quedaran només investigacions addicionals, buscant els límits de l'abast de l'estudi acordats amb la tutora.
+
+### Grau de compliment dels objectius i resultats previstos en el pla de treball
+
+En aquesta entrega es compleixen els objectius 1.2. Elaborar diferents models predictius per explicar els resultats de les variables d'interès i 1.3. Quantificar les diferències en les prediccions dels models proposats mitjançant mètriques d'equitat algorítmica. L'objectiu 2.2. Avaluar l'adequació de les mesures [de mitigació de biaixos] als models predictius proposats, tot i que originalment estava previst que es pogués començar a explorar en aquesta fase, finalment quedarà com a anàlisi addicional per a la PAC 4. A banda d'això, es considera que s'han aconseguit els resultats pactats per a aquesta segona fase.
+
+### Justificació dels canvis en cas necessari
+
+L'únic canvi que s'ha fet respecte de la planificació inicial ha estat la decisió de no incloure la mitigació de biaixos en aquesta entrega. Ha estat una decisió consensuada amb la tutora i motivada per la voluntat de mantenir l'estudi dintre d'uns límits raonables per a un treball de fi de màster. Així, ha estat possible dedicar més temps i energia a assegurar la qualitat l'anàlisi principal.
+
+## Relació de les activitats executades
+
+### Activitats previstes en el pla de treball
+
+Les activitats previstes que s'han dut a terme han estat:
+
+- Exploració i preprocessament del conjunt de dades per adequar-lo a les necessitats de l'estudi.
+- Modelització estadística i avaluació del rendiment dels models triats.
+- Auditoria de gènere mitjançant mètriques d'equitat algorítmica.
+- Redacció del capítol **[Materials i mètodes]**.
+- Inici de la redacció del capítol **[Resultats]**.
+- Revisió dels comentaris de la tutora sobre les entregues anteriors.
+- Continuació de la redacció del Glossari i els Annexos.
+
+### Activitats no previstes i realitzades
+
+Una activitat que no estava planificada, però que s'havia previst a l'anàlisi de riscos i que s'ha considerat convenient, ha estat una comparació d'estratègies per tractar les dades no disponibles del conjunt. Concretament, s'ha comparat la imputació de valors amb una anàlisi de casos complets. Els detalls s'expliquen a l'apartat **[Preprocessament de dades]**.
+
+## Relació de les desviacions en la temporització, accions de mitigació i actualització del cronograma
+
+Al marge del canvi que s'ha comentat anteriorment, s'ha seguit sense problemes la planificació temporal proposada al primer lliurament. Les accions preventives, com ara marcar fites parcials, han permès arribar a temps a tots els resultats esperats i deixar marge per a la revisió. En aquest document s'han actualitzat el calendari i les tasques per adequar-los a l'evolució del treball (v. **[Planificació del treball]**).
+
+## Llistat dels resultats parcials obtinguts fins al moment (lliurables que s'adjunten)
+
+S'adjunta un únic document que inclou els capítols redactats fins ara i aquest informe de progrés com a annex.
+
+## Comentaris de la directora i relació de modificacions
+
+A continuació es detallen els canvis fets a partir dels comentaris de la tutora:
+
+- S'ha fet una revisió de l'apartat **[Enfocament i mètode seguit]** sencer per tal d'adequar-lo al contingut esperat. El text anterior s'ha utilitzat com a base per al capítol de **[Materials i mètodes]**.
+
+- S'ha revisat l'apartat **[Impacte en sostenibilitat, ètic-social i de diversitat]** per afegir les limitacions del treball pel que fa a la representativitat de les dades i l'extrapolació dels resultats.
+
+- S'ha revisat la relació de **[Resultats esperats]** per adequar-la a la temporalitat del treball.
+
+- S'ha revisat la definició de *treatment equality* a **[Mètriques de grup]**.
+
+- S'han acotat les variables a utilitzar en els models predictius i s'han justificat les mètriques d'equitat escollides.
+
+- S'ha afegit un enllaç al repositori de GitHub del projecte per garantir la reproductibilitat de les anàlisis.
+
+D'altra banda, s'ha considerat que la revisió en profunditat de l'Estat de l'art i l'homogenització de criteris estètics i de les referències no eren urgents i es podien reservar per al lliurament final.
