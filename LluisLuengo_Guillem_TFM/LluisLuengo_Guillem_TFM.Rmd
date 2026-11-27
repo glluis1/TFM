@@ -208,7 +208,7 @@ Per acabar, es farà ús de les formes inclusives del llenguatge que s'escaiguin
 A la \autoref{tab:taula1-1} es descriuen les tasques que caldrà desenvolupar durant el treball, que s'han detallat a l'apartat [**Enfocament i mètode seguit**]. S'indica també la relació amb els objectius proposats.
 
 | Tasca                             | Objectius     | Inici    | Final    | Estat      |
-|-------------------|--------------|--------------|--------------|--------------|
+|---------------|---------------|---------------|---------------|---------------|
 | **1. Definició i pla de treball** |               |          |          |            |
 | Plantejament del treball          |               | 23/9/26  | 7/10/26  | Completada |
 |                                   |               |          |          |            |
@@ -266,7 +266,7 @@ df_gantt <- data.frame(
     "Preprocessament de dades", 
     "Modelització estadística", 
     "Avaluació i auditoria de gènere", 
-    "Discussió de resultats", 
+    "Mitigació de biaixos", 
     "Introducció", 
     "Estat de l'art", 
     "Materials i mètodes", 
@@ -293,7 +293,7 @@ df_gantt <- data.frame(
   )),
   Final = as.Date(c(
     "2026-10-07", "2026-10-07", "2026-10-28", "2026-11-11",
-    "2026-11-25", "2026-11-25", "2026-12-02", "2026-10-14",
+    "2026-11-25", "2026-11-25", "2026-12-09", "2026-10-14",
     "2026-11-04", "2026-11-25", "2026-12-16", "2026-12-31",
     "2027-01-07", "2027-01-07", "2027-01-13", "2027-01-13", 
     "2027-01-13"
@@ -859,13 +859,13 @@ Per acabar, el qüestionari de Baecke conté 16 preguntes distribuïdes en 3 blo
 
 ### Anàlisi descriptiva
 
-Les variables categòriques (i. e. edat, sexe, diagnòstic, tabaquisme) es mostren en forma de recompte i percentatge. Pel que fa a les variables quantitatives, se n'ha analitzat la normalitat mitjançant la prova de Shapiro-Wilk i anàlisis gràfiques. Malgrat que la distribució d'algunes variables s'aproxima a la normal (especialment en el cas de les mesures de capacitat funcional), en desagregar les dades per sexe s'observen asimetries més pronunciades; això pot ser degut al nombre reduït de registres corresponents a dones. Per facilitar les comparacions entre grups, es presenten totes les variables numèriques en forma de mediana i rang interquartílic.
+Les variables categòriques (i. e. edat, sexe, diagnòstic, tabaquisme) es mostren en forma de recompte i percentatge. Pel que fa a les variables quantitatives, se n'ha analitzat la normalitat mitjançant la prova de Shapiro-Wilk i de manera gràfica. Malgrat que la distribució d'algunes variables s'aproxima a la normal (especialment en el cas d'algunes mesures de capacitat funcional), en desagregar les dades per sexe s'observen asimetries més pronunciades; això pot ser degut al nombre reduït de registres corresponents a dones. Per facilitar les comparacions entre grups, es presenten totes les variables numèriques en forma de mediana i rang interquartílic (RIQ).
 
 S'han emprat la prova de khi quadrat de Pearson, la prova exacta de Fisher i la prova U de Mann-Whitney per comparar les dades basals entre els dos sexes i també per comparar els resultats clínics al final de la rehabilitació. Les dades de PROMs registrades 6 mesos després, tot i que estan disponibles al conjunt de dades, no es faran servir en aquesta anàlisi.
 
 ### Preprocessament de dades
 
-Abans de passar a la modelització estadística, ha calgut tractar les dades per adequar-les al propòsit de l'estudi. D'una banda, s'han cercat possibles registres erronis (p. ex. errors tipogràfics o resultats fisiològicament impossibles) i s'han convertit les variables categòriques a factors, amb nivells ordenats quan ha resultat convenient (p. ex. grup d'edat).
+Abans de passar a la modelització estadística, ha calgut tractar les dades per adequar-les al propòsit de l'estudi. D'una banda, s'han cercat possibles registres erronis (p. ex. errors tipogràfics o resultats fisiològicament impossibles) i s'han convertit les variables categòriques a factors, amb nivells ordenats quan ha estat necessari (p. ex. grup d'edat).
 
 De l'altra, s'ha dut a terme una anàlisi numèrica i gràfica de la proporció de valors faltants segons variable i sexe. S'ha optat per realitzar una imputació per la mediana en el cas de les variables explicatives quantitatives i per la moda en el cas de les qualitatives. Malgrat que aquesta mena d'imputació pot introduir biaixos a les dades, el rendiment dels models no era significativament inferior al de l'anàlisi de casos complets i, en algun cas, fins i tot s'observava una millora modesta en l'ajust a les dades d'entrenament. S'ha considerat que es tractava d'una mesura adequada per aconseguir un compromís entre la potència estadística i la complexitat del flux de treball.
 
@@ -875,17 +875,17 @@ De l'altra, s'ha dut a terme una anàlisi numèrica i gràfica de la proporció 
 
 S'ha definit com a variable principal de l'estudi la diferència entre la distància recorreguda en la 6MWT abans i després de la rehabilitació, expressada en metres. Tenint en compte que la majoria de decisions clíniques que es podrien prendre a partir d'aquestes dades són de caràcter dicotòmic (p. ex. derivar pacients a un programa de RC o no, adaptar el tractament o no), s'ha decidit transformar la variable per reproduir aquest caràcter binari. Així, s'ha utilitzat la MCID de 25 m per diferenciar entre pacients amb millora significativa després del tractament o sense.
 
-Aquesta aproximació té algunes limitacions, entre les quals destaca la pèrdua de potència estadística i de variabilitat en categoritzar una variable contínua. No obstant això, es considera que l'ús de la MCID avalada per la literatura científica afavoreix que l'anàlisi guanyi en rellevància i interpretabilitat, ja que l'impacte en salut és mesurable i traduïble a la pràctica clínica. També l'auditoria d'equitat, tot i que existeixen mètriques per analitzar models de regressió, és més natural en problemes de classificació, per als quals es disposa d'eines més estandarditzades que permeten mantenir la complexitat de l'estudi dins dels límits del treball.
+Aquesta aproximació té algunes limitacions, entre les quals destaca la pèrdua de potència estadística i de variabilitat en categoritzar una variable contínua. No obstant això, es considera que l'ús de la MCID avalada per la literatura científica afavoreix que l'anàlisi guanyi en rellevància i interpretabilitat, ja que l'impacte en salut és mesurable i traduïble a la pràctica clínica. També l'auditoria d'equitat, tot i que existeixen mètriques per analitzar models de regressió, és més natural en problemes de classificació, per als quals es disposa d'eines estandarditzades que permeten mantenir la complexitat de l'estudi dins dels límits del treball.
 
 La resta de variables s'utilitzen com a explicatives o predictores. En funció del model emprat, es poden fer servir totes o un subconjunt d'aquestes. A més, s'ha creat una nova variable amb la mitjana de QIS de les dues cames per evitar potencials problemes de multicol·linealitat.
 
 #### Models emprats
 
-S'han comparat 4 models diferents per explicar els factors associats amb la millora en la 6MWT. Com a model principal s'ha pres la regressió logística, que estableix un llindar lineal per diferenciar entre categories de la variable resposta (que, com s'ha esmentat, en aquest cas és binària). Com a alternativa per avaluar la pèrdua de potència estadística, es proposa també un model de regressió lineal múltiple amb una categorització posterior de les prediccions, emprant el mateix llindar de la MCID. D'aquesta manera, es pot generar una matriu de confusió equivalent a l'anterior conservant la informació de la variable contínua al model. En tots dos casos s'ha optimitzat el model amb mètodes de selecció de variables o de regularització (i. e. selecció múltiple pas a pas, Ridge, LASSO).
+S'han comparat 4 models diferents per predir la millora en la 6MWT i estudiar-ne els factors associats. Com a model principal s'ha pres la regressió logística, que estableix un llindar lineal per diferenciar entre categories de la variable resposta (que, com s'ha esmentat, en aquest cas és binària). Com a alternativa per avaluar la pèrdua de potència estadística, es proposa també un model de regressió lineal múltiple amb una categorització posterior de les prediccions, emprant el mateix llindar de la MCID. D'aquesta manera, es pot generar una matriu de confusió equivalent a l'anterior conservant la informació de la variable contínua al model. En tots dos casos s'ha optimitzat el model amb mètodes de selecció de variables o de regularització (i. e. selecció múltiple pas a pas, Ridge, LASSO).
 
-Per acabar, es proposen també dos models de classificació no-lineal: un arbre de decisió i un bosc aleatori (*random forest*). Per a tots quatre models s'ha dividit el conjunt de dades en els mateixos dos subconjunts: un d'entrenament amb el 75% dels registres i un de prova amb el 25%, estratificant per la variable resposta i pel sexe. S'ha utilitzat validació creuada amb 5 plecs (*folds*) i 5 repeticions per seleccionar els hiperparàmetres en els casos en què ha estat necessari. El millor model de cada tipus s'ha seleccionat comparant els valors de l'arrel de l'error quadràtic mitjà (RMSE, per les seves sigles en anglès) en els models de regressió o de l'àrea sota la corba característica de funcionament del receptor (ROC, íd.) en els de classificació. El rendiment de cadascun s'ha avaluat sobre el conjunt de prova per evitar el sobreajust de les dades.
+Per acabar, es proposen també dos models de classificació no-lineal: un arbre de decisió i un bosc aleatori (*random forest*). Per a tots quatre models s'ha dividit el conjunt de dades en els mateixos dos subconjunts: un d'entrenament amb el 75% dels registres i un de prova amb el 25%, estratificant per la variable resposta i pel sexe. S'ha utilitzat validació creuada amb 5 plecs (*folds*) i 5 repeticions per estimar l'error de prova (o de generalització) a partir de les dades d'entrenament i seleccionar els hiperparàmetres en els casos en què ha estat necessari. El millor model de cada tipus s'ha triat comparant els valors de l'arrel de l'error quadràtic mitjà (RMSE, per les seves sigles en anglès) en els models de regressió o de l'àrea sota la corba ROC en els de classificació. Finalment, s'ha avaluat el rendiment del millor model de cada família sobre el conjunt de prova per evitar el sobreajust de les dades.
 
-Totes les anàlisis s'han dut a terme amb el programari `R`, adoptant, en la mesura del possible, els estàndards de programació del `tidyverse` [@tidyverse; @tidymodels] per afavorir-ne la llegibilitat i reproductibilitat. Per a les diferents proves estadístiques, així com per als intervals de confiança, s'ha adoptat un nivell de significació $\alpha = 0.05$.
+Totes les anàlisis s'han dut a terme amb el programari `R`, adoptant, en la mesura del possible, els estàndards de programació del `tidyverse` [@tidyverse; @tidymodels] per afavorir-ne la llegibilitat i reproductibilitat. Per a les diferents proves estadístiques, així com per als intervals de confiança (IC), s'ha adoptat un nivell de significació $\alpha = 0,05$.
 
 ### Anàlisi d'equitat i mitigació de biaixos
 
@@ -957,9 +957,13 @@ data <- read_excel("CARC_ database.xls") |>
 
 ## Característiques basals
 
-Text
+S'han inclòs a l'anàlisi un total de 273 participants, les dades basals dels quals es mostren desagregades per sexe a la \autoref{tab:table-1}. Segons les dades de l'estudi original [@vieli2025], la mediana d'edat és de 63 anys (RIQ 57, 69). El diagnòstic principal d'admissió va ser la síndrome coronària aguda (76% dels casos) i la taxa de tabaquisme abans del tractament era del 32%. El 81% dels pacients (n = 222) són homes.
 
-```{r}
+Les principals diferències entre sexes es troben a les mesures de capacitat funcional. A la prova de la marxa de 6 minuts (6MWT), els homes partien d'una mediana de 570 m (RIQ 510, 615), mentre que la mediana de les dones era de 530 m (RIQ 490, 580). Els valors de força isomètrica màxima del quàdriceps (QIS) de les dues cames, capacitat d'exercici màxima a curt termini (MSEC) i equivalent metabòlic de la tasca (MET) també són superiors en el cas dels homes.
+
+A més, les dones partien d'una puntuació més alta a l'escala de depressió, amb 6 punts (RIQ 4, 9) en comparació als 5 (RIQ 3, 8) dels homes. És a dir, les dones presenten una qualitat de vida (QdV) basal pitjor, com també s'aprecia a la secció del qüestionari HeartQoL que avalua l'estat emocional. Finalment, els nivells d'activitat física dels homes recollits a l'escala de Baecke també són superiors.
+
+```{r table-1}
 # ---- 4.1 CARACTERÍSTIQUES BASALS ----
 
 #' Creació de taula de característiques de la mostra
@@ -1054,7 +1058,7 @@ table_1 <- tbl_stack(
   ) |> 
   modify_footnote(
     all_stat_cols() ~ "n (%); Mediana (Q1, Q3)", 
-    p.value ~ "Prova de khi quadrat de Pearson; Prova exacta de Fisher, 
+    p.value ~ "Prova de khi quadrat de Pearson; Prova exacta de Fisher;
     Prova U de Mann-Whitney"
   ) |> 
   modify_source_note(
@@ -1073,7 +1077,9 @@ rm(t_demo, t_func, t_prom)
 
 ```
 
-```{r, fig.cap="Valors faltants per variable i sexe"}
+La distribució de dades no disponibles també difereix entre sexes, la qual cosa pot comprometre l'equitat dels resultats que se n'extreguin. La \autoref{fig:plot-miss} mostra que les variables demogràfiques i la majoria de les mesures de capacitat funcional (excepte la QIS) tenen percentatges baixos de valors faltants. En canvi, les dades de mesures de resultat informades pel pacient (PROMs) són més incompletes, especialment en el cas de les dones. Aquesta anàlisi fa pensar que la distribució de valors no disponibles no és completament aleatòria.
+
+```{r plot-miss, fig.cap="Valors faltants per variable i sexe"}
 # 5. Mapa de calor de valors faltants
 plot_miss <- data |> 
   select(vars_in$Demogràfics, vars_in$`Capacitat funcional`, 
@@ -1116,9 +1122,11 @@ plot_miss
 
 ## Resultats de la rehabilitació
 
-Text
+Un cop finalitzat el programa de RC, el canvi en la 6MWT va ser de +60 m (RIQ 30, 100) en els homes i de +45 m (RIQ 20, 70) en les dones. Aquest resultat és significatiu (p = 0,037), igual que ho és la diferència en MSEC, que també és superior en homes. La rehabilitació cardíaca (RC) també aconsegueix resultats positius a la resta de mesures de capacitat funcional, sense diferències destacables entre sexes. Si es binaritza la millora en la 6MWT utilitzant la diferència mínima clínicament important (MCID), s'obté que un 81% dels homes i un 75% de les dones superen aquest llindar (v. \autoref{tab:table-res}).
 
-```{r}
+Pel que fa a la QdV, les dones aconsegueixen una disminuació major que els homes en els nivells de depressió mesurats amb l'escala HADS. Concretament, presenten un canvi de -2 punts (RIQ -3, -1) en contrast amb el de -1 punts (RIQ -2, +1) dels homes. Els resultats del qüestionari HeartQoL també són positius per a la majoria de pacients; en canvi, la millora en els nivells d'activitat física és modesta o nul·la. Només en la subescala d'oci les dones podrien tenir tendència a aconseguir resultats superiors, tot i que aquesta diferència no és significativa.
+
+```{r table-res}
 # ---- 4.2 RESULTATS DE LA REHABILITACIÓ ----
 
 # 1. Creació de variables
@@ -1189,7 +1197,7 @@ table_res <- create_tbl_summary(data, vars_res, labels_res) |>
   ) |> 
   modify_footnote(
     all_stat_cols() ~ "n (%); Mediana (Q1, Q3)", 
-    p.value ~ "Prova de khi quadrat de Pearson; Prova exacta de Fisher, 
+    p.value ~ "Prova de khi quadrat de Pearson; Prova exacta de Fisher; 
     Prova U de Mann-Whitney"
   ) |> 
   modify_source_note(
@@ -1257,7 +1265,11 @@ create_ggpairs <- function(data, vars, by, labels) {
 
 ```
 
-```{r, fig.cap="Anàlisi descriptiva bivariant | Capacitat funcional", fig.height=6}
+La \autoref{fig:plot-func} mostra una anàlisi gràfica de la variable resposta i les relacions que s'estableixen amb les variables de capacitat funcional. Els coeficients de correlació de Spearman són propers a 0, de manera que no es pot dir que cap variable estigui directament associada a la millora en la 6MWT. Sembla que les que poden tenir més pes són la 6MWT basal ($\rho = -0,173$) i el valor de MET ($\rho = 0,185$).
+
+També cal tenir en compte que algunes de les variables de capacitat funcional estan estretament lligades entre elles. Per exemple, com sembla lògic, el coeficient de correlació entre la QIS de les dues cames és de $\rho = 0,883$. També les correlacions entre QIS i MSEC ($\rho_{esq} = 0,693$ i $\rho_{dr} = 0,651$) i entre MSEC i MET ($\rho = 0,649$) són elevades, per la qual cosa serà necessari assegurar que els models de regressió no tinguin problemes de multicol·linealitat.
+
+```{r plot-func, fig.cap="Anàlisi descriptiva bivariant | Capacitat funcional", fig.height=6}
 # 5. Etiquetes reduïdes
 labels_short <- c(
   "Dif. 6MWT" = "dif_6MWT", 
@@ -1299,6 +1311,8 @@ plot_func
 
 ```
 
+La mateixa anàlisi gràfica per a les PROMs s'afegeix a l'Apèndix B: [Taules i figures addicionals] (v. \autoref{fig:plot-prom}). En aquest cas, les correlacions de les variables amb la diferència en la 6MWT són encara més reduïdes, excepte en la QdV emocional, en què les dones presenten un coeficient de correlació $\rho = 0,416$. Els únics potencials problemes es troben en la relació entre les subescales de HADS ($\rho = 0,717$) i entre HADS i l'àmbit emocional de HeartQoL ($\rho_D = -0,68$, $\rho_A = -0,536$).
+
 ```{r}
 # 6. Anàlisi bivariant (capacitat funcional)
 plot_prom <- create_ggpairs(
@@ -1310,7 +1324,8 @@ plot_prom <- create_ggpairs(
   labs(
     caption = str_wrap(
       "HADS: Escala Hospitalària d'Ansietat i Depressió.
-      QdV: qualitat de vida (escala HeartQoL)"
+      QdV: qualitat de vida (escala HeartQoL).
+      6MWT: prova de la marxa de 6 minuts."
     )
   ) + 
   theme(
@@ -1323,9 +1338,13 @@ rm(vars_in, vars_res)
 
 ## Modelització de la millora de la capacitat funcional
 
-Text
+[Els següents apartats es redactaran amb detall a la PAC 4, tal com està previst a la planificació del treball. Tot i així, s'ofereix un resum dels resultats principals en forma de llista.]
 
-- QIS_left_in i QIS_right_in tenen alta correlació i VIF \> 5
+- S'ha exclòs de l'estudi 1 pacient que tenia valors fisiològicament improbables o impossibles en algunes de les variables. Com que una de les variables afectades era la resposta, no ha estat possible imputar-la com a dada no disponible.
+
+- Els valors de QIS de les dues cames estan altament correlacionats i, en analitzar els factors d'inflació de la variància (FIV), s'obtenen valors superiors a 5, indicant un possible problema de multicol·linealitat. Per solucionar-lo, s'ha optat per crear una nova variable que representi la mitjana de les dues variables. D'aquesta manera, els FIV resultants són tots inferiors a 5.
+
+- La partició del conjunt de dades s'ha fet utilitzant una llavor aleatòria per garantir la reproductibilitat del codi. El conjunt d'entrenament conté 203 observacions (74,6%) i el de prova, 69 (25,4%). S'ha estratificat la divisió per variable resposta (millora binària en la 6MWT) i sexe.
 
 ```{r}
 # ---- 4.3 Modelització ----
@@ -1369,141 +1388,149 @@ vif_data_mod <- vif(lm(dif_6MWT ~ . - imp_6MWT - strata_var, data = data_train))
 
 ```
 
-```{r}
-# ---- Regressió lineal (LASSO) ----
+### Regressió lineal amb classificació posterior
+
+- El millor model de regressió lineal (jutjant pel rendiment sobre el conjunt d'entrenament amb validació creuada) ha estat l'obtingut pel mètode de selecció múltiple pas a pas (*multiple stepwise selection*). Els altres candidats eren el model complet i els models optimitzats amb regularitzacions Ridge i LASSO. Les variables incloses, juntament amb els seus coeficients, els IC i els valors p es mostren a la \autoref{tab:lm-coefs}.
+
+- Rendiment sobre el conjunt d'entrenament: $RMSE = 47,60$, $R^2 = 0,27$.
+
+- Rendiment sobre el conjunt de prova: $RMSE = 55,18$, $R^2 = 0,13$.
+
+- Rendiment per a la classificació: $ROC AUC = 0,57$, $TVP = 0,81$, $TVN = 0,2$, $VPP = 0,79$, $VPN = 0,23$.
+
+- El model podria patir problemes de sobreajustament. Malgrat tot, la mida reduïda de la mostra i el fet que les variables disponibles només expliquin un 27% de la variabilitat en el conjunt d'entrenament fa que els resultats s'hagin d'interpretar amb cautela. Aquests valors, no obstant això, són habituals en contexts de recerca clínica i no es troben lluny dels obtinguts en altres estudis similars.
+
+```{r lm-coefs}
+# ---- Regressió lineal (multiple stepwise selection) ----
 
 set.seed(827)
 
 # 1. Validació creuada
 mod_folds <- vfold_cv(data_train, v = 5, repeats = 5, strata = strata_var)
 
-# 2. Preprocessament
-mod_reg_recipe <- recipe(dif_6MWT ~ ., data = data_train) |> 
-  # 2.1. Eliminació de variables
-  step_rm(imp_6MWT, strata_var) |> 
-  
-  # 2.2. Imputació per la mediana/moda
+# 2. Mètriques de classificació
+mod_reg_metrics <- metric_set(rmse, rsq)
+mod_class_metrics <- metric_set(accuracy, sens, spec, ppv, npv, roc_auc)
+
+# 3. Preprocessament
+lm_recipe <- recipe(
+  dif_6MWT ~ `6MWT_in` + MSEC_in + mets_in + had_depression_in + 
+    baecke_work_in + `Age group` + Sex + heart_quality_emotion_in, 
+  data = data_train
+) |> 
+  # 3.1. Imputació per la mediana/moda
   step_impute_median(all_numeric_predictors()) |> 
   step_impute_mode(all_nominal_predictors()) |> 
   
-  # 2.3. Creació de variables indicadores
+  # 3.2. Creació de variables indicadores
   step_dummy(all_nominal_predictors()) |> 
   
-  # 2.4. Normalització
-  step_normalize(all_numeric_predictors())
+  # 3.3. Interacció entre sexe i QdV
+  step_interact(terms = ~ Sex_F:heart_quality_emotion_in)
 
-# 3. Model
-lasso_model <- linear_reg(penalty = tune(), mixture = 1) |> 
-  set_engine("glmnet") |> 
+# 4. Model
+lm_model <- linear_reg() |> 
+  set_engine("lm") |> 
   set_mode("regression")
 
-# 4. Flux de treball
-lasso_workflow <- workflow() |> 
-  add_model(lasso_model) |> 
-  add_recipe(mod_reg_recipe)
-
-# 5. Definició de paràmetres
-lasso_tune <- lasso_workflow |> 
-  tune_grid(
-    resamples = mod_folds, 
-    grid = grid_regular(penalty(range = c(-4, 2)), levels = 50)
-  )
+# 5. Flux de treball
+lm_workflow <- workflow() |> 
+  add_model(lm_model) |> 
+  add_recipe(lm_recipe)
 
 # 6. Mètriques d'entrenament
-lasso_metrics_train <- lasso_tune |> 
-  show_best()
-
-# 7. Millor model
-lasso_best <- select_best(lasso_tune, metric = "rmse")
-
-# 8. Flux de treball actualitzat
-lasso_workflow <- lasso_workflow |> 
-  finalize_workflow(lasso_best)
-
-# 9. Resultats
-lasso_fit <- lasso_workflow |> 
-  last_fit(split = mod_split)
-
-# 10. Mètriques de test
-lasso_metrics_test <- lasso_fit |> 
+lm_metrics_train <- lm_workflow |> 
+  fit_resamples(resamples = mod_folds, metrics = mod_reg_metrics) |> 
   collect_metrics()
 
-# 11. Prediccions
-lasso_predictions <- lasso_fit |> 
-  collect_predictions() |> 
+# 7. Resultats
+lm_fit <- last_fit(lm_workflow, split = mod_split, metrics = mod_reg_metrics)
+
+# 8. Mètriques de test
+lm_metrics_test <- collect_metrics(lm_fit)
+
+# 9. Prediccions
+lm_predictions <- collect_predictions(lm_fit) |> 
   mutate(
-    imp_6MWT = data_mod$imp_6MWT[.row], 
+    imp_6MWT = data_test$imp_6MWT, 
     .pred_class = factor(
       if_else(.pred > 25, "Yes", "No"), 
       levels = levels(data_test$imp_6MWT)
     )
   )
 
-# 12. Mètriques de classificació
-mod_class_metrics <- metric_set(accuracy, sens, spec, ppv, npv, roc_auc)
-
-# 13. Avaluació
-lasso_eval <- mod_class_metrics(
-  lasso_predictions, 
+# 10. Avaluació
+lm_eval <- mod_class_metrics(
+  lm_predictions, 
   truth = imp_6MWT, 
   estimate = .pred_class, 
   .pred
 )
 
-# 14. Coeficients
-lasso_coefs <- lasso_fit |> 
+# 11. Coeficients
+lm_coefs <- lm_fit |> 
   extract_fit_parsnip() |> 
-  tidy() |> 
-  filter(estimate != 0)
+  tidy(conf.int = TRUE)
+
+lm_coefs |> 
+  kable(
+    caption = "Model de regressió lineal"
+  )
 
 ```
 
-```{r}
+### Regressió logística
+
+- El millor model de regressió logística també ha estat l'obtingut pel mètode de selecció múltiple pas a pas (*multiple stepwise selection*). Les variables incloses, juntament amb els seus coeficients, els IC i els valors p es mostren a la \autoref{tab:glm-coefs}.
+
+- Rendiment sobre el conjunt d'entrenament: $ROC AUC = 0,72$, $TVP = 0,93$, $TVN = 0,22$, $VPP = 0,83$, $VPN = 0,42$.
+
+- Rendiment sobre el conjunt de prova: $ROC AUC = 0,59$, $TVP = 0,85$, $TVN = 0,2$, $VPP = 0,79$, $VPN = 0,27$.
+
+- Els resultats són lleugerament millors que els del model anterior, però també podria haver-hi problemes de sobreajustament.
+
+```{r glm-coefs}
 # ---- Regressió logística (multiple stepwise selection) ----
 
 set.seed(827)
 
 # 1. Preprocessament
-mod_class_recipe <- recipe(
-  imp_6MWT ~ `6MWT_in` + MSEC_in + mets_in + baecke_work_in + `Age group` + 
-    `Diagnosis/intervention`, data = data_train
+glm_recipe <- recipe(
+  imp_6MWT ~ `6MWT_in` + MSEC_in + mets_in + `Age group` + had_depression_in + 
+    heart_quality_emotion_in + baecke_work_in + Sex + `Diagnosis/intervention`, 
+  data = data_train
 ) |> 
   step_impute_median(all_numeric_predictors()) |> 
   step_impute_mode(all_nominal_predictors()) |> 
-  step_dummy(all_nominal_predictors())
+  step_dummy(all_nominal_predictors()) |> 
+  step_interact(terms = ~ Sex_F:heart_quality_emotion_in)
 
 # 2. Model
-logreg_model <- logistic_reg() |> 
+glm_model <- logistic_reg() |> 
   set_engine("glm") |> 
   set_mode("classification")
 
 # 3. Flux de treball
-logreg_workflow <- workflow() |> 
-  add_model(logreg_model) |> 
-  add_recipe(mod_class_recipe)
+glm_workflow <- workflow() |> 
+  add_model(glm_model) |> 
+  add_recipe(glm_recipe)
 
 # 4. Mètriques d'entrenament
-logreg_metrics_train <- logreg_workflow |> 
-  fit_resamples(
-    resamples = mod_folds, 
-    metrics = mod_class_metrics
-  ) |> 
+glm_metrics_train <- glm_workflow |> 
+  fit_resamples(resamples = mod_folds, metrics = mod_class_metrics) |> 
   collect_metrics()
 
 # 5. Resultats
-logreg_fit <- logreg_workflow |> 
-  last_fit(split = mod_split, metrics = mod_class_metrics)
+glm_fit <- last_fit(glm_workflow, split = mod_split, metrics = mod_class_metrics)
 
 # 6. Mètriques de test
-logreg_metrics_test <- logreg_fit |> 
-  collect_metrics()
+glm_metrics_test <- collect_metrics(glm_fit)
 
 # 7. Prediccions
-logreg_predictions <- logreg_fit |> 
-  collect_predictions()
+glm_predictions <- collect_predictions(glm_fit)
 
 # 8. Odds ratio
-logreg_coefs <- logreg_fit |> 
+glm_coefs <- glm_fit |> 
   extract_fit_parsnip() |> 
   tidy(exponentiate = TRUE, conf.int = TRUE) |> 
   filter(term != "(Intercept)") |> 
@@ -1518,15 +1545,30 @@ logreg_coefs <- logreg_fit |>
     .low = NULL, .high = NULL
   )
 
+glm_coefs |> 
+  kable(
+    caption = "Model de regressió logística"
+  )
+
 ```
 
-```{r}
+### Bosc aleatori (*random forest*)
+
+- En aquest cas, la validació creuada ha servit per optimitzar els hiperparàmetres del model. Els seleccionats han estat: nombre de variables per divisió (`mtry`) = 10, nombre d'arbres (`trees`) = 1000, mida mínima de node (`min_n`) = 3. La importància de les variables es mostra a la \autoref{tab:rf-coefs}.
+
+- Rendiment sobre el conjunt d'entrenament: $ROC AUC = 0,52$, $TVP = 0,98$, $TVN = 0,05$, $VPP = 0,81$, $VPN = 0,32$.
+
+- Rendiment sobre el conjunt de prova: $ROC AUC = 0,64$, $TVP = 0,94$, $TVN = 0,13$, $VPP = 0,80$, $VPN = 0,4$.
+
+- Sobre el conjunt d'entrenament, el model no és millor que un classificador aleatori o que un que assignés l'etiqueta majoritària (en aquest cas, la positiva) a totes les prediccions. La millora al conjunt de prova pot ser deguda a la mida reduïda de la mostra i la variabilitat introduïda per la partició del conjunt de dades.
+
+```{r rf-coefs}
 # ---- Random forest ----
 
 set.seed(827)
 
 # 1. Preprocessament
-mod_tree_recipe <- recipe(imp_6MWT ~ ., data = data_train) |> 
+tree_recipe <- recipe(imp_6MWT ~ ., data = data_train) |> 
   step_rm(dif_6MWT, strata_var) |> 
   step_impute_median(all_numeric_predictors()) |> 
   step_impute_mode(all_nominal_predictors())
@@ -1539,44 +1581,41 @@ rf_model <- rand_forest(mtry = tune(), trees = 1000, min_n = tune()) |>
 # 3. Flux de treball
 rf_workflow <- workflow() |> 
   add_model(rf_model) |> 
-  add_recipe(mod_tree_recipe)
+  add_recipe(tree_recipe)
 
 # 4. Definició de paràmetres
-rf_params <- extract_parameter_set_dials(rf_workflow) |> 
+rf_params <- rf_workflow |> 
+  extract_parameter_set_dials() |> 
   update(
     mtry = mtry(range = c(2, 12)), 
     min_n = min_n(range = c(3, 30))
   )
 
-rf_tune <- rf_workflow |> 
-  tune_grid(
-    resamples = mod_folds, 
-    grid = grid_regular(rf_params, levels = c(6, 5)), 
-    metrics = mod_class_metrics
-  )
+rf_tune <- tune_grid(
+  rf_workflow, 
+  resamples = mod_folds, 
+  grid = grid_regular(rf_params, levels = c(6, 5)), 
+  metrics = mod_class_metrics
+)
 
-# 5. Mètriques d'entrenament
-rf_metrics_train <- rf_tune |> 
-  show_best(metric = "roc_auc")
-
-# 6. Millor model
+# 5. Millor model
 rf_best <- select_best(rf_tune, metric = "roc_auc")
 
+# 6. Mètriques d'entrenament
+rf_metrics_train <- collect_metrics(rf_tune) |> 
+  filter(.config == rf_best$.config)
+
 # 7. Flux de treball actualitzat
-rf_workflow <- rf_workflow |> 
-  finalize_workflow(rf_best)
+rf_workflow <- finalize_workflow(rf_workflow, rf_best)
 
 # 8. Resultats
-rf_fit <- rf_workflow |> 
-  last_fit(split = mod_split, metrics = mod_class_metrics)
+rf_fit <- last_fit(rf_workflow, split = mod_split, metrics = mod_class_metrics)
 
 # 9. Mètriques de test
-rf_metrics_test <- rf_fit |> 
-  collect_metrics()
+rf_metrics_test <- collect_metrics(rf_fit)
 
 # 10. Prediccions
-rf_predictions <- rf_fit |> 
-  collect_predictions()
+rf_predictions <- collect_predictions(rf_fit)
 
 # 11. Importància de les variables
 rf_coefs <- rf_fit |> 
@@ -1585,9 +1624,24 @@ rf_coefs <- rf_fit |>
   tibble::enframe(name = "variable", value = "importance") |> 
   arrange(desc(importance))
 
+rf_coefs |> 
+  kable(
+    caption = "Importància de les variables per al *random forest*"
+  )
+
 ```
 
-```{r}
+### Arbre de decisió
+
+- Els hiperparàmetres seleccionats han estat: complexitat (`cost_complexity`) = 0,001, profunditat màxima (`tree_depth`) = 5, mida mínima de node (`min_n`) = 23. La importància de les variables es mostra a la \autoref{tab:dt-coefs}.
+
+- Rendiment sobre el conjunt d'entrenament: $ROC AUC = 0,53$, $TVP = 0,89$, $TVN = 0,13$, $VPP = 0,81$, $VPN = 0,22$.
+
+- Rendiment sobre el conjunt de prova: $ROC AUC = 0,60$, $TVP = 0,87$, $TVN = 0,13$, $VPP = 0,78$, $VPN = 0,22$.
+
+- Sobre el conjunt d'entrenament, el model no és millor que un classificador aleatori o que un que assignés l'etiqueta majoritària (en aquest cas, la positiva) a totes les prediccions. La diferència amb el conjunt de prova, en aquest cas, no és tan pronunciada com al *random forest*.
+
+```{r dt-coefs}
 # ---- Decision tree ----
 
 set.seed(827)
@@ -1602,64 +1656,68 @@ dt_model <- decision_tree(cost_complexity = tune(),
 # 2. Flux de treball
 dt_workflow <- workflow() |> 
   add_model(dt_model) |> 
-  add_recipe(mod_tree_recipe)
+  add_recipe(tree_recipe)
 
 # 3. Definició de paràmetres
-dt_params <- extract_parameter_set_dials(dt_workflow) |> 
+dt_params <- dt_workflow |> 
+  extract_parameter_set_dials() |> 
   update(
     cost_complexity = cost_complexity(range = c(-3, -1.5)), 
     tree_depth = tree_depth(range = c(2, 5)), 
     min_n = min_n(range = c(10, 30))
   )
 
-dt_tune <- dt_workflow |> 
-  tune_grid(
-    resamples = mod_folds, 
-    grid = grid_regular(dt_params, levels = c(6, 4, 4)), 
-    metrics = mod_class_metrics
-  )
+dt_tune <- tune_grid(
+  dt_workflow, 
+  resamples = mod_folds, 
+  grid = grid_regular(dt_params, levels = c(6, 4, 4)), 
+  metrics = mod_class_metrics
+)
 
-# 4. Mètriques d'entrenament
-dt_metrics_train <- dt_tune |> 
-  show_best(metric = "roc_auc")
+# 4. Millor model
+dt_best <- select_best(dt_tune, metric = "roc_auc")
 
-# 5. Millor model
-dt_best <- dt_tune |> 
-  select_best(metric = "roc_auc")
+# 5. Mètriques d'entrenament
+dt_metrics_train <- collect_metrics(dt_tune) |> 
+  filter(.config == dt_best$.config)
 
 # 6. Flux de treball actualitzat
-dt_workflow <- dt_workflow |> 
-  finalize_workflow(dt_best)
+dt_workflow <- finalize_workflow(dt_workflow, dt_best)
 
 # 7. Resultats
-dt_fit <- dt_workflow |> 
-  last_fit(split = mod_split, metrics = mod_class_metrics)
+dt_fit <- last_fit(dt_workflow, split = mod_split, metrics = mod_class_metrics)
 
 # 8. Mètriques de test
-dt_metrics_test <- dt_fit |> 
-  collect_metrics()
+dt_metrics_test <- collect_metrics(dt_fit)
 
 # 9. Prediccions
-dt_predictions <- dt_fit |> 
-  collect_predictions()
+dt_predictions <- collect_predictions(dt_fit)
 
-# 10. Arbre de decisió i importància
-dt_tree <- rpart.plot(extract_fit_engine(dt_fit), roundint = FALSE)
-
-# 11. Importància de les variables
+# 10. Importància de les variables
 dt_coefs <- tibble::enframe(
   extract_fit_engine(dt_fit)$variable.importance, 
   name = "variable", value = "importance"
 ) |> 
   arrange(desc(importance))
 
+dt_coefs |> 
+  kable(
+    caption = "Importància de les variables per a l'arbre de decisió"
+  )
+
+```
+
+- L'arbre de decisió es mostra a la \autoref{fig:dt-tree}.
+
+```{r dt-tree, fig.cap="Arbre de decisió per predir la millora en la prova de la marxa de 6 minuts (6MWT)"}
+# 11. Arbre de decisió
+dt_tree <- rpart.plot(extract_fit_engine(dt_fit), roundint = FALSE)
+
 ```
 
 ## Anàlisi d'equitat
 
-Text
-
-Parity loss is computed as follows: M_parity_loss = sum(abs(log(metric/metric_privileged)))
+<!-- Parity loss is computed as follows: M_parity_loss = sum(abs(log(metric/metric_privileged))) -->
 
 ```{r}
 # ---- 4.4 Anàlisi d'equitat ----
@@ -1715,18 +1773,20 @@ create_explainer <- function(fit, df, label, regression = FALSE) {
 
 
 # 1. Models
-lasso_explainer <- create_explainer(lasso_fit, data_test, "LASSO", 
+lm_explainer <- create_explainer(lm_fit, data_test, "Linear regression", 
                                     regression = TRUE)
-logreg_explainer <- create_explainer(logreg_fit, data_test, "Logistic reg.")
+glm_explainer <- create_explainer(glm_fit, data_test, "Logistic regression")
 rf_explainer <- create_explainer(rf_fit, data_test, "Random forest")
 dt_explainer <- create_explainer(dt_fit, data_test, "Decision tree")
 
 ```
 
-```{r, fig.cap="Anàlisi d'equitat sobre el conjunt de dades de prova", fig.pos="H"}
+- La \autoref{tab:plot-fairness} mostra la comparació entre mètriques i models.Tant la regressió lineal com la regressió logística presenten ràtios molt inferiors al llindar establert de 0,8 entre el grup protegit (dones) i el grup privilegiat (homes).
+
+```{r plot-fairness, fig.cap="Anàlisi d'equitat sobre el conjunt de dades de prova", fig.pos="H"}
 # 2. Fairness
 fobject <- fairness_check(
-  lasso_explainer, logreg_explainer, rf_explainer, dt_explainer, 
+  lm_explainer, glm_explainer, rf_explainer, dt_explainer, 
   protected = data_test$Sex, 
   privileged = "M", 
   verbose = FALSE
@@ -1738,10 +1798,12 @@ plot_fairness
 
 ```
 
-```{r}
+- La \autoref{tab:table-fair-glm} mostra els valors de cadascuna de les 5 mètriques amb els IC al 95% per al model de regressió logística (model principal de l'estudi). Es pot comprovar que els IC d'*accuracy equality ratio*, *equal opportunity ratio* i *statistical parity ratio* no contenen el valor 1, per la qual cosa podria haver-hi indicis de discriminació en el model (exceptuant la darrera mètrica, que ja s'ha esmentat que podia mostrar diferències entre sexes simplement per factors fisiològics). No obstant això, la mida reduïda de la mostra i, en conseqüència, del conjunt de prova, fa que la variabilitat sigui molt elevada.
+
+```{r table-fair-glm}
 # 3. Intervals de confiança
-table_fair <- map_dfr(
-  fobject$groups_confusion_matrices$`Logistic reg.`, 
+table_fair_glm <- map_dfr(
+  fobject$groups_confusion_matrices$`Logistic regression`, 
   function(x) as_tibble(x[c("tp", "fp", "tn", "fn")]), 
   .id = "Sex"
 ) |> 
@@ -1769,180 +1831,34 @@ table_fair <- map_dfr(
     prop_M = sprintf("%.2f (%d/%d)", p_M, x_M, n_M), 
     d = BinomDiffCI(x_F, n_F, x_M, n_M, method = "score"), 
     r = BinomRatioCI(x_F, n_F, x_M, n_M, method = "koopman"), 
-    dif = sprintf("%.2f (%.2f; %.2f)", d[, 1], d[, 2], d[, 3]), 
-    ratio = sprintf("%.2f (%.2f; %.2f)", r[, 1], r[, 2], r[, 3]), 
+    dif = sprintf("%.2f (%.2f, %.2f)", d[, 1], d[, 2], d[, 3]), 
+    ratio = sprintf("%.2f (%.2f, %.2f)", r[, 1], r[, 2], r[, 3]), 
     p_val = round(fisher.test(
       matrix(c(x_F, n_F - x_F, x_M, n_M - x_M), nrow = 2)
     )$p.value, 3)
   ) |> 
-  select(metric, prop_F, prop_M, ratio)
+  select(metric, prop_F, prop_M, ratio) |> 
+  kable(
+    caption = "Anàlisi d'equitat sobre el model de regressió logística"
+  )
 
-table_fair_rf <- map_dfr(
-  fobject$groups_confusion_matrices$`Random forest`, 
-  function(x) as_tibble(x[c("tp", "fp", "tn", "fn")]), 
-  .id = "Sex"
-) |> 
-  mutate(
-    Sex, 
-    ACC_x = tp + tn, 
-    ACC_n = tp + fp + tn + fn, 
-    TPR_x = tp, 
-    TPR_n = tp + fn, 
-    FPR_x = fp, 
-    FPR_n = fp + tn, 
-    PPV_x = tp, 
-    PPV_n = tp + fp, 
-    STP_x = tp + fp, 
-    STP_n = tp + fp + tn + fn, 
-    .keep = "none"
-  ) |> 
-  pivot_longer(-Sex, names_to = c("metric", ".value"), names_sep = "_") |> 
-  pivot_wider(names_from = Sex, values_from = c(x, n)) |> 
-  rowwise() |> 
-  mutate(
-    p_F = round(x_F / n_F, 2), 
-    p_M = round(x_M / n_M, 2), 
-    prop_F = sprintf("%.2f (%d/%d)", p_F, x_F, n_F), 
-    prop_M = sprintf("%.2f (%d/%d)", p_M, x_M, n_M), 
-    d = BinomDiffCI(x_F, n_F, x_M, n_M, method = "score"), 
-    r = BinomRatioCI(x_F, n_F, x_M, n_M, method = "koopman"), 
-    dif = sprintf("%.2f (%.2f; %.2f)", d[, 1], d[, 2], d[, 3]), 
-    ratio = sprintf("%.2f (%.2f; %.2f)", r[, 1], r[, 2], r[, 3]), 
-    p_val = round(fisher.test(
-      matrix(c(x_F, n_F - x_F, x_M, n_M - x_M), nrow = 2)
-    )$p.value, 3)
-  ) |> 
-  select(metric, prop_F, prop_M, ratio)
-
-table_fair
-
-```
-
-```{r}
-# ---- Anàlisi de sensibilitat ----
-
-# 1. Models
-lasso_mod_explainer <- create_explainer(lasso_fit, data_mod, "LASSO", 
-                                        regression = TRUE)
-logreg_mod_explainer <- create_explainer(logreg_fit, data_mod, "Logistic reg.")
-rf_mod_explainer <- create_explainer(rf_fit, data_mod, "Random forest")
-dt_mod_explainer <- create_explainer(dt_fit, data_mod, "Decision tree")
-
-# 2. Fairness
-fobject_mod <- fairness_check(
-  lasso_mod_explainer, logreg_mod_explainer, 
-  rf_mod_explainer, dt_mod_explainer, 
-  protected = data_mod$Sex, 
-  privileged = "M", 
-  verbose = FALSE
-)
-
-plot_fairness_mod <- plot(fobject_mod)
-
-# 3. Intervals de confiança
-table_fair_mod <- map_dfr(
-  fobject_mod$groups_confusion_matrices$`Logistic reg.`, 
-  function(x) as_tibble(x[c("tp", "fp", "tn", "fn")]), 
-  .id = "Sex"
-) |> 
-  mutate(
-    Sex, 
-    ACC_x = tp + tn, 
-    ACC_n = tp + fp + tn + fn, 
-    TPR_x = tp, 
-    TPR_n = tp + fn, 
-    FPR_x = fp, 
-    FPR_n = fp + tn, 
-    PPV_x = tp, 
-    PPV_n = tp + fp, 
-    STP_x = tp + fp, 
-    STP_n = tp + fp + tn + fn, 
-    .keep = "none"
-  ) |> 
-  pivot_longer(-Sex, names_to = c("metric", ".value"), names_sep = "_") |> 
-  pivot_wider(names_from = Sex, values_from = c(x, n)) |> 
-  rowwise() |> 
-  mutate(
-    p_F = round(x_F / n_F, 2), 
-    p_M = round(x_M / n_M, 2), 
-    prop_F = sprintf("%.2f (%d/%d)", p_F, x_F, n_F), 
-    prop_M = sprintf("%.2f (%d/%d)", p_M, x_M, n_M), 
-    d = BinomDiffCI(x_F, n_F, x_M, n_M, method = "score"), 
-    r = BinomRatioCI(x_F, n_F, x_M, n_M, method = "koopman"), 
-    dif = sprintf("%.2f (%.2f; %.2f)", d[, 1], d[, 2], d[, 3]), 
-    ratio = sprintf("%.2f (%.2f; %.2f)", r[, 1], r[, 2], r[, 3]), 
-    p_val = round(fisher.test(
-      matrix(c(x_F, n_F - x_F, x_M, n_M - x_M), nrow = 2)
-    )$p.value, 3)
-  ) |> 
-  select(metric, prop_F, prop_M, ratio)
-
-table_fair_mod_rf <- map_dfr(
-  fobject_mod$groups_confusion_matrices$`Random forest`, 
-  function(x) as_tibble(x[c("tp", "fp", "tn", "fn")]), 
-  .id = "Sex"
-) |> 
-  mutate(
-    Sex, 
-    ACC_x = tp + tn, 
-    ACC_n = tp + fp + tn + fn, 
-    TPR_x = tp, 
-    TPR_n = tp + fn, 
-    FPR_x = fp, 
-    FPR_n = fp + tn, 
-    PPV_x = tp, 
-    PPV_n = tp + fp, 
-    STP_x = tp + fp, 
-    STP_n = tp + fp + tn + fn, 
-    .keep = "none"
-  ) |> 
-  pivot_longer(-Sex, names_to = c("metric", ".value"), names_sep = "_") |> 
-  pivot_wider(names_from = Sex, values_from = c(x, n)) |> 
-  rowwise() |> 
-  mutate(
-    p_F = round(x_F / n_F, 2), 
-    p_M = round(x_M / n_M, 2), 
-    prop_F = sprintf("%.2f (%d/%d)", p_F, x_F, n_F), 
-    prop_M = sprintf("%.2f (%d/%d)", p_M, x_M, n_M), 
-    d = BinomDiffCI(x_F, n_F, x_M, n_M, method = "score"), 
-    r = BinomRatioCI(x_F, n_F, x_M, n_M, method = "koopman"), 
-    dif = sprintf("%.2f (%.2f; %.2f)", d[, 1], d[, 2], d[, 3]), 
-    ratio = sprintf("%.2f (%.2f; %.2f)", r[, 1], r[, 2], r[, 3]), 
-    p_val = round(fisher.test(
-      matrix(c(x_F, n_F - x_F, x_M, n_M - x_M), nrow = 2)
-    )$p.value, 3)
-  ) |> 
-  select(metric, prop_F, prop_M, ratio)
+table_fair_glm
 
 ```
 
 ## Mitigació de biaixos
 
-Text
+[Pendent per a la PAC 4]
 
-<!-- Detalleu en aquest apartat els resultats obtinguts utilitzant la metodologia descrita a l’apartat anterior. -->
+# Discussió
 
-<!-- Recull dels resultats del treball. Hauria d'haver-hi una correspondència amb la metodologia en el sentit que els resultats és el que s'obté després d'haver aplicat la metodologia. -->
-
-<!-- Les figures han d'estar explicades i citades en el text, com la @ref(fig:grafic), en la qual es mostra l'error en funció de la distància, en unitats arbitràries. A totes les gràfiques ha d'haver el títol dels eixos. -->
-
-<!-- ```{r grafic, fig.cap="Error en funció de la distància en unitats arbitràries.", out.width="7cm", fig.align="center", echo=FALSE} -->
-
-<!-- knitr::include_graphics("Rplotmanh.png") -->
-
-<!-- ``` -->
-
-<!-- # Discussió -->
+[Pendent per a la PAC 4]
 
 <!-- Discussió dels resultats en el context del projecte. És en aquest apartat on cobren sentit i en el qual es responen les preguntes de recerca i es mostra com els resultats donen resposta als problemes plantejats. -->
 
-<!-- Aquesta part pot ser que no apliqui segons el tipus de treball. -->
+# Conclusions i treballs futurs
 
-<!-- # Valoració econòmica -->
-
-<!-- En cas que correspongui, s'inclourà un apartat de \`\`Valoració econòmica del treball". Aquest apartat indicarà les despeses associades al desenvolupament i manteniment del treball, així com els beneficis econòmics obtinguts. Cal fer una anàlisi final sobre la viabilitat del producte. -->
-
-<!-- # Conclusions i treballs futurs -->
+[Pendent per a la PAC 4]
 
 <!-- ## Conclusions -->
 
@@ -2005,6 +1921,7 @@ Text
 - **CRISP-DM**: *Cross-industry Standard Process for Data Mining*.
 - **DL**: aprenentatge profund (de l'anglès *deep learning*).
 - **FEVE**: fracció d'ejecció ventricular esquerra.
+- **FIV**: factor d'inflació de la variància.
 - **FN**: fals negatiu.
 - **FP**: fals positiu.
 - **HADS**: Escala Hospitalària d'Ansietat i Depressió (de l'anglès *Hospital Anxiety & Depression Scale*).
@@ -2012,6 +1929,7 @@ Text
 - **HTA**: hipertensió arterial.
 - **IA**: intel·ligència artificial.
 - **IAM**: infart agut de miocardi.
+- **IC**: interval de confiança.
 - **IMC**: índex de massa corporal.
 - **LASSO**: operador de selecció i contracció mínima absoluta (de l'anglès *least absolute shrinkage and selection operator*).
 - **MCID**: diferència mínima clínicament important (de l'anglès *Minimal Clinically Important Difference*)
@@ -2023,6 +1941,7 @@ Text
 - **QdV**: qualitat de vida.
 - **QIS**: força isomètrica màxima del quàdriceps (de l'anglès *quadriceps maximal isometric strength*).
 - **RC**: rehabilitació cardíaca.
+- **RIQ**: rang interquartílic.
 - **RMSE**: arrel de l'error quadràtic mitjà (de l'anglès *root mean square error*).
 - **ROC**: [corba] característica de funcionament del receptor (de l'anglès *receiver operating characteristic*).
 - **RR**: risc relatiu.
@@ -2046,7 +1965,7 @@ Text
 
 # Taules i figures addicionals
 
-```{r, fig.cap="Anàlisi descriptiva bivariant | Qüestionaris de salut", fig.pos="H", fig.height=7}
+```{r plot-prom, fig.cap="Anàlisi descriptiva bivariant | Qüestionaris de salut", fig.pos="H", fig.height=7}
 # ---- ANNEX 2 ----
 
 # Anàlisi bivariant | PROMs
@@ -2054,12 +1973,9 @@ plot_prom
 
 ```
 
-```{r, fig.cap="Anàlisi d'equitat sobre el conjunt de dades complet", fig.pos="H"}
-plot_fairness_mod
-
-```
-
 # Codi
+
+En aquest document s'inclou el codi per a l'anàlisi principal del treball. La resta es pot trobar al repositori de Github <https://github.com/glluis1/TFM.git>
 
 ```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
 

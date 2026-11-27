@@ -52,7 +52,7 @@ A la **\autoref{tab:taula1-1}** es descriuen les tasques que caldrà desenvolupa
 | Preprocessament de dades          | 1.2           | 29/10/26 | 11/11/26 | Completada |
 | Modelització estadística          | 1.2           | 12/11/26 | 25/11/26 | Completada |
 | Avaluació i auditoria de gènere   | 1.2, 1.3, 2.2 | 12/11/26 | 25/11/26 | Completada |
-| Discussió de resultats            | 1.3, 2.2      | 26/11/26 | 2/12/26  | En curs    |
+| Mitigació de biaixos              | 1.3, 2.2      | 26/11/26 | 9/12/26  | En curs    |
 |                                   |               |          |          |            |
 | **4. Lliurament final**           |               |          |          |            |
 | Introducció                       |               | 23/9/26  | 14/10/26 | Completada |
@@ -71,6 +71,12 @@ A la **\autoref{tab:taula1-1}** es descriuen les tasques que caldrà desenvolupa
 | Article                           |               | 15/10/26 | 13/1/27  | En curs    |
 
 : Planificació de tasques {#tab:taula1-1}
+
+\pagebreak
+
+### Calendari
+
+La **\autoref{fig:gantt}** mostra el diagrama de Gantt corresponent a les tasques descrites.
 
 \pagebreak
 

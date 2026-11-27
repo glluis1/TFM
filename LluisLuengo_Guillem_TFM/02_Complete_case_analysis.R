@@ -133,7 +133,7 @@ logreg_recipe_imp_02 <- recipe(imp_6MWT ~ ., data = train_02) |>
   step_impute_mode(all_nominal_predictors()) |> 
   step_dummy(all_nominal_predictors())
 
-# Model
+# Models
 lm_model_02 <- linear_reg() |> 
   set_engine("lm") |> 
   set_mode("regression")
@@ -142,7 +142,7 @@ logreg_model_02 <- logistic_reg() |>
   set_engine("glm") |> 
   set_mode("classification")
 
-# Flux de treball
+# Fluxos de treball
 lm_workflow_02 <- workflow_set(
   preproc = list(cc = lm_recipe_cc_02, imp = lm_recipe_imp_02), 
   models = list(lm = lm_model_02)
